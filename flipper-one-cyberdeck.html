@@ -1,0 +1,39 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flipper One: дельфин вырастил карманный Linux-кибердек с нейроядром — и просит помощи</title>
+<meta name="description" content="Команда Flipper после миллионов проданных Flipper Zero показала Flipper One: портативный мульти-инструмент хакера на настоящем Linux, с 8-ядерным RK3576, NPU для локальных LLM и обещанием «никаких бинарных блоков». Продаж ещё нет — есть публичный дев-портал и признание «нам страшно».">
+<meta property="og:title" content="Flipper One: дельфин вырастил карманный Linux-кибердек с нейроядром — и просит помощи">
+<meta property="og:image" content="https://blog.flipper.net/content/images/size/w1200/2026/05/Flipper-One-we-need-your-help-main-v2.jpg">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Flipper One: дельфин вырастил карманный Linux-кибердек с нейроядром — и просит помощи</h1>
+<div class="meta">30.09.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/flipper-one-cyberdeck.jpg" alt="">
+<div class="lead">Команда Flipper после миллионов проданных Flipper Zero показала Flipper One: портативный мульти-инструмент хакера на настоящем Linux, с 8-ядерным RK3576, NPU для локальных LLM и обещанием «никаких бинарных блоков». Продаж ещё нет — есть публичный дев-портал и признание «нам страшно».</div>
+<h3>Что это</h3>
+<p>Flipper Zero был игрушечным ключом-дельфином на STM32. <b>Flipper One</b> — уже карманный компьютер: SoC Rockchip <b>RK3576</b> (8 ядер, Mali-G52 + <b>NPU для локальных моделей</b>), WiFi 6E, два Ethernet, слот M.2 под SSD, SDR-возможности и экран. Позиционирование — «Linux multi-tool for hackers», по сути кибердек в кармане. Презентация — 21 мая 2026.</p>
+<h3>Главная фишка — не железо, а ядро</h3>
+<p>Flipper вместе с <b>Collabora</b> взялись завести RK3576 в <b>основное mainline-ядро Linux</b> — без вендорских заплаток, без проприетарных драйверов, без BSP-блоков. Это редкость: почти весь ARM-мир живёт на помойке из вендорских ядер, которые гниют через два года. Если получится — устройство будет жить на любом свежем ядре десятилетиями. Пока честно признают: часть акселераторов в mainline ещё не доехала, и зовут коммьюнити закрывать дыры (публичная дорожная карта на docs.flipper.net).</p>
+<h3>Статус и цена</h3>
+<p>Официальных продаж и предзаказов <b>нет</b> (проверено по состоянию на лето-2026): сначала ранние юниты разработчикам, сборка через Dev Portal, «shiny announcement» обещают потом. В сети называют коридор <b>$300–500</b> и окно «лето 2026» — это слухи, не слова компании. Основатель прямо пишет: проект пересобирали с нуля несколько раз, он финансово тяжёлый, и «мы искренне напуганы».</p>
+<h3>Зачем это практикующему хакеру</h3>
+<li>локальный ИИ на NPU — офлайн-ассистент в кармане вместо облака;</li>
+<li>SDR, радиоканалы, отладка железок — «взрослая» платформа вместо MCU-игрушки;</li>
+<li>открытый Linux = свои инструменты, свои сборки, никаких «магазинных» ограничений;</li>
+<li>связь с экосистемой Flipper Zero — прошивки и модули дружат.</li>
+<h3>Ссылка на разбор</h3>
+<p>Свежий обзор гаджета — <a href="https://www.youtube.com/watch?v=nKKYn_kafbE">Подробнее</a>. А вот ностальгический <a href="https://www.youtube.com/watch?v=63SDEa7m_EQ">разбор классики жанра за 16 минут</a>: чем пользовались хакеры до прихода дельфинов — палитра славных кирпичей, которые теперь живут в музеях и у коллекционеров.</p>
+<h3>Вывод</h3>
+<p>Flipper One — попытка сделать то, что ARM-индустрия принципиально не умеет: открытое карманное устройство с долгой жизнью. Если доvedят mainline до конца, это не гаджет, а прецедент. Если нет — очередная крутая коробочка на вендорском гнилом ядре. Следим по дев-порталу: там выворачивают весь процесс наружу, включая провалы.</p>
+<div class="src">📎 Первоисточник: <a href="https://blog.flipper.net/flipper-one-we-need-your-help/" rel="noopener">docs.flipper.net/one · блог Flipper · PCMag</a>.
+Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
