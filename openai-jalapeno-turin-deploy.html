@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Халапеньо на AMD: OpenAI развернула собственный чип Jalapeño рядом с серверами EPYC Turin</title>
+<meta name="description" content="OpenAI подтвердила: собственный инференс-чип Jalapeño уже работает в production-стойках рядом с серверами AMD EPYC Turin с 1,5 ТБ памяти. Аппаратный глава компании объяснил, почему Nvidia Vera для этого пока «сыровата».">
+<meta property="og:title" content="Халапеньо на AMD: OpenAI развернула собственный чип Jalapeño рядом с серверами EPYC Turin">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/openai-jalapeno-turin-deploy.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Халапеньо на AMD: OpenAI развернула собственный чип Jalapeño рядом с серверами EPYC Turin</h1>
+<div class="meta">03.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/openai-jalapeno-turin-deploy.png" alt="">
+<div class="lead">OpenAI подтвердила: собственный инференс-чип Jalapeño уже работает в production-стойках рядом с серверами AMD EPYC Turin с 1,5 ТБ памяти. Аппаратный глава компании объяснил, почему Nvidia Vera для этого пока «сыровата».</div>
+<h3>Что произошло</h3>
+<p>OpenAI впервые публично подтвердила, что её собственный чип для инференса Jalapeño уже развёрнут внутри компании в производственных масштабах. По словам вице-президента и руководителя аппаратного подразделения Ричарда Хо (Richard Ho), ASIC работают в стойках вместе с хост-серверами на AMD EPYC Turin с 1,5 ТБ оперативной памяти на каждую машину. Интервью дал изданию Tom's Hardware.</p>
+<h3>Почему AMD, а не Nvidia</h3>
+<p>Выбор хост-процессора Хо назвал «прагматичным»: Turin, по его словам, полностью закрывает потребности проекта Jalapeño, а партнёры OpenAI уже имеют большой опыт работы с этой платформой. Свежий конкурирующий вариант — CPU Nvidia Vera — он назвал «немного отстающим по уровню зрелости». То есть при агрессивных целях по производительности и цене компания выбрала минимизацию рисков и скорость развёртывания, а не максимальные спецификации.</p>
+<h3>Контекст</h3>
+<p>Jalapeño — результат совместной разработки OpenAI и Broadcom, представленный ещё в июне 2026 года и детально показанный в августе на конференции Hot Chips. Чип сделан под инференс больших языковых моделей по нормам TSMC 3 нм; ранее OpenAI заявляла, что по пропускной способности на ватт при работе с DeepSeek R1 он в 1,7 раза превосходит Nvidia GB300. Теперь впервые подтверждён не демо-статус, а реальная эксплуатация.</p>
+<h3>Что дальше</h3>
+<p>Сейчас Jalapeño используется только внутри OpenAI — продавать его наружу компания не планирует, хотя Хо не исключил расширения сценариев, «если ресурсов хватит». Для рынка это ещё один сигнал: крупнейшие лаборатории ИИ всё плотнее уходят от полной зависимости от Nvidia, собирая собственные стек-платформы из кастомных ASIC и обычных серверных CPU.</p>
+<p>Первоисточник по чипу — официальная страница анонса OpenAI и Broadcom; отдельного анонса именно о развёртывании с Turin у OpenAI нет, это интервью аппаратного руководителя профильной прессе.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.ithome.com/1/009/430.htm" rel="noopener">IT之家 (ithome.com)</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://openai.com/index/openai-broadcom-jalapeno-inference-chip/" rel="noopener">OpenAI — официальная страница анонса Jalapeño (OpenAI + Broadcom)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.tomshardware.com/pc-components/cpus/openais-jalapeno-asics-are-deployed-alongside-amd-epyc-turin-cpus-as-hosts-hardware-vp-says-nvidias-vera-standalone-is-a-little-bit-behind-on-that-maturity-level" rel="noopener">СМИ 1</a> · <a href="https://morethanmoore.substack.com/p/interview-with-richard-ho-openai" rel="noopener">СМИ 2</a> · <a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
