@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aleph Alpha выпустила Kolibri: суверенная открытая модель для немецкого и английского</title>
+<meta name="description" content="В День германского единства Aleph Alpha выложила Kolibri — MoE-модель на 78 млрд параметров (3,46 млрд активных на токен), до 1 млн токенов контекста, веса открыты по лицензии Apache 2.0 на Hugging Face. Модель обучена с нуля на 768 GPU B200 в Германии и Финляндии, более пятой части обучающих данных — немецкий язык.">
+<meta property="og:title" content="Aleph Alpha выпустила Kolibri: суверенная открытая модель для немецкого и английского">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/aleph-alpha-kolibri-78b.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Aleph Alpha выпустила Kolibri: суверенная открытая модель для немецкого и английского</h1>
+<div class="meta">03.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/aleph-alpha-kolibri-78b.png" alt="">
+<div class="lead">В День германского единства Aleph Alpha выложила Kolibri — MoE-модель на 78 млрд параметров (3,46 млрд активных на токен), до 1 млн токенов контекста, веса открыты по лицензии Apache 2.0 на Hugging Face. Модель обучена с нуля на 768 GPU B200 в Германии и Финляндии, более пятой части обучающих данных — немецкий язык.</div>
+<h3>Что это</h3>
+<p>Aleph Alpha 3 октября 2026 года выпустила Kolibri — двуязычную (немецкий и английский) Mixture-of-Experts модель: 78,1 млрд параметров всего, но на каждый токен работают только 3,46 млрд (4,4%). Полные веса выложены на Hugging Face под лицензией Apache 2.0 — модель можно скачать и запускать у себя. Контекст: 262 144 токена нативно, протестирован до 1 048 576. Дата релиза выбрана не случайно — День германского единства, и позиционируется модель как «суверенная»: обучена с нуля на инфраструктуре в Германии и Финляндии, спроектирована с учётом европейского AI Act.</p>
+<h3>Цифры обучения и производительность</h3>
+<p>По техотчёту Aleph Alpha (189 страниц), Kolibri обучалась на ~24 трлн токенов, больше пятой части из них — немецкие, на 768 NVIDIA B200; отсечение знаний — 18 июня 2026. Компания заявляет, что модель лежит на «Парето-фронтире» качества к стоимости сервинга на обоих языках и по математике, коду и длинному контексту догоняет модели с вчетверо бо́льшим числом активных параметров, например Nemotron 3 Super. В собственном бенчмарке на немецком Kolibri набирает 70,8 против 69,8 у Qwen3.5 35B-A3B. Веса занимают ~78 ГБ в FP8, поэтому минимум для запуска — две A100/H100 по 80 ГБ или один H200/B200; компания отдаёт плагин aleph-alpha-inference для vLLM.</p>
+<h3>Зачем «суверенность»</h3>
+<p>Aleph Alpha делает ставку на регулируемые отрасли: госуправление, промышленность, аэрокосмос — там, где данные нельзя отправлять в чужие облачные сервисы. Полный цикл от ingestion данных до финальных эвалов заявлен как прозрачный, с целостностью цепочки поставок; деплой полностью на стороне заказчика. Примечательный фон: Aleph Alpha сейчас находится в процессе объединения с канадской Cohere — компании подписали соглашение о сделке, которую обе стороны называют «трансатлантическим суверенным ИИ».</p>
+<h3>А в России</h3>
+<p>Свои промышленные LLM в России тоже развиваются — YandexGPT и GigaChat активно внедряются в корпоративных и государственных сценариях, хотя и распространяются как облачные сервисы, а не открытые веса. Немецкий ход интересен именно этим: открытые веса вместо облака — суверенность через скачивание, а не через договор с вендором.</p>
+<p>Кolibri — редкий случай, когда «региональная» модель выходит сразу с полными весами, техотчётом и инструкцией по запуску: смотреть стоит хотя бы ради того, как далеко уехали маленькие MoE в неанглоязычных задачах.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://tej.as/blog/aleph-alpha-kolibri" rel="noopener">tej.as</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://aleph-alpha.com/en/blog/kolibri-has-landed-a-sovereign-open-weight-model/" rel="noopener">Aleph Alpha (официальный анонс)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://startupfortune.com/aleph-alpha-launches-kolibri-a-sovereign-german-ai-model-for-government-use/" rel="noopener">СМИ 1</a> · <a href="https://superpowerdaily.com/posts/aleph-alpha-releases-kolibri-for-self-hosted-german-and-english-ai" rel="noopener">СМИ 2</a> · <a href="https://aiweekly.co/ai-news-today" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
