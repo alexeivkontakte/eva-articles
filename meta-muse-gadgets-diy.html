@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meta открыла Muse для самодельных железок: прошивай ESP32, оживляй Raspberry Pi</title>
+<meta name="description" content="Meta выпустила Muse Gadgets — открытый проект с прошивкой для ESP32 и Linux SDK, превращающий копеечные платы в собственные ИИ-гаджеты. А первым «официальным» устройством стал Muse Home Link: 5000 штук раздают подписчикам Muse в США бесплатно.">
+<meta property="og:title" content="Meta открыла Muse для самодельных железок: прошивай ESP32, оживляй Raspberry Pi">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/meta-muse-gadgets-diy.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Meta открыла Muse для самодельных железок: прошивай ESP32, оживляй Raspberry Pi</h1>
+<div class="meta">05.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/meta-muse-gadgets-diy.png" alt="">
+<div class="lead">Meta выпустила Muse Gadgets — открытый проект с прошивкой для ESP32 и Linux SDK, превращающий копеечные платы в собственные ИИ-гаджеты. А первым «официальным» устройством стал Muse Home Link: 5000 штук раздают подписчикам Muse в США бесплатно.</div>
+<h3>От чат-бота к железкам</h3>
+<p>Meta 2 октября представила Muse Gadgets — набор инструментов под лицензией Apache 2.0, который ставит агента Muse на железо, собранное своими руками. На GitHub выложены прошивка для микроконтроллеров ESP32 и SDK для Linux-устройств: к агенту подключают дисплеи, кнопки, датчики, исполнительные механизмы — «что угодно на верстаке», как формулирует сама Meta.</p>
+<h3>Что поддерживается</h3>
+<p>ESP32-SDK пока покрывает 11 отладочных плат, включая официально рекомендованную Espressif ESP32-C5 DevKitC-1, M5Stack StickS3 и электронные дисплеи Seeed; шесть из них тянут полноценный интерфейс с анимированным аватаром и кнопкой вызова. Linux-SDK работает на Raspberry Pi 3B+, 4, 5 и Zero 2 W (минимум Raspberry Pi OS Bullseye, Debian 11 или Ubuntu 22.04). Muse на такой плате умеет выполнять shell-команды, читать и писать файлы, следить за здоровьем системы — официальный пример: поставить Home Assistant и проверять каждое утро в 7:00, что бэкапы прошли.</p>
+<h3>Home Link и честные предупреждения</h3>
+<p>На базе SDK Meta сделала и готовое устройство — Muse Home Link: маленькая коробочка с питанием по USB-C, связывающая Muse с домашней сетью и техникой, у которой есть HTTPS-интерфейсы. Первые ~5000 штук получат подписчики Muse в США бесплатно, по одному, кто раньше успел. В документации Meta предельно откровенна о рисках: агент получает права того пользователя, под которым запущен («если аккаунт может sudo — может и Muse»), токены в прошивке — это идентификаторы, а не пароли, а в конце прямо написано, что «побочные эффекты возни могут включать превращение устройства в кирпич и потерю гарантии. Рискуйте на свой страх».</p>
+<h3>Куда это смотрит</h3>
+<p>Muse Gadgets — часть недельного рывка экосистемы Muse: ранее Meta запустила Muse for Small Business (бесплатный тариф с лимитами, платные — от $20 в месяц) и новое подразделение Meta Enterprise Platform под руководством бывшего CEO MongoDB CJ Desai. Идея в том, чтобы Muse перестал быть чат-ботом и стал агентной оболочкой для железа: если устройство открывает стандартный интерфейс, агент его поймёт и будет управлять. Так личная ИИ-коробочка на Raspberry Pi постепенно примеряет роль домашнего хаба.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.ithome.com/1/009/743.htm" rel="noopener">IT之家 (ithome.com)</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://gadgets.muse.ai/" rel="noopener">Muse Gadgets — официальный сайт Meta</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://techcrunch.com/2026/10/02/meta-wants-you-to-build-your-own-muse-gadget/" rel="noopener">СМИ 1</a> · <a href="https://www.theverge.com/tech/1004330/meta-muse-ai-gadgets-home-link" rel="noopener">СМИ 2</a> · <a href="https://www.engadget.com/2276312/meta-muse-gadgets-open-source-smart-home-link/" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
