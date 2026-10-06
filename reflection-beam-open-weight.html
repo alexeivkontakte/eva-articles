@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reflection AI выпустила Beam: открытая модель на 501 млрд параметров, отвечающая втрое-вчетверо дешевле</title>
+<meta name="description" content="Американская Reflection AI, которую поддерживает Nvidia, представила Beam — свою первую модель с открытыми весами: 501 млрд параметров в сумме, 23 млрд активных на токен. Обещают уровень крупных открытых моделей при втрое-вчетверо меньших затратах на вывод.">
+<meta property="og:title" content="Reflection AI выпустила Beam: открытая модель на 501 млрд параметров, отвечающая втрое-вчетверо дешевле">
+<meta property="og:image" content="https://images.siliconangle.com/blogs.dir/1/files/2026/10/Reflection-AI.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Reflection AI выпустила Beam: открытая модель на 501 млрд параметров, отвечающая втрое-вчетверо дешевле</h1>
+<div class="meta">06.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/reflection-beam-open-weight.png" alt="">
+<div class="lead">Американская Reflection AI, которую поддерживает Nvidia, представила Beam — свою первую модель с открытыми весами: 501 млрд параметров в сумме, 23 млрд активных на токен. Обещают уровень крупных открытых моделей при втрое-вчетверо меньших затратах на вывод.</div>
+<h3>Что внутри</h3>
+<p>Beam — разреженная модель архитектуры Mixture-of-Experts: 501 млрд параметров всего, но в работе за один токен — только 23 млрд. Предварительное обучение прошло на 23,8 трлн тщательно отобранных токенов из открытых и лицензированных датасетов, а обучение с подкреплением — это больше 100 миллионов прогонов на 10 500 графических процессорах NVIDIA GB300 за четыре недели. Именно ставку на масштабное RL в компании называют главным источником способностей модели.</p>
+<h3>Цифры и сравнения</h3>
+<p>В официальном анонсе Beam позиционируется как конкурент GLM 5.2 и «догоняющий» Qwen 3.8-Max в коде и агентных задачах: например, 80,9 балла на SWE Bench Verified, 80,1 на Terminal Bench v2.1 и 97,8 на AIME 2026. При этом, по заявлению разработчиков, на сложных задачах рассуждения Beam показывает результат уровня GLM-5.2, расходуя в 3–4 раза меньше вычислений на инференс. Честно оговоримся: на голой мощности флагманские открытые модели вроде Kimi K3 всё ещё впереди — козырь Beam именно эффективность, «интеллект на токен».</p>
+<h3>Когда откроются веса</h3>
+<p>Сейчас модель доступна узкому кругу ранних тестировщиков через платформу, идёт финальное тестирование на безопасность. В этом месяце обещаны сами веса под лицензией Apache 2.0, технический отчёт, карточка модели и полный комплект для запуска, оценки и дообучения, плюс партнёры по распространению и интеграции с открытыми фреймворками.</p>
+<h3>Почему это важно</h3>
+<p>Reflection AI — американская компания, которую часто называют «американским DeepSeek»: её финансируют Nvidia и крупные инвесторы, а конкуренцию она ведёт напрямую против открытых моделей из Китая — DeepSeek, Kimi и GLM. Beam — первая модель в серии: команда уже обучает следующую и обещает с каждым релизом подносить открытую границу возможностей ближе к закрытому фронтиру.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://siliconangle.com/2026-10-05/reflection-ai-debuts-open-source-beam-model-with-501b-parameters/" rel="noopener">SiliconANGLE</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://reflection.ai/beam" rel="noopener">Reflection AI — Introducing Beam (официальный анонс)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.ithome.com/1/009/932.htm" rel="noopener">СМИ 1</a> · <a href="https://www.marktechpost.com/2026-10-05/reflection-ai-introduces-beam-a-501b-open-weight-moe-model-with-23b-active-parameters-for-coding-and-agentic-workloads/" rel="noopener">СМИ 2</a> · <a href="https://www.unite.ai/reflection-ai-unveils-beam-a-501b-parameter-open-weight-model/" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
