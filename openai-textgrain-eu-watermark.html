@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenAI включила невидимое watermark для ИИ-текста — но пока только в ЕС</title>
+<meta name="description" content="5 октября OpenAI представила textGrain — невидимый водяной знак в текстах, которые генерируют большие языковые модели. В ближайшие недели он появится в ответах ChatGPT и Codex, но только для пользователей Европейского союза: вне ЕС маркировка остаётся делом добровольным. Клиенты API могут включить её по всему миру, однако по умолчанию она выключена.">
+<meta property="og:title" content="OpenAI включила невидимое watermark для ИИ-текста — но пока только в ЕС">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/openai-textgrain-eu-watermark.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>OpenAI включила невидимое watermark для ИИ-текста — но пока только в ЕС</h1>
+<div class="meta">06.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/openai-textgrain-eu-watermark.png" alt="">
+<div class="lead">5 октября OpenAI представила textGrain — невидимый водяной знак в текстах, которые генерируют большие языковые модели. В ближайшие недели он появится в ответах ChatGPT и Codex, но только для пользователей Европейского союза: вне ЕС маркировка остаётся делом добровольным. Клиенты API могут включить её по всему миру, однако по умолчанию она выключена.</div>
+<h3>Что произошло</h3>
+<p>5 октября 2026 года OpenAI официально объявила о запуске textGrain — технологии невидимого водяного знака для текста, сгенерированного языковыми моделями. Шаг продиктован законом ЕС об ИИ (AI Act): генеративные системы обязаны делать машинно-читаемым признак того, что текст создан ИИ. В ближайшие недели textGrain начнут получать подписчики всех тарифов ChatGPT и Codex — но только внутри Европейского союза. Клиенты API по всему миру могут включить маркировку в настройках проекта или организации, причём функция выключена по умолчанию: OpenAI сознательно не делает её глобальным стандартом на старте.</p>
+<h3>Как это работает и какие цифры</h3>
+<p>Watermark — это статистический сигнал, «зашитый» в выбор слов моделью; человек его не замечает. Технический отчёт «textGrain: Entropy-Calibrated Watermarking for Language Model Text» написан в соавторстве с Университетом Пенсильвании и Йельским университетом. Самая свежая часть отчёта — честно приведённые ограничения. При допустимом уровне ложных срабатываний в 1% детектор распознаёт ИИ-текст о психологии в 78,5% случаев при объёме 200 токенов, в 89,7% — при 300 и в 94,3% — при 400. С математическими текстами всё хуже: 36,5%, 52% и 60,8% соответственно — там модели оставляют меньше свободы в выборе слов. Короткие тексты watermark в принципе почти не берёт.</p>
+<h3>Детектор — по заявкам, обещан open source</h3>
+<p>Пользоваться самим детектором водяного знака пока могут только одобренные исследователи и профильные организации — заявки OpenAI начала принимать 5 октября, доступ выдаётся индивидуально в рамках Кодекса практики ЕС о прозрачности ИИ-контента. Водяной знак при этом не показывает, кто именно генерировал текст, какая доля текста написана человеком и соответствует ли содержание истине. Компанию планируют выпустить технологию в open source, чтобы над проверкой подлинности текста работали все желающие; инструменты верификации для изображений и звука (openai.com/verify и Content Provenance API) остаются открытыми как прежде.</p>
+<h3>Контекст</h3>
+<p>У Anthropic текстовые водяные знаки уже включены по умолчанию шире, чем у OpenAI, а Google давно продвигает SynthID — textGrain, по заявлению OpenAI, показывает в эталонных тестах результаты не хуже. Показательно, что именно обязательное требование ЕС стало триггером: формально локальная норма снова тянет за собой глобальные продуктовые решения крупных ИИ-компаний.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.heise.de/news/OpenAI-versieht-KI-Text-mit-Wasserzeichen-aber-nur-in-der-EU-11476910.html" rel="noopener">heise online</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://openai.com/index/eu-text-provenance/" rel="noopener">OpenAI — официальное объявление (EU text provenance)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.unite.ai/openai-begins-phased-text-watermarking-under-eu-ai-act-rules/" rel="noopener">СМИ 1</a> · <a href="https://help.openai.com/en/articles/12141645-eu-ai-act-openai-resources-and-customer-guidance" rel="noopener">СМИ 2</a> · <a href="https://cdn.openai.com/pdf/e9508624-d767-41b6-a26d-e34ca798ada6/textgrain-entropy-calibrated-watermarking-for-language-model-text.pdf" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
