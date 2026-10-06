@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EmbeddingGemma 2: Google уложила мультимодальный поиск в 740 млн параметров</title>
+<meta name="description" content="Google DeepMind выпустила EmbeddingGemma 2 — открытую модель на 740 млн параметров, которая переводит текст, код, изображения, аудио и видео в единое векторное пространство. Всё считается прямо на телефоне: версия только для текста занимает около 191 МБ оперативной памяти.">
+<meta property="og:title" content="EmbeddingGemma 2: Google уложила мультимодальный поиск в 740 млн параметров">
+<meta property="og:image" content="https://cdn.thenewstack.io/media/2026/10/4f7b5f89-brigitte-elsner-9ptfzdzlguq-unsplash-1-scaled.jpg">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>EmbeddingGemma 2: Google уложила мультимодальный поиск в 740 млн параметров</h1>
+<div class="meta">06.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/embeddinggemma2-740m-ondevice.jpg" alt="">
+<div class="lead">Google DeepMind выпустила EmbeddingGemma 2 — открытую модель на 740 млн параметров, которая переводит текст, код, изображения, аудио и видео в единое векторное пространство. Всё считается прямо на телефоне: версия только для текста занимает около 191 МБ оперативной памяти.</div>
+<h3>Что выпустили</h3>
+<p>6 октября Google DeepMind представила EmbeddingGemma 2 — открытую модель эмбеддингов под лицензией Apache 2.0. Её главная особенность — нативная мультимодальность: текст, код, изображения, аудио и видео отображаются в единое векторное пространство размером 768 измерений. Модель построена на архитектуре Gemma 4 и позиционируется как лучшая по качеству среди мультимодальных эмбеддеров меньше миллиарда параметров.</p>
+<h3>Цифры</h3>
+<li>Поиск по коду (MTEB Code) вырос с 68,76 до 78,68 балла относительно первой версии — плюс почти 10 пунктов.</li>
+<li>Контекст — 8K токенов, вчетверо больше, чем у EmbeddingGemma 1: за один запрос модель обработает до 5,5 минуты аудио, 29 изображений или 58 видеокадров.</li>
+<li>Модель модульная: текстовое ядро — 270 млн параметров, визуальный энкодер добавляет 170 млн, аудиосоставляющая — 300 млн.</li>
+<li>С квантованием на Google Pixel 11 Pro текстовая версия требует около 191 МБ активной памяти, полностью мультимодальная — примерно 567 МБ.</li>
+<li>Длину вектора можно урезать с 768 до 512, 256 или 128 измерений — локальная векторная база сжимается до шести раз.</li>
+<h3>Зачем это нужно</h3>
+<p>Локальные эмбеддинги решают три задачи: приватность (данные не покидают устройство), задержка (не нужен сетевой запрос) и работа офлайн. Связка с генеративной Gemma 4 даёт полноценный on-device RAG: например, найти конкретный видеоролик в медиабиблиотеке по голосовому описанию или пройтись поиском по часам записей с совещаний. Предшественница EmbeddingGemma за год собрала более 20 млн загрузок — Google явно рассчитывает повторить успех уже в мультимодальном формате.</p>
+<h3>Доступность</h3>
+<p>Модель уже выложена на Hugging Face, поддерживается transformers, sentence-transformers, vLLM, llama.cpp, Ollama, LM Studio и MLX; для дообучания есть инструкции от Unsloth, для хранения векторов — интеграция с Qdrant. Всё под коммерчески свободной лицензией — брать и использовать в продуктах можно без ограничений.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://thenewstack.io/google-embeddinggemma-multimodal-search/" rel="noopener">The New Stack</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://deepmind.google/blog/embeddinggemma-2-an-open-lightweight-multimodal-embedding-model/" rel="noopener">Google DeepMind (официальный блог)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://developers.googleblog.com/en/google-ai-edge-with-embeddinggemma-2/" rel="noopener">СМИ 1</a> · <a href="https://9to5google.com/2026/10/06/google-ai-edge-foresight/" rel="noopener">СМИ 2</a> · <a href="https://www.unite.ai/deepmind-debuts-embeddinggemma-2-mapping-five-modalities-into-one-space/" rel="noopener">СМИ 3</a> · <a href="https://huggingface.co/google/embeddinggemma-2" rel="noopener">СМИ 4</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
