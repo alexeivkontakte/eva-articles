@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Microsoft открыла Windows ML для «народных» моделей: Windows 11 теперь запускает GGUF через llama.cpp</title>
+<meta name="description" content="На октябрьской презентации Windows и Surface Microsoft объявила, что фреймворк Windows ML получил экспериментальную поддержку llama.cpp: модели в формате GGUF можно брать прямо с Hugging Face и запускать локально, в несколько строк кода. Появился и новый Windows ML Runtime API с отдельными интерфейсами для генерации текста и распознавания речи — всё считается на самом ПК, без облака.">
+<meta property="og:title" content="Microsoft открыла Windows ML для «народных» моделей: Windows 11 теперь запускает GGUF через llama.cpp">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/winml-gguf-local-ai.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Microsoft открыла Windows ML для «народных» моделей: Windows 11 теперь запускает GGUF через llama.cpp</h1>
+<div class="meta">09.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/winml-gguf-local-ai.png" alt="">
+<div class="lead">На октябрьской презентации Windows и Surface Microsoft объявила, что фреймворк Windows ML получил экспериментальную поддержку llama.cpp: модели в формате GGUF можно брать прямо с Hugging Face и запускать локально, в несколько строк кода. Появился и новый Windows ML Runtime API с отдельными интерфейсами для генерации текста и распознавания речи — всё считается на самом ПК, без облака.</div>
+<h3>Локальный ИИ становится штатной функцией Windows</h3>
+<p>Windows ML — это локальный фреймворк инференса для Windows 11: он позволяет приложениям гонять нейросети прямо на устройстве, распределяя работу между процессором, NPU и видеокартой, и при этом не зависеть от оптимизаций под конкретное железо. Теперь к нему добавился экспериментальный путь на базе llama.cpp — самого популярного инструмента для запуска открытых моделей на обычном ПК. Практический смысл: GGUF-модель с Hugging Face подтягивается и запускается через знакомый Windows ML-стек буквально в несколько строк кода.</p>
+<h3>Новый Runtime API и две готовых «задачи»</h3>
+<p>Второе объявление — экспериментальный Windows-native inference path, то есть Windows ML Runtime API. Microsoft описывает его как более быстрый, глубже интегрированный в систему и дающий больше контроля над тем, как модель исполняется. Одна поверхность закрывает оба формата — и ONNX, и GGUF. Поверх него вышли две предметные библиотеки: Text Generation API для генерации текста (работает и с GGUF-, и с ONNX-моделями) и Speech Recognition API для транскрибации речи — внутри лежит Whisper в формате ONNX. Это ровно тот минимальный набор, из которого собираются диктофонные расшифровки, локальные чат-боты и голосовые ассистенты без отправки данных наружу.</p>
+<h3>Мосты в открытый мир</h3>
+<p>Microsoft отдельно подчёркивает, что партнёрство с сообществами llama.cpp и GGUF — не односторонний жест: компания вместе с NVIDIA отдаёт патчи в llama.cpp и связанные оптимизационные проекты, чтобы стек лучше работал и на x86, и на Windows on Arm. Классический ONNX Runtime API остаётся полностью поддерживаемым, но будущие оптимизации под Windows будут приходить сначала в Windows ML Runtime API; обе среды уже есть в текущей сборке, и разработчик сам выбирает момент миграции.</p>
+<h3>Оговорки</h3>
+<p>Всё это пока помечено как experimental: в официальном анонсе прямо советуют перед продакшеном сверяться со списком поддерживаемых сценариев и известных ограничений. Но направление очевидно: Windows системно превращается в платформу для локальных открытых моделей — там, где ещё год назад «свой GPT на ноутбуке» требовал ручной сборки из консольных утилит.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.ithome.com/1/010/825.htm" rel="noopener">IT之家 (ithome.com)</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://devblogs.microsoft.com/foundry-on-windows/build-on-winml-oct-7-26/" rel="noopener">Официальный анонс Microsoft — AI Development on Windows: from PyTorch and llama.cpp to Windows ML (Microsoft Foundry on Windows Blog)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.neowin.net/news/microsoft-highlights-major-advancements-in-windows-ml/" rel="noopener">СМИ 1</a> · <a href="https://blogs.windows.com/windowsexperience/2026/10/07/building-windows-for-hybrid-intelligence/" rel="noopener">СМИ 2</a> · <a href="https://daily.dev/posts/windows-ml-adds-experimental-llama-cpp-support-for-local-gguf-models-cks49tmqo" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
