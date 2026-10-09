@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deno уходит в Cloudflare: рантайм Райана Далла закроют через год, а его команда будет строить платформу для ИИ-агентов</title>
+<meta name="description" content="Команда Deno целиком переходит в Cloudflare: рантайм получит ещё год багфиксов и остановится, Deno Deploy закроют через полгода, а наработанный celld сольют с workerd. Ставка — единая модель серверов для облака и своего железа, с прицелом на ИИ-агентов.">
+<meta property="og:title" content="Deno уходит в Cloudflare: рантайм Райана Далла закроют через год, а его команда будет строить платформу для ИИ-агентов">
+<meta property="og:image" content="https://deno.com/blog/cloudflare/deno-cf-balanced-og.webp">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Deno уходит в Cloudflare: рантайм Райана Далла закроют через год, а его команда будет строить платформу для ИИ-агентов</h1>
+<div class="meta">09.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/deno-cloudflare.jpg" alt="">
+<div class="lead">Команда Deno целиком переходит в Cloudflare: рантайм получит ещё год багфиксов и остановится, Deno Deploy закроют через полгода, а наработанный celld сольют с workerd. Ставка — единая модель серверов для облака и своего железа, с прицелом на ИИ-агентов.</div>
+<p>9 октября 2026 года Райан Далл — создатель Node.js, а затем его главного оппонента Deno — объявил: вся команда Deno присоединяется к Cloudflare. Формулировка показательная: не «наш рантайм покупают», а «мы уходим делать другую платформу». Вместе с Даллом переезжает вся команда, включая сооснователя Берта Белдера.</p>
+<h3>Что будет с Deno</h3>
+<p>Конкретика из официального анонса: рантайм Deno будут поддерживать ещё год — ежемесячные релизы с исправлениями багов и уязвимостей, после чего разработка прекратится. Код останется открытым, «мы приветствуем тех, кто захочет продолжить», — но фактически это замороженный проект. Хостинг Deno Deploy закроют через шесть месяцев, платящим клиентам обещают помощь в переезде на Cloudflare Workers. Регистр модулей JSR продолжит жить, но его инфраструктуру перевезут под крыло Cloudflare. Мост rusty_v8 команда обещает поддерживать и встроить в workerd — рантайм-движок Workers.</p>
+<h3>Зачем это Cloudflare</h3>
+<p>Смысл сделки — проект celld: открытый демон, который команда Deno выпустила летом и который позволяет запускать распределённые Workers и Durable Objects на собственном железе (обозреватели называли цифру экономии против управляемого облака до 88%). У самой Cloudflare есть workerd, но его Durable Objects работают только в один экземпляр; celld добавляет именно распределённость. План — слить celld и workerd в один продукт и сделать «модель программирования Workers» дефолтным способом строить серверы: и в облаке Cloudflare, и в своём дата-центре.</p>
+<h3>ИИ-агентный мотив</h3>
+<p>Далл прямо пишет, что потребность в таких абстракциях острее всего именно с ИИ: Durable Objects — это дешёвый бессерверный контейнер с постоянным состоянием, WebSocket и своей SQLite-базой, то есть готовый каркас (harness) для агентов, которым нужно переживать перезапуски и помнить контекст. Кентон Варда, Distinguished Engineer Cloudflare, подкрепляет: цель — радикально упростить самостоятельный хостинг той же модели, на которой у Cloudflare уже крутятся агентные нагрузки.</p>
+<h3>Реакция сообщества</h3>
+<p>На Hacker News новость уже окрестили ироничным «404 Deno CEO not found»: больше пятнадцати лет Далл строил альтернативу Node.js, обличал его архитектурные грехи, а в итоге его рантайм ждёт судьба многих «убийц Node» — статус открытого проекта с корпоративным опекуном у конкурента. Для тех, кто построил бизнес на Deno Deploy, шесть месяцев — срок жёсткий: миграция на Workers означает переписывание под чужую модель. Для экосистемы JavaScript это конец целой эпохи «рантайм-войн»: в гонке остаются Node, Bun и облачная ветка workerd.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://deno.com/blog/cloudflare" rel="noopener">Deno Blog</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://blog.cloudflare.com/deno-joins-cloudflare/" rel="noopener">Cloudflare Blog — совместный анонс Райана Далла и Кентона Варды</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://runtimewire.com/article/deno-joins-cloudflare-self-hosted-workers" rel="noopener">СМИ 1</a> · <a href="https://byteiota.com/deno-joins-cloudflare-deploy-gone-in-6-months/" rel="noopener">СМИ 2</a> · <a href="https://news.ycombinator.com/item?id=47467746" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
