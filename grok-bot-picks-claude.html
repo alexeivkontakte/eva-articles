@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>«Лояльность к одной модели мертва»: Grok Бот Маска теперь выбирает Claude Opus 5.5, если он лучше</title>
+<meta name="description" content="Илон Маск объявил, что Grok Бот от SpaceX будет выполнять задачи на «лучшей модельной системе» — в списке уже Claude Opus 5.5, Midjourney и Suno. Отдельного пресс-релиза не было: всё — пост в X. Рынок тем временем делает то же самое ради экономии: дешёвые модели забирают объём, дорогие — самые сложные задачи.">
+<meta property="og:title" content="«Лояльность к одной модели мертва»: Grok Бот Маска теперь выбирает Claude Opus 5.5, если он лучше">
+<meta property="og:image" content="https://cdn.thenewstack.io/media/2026/10/e7ecf2fd-gtok-claude-model-triage-1024x576.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>«Лояльность к одной модели мертва»: Grok Бот Маска теперь выбирает Claude Opus 5.5, если он лучше</h1>
+<div class="meta">10.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/grok-bot-picks-claude.png" alt="">
+<div class="lead">Илон Маск объявил, что Grok Бот от SpaceX будет выполнять задачи на «лучшей модельной системе» — в списке уже Claude Opus 5.5, Midjourney и Suno. Отдельного пресс-релиза не было: всё — пост в X. Рынок тем временем делает то же самое ради экономии: дешёвые модели забирают объём, дорогие — самые сложные задачи.</div>
+<h3>Что произошло</h3>
+<p>7 октября Илон Маск опубликовал в X «важную заметку» про Grok Бот — ИИ-агента, запущенного в бета-версии в августе. Суть: впредь SpaceX будет использовать «лучшую модельную систему для любой задачи, включая Claude Opus 5.5, MidJourney, Suno и другие ведущие API. Что угодно, что с наибольшей вероятностью даст лучший результат». Отдельного официального пресс-релиза компании не было — первоисточником стал сам пост Маска. Grok Бот — совместный продукт SpaceXAI (лаборатории, влитой в SpaceX) и Cursor, который SpaceX купила в июне за $60 млрд акциями; сделка закрылась в августе.</p>
+<h3>Тriage моделей — новая норма</h3>
+<p>Журналисты The New Stack на конференции ScaleUp:AI поговорили с руководителями 22 компаний портфеля Insight Partners, и минимум 10 из них описали одну и ту же привычку: модель выбирается под задачу, дорогая flagship-модель бережётся для того, что действительно её требует. Самая частая схема — воронка: сначала правила, потом маленькая модель, и лишь остаток видит большая. Один из руководителей объяснил: прогнать петабайту данных через любую модель, даже маленькую, — миллионы долларов. Anthropic на этой неделе тоже двинулась в дешёвый сегмент: Haiku 5.5 вышла по $0,10 за миллион входных токенов — на 90% дешевле для запросов меньше 100 тысяч токенов.</p>
+<h3>Что показывает OpenRouter</h3>
+<p>По данным OpenRouter за неделю до 7 октября, четыре из десяти самых используемых моделей — «Flash», дешёвые и быстрые версии флагманов. Лидер — DeepSeek V4.1 Flash: 33,6 трлн токенов за неделю (+48%), и месяц назад этой модели вообще не существовало. Claude Opus 5.5 идёт девятым по объёму (3,37 трлн), но вырос на 74% за неделю — быстрее всех в топ-10, и при этом первый по индексу интеллекта Artificial Analysis. Так и выглядит triage: дорогая модель получает всё больше работы, не поднимаясь наверх по объёму.</p>
+<h3>Главный урок — тестировать до переключения</h3>
+<p>Смена модели несёт риск: одна команда поменяла модель на «дешевле и не хуже» за три дня до демонстрации важному клиенту — рабочий процесс сломался, откатываться пришлось в выходные. Вывод, который повторяют все: собственные тесты (оценки) перед каждым переключением, и правило ABS — Always Be Switching, «всегда переключайся», но с проверкой.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://thenewstack.io/musk-claude-model-triage/" rel="noopener">The New Stack</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://x.com/elonmusk/status/2107724314451878104" rel="noopener">Пост Илона Маска в X (официальный анонс; отдельного пресс-релиза SpaceX не публиковала)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.androidheadlines.com/2026/10/grok-bot-gets-a-massive-brain-upgrade-claude-opus-5-5-for-heavy-reasoning-and-coding.html" rel="noopener">СМИ 1</a> · <a href="https://tbreak.com/grok-bot-claude-opus-midjourney-suno/" rel="noopener">СМИ 2</a> · <a href="https://aiweekly.co/alerts/musk-grok-bot-to-route-tasks-to-claude-opus-55-midjourney-suno" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
