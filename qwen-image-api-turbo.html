@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qwen вывела в API генерацию и редактирование изображений: модель Turbo рисует за 8 шагов</title>
+<meta name="description" content="Платформа Qwen AI запустила API моделей Qwen-Image-2.1 Pro и Turbo: генерацию и редактирование картинок можно встраивать в приложения без собственных серверов и настройки вывода. Вес Turbo-версии открыты, она выдаёт 2K-изображения за 8 шагов очистки шума.">
+<meta property="og:title" content="Qwen вывела в API генерацию и редактирование изображений: модель Turbo рисует за 8 шагов">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/qwen-image-api-turbo.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Qwen вывела в API генерацию и редактирование изображений: модель Turbo рисует за 8 шагов</h1>
+<div class="meta">11.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/qwen-image-api-turbo.png" alt="">
+<div class="lead">Платформа Qwen AI запустила API моделей Qwen-Image-2.1 Pro и Turbo: генерацию и редактирование картинок можно встраивать в приложения без собственных серверов и настройки вывода. Вес Turbo-версии открыты, она выдаёт 2K-изображения за 8 шагов очистки шума.</div>
+<p>11 октября команда Qwen объявила, что API моделей <b>Qwen-Image-2.1 Pro</b> и <b>Qwen-Image-2.1 Turbo</b> официально доступны на платформе Qwen AI. Разработчикам больше не нужно разворачивать модель у себя и управлять инфраструктурой вывода: генерацию изображений по тексту и правку готовых картинок можно подключить к своему приложению обычным вызовом API. Вес Turbo-версии при этом синхронно открыты — её можно запускать и локально.</p>
+<h3>Восемь шагов до 2K-картинки</h3>
+<p>Qwen-Image-2.1 Turbo построена на 7-миллиардном визуальном генеративном блоке базовой модели Qwen-Image-2.1 и сокращает процесс генерации (денуайзинг) до 8 шагов, сохраняя возможность генерировать и редактировать изображения в разрешении 2K. Сама базовая модель, анонсированная ещё 20 сентября, объединяет генерацию и редактирование в одной модели: визуальный блок — 7 млрд параметров и 32 Single-Stream DiT-слоя, плюс нативная поддержка прозрачного фона (RGBA), ускорение за счёт механизма внимания разной гранулярности и повторного использования KV-кэша.</p>
+<h3>До десяти референсов и точечная правка</h3>
+<p>Модель принимает до 10 референсных изображений: из шести портретов она собирает групповое фото, из пяти элементов — полный образ для виртуальной примерки, из десяти предметов мебели — интерьер. Область правки задаётся кружком, «мазком» или отдельной маской, а при редактировании портретов модель старается сохранить черты лица, а при правке товаров — надписи, текстуры и форму. Практические сценарии, на которые ориентируют сами разработчики: карточки товаров и рекламные материалы, плакаты с типографикой, контент и визуальные истории, раскадровки и инфографика.</p>
+<h3>Что подхватили СМИ</h3>
+<p>Анонс подхватили профильные издания: Marktechpost разобрал Turbo как «8-шаговую 7B-модель», репозиторий Qwen на GitHub и страница модели на Hugging Face подтверждают открытые веса и характеристики API. Отдельного официального анонса на русском языке нет — русскоязычный пересказ строится на международных источниках.</p>
+<p>Для открытых весов это заметный шаг: связка «дешёвое облачное API + открытый чекпойнт для локального запуска» закрывает и быстрый продакшн, и полностью автономный сценарий.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.ithome.com/1/011/622.htm" rel="noopener">IT之家 (ithome.com)</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://qwen.ai/blog?id=qwen-image-2.1" rel="noopener">Официальный блог Qwen Team (qwen.ai)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.marktechpost.com/2026-10-09/alibaba-qwen-releases-qwen-image-2-1-turbo-an-8-step-7b-image-model/" rel="noopener">СМИ 1</a> · <a href="https://github.com/QwenLM/Qwen-Image-2.1" rel="noopener">СМИ 2</a> · <a href="https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
