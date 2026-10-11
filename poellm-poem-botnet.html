@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Стихотворение вместо командного сервера: малварь PoeLLM заразила более 3400 ИИ-серверов</title>
+<meta name="description" content="Ботнет Canto Incognito прячет адрес своего командного центра в стихотворении на GitHub: несколько слов в тексте задают адрес сервера управления, и шифрование не нужно. С апреля 2026 года малварь PoeLLM подчинила более 3400 серверов — жертвы в основном те, кто поднял ИИ-инфраструктуру прямо в интернет: LiteLLM, Ollama, Gotenberg и Gitea.">
+<meta property="og:title" content="Стихотворение вместо командного сервера: малварь PoeLLM заразила более 3400 ИИ-серверов">
+<meta property="og:image" content="https://cdn.mos.cms.futurecdn.net/aqPrPS4qzkg5HW3n7K9Ypn-809-80.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Стихотворение вместо командного сервера: малварь PoeLLM заразила более 3400 ИИ-серверов</h1>
+<div class="meta">11.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/poellm-poem-botnet.png" alt="">
+<div class="lead">Ботнет Canto Incognito прячет адрес своего командного центра в стихотворении на GitHub: несколько слов в тексте задают адрес сервера управления, и шифрование не нужно. С апреля 2026 года малварь PoeLLM подчинила более 3400 серверов — жертвы в основном те, кто поднял ИИ-инфраструктуру прямо в интернет: LiteLLM, Ollama, Gotenberg и Gitea.</div>
+<p>Команда безопасности Lumen Technologies, Black Lotus Labs, опубликовала разбор кампании Canto Incognito. Схема управления ботнетом необычно «аналоговая»: малварь скачивает со стихотворением, выложенным в репозитории GitHub, вытаскивает из него несколько ключевых слов и по ним вычисляет адрес актуального сервера управления. Злоумышленнику достаточно поменять нужные слова в строфах — и вся сеть мгновенно переключается на новую инфраструктуру, без обновления самих вредоносных программ. По подсчётам исследователей, кодовую фразу правили одиннадцать раз.</p>
+<p>Жертвами становятся публично доступные сервисы ИИ-разработки: уязвимые установки LiteLLM, Ollama, Gotenberg и Gitea, есть признаки атак на Ivanti Sentry. С апреля 2026 года заражено более 3400 серверов, в пике активность превышала 800 активных машин в сутки. Заражённые хосты не только майнят криптовалюту — их превращают в сканеры и эксплойт-серверы, которые ищут и атакуют новые цели, так что ботнет сам себя пополняет. The Register со ссылкой на исследователей пишет, что за кампанией, вероятно, стоит итальяноязычная группа.</p>
+<p>Цель простая и приземлённая — деньги. GPU-железо, поднятое под ИИ-нагрузки, идеально подходит для майнинга, а открытые LLM-сервисы часто торчат в интернет с незакрытыми портами и без патчей. В Lumen подчёркивают: ценность представляют не только уязвимости, но и данные, которые могут лежать в таких системах. К моменту публикации доклада три из двенадцати серверов управления всё ещё работали, кампания продолжала заражать новые машины.</p>
+<p>Что делать организациям: закрывать лишние наружу порты, патчиться (LiteLLM — версия 1.83.7 и новее, Ivanti Sentry — свежие ветки R10.5.2/R10.6.2/R10.7.1) и проверить соединения по индикаторам компрометации, которые Black Lotus Labs выложили на GitHub. Симптом показателен для всей отрасли: ИИ-инфраструктура растёт быстрее, чем культура её эксплуатации, и превращается в новый охотничий угодье для киберпреступников.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.tomshardware.com/tech-industry/cyber-security/cryptomining-malware-used-poetry-to-infect-more-than-3-400-servers-researchers-say-four-words-in-the-poellm-verse-changed-11-times-point-the-botnet-to-new-servers" rel="noopener">Tom's Hardware</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.lumen.com/blog/en-us/canto-incognito-tracking-the-poellm-malware" rel="noopener">Lumen Technologies — Black Lotus Labs (официальный отчёт)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.theregister.com/security/2026/10/07/poetry-is-the-new-ai-security-threat-as-poellm-malware-infects-3k-servers/5301672" rel="noopener">СМИ 1</a> · <a href="https://cyberscoop.com/poellm-malware-botnet-poem-lumen-black-lotus-labs/" rel="noopener">СМИ 2</a> · <a href="https://www.helpnetsecurity.com/2026/10/08/poellm-malware-github-poem-ai-servers/" rel="noopener">СМИ 3</a> · <a href="https://thehackernews.com/2026/10/poellm-malware-infects-3400-servers-to.html" rel="noopener">СМИ 4</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
