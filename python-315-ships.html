@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Вышел Python 3.15: ленивые импорты, UTF-8 по умолчанию и заметный JIT</title>
+<meta name="description" content="Python Foundation выпустила 3.15.0 — крупнейший релиз за последние годы: 5643 коммита от 1012 авторов. Ленивые импорты ускоряют запуск, UTF-8 стал кодировкой по умолчанию, а экспериментальный JIT наконец даёт реальные проценты скорости.">
+<meta property="og:title" content="Вышел Python 3.15: ленивые импорты, UTF-8 по умолчанию и заметный JIT">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/python-315-ships.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Вышел Python 3.15: ленивые импорты, UTF-8 по умолчанию и заметный JIT</h1>
+<div class="meta">12.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/python-315-ships.png" alt="">
+<div class="lead">Python Foundation выпустила 3.15.0 — крупнейший релиз за последние годы: 5643 коммита от 1012 авторов. Ленивые импорты ускоряют запуск, UTF-8 стал кодировкой по умолчанию, а экспериментальный JIT наконец даёт реальные проценты скорости.</div>
+<p>Python 3.15.0 вышел 9 октября 2026 года, и это самый насыщенный релиз за много лет: 5643 коммита от 1012 контрибьюторов. Для нашего канала важно, что это обновление «кухни» всего ИИ-стека — на Python живут PyTorch, LangChain и почти все агентские фреймворки, так что ускорение старта и рантайма почувствуют все.</p>
+<h3>Ленивый старт вместо тяжёлого импорта</h3>
+<p>Главная бытовая фича — PEP 810: явные ленивые импорты. Модуль подгружается только при первом реальном обращении, а не в момент запуска скрипта. Для ИИ-приложений, где импорт torch или transformers съедает секунды и гигабайты памяти до первой строчки кода, это прямой выигрыш в холодном старте. В комплекте — PEP 829 с конфигурационными файлами старта пакета и новый профайлер Tachyon с высокой частотой сэмплирования (PEP 799).</p>
+<h3>UTF-8 как норма</h3>
+<p>Python наконец перестал оглядываться на наследие Windows: кодировкой по умолчанию стал UTF-8 (PEP 686). Больше не нужно помнить про cp1251 и cp932 при чтении файлов и работе со stdin — кириллица, иероглифы и эмодзи обрабатываются одинаково на любой ОС. Для русскоязычных разработчиков это, пожалуй, самый приятный пункт релиза.</p>
+<h3>JIT набирает силу и новые типы</h3>
+<p>Экспериментальный JIT-компилятор, который в 3.13 был скорее заделом, в 3.15 даёт измеримый результат: +7–8% (геометрическое среднее) на x86-64 Linux и +11–12% на AArch64 macOS против обычного интерпретатора. В язык добавлены встроенные типы sentinel (PEP 661) и frozendict (PEP 814), распаковка в comprehensions (PEP 798), а фрейм-указатели теперь включены по умолчанию — профилировщики и трейсеры видят стек без пересборки интерпретатора. Официальные сборки macOS теперь устанавливают поддержку free-threading по умолчанию.</p>
+<p>Обновляться стоит осторожно: 3.15 требует пересборки нативных расширений под новый стабильный ABI, а на macOS 27.0 есть известный баг с tkinter. Полный список изменений — в справочном разделе «What's new in Python 3.15».</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.heise.de/news/Python-3-15-erschienen-Faule-Importe-UTF-8-und-neue-Datentypen-11483795.html" rel="noopener">Heise</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.python.org/downloads/release/python-3150/" rel="noopener">Python.org — официальный анонс релиза 3.15.0</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.infoworld.com/article/4211583/go-hands-on-with-python-3-15.html" rel="noopener">СМИ 1</a> · <a href="https://www.theregister.com/devops/2026-05-11/feature-freeze-for-python-315-as-first-beta-released/5237934" rel="noopener">СМИ 2</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
