@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Стойка на 32 768 ядер для ИИ-агентов: AMD показала открытый проект Helion</title>
+<meta name="description" content="AMD представила Helion — открытую стойку для агентного ИИ на базе спецификации OCP: чисто процессорная версия вмещает до 32 768 ядер 6-го поколения EPYC, а продажи начнутся уже в ноябре.">
+<meta property="og:title" content="Стойка на 32 768 ядер для ИИ-агентов: AMD показала открытый проект Helion">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/amd-helion-agentic-rack.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Стойка на 32 768 ядер для ИИ-агентов: AMD показала открытый проект Helion</h1>
+<div class="meta">12.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/amd-helion-agentic-rack.png" alt="">
+<div class="lead">AMD представила Helion — открытую стойку для агентного ИИ на базе спецификации OCP: чисто процессорная версия вмещает до 32 768 ядер 6-го поколения EPYC, а продажи начнутся уже в ноябре.</div>
+<p>AMD 12 октября представила <b>Helion</b> — открытую «чертёжную» стойку для инфраструктуры агентного ИИ, построенную вокруг спецификации Open Compute Project. Проект вырастает из открытой платформы флагманской GPU-стойки Helios и рассчитан на то, чтобы партнёры и заказчики сами собирали конфигурацию под конкретные агентные нагрузки — от личных ассистентов до корпоративных рабочих процессов.</p>
+<h3>Два сценария в одной рамке</h3>
+<p>Первый — чисто процессорная стойка на EPYC шестого поколения («Venice») <b>до 32 768 ядер</b>: она рассчитана на гиперскейл-клиентов, которые отдают внутрь стойки исполнение агентов и их связующую логику, а тяжёлое обучение моделей и инференс выносят в отдельные кластеры. Второй — стойка «всё в одном», где узлы EPYC соседствуют с GPU-узлами Instinct MI350P и обычными вычислительными серверами: это вариант для компаний, которым нужен агентный ИИ целиком на одной площадке.</p>
+<p>В Helion встроен <b>токен-роутер</b>, который распределяет обращения агентов к моделям между передовыми облачными и открытыми моделями — идеология «агент сам выбирает, кем думать» прямо зашита в железо. Стойки бывают с жидкостным и воздушным охлаждением, а саму спецификацию AMD обещает передать в OCP, чтобы сообщество развивало её дальше.</p>
+<h3>Контекст</h3>
+<p>Ставка показательна: AMD разделяет агентный стек на «дирижёров» (многоъядерные CPU для оркестрации агентов) и «силовиков» (GPU для инференса), предлагая гиперскейл-игрокам закупать именно первых побольше. В анонсе участвуют Cisco, Dell, HPE и Hon Hai Technology Group — конфигурации уже разрабатываются, поставки запланированы на <b>ноябрь 2026 года</b>. По оценкам самой AMD, её топовые EPYC дают почти вдвое больше ядер на стойку, чем решения конкурентов в том же энергобюджете 100 кВт, — но это цифры производителя, независимых замеров пока нет.</p>
+<h3>Ссылки</h3>
+<li>Оригинал: IT之家</li>
+<li>Первоисточник: пресс-релиз AMD Newsroom</li>
+<li>Подхватившие СМИ: Tom's Hardware, DataCenterDynamics, ComputerBase</li>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.ithome.com/1/012/103.htm" rel="noopener">IT之家</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://newsroom.amd.com/news/open-rack-blueprint-scale-agentic-ai/" rel="noopener">AMD Newsroom — Introducing AMD Helion, Agentic AI Compute at Rack Scale</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.tomshardware.com/pc-components/cpus/amd-debuts-helion-reference-design-for-agentic-ai-servers-with-up-to-32-768-zen-6-venice-cores-rack-design-ships-next-year-in-cpu-only-and-all-in-one-configurations" rel="noopener">СМИ 1</a> · <a href="https://www.datacenterdynamics.com/en/news/amd-unveils-cpu-only-helion-rack-to-support-agentic-ai-workloads/" rel="noopener">СМИ 2</a> · <a href="https://www.computerbase.de/news/wirtschaft/amd-helion-ein-zen-6-cpu-rack-fuer-das-neue-agentic-ai-zeitalter.99785/" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
