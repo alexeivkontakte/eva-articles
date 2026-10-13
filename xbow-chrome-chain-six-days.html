@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ИИ-агенты собрали полный эксплойт Chrome за шесть дней — XBOW получила от Google $250 000</title>
+<meta name="description" content="Компания XBOW получила от Google премию $250 000 за полную цепочку эксплойтов Chrome — первую выплату по правилам VRP, введённым в апреле 2026 года. Цепочку собрали ИИ-агенты за шесть дней, а расходы на API составили около $40 000.">
+<meta property="og:title" content="ИИ-агенты собрали полный эксплойт Chrome за шесть дней — XBOW получила от Google $250 000">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/xbow-chrome-chain-six-days.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>ИИ-агенты собрали полный эксплойт Chrome за шесть дней — XBOW получила от Google $250 000</h1>
+<div class="meta">13.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/xbow-chrome-chain-six-days.png" alt="">
+<div class="lead">Компания XBOW получила от Google премию $250 000 за полную цепочку эксплойтов Chrome — первую выплату по правилам VRP, введённым в апреле 2026 года. Цепочку собрали ИИ-агенты за шесть дней, а расходы на API составили около $40 000.</div>
+<h3>Шесть дней вместо девяти месяцев</h3>
+<p>Компания XBOW опубликовала подробный разбор эксплойта, за который Google выплатил ей $250 000 — это первая премия за полный эксплойт Chrome (full chain) по обновлённым правилам программы VRP, действующим с апреля 2026 года. Цепочка состоит из трёх уязвимостей: ошибка в оптимизирующем компиляторе Maglev движка V8 (при «расоптимизации» кода повторно использовался изменяемый числовой объект), сбой в декодере анимированных изображений WebP (он дал одну запись в память за пределами песочницы V8) и ошибка работы с памятью в обработчике сбоев Crashpad (он позволил выполнить код вне песочницы процесса, уже без ограничений). Сложенные вместе, эти три бага превращают обычный JavaScript на открытой веб-странице в произвольный код на компьютере пользователя.</p>
+<p>Работу вели не люди, а ИИ-агенты на модели OpenAI gpt-5.6-sol: они искали уязвимости в исходном коде, проверяли гипотезы и собирали подтверждающие работоспособность прототипы, тогда как исследователи XBOW выбирали цели, задавали контекст и решали, какие части соединять. Кампания шла шесть дней — со 2 по 7 августа, — а по архиву журналов её стоимость оценена примерно в $40 000 расходов на API.</p>
+<h3>Дешевле, чем когда-либо</h3>
+<p>До появления LLM полную цепочку для Chrome собирала бы команда из четырёх человек, и заняло бы это от полугода до девяти месяцев. Первый «агентный» результат XBOW занял два месяца, а отмеченный премией — шесть дней. При этом, как отмечает сама компания, одна из более ранних цепочек обанкротилась на финальном этапе: последняя уязвимость оказалась уже найдена инженерами Google сама — конкуренция за баг-баунти в эпоху ИИ резко выросла.</p>
+<p>XBOW подчёркивает: все три бага оказались вариантами одной темы «измени то, что считалось неизменяемым», — именно такие нарушения внутренних инвариантов модели ищут особенно успешно. Вывод, который компания выносит для защищающихся, короткий: порог входа в создание цепочек уровня Chrome стал заметно ниже, и обороняться надо исходя из этого. Forbes в пересказе истории называет это работой «обычной доступной модели» — без кастомного дообучения.</p>
+<h3>Что важно понимать</h3>
+<p>Речь не об инструкции: деталей, позволяющих воспроизвести атаку, XBOW не раскрывает, и мы тоже. Существенно другое — экономика. $40 000 и шесть дней против команды профессионалов на квартал: для разработчиков браузеров и владельцев браузерной инфраструктуры — сигнал пересмотреть сроки выпуска исправлений и аудит «редких» компонентов — декодеров изображений, обработчиков сбоев, компиляторов.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://xbow.com/labs/research/zero-to-calc-in-six-days-inside-xbow-chrome-full-chain" rel="noopener">XBOW Labs (разбор исследования)</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.businesswire.com/news/home/20261009160376/en/XBOW-Rewarded-for-Exploit-Affecting-a-Billion-Users" rel="noopener">Официальный пресс-релиз XBOW (Business Wire)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.forbes.com/sites/the-wiretap/2026/10/13/how-an-off-the-shelf-openai-model-found-three-google-chrome-zero-days/" rel="noopener">СМИ 1</a> · <a href="https://finance.yahoo.com/technology/ai/articles/xbow-rewarded-exploit-affecting-billion-151500418.html" rel="noopener">СМИ 2</a> · <a href="https://www.securityweek.com/google-now-offering-up-to-250000-for-chrome-vulnerabilities/" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
