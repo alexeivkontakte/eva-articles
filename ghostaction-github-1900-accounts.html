@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GhostAction: взломали около 1900 аккаунтов GitHub — под атакой более 30 000 репозиториев, в первую очередь охотились за ключами ИИ-сервисов</title>
+<meta name="description" content="Исследователи GitGuardian зафиксировали новую волну цепочки поставок GhostAction: после захвата около 1900 аккаунтов GitHub атакующие внедряли в репозитории замаскированные «аудиторские» workflow-файлы и попытались выкачать 3174 секрета из CI пайплайнов — включая API-ключи ИИ-сервисов. Пики пришлись на 8–9 октября, а более поздние волны уже заблокировал сам GitHub.">
+<meta property="og:title" content="GhostAction: взломали около 1900 аккаунтов GitHub — под атакой более 30 000 репозиториев, в первую очередь охотились за ключами ИИ-сервисов">
+<meta property="og:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiddFchlm_nV3vywI0BM2-8IaZb-wHXwE8DplGqZYkRmcYkeXiSLfVmnVAU-jM4yikWW7SWokanh_S4hq88cVHjAnaWDGkl3VVAtPdv9SHWp0MNb0CIOAA-I73EuwwUSE-wNMnXEzbIdDYorJn2hIuBZQ5Jh_5I2IntiXuUYZz3sKax-wfRoaxy_pD9kGx0/s1600/ghost-git.jpg">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>GhostAction: взломали около 1900 аккаунтов GitHub — под атакой более 30 000 репозиториев, в первую очередь охотились за ключами ИИ-сервисов</h1>
+<div class="meta">15.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/ghostaction-github-1900-accounts.jpg" alt="">
+<div class="lead">Исследователи GitGuardian зафиксировали новую волну цепочки поставок GhostAction: после захвата около 1900 аккаунтов GitHub атакующие внедряли в репозитории замаскированные «аудиторские» workflow-файлы и попытались выкачать 3174 секрета из CI пайплайнов — включая API-ключи ИИ-сервисов. Пики пришлись на 8–9 октября, а более поздние волны уже заблокировал сам GitHub.</div>
+<h3>Размах атаки</h3>
+<p>Кампания GhostAction, направленная на инфраструктуру разработчиков на GitHub, впервые была описана в сентябре 2025 года — и, как следует из свежего отчёта GitGuardian, не собиралась умирать. Новый всплеск начался 31 августа 2026 года, а пик пришёлся на 8–9 октября: похищенные данные около 1900 аккаунтов GitHub позволили атакующим нацелиться более чем на 30 000 репозиториев, принадлежащих 3000 пользователей и организаций. Всего злоумышленники попытались извлечь 3174 секрета из CI-конфигураций публичных проектов. Для сравнения: первая волна новой кампании (с 31 августа по 30 сентября) задела 772 репозитория и мишила 2577 секретов — за неделю масштаб вырос на порядок.</p>
+<h3>Как это работает</h3>
+<p>Чтобы получить права на запись в чужие репозитории, атакующие используют украденные персональные токены доступа (PAT) и учётки, вытащенные из логов инфостилеров. Дальше от имени легитимного мейнтейнера в проект коммитится вредоносный файл GitHub Actions, замаскированный под заботу о безопасности: «Security Audit» (security-audit.yml) или «GitHub Actions Security» (github_actions_security.yml). Запущенный воркфлоу выгребает из CI секреты: облачные креды, токены реестров пакетов (npm, PyPI, DockerHub) и API-ключи ИИ-провайдеров. Новая версия вредоносной нагрузки стала методичнее предыдущих: она умеет сканировать всю историю git по регуляркам (ключи AWS, токены GitHub и GitLab, «ИИ-секреты», ключи облаков), а следующая итерация дополнительно захватывала пару строк контекста вокруг найденного AWS-ключа, чтобы тут же подхватить и секретный ключ к нему.</p>
+<h3>Причём здесь ИИ</h3>
+<p>GhostAction — наглядная иллюстрация того, как ИИ-разработка встроилась в цепочку поставок: ключи к моделям и ИИ-сервисам сейчас лежат в CI наравне с облачными креденшелами, и детекторы в редлогах атакующих уже идут отдельной строкой именно по ИИ-секретам. Компрометация пайплайна сегодня даёт не только доступ к коду, но и чужие лимиты и бюджеты у провайдеров моделей — а такие ключи редко ротируют.</p>
+<h3>Хорошая новость и главная зацепка</h3>
+<p>GitHub с 9 октября стал блокировать запуск вредоносных workflow, поэтому волны 10 и 12 октября не вынесли ничего. Но сама механика выдаёт ставку атакующих: часть жертв октябрьского всплеска уже компрометировалась в волнах сентября 2025-го и августа 2026-го — значит, ключи после прошлых атак так и не отозвали. Классическая защита от этого не изменилась: двухфакторная аутентификация для мейнтейнеров, минимальные права и TTL у токенов, регулярная ротация секретов в CI и аудит сторонних workflow-файлов в репозитории.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://thehackernews.com/2026/10/ghostaction-compromises-about-1900.html" rel="noopener">The Hacker News</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://blog.gitguardian.com/ghostaction-github-actions-supply-chain-attack-returns/" rel="noopener">GitGuardian Security Research — официальный отчёт по GhostAction</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://thenewstack.io/hackers-hijacked-1900-github-accounts-then-they-went-after-30000-repos/" rel="noopener">СМИ 1</a> · <a href="https://aviatrix.ai/threat-research-center/ghostaction-github-actions-credential-theft-2026/" rel="noopener">СМИ 2</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
