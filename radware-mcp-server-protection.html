@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Radware выставила охрану на MCP: слой, через который ИИ-агенты вламываются в корпоративные системы</title>
+<meta name="description" content="ИИ-агенты уже ходят в предприятия через протокол MCP — а защиты этого слоя почти не было. Radware представила MCP Server Protection: решение следит, какие MCP-серверы вообще развернуты в компании, что они торчат наружу и какие агенты их трогают. По опросу Stacklok, около половины софтверных компаний уже используют MCP в продакшене.">
+<meta property="og:title" content="Radware выставила охрану на MCP: слой, через который ИИ-агенты вламываются в корпоративные системы">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/radware-mcp-server-protection.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Radware выставила охрану на MCP: слой, через который ИИ-агенты вламываются в корпоративные системы</h1>
+<div class="meta">15.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/radware-mcp-server-protection.png" alt="">
+<div class="lead">ИИ-агенты уже ходят в предприятия через протокол MCP — а защиты этого слоя почти не было. Radware представила MCP Server Protection: решение следит, какие MCP-серверы вообще развернуты в компании, что они торчат наружу и какие агенты их трогают. По опросу Stacklok, около половины софтверных компаний уже используют MCP в продакшене.</div>
+<p>Компания Radware, которая занимается защитой приложений и DDoS-обороной, представила MCP Server Protection — решение, построенное вокруг Model Context Protocol, стандартного способаподключать ИИ-агентов с корпоративными приложениями, данными и рабочими процессами. Идея простая: пока все обсуждают, что скажет и что сломает сама модель, критичная дыра находится этажом ниже — на сервере MCP, через который агент вообще получает доступ к живым системам.</p>
+<h3>Цифра, ради которой всё затеяно</h3>
+<p>Свежий опрос Stacklok «State of Model Context Protocol in Software 2026» показывает: около половины опрошенных софтверных компаний уже используют MCP в продакшене, а 19% — широко. То есть протокол перестал быть экспериментом, а привычные веб-защита и DDoS-фильтры этот слой просто не понимают: они не видят, какой инструмент вызвал агент и с какими полномочиями.</p>
+<h3>Что умеет новинка</h3>
+<p>Первое — инвентарь и прозрачность: какие MCP-серверы развернуты по всей организации, какие инструменты и ресурсы они отдают наружу, кто из агентов их дергает и как общается между собой. Второе — защита от специфичных для протокола атак: злоупотребление MCP, атаки на аутентификацию, перебор инструментов и ресурсов, несанкционированные вызовы, «затопление» инструментов запросами и отказ в обслуживании, устроенный самим ИИ. Третье — поведенческий надзор: анализ идентификаторов агентов, паттернов вызовов и аномалий потребления ресурсов. Работает в публичном и частном облаке, Kubernetes и обычных дата-центрах — как облачный сервис или как дополнение к локальным платформам Alteon и DefensePro.</p>
+<h3>Куда это встраивается</h3>
+<p>Защита MCP становится в один ряд с Radware Agentic AI Protection и LLM Firewall — недавно компания запустила ещё и Agent Trust Management для управления доверием к агентам. Видно, как выстраивается целый забор вокруг агентского стека: сами агенты, модель, а теперь и интеграционный слой между ними и бизнесом. «MCP стремительно становится критичным слоем интеграции, но каждое новое подключение расширяет поверхность атаки», — резюмирует технический директор Radware Давид Авив.</p>
+<p>Для всех, кто пускает агентов в прод, вывод прикладной: инвентаризация MCP-серверов — тот же «shadow IT», только с доступом к вашим базам и тикет-системам. Прежде чем защищать, стоит хотя бы узнать, сколько серверов MCP у вас уже стоит.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.thefastmode.com/technology-solutions/51029-radware-launches-mcp-server-protection-to-secure-enterprise-ai-agents" rel="noopener">The Fast Mode</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.radware.com/newsroom/" rel="noopener">Newsroom Radware — официальный пресс-релиз «Radware Introduces Model Context Protocol (MCP) Server Protection»</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.investing.com/news/company-news/radware-launches-security-solution-for-ai-agent-protocol-93CH-4948581" rel="noopener">СМИ 1</a> · <a href="https://finance.yahoo.com/technology/ai/articles/radware-introduces-model-context-protocol-100000534.html" rel="noopener">СМИ 2</a> · <a href="https://www.marketscreener.com/news/radware-ltd-introduces-radware-model-context-protocol-server-protection-ce785dd2dc89f127" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
