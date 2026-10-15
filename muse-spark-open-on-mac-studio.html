@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meta выложила веса Muse Spark Open: модель на 816 млрд параметров работает на двух Mac Studio</title>
+<meta name="description" content="Meta открыла веса Muse Spark Open — самой способной открытой модели США, по её собственному заявлению. Главная новость: модель такого класса впервые запускается на десктопе — парой Mac Studio с чипами M5 Ultra и новейшей версией MLX.">
+<meta property="og:title" content="Meta выложила веса Muse Spark Open: модель на 816 млрд параметров работает на двух Mac Studio">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/muse-spark-open-on-mac-studio.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Meta выложила веса Muse Spark Open: модель на 816 млрд параметров работает на двух Mac Studio</h1>
+<div class="meta">15.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/muse-spark-open-on-mac-studio.png" alt="">
+<div class="lead">Meta открыла веса Muse Spark Open — самой способной открытой модели США, по её собственному заявлению. Главная новость: модель такого класса впервые запускается на десктопе — парой Mac Studio с чипами M5 Ultra и новейшей версией MLX.</div>
+<p>Meta выложила веса Muse Spark Open — модель, которую в компании называют самой способной открытой моделью американского производства на сегодня. Это нативно мультимодальная сеть: 816 млрд параметров всего, из них активны 42 млрд на каждый токен, окно контекста — миллион токенов. Профиль — программирование, агентные задачи и длинные многошаговые цепочки. Лицензия Muse Model License с ограниченными коммерческими условиями: многим разработчикам модель достаётся бесплатно.</p>
+<h3>Как это влезает на стол</h3>
+<p>Главная сенсация не размер, а место запуска. По заявлению Meta, Muse Spark Open — первая модель своего класса, которая работает на десктопе: два Mac Studio с чипами M5 Ultra под управлением новейшей версии MLX. Единая память Apple позволяет отдать графической подсистеме до 512 ГБ в каждой машине, а пропускная способность 1,2 ТБ/с успевает подгружать нужный срез весов на каждый токен. Итог: две коробки ведут себя как один суперкомпьютер с терабайтом общей памяти. Apple в собственном исследовательском посте подтвердила: при распределённом выводе через MLX и RDMA связка из четырёх Mac Studio выдаёт больше 36 токенов в секунду — быстрее, чем читает человек.</p>
+<h3>Мирятся публично</h3>
+<p>Руководители двух обычно конкурирующих компаний обмениваются комплиментами в X: Марк Цукерберг написал, что модель отлично работает на новых Mac Studio «благодаря совместной работе с Apple», а новый глава Apple Джон Тернус ответил: «Потрясающе — запускать модель такого калибра прямо с рабочего стола». Главный ИИ-офицер Meta Александр Ван в Axios добавил: «Мы рады, что мама и папа снова играют вместе». Компании сотрудничали несколько месяцев.</p>
+<h3>Инженерные детали</h3>
+<p>MLX умеет выводить модель из NVFP4-чекпойнта: хватает либо двух студий по 512 ГБ, либо четырёх по 256 ГБ с квантованной версией. Meta также отдаёт настраиваемые GPU-ядра Helion для SGLang — они ускоряют вычисления в 1,03–3,95 раза на видеокартах NVIDIA и AMD. В демонстрации агент Muse Code вносил настоящие правки в открытое iOS-приложение Ice Cubes — от исправления ошибок до полной сборки, — а ещё сам монтировал ролик в DaVinci Resolve, просматривая кадры покадрово.</p>
+<h3>Почему это важно</h3>
+<p>Граница между дата-центром и рабочим столом истончается: открытые веса пограничного уровня теперь можно запускать приватно, у себя под рукой, — без облака и чужих серверов. Тем, кому облако всё же нужнее, модель уже доступна через Baseten, Fireworks, Groq, Modal, Nebius, OpenRouter и Together AI. Раньше на десктопах запускали урезанные версии больших моделей; теперь гонка переехала в другую плоскость — кто способнее, а не кто меньше.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.theverge.com/news/1012293/meta-apple-muse-spark-open-mlx" rel="noopener">The Verge</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://research.meta.ai/blog/muse-spark-open" rel="noopener">Meta AI Research (официальный блог)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://machinelearning.apple.com/research/mlx-distributed-inference" rel="noopener">СМИ 1</a> · <a href="https://www.macrumors.com/2026/10/15/meta-muse-spark-open-mac-studio/" rel="noopener">СМИ 2</a> · <a href="https://9to5mac.com/2026/10/15/meta-launches-new-muse-spark-open-model-optimized-to-run-on-mac-studio/" rel="noopener">СМИ 3</a> · <a href="https://www.macstories.net/news/meta-releases-muse-spark-open-an-over-800-billion-parameter-model-that-can-run-locally-on-multiple-m5-ultra-mac-studios/" rel="noopener">СМИ 4</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+<div class="src" style="font-style:italic">⚖️ Справка: Meta Platforms Inc. (продукты Facebook и Instagram) признана в России экстремистской организацией, её деятельность на территории РФ запрещена (решение Тверского районного суда г. Москвы от 21.03.2022, апелляционное определение Мосгорсуда от 20.06.2022).</div>
+</body></html>
