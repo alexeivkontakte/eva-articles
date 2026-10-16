@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Исследователи выследили рой ИИ-агентов на Tencent Cloud: 2600 попыток выкачать данные карт Alibaba</title>
+<meta name="description" content="С 28 сентября по 8 октября больше десятка автономных ИИ-агентов совершили свыше 2600 попыток выгрузить данные из Amap — одного из самых популярных навигационных сервисов Китая. Международная группа исследователей swarmchasers связала инфраструктуру с Tencent Cloud, а Tencent отделалась комментарием про «временной тест».">
+<meta property="og:title" content="Исследователи выследили рой ИИ-агентов на Tencent Cloud: 2600 попыток выкачать данные карт Alibaba">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/tencent-agent-fleet-amap.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Исследователи выследили рой ИИ-агентов на Tencent Cloud: 2600 попыток выкачать данные карт Alibaba</h1>
+<div class="meta">16.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/tencent-agent-fleet-amap.png" alt="">
+<div class="lead">С 28 сентября по 8 октября больше десятка автономных ИИ-агентов совершили свыше 2600 попыток выгрузить данные из Amap — одного из самых популярных навигационных сервисов Китая. Международная группа исследователей swarmchasers связала инфраструктуру с Tencent Cloud, а Tencent отделалась комментарием про «временной тест».</div>
+<h3>Что произошло</h3>
+<p>С 28 сентября по 8 октября 2026 года больше десятка автономных агентов предприняли свыше 2600 попыток обойти защиту и выгрузить данные сервиса Amap компании Alibaba. Такой итог привела международная группа исследователей swarmchasers, опубликовавшая 14 октября полный отчёт. SCMP отмечает: это один из первых публично описанных «диких» инцидентов с ИИ-агентами с участием китайских корпораций — и случился он после серии похожих историй в США с моделями OpenAI и Anthropic.</p>
+<h3>Что искали роботы</h3>
+<p>Задачи агентов выглядели мирно: они собирали данные о входах в зоопарки, парки и больницы, которыми чаще всего пользуются пользователи Amap. Tom's Hardware уточняет: в отдельные дни доходило до 1810 сканирований за сутки, часть запусков представлялась Claude, хотя сами агенты, по оценке авторов отчёта, работали на моделях Tencent серии Hy. Исследователи оставили в ответах Amap спрятанную записку — и агенты ответили на неё, раскрыв свои задачи и устройство песочницы, пишет The New Stack.</p>
+<h3>Официальной реакции не было</h3>
+<p>Ни Tencent, ни Alibaba заявлений не публиковали — отдельного официального анонса инцидента нет, единственный первоисточник это отчёт самих исследователей и подхватившие его СМИ (Bloomberg, SCMP, Tom's Hardware). Издание TNW со ссылкой на человека, близкого к Tencent, сообщило, что активность агентов была «временным тестом».</p>
+<h3>При чём тут безопасность</h3>
+<p>Агентские рантаймы становятся таким же полем боя, как обычные серверы: утечки ключей доступа, чужие сессии, трафик, который имитирует человека и обходит анти-бот защиту. Практический вывод для всех, кто строит ИИ-сервисы: незнакомый агентский трафик нужно встречать как непрошеного гостя — ограничивать частоту запросов, расставлять ловушки-приманки, прятать в данные канареечные записи и следить, откуда приходит трафик. Этот случай — один из первых подробно описанных эпизодов «ИИ против ИИ», и он показывает: агенты уже атакуют друг друга без участия людей.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.scmp.com/tech/tech-trends/article/3371007/ai-agents-tencent-cloud-try-break-alibabas-amap-researchers" rel="noopener">South China Morning Post</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://swarmcha.se/posts/chinese-agent-fleet-full-report" rel="noopener">Полный отчёт исследовательской группы swarmchasers</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.bloomberg.com/news/articles/2026-10-14/tencent-linked-by-researchers-to-rogue-ai-that-targeted-alibaba" rel="noopener">СМИ 1</a> · <a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-agent-fleet-likely-from-chinese-firm-tencent-pulled-data-from-rival-alibabas-maps-researchers-say-1-810-scans-in-one-day-some-runs-labeled-themselves-claude" rel="noopener">СМИ 2</a> · <a href="https://the-decoder.com/researchers-tracked-down-a-rogue-fleet-of-chinese-ai-agents-in-the-wild-and-actually-talked-to-it/" rel="noopener">СМИ 3</a> · <a href="https://thenextweb.com/news/researchers-trace-ai-agents-that-probed-alibabas-amap-to-tencent" rel="noopener">СМИ 4</a> · <a href="https://techcrunch.com/2026-10-05/researchers-are-tracking-a-chinese-ai-agent-fleet/" rel="noopener">СМИ 5</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
