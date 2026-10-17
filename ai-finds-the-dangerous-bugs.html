@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google: уязвимости, найденные ИИ, в два раза опаснее обычных</title>
+<meta name="description" content="Аналитики Google Threat Intelligence Group подсчитали: половина уязвимостей, которые с высокой вероятностью обнаружил ИИ, приводят к удалённому выполнению кода — против 26% у «человеческих» CVE. Число раскрытых дыр за 2026 год удвоилось, а число реально эксплуатируемых выросло почти вдвое.">
+<meta property="og:title" content="Google: уязвимости, найденные ИИ, в два раза опаснее обычных">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/ai-finds-the-dangerous-bugs.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Google: уязвимости, найденные ИИ, в два раза опаснее обычных</h1>
+<div class="meta">17.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/ai-finds-the-dangerous-bugs.png" alt="">
+<div class="lead">Аналитики Google Threat Intelligence Group подсчитали: половина уязвимостей, которые с высокой вероятностью обнаружил ИИ, приводят к удалённому выполнению кода — против 26% у «человеческих» CVE. Число раскрытых дыр за 2026 год удвоилось, а число реально эксплуатируемых выросло почти вдвое.</div>
+<h3>ИИ бьёт по самому жирному</h3>
+<p>Google Threat Intelligence Group (GTIG) опубликовала исследование о том, как ИИ меняет мир уязвимостей. Главный вывод: машины ищут не «мусор», а то, что нужно атакующим. Из уязвимостей, которые GTIG сочла вероятной находкой ИИ, ровно 50% дают удалённое выполнение кода (RCE) — высший разряд опасностей. Для остальных CVE этот показатель всего 26%. При этом «средних» по риску дыр среди ИИ-находок 58% против 28% у найденных людьми: автономные агенты целенаправленно роют там, где больнее всего — в критичной инфраструктуре.</p>
+<h3>Поток дыр удвоился</h3>
+<p>Другая половина исследования — про скорость. В январе 2026 года в мире раскрывали 5 045 уязвимостей в месяц, к июлю — 10 477, в августе пик 10 740. Число реально эксплуатируемых дыр подскочило с 10,5 в месяц в 2025-м до 18 в месяц в 2026-м, zero-day — с 8 до 11. Рост Google объясняет не только новыми открытиями, но и быстрой «вооружаемостью» известных недостатков: ИИ-инструменты анализируют патчи и proof-of-concept-код и превращают их в рабочие атаки за часы. Правда, GTIG честно оговаривается: часть всплеска — автоматические CVE-релизы (один только «Linux Kernel» принес ~5 000 CVE, ни одного из них в дикой природе не эксплуатировали).</p>
+<h3>Куда бьют</h3>
+<p>Эксплуатация по-прежнему концентрируется на периметре: сетевые edge-устройства и охранные appliance-устройства дали 14% всех эксплуатируемых уязвимостей 2026 года, и более 65% из них — высокий или критический риск. Рекомендация GTIG организациям: забыть про слепые массовые патчи и перейти к сортировке по threat intelligence плюс «агентная» автоматизация устранения — скорость теперь на обеих сторонах баррикады.</p>
+<h3>Зачем это читать</h3>
+<p>Для канала это редкий случай, когда ИИ-безопасность оцифрована официальным источником, а не конференционным хвастовством. Оговорка про «вероятно найденные ИИ» важна: GTIG оценивает признаки машинного авторства, а не читает промпты исследователей. Но даже с этой поправкой тренд неприятный: оружие у атакующих дешевеет быстрее, чем латки у защитников.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.channele2e.com/news/ai-discovered-vulnerabilities-disproportionately-lead-to-remote-code-execution" rel="noopener">ChannelE2E</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://cloud.google.com/blog/topics/threat-intelligence/vulnerability-discovery-and-exploitation-trends-in-the-ai-era" rel="noopener">Google Cloud Blog — Threat Intelligence (GTIG)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.infosecurity-magazine.com/news/ai-found-vulnerabilities-rce/" rel="noopener">СМИ 1</a> · <a href="https://www.helpnetsecurity.com/2026-10-01/google-ai-discovered-vulnerabilities-remote-code-execution/" rel="noopener">СМИ 2</a> · <a href="https://www.sonatype.com/resources/research/ai-vulnerability-storm" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
