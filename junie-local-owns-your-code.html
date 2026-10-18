@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Junie Local: JetBrains выпустила ИИ-агента для кода, который работает целиком на вашем железе — бесплатно</title>
+<meta name="description" content="JetBrains довела локальную версию своего ИИ-агента для программирования до стабильного состояния: Junie Local работает без облака, токенов и подписки, а с 16 октября поддерживает новую платформу NVIDIA RTX Spark и полноценно запускается на Windows. Код не покидает машину разработчика, а стоить это ничего не стоит.">
+<meta property="og:title" content="Junie Local: JetBrains выпустила ИИ-агента для кода, который работает целиком на вашем железе — бесплатно">
+<meta property="og:image" content="https://cdn.thenewstack.io/media/2026/08/fbe505a6-joshua-woroniecki-lzh3hptjz9c-unsplash-scaled.jpg">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Junie Local: JetBrains выпустила ИИ-агента для кода, который работает целиком на вашем железе — бесплатно</h1>
+<div class="meta">18.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/junie-local-owns-your-code.jpg" alt="">
+<div class="lead">JetBrains довела локальную версию своего ИИ-агента для программирования до стабильного состояния: Junie Local работает без облака, токенов и подписки, а с 16 октября поддерживает новую платформу NVIDIA RTX Spark и полноценно запускается на Windows. Код не покидает машину разработчика, а стоить это ничего не стоит.</div>
+<h3>Что произошло</h3>
+<p>16 октября JetBrains официально объявила, что Junie Local — локальная версия её ИИ-агента для кода — работает «из коробки» на новой платформе NVIDIA RTX Spark (чёрный RTX-графический процессор в паре с центральный процессором Grace в тонких ноутбуках и компактных десктопах), а поддержка Windows перешла из экспериментальной в стабильную. Агент читает проект, правит файлы и запускает тесты прямо на вашем железе: без заряды за токены, без квот, без подписки и без регистрации — код не покидает машину. В первых тестах на RTX Spark агент выдавал до 55 токенов в секунду.</p>
+<h3>Что нужно из железа</h3>
+<p>Летом планка была неприступной: только Mac с M5 и 64 ГБ памяти. Теперь порог сильно снижен. Junie Local запустится на ПК с RTX Spark (Windows 11 на Arm, от 24 ГБ доступной графической памяти) или на обычном Windows-ПК x64 с видеокартой RTX уровня Ampere и новее с 24 ГБ видеопамяти — то есть на RTX 3090, 4090 или 32-гигабайтной 5090. Нужны свежий драйвер (581+) и около 20 ГБ на диске. Агент сам подбирает размер контекстного окна под доступную память графического процессора, считает в формате FP8 на тензорных ядрах Blackwell и ускоряет генерацию спекулятивным декодированием.</p>
+<h3>Какая модель под капотом</h3>
+<p>Локально крутится 27-миллиардная модель: Qwen3.6-27B или собственный склеенный вариант JetBrains — Qwen3.8-3.6-27B-blend. По заявлению JetBrains blend сохраняет уровень программирования Qwen3.8, но думает короче: в сентябрьском релизе фигурировала цифра 71% — на столько меньше выходных токенов по сравнению с Qwen3.8 при большем числе решённых задач. Обещают поддержку и других моделей.</p>
+<h3>Почему это важно</h3>
+<p>JetBrains формулирует идею прямо: «агент, которым ты владеешь, а не который арендуешь». Для компаний это главный аргумент — корпоративный код вообще не выходит за периметр, ни лимитов, ни тарифов. Локальные агентные среды для разработки за последний месяц стали отдельным фронтом гонки: ещё в августе Junie Local требовала топовый Mac, а уже сейчас работает на доступных 24-гигабайтных картах — планка падения цен на локальный ИИ идёт вниз быстрее, чем кажется.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://thenewstack.io/jetbrains-junie-local-agent/" rel="noopener">The New Stack</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://junie.jetbrains.com/blog/junie-local-rtx-spark/" rel="noopener">Junie Blog, JetBrains — официальный анонс</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://thenewstack.io/jetbrains-junie-local-agent/" rel="noopener">СМИ 1</a> · <a href="https://dev.to/jamilxt/junie-local-jetbrains-free-on-device-ai-coding-agent-runs-qwen36-27b-entirely-on-your-mac-59i8" rel="noopener">СМИ 2</a> · <a href="https://resourceshunt.com/blog/nvidia-rtx-spark-local-ai-development" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
