@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amazon выпустила TorchNeuron: код на PyTorch теперь работает на чипах Trainium без переписывания</title>
+<meta name="description" content="Amazon представила TorchNeuron — открытый бэкенд, который запускает обычный код на PyTorch на собственных чипах Trainium смена одной настройки, никакой перекомпиляции и переписывания. 20 октября код опубликуют под открытой лицензией на PyTorch Conference.">
+<meta property="og:title" content="Amazon выпустила TorchNeuron: код на PyTorch теперь работает на чипах Trainium без переписывания">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/amazon-torchneuron-pytorch.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Amazon выпустила TorchNeuron: код на PyTorch теперь работает на чипах Trainium без переписывания</h1>
+<div class="meta">19.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/amazon-torchneuron-pytorch.png" alt="">
+<div class="lead">Amazon представила TorchNeuron — открытый бэкенд, который запускает обычный код на PyTorch на собственных чипах Trainium смена одной настройки, никакой перекомпиляции и переписывания. 20 октября код опубликуют под открытой лицензией на PyTorch Conference.</div>
+<h3>Один конфиг вместо месяцев портирования</h3>
+<p>По оценкам Amazon, 85% исследователей и разработчиков в ИИ пишут код на PyTorch — но железо, на котором этот код реально запускается, куда ограниченнее самого кода. Переход на новые ускорители исторически означал месяцы переписывания и переаттестации моделей. TorchNeuron закрывает этот зазор: существующий скрипт на PyTorch идёт на облачных чипах Trainium после изменения одной конфигурационной настройки, без переписывания кода.</p>
+<h3>Как это работает</h3>
+<p>TorchNeuron — нативный бэкенд PyTorch для Trainium, построенный на штатном механизме регистрации стороннего железа PrivateUse1. Поэтому привычные инструменты отладки, тестирования и масштабирования работают на Trainium без модификаций. В парной демонстрации инженеры Amazon запускали один и тот же скрипт обучения на «обычном» чипе и на Trainium: модель обучалась с той же скоростью и приходила к тем же результатам. Под капотом — стек AWS Neuron SDK, который уже поддерживает Trainium2 и Trainium3.</p>
+<h3>Зачем это рынку</h3>
+<p>Главная цена в ИИ — не чип, а инженерное время: каждая неделя адаптации софта под новое железо — это неделя без развития продукта. Для крупных компаний важен и другой эффект: один парк железа начинает закрывать и обучение, и инференс — ночью простаивающие мощности переключаются с inference на training. Пресса (TechCrunch, Moneycontrol) уже окрестила это «самым сильным ударом по Nvidia», и в этом есть логика: CUDA-экосистема держалась именно на стоимости портирования, а Amazon обнуляет этот барьер в пользу своего кремния, чей бизнес уже превысил $25 млрд годовой выручки.</p>
+<h3>Кто уже на борту</h3>
+<p>Ранние пользователи TorchNeuron — компании из робототехники, видеоаналитики, world-моделей, автономного вождения, голосового ИИ, разработки лекарств, LLM и финтеха. Все они перешли на Trainium без переписывания кода. Код обещают открыть 20 октября на PyTorch Conference North America — тогда же станет ясно, хватит ли его производительности не только для «безболезненного», но и для «выгодного» перехода.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://techcrunch.com/2026/10/19/amazon-is-taking-its-biggest-shot-at-nvidia-yet-with-new-torchneuron-dev-tool/" rel="noopener">TechCrunch</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.aboutamazon.com/news/innovation-at-amazon/torchneuron-pytorch-aws-trainium-chips-ai" rel="noopener">Amazon News (официальный анонс)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/amazon-launches-trainium3-ai-accelerator-competing-directly-against-blackwell-ultra-in-fp8-performance-new-trn3-gen2-ultraserver-takes-vertical-scaling-notes-from-nvidias-playbook" rel="noopener">СМИ 1</a> · <a href="https://www.moneycontrol.com/news/business/amazon-takes-aim-at-nvidia-s-ai-chip-dominance-with-new-torchneuron-software-14055679.html" rel="noopener">СМИ 2</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
