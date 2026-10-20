@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ServiceNow выдала ИИ-агентам «паспорта»: криптографический контроль полномочий с рубильником на скорости машины</title>
+<meta name="description" content="ServiceNow представила AI Passport — криптографически подписанное удостоверение, которое ИИ-агент предъявляет в момент выполнения каждой операции. Паспорт задаёт границы дозволенного, а при выходе за них включаются ступенчатые меры — от ограничения до мгновенного отключения.">
+<meta property="og:title" content="ServiceNow выдала ИИ-агентам «паспорта»: криптографический контроль полномочий с рубильником на скорости машины">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/servicenow-ai-passport.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>ServiceNow выдала ИИ-агентам «паспорта»: криптографический контроль полномочий с рубильником на скорости машины</h1>
+<div class="meta">20.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/servicenow-ai-passport.png" alt="">
+<div class="lead">ServiceNow представила AI Passport — криптографически подписанное удостоверение, которое ИИ-агент предъявляет в момент выполнения каждой операции. Паспорт задаёт границы дозволенного, а при выходе за них включаются ступенчатые меры — от ограничения до мгновенного отключения.</div>
+<h3>Что такое AI Passport</h3>
+<p>ServiceNow анонсировала AI Passport — новый «слой полномочий» для корпоративных ИИ-агентов и MCP-серверов. По сути это криптографически подписанное удостоверение, которое агент сверяет в рантайме на каждом шаге многосценарного рабочего процесса: с какими данными и инструментами ему можно работать, какие действия разрешены и кто это авторизовал. Пока агент не выходит за рамки паспорта — он работает свободно; при «дрейфе» полномочий включаются ступенчатые реакции: перенаправление, ограничение, возврат контекста — вплоть до рубильника (kill switch) на скорости машины, если агент нужно остановить.</p>
+<h3>Открытые спецификации и связка с NVIDIA</h3>
+<p>Паспорт построен на открытых спецификациях: выпускать и проверять удостоверения своих и сторонних агентов сможет любой продукт управления, поставщик удостоверений личности (identity provider) или точка контроля. В анонсе отдельно названа среда NVIDIA OpenShell — то есть паспорт задуман не как проприетарный замок ServiceNow, а как общий стандарт проверяемых полномочий для агентских рантаймов. Полную запись действий («кто разрешил и кто исполнил») ведёт Super Intelligence Control Tower — расширенный ранее AI Control Tower, который также показывает, какой ИИ вообще запущен в компании, и сопоставляет расходы с результатами.</p>
+<h3>Почему это важно после недели «инсайдеров»</h3>
+<p>Анонс попадает ровно в ту же дискуссию, что вчера подняла Microsoft, объявив ИИ-агентов потенциальными «инсайдерами», а фронтир-модели — Недоверенными (мы писали об этом отдельно). Практика подтверждает опасения: на прошлой неделе исследователь Снорре Фагерланд описал, как один хакер с ИИ-агентами и несколькими тысячами долларов взломал больше сотни сайтов. Ответ индустрии вырисовывается общий: агенту мало «умной модели» — нужны проверяемые рамки полномочий, аудит и кнопка остановки. ServiceNow, у которой тысячи клиентов-корпораций, делает ставку именно на это.</p>
+<h3>Живые цифры</h3>
+<p>Среди первых откликов — индийский аутсорсер LTM Limited: компания развернула 1 500 ИИ-агентов, каждому выдан служебный идентификатор и «руководитель» для подотчётности, а Control Tower стал единым реестром ИИ-активов — инвентарь, риски, соответствие требованиям. Вице-президент ServiceNow Джон Сиглер формулирует идею коротко: одной видимости мало, предприятиям нужна уверенность, что каждый агент действует в разрешённой зоне.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://smestreet.in/technology/servicenow-introduces-ai-passport-to-secure-ai-agents-12691300" rel="noopener">SMEStreet</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-advances-its-operational-harness-for-enterprise-AI-with-AI-Passport-and-expanded-governance-capabilities/default.aspx" rel="noopener">Пресс-релиз ServiceNow Newsroom</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://futurumgroup.com/insights/servicenows-ai-passport-closes-the-agentic-governance-gap/" rel="noopener">СМИ 1</a> · <a href="https://www.businesswire.com/news/home/20260505712561/en/ServiceNow-expands-AI-Control-Tower-to-discover-observe-govern-secure-and-measure-AI-deployed-across-any-system-in-the-enterprise" rel="noopener">СМИ 2</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
