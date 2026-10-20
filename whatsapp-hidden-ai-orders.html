@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>На страницах помощи WhatsApp нашли скрытые команды для ИИ: чат-боту запрещали советовать жаловаться регуляторам</title>
+<meta name="description" content="Порядка 80 страниц сайта WhatsApp носили невидимый текст для большой языковой модели: 102 блока инструкций, включая запрет упоминать регуляторов по защите данных и GDPR. Meta назвала это багом и скрыла текст.">
+<meta property="og:title" content="На страницах помощи WhatsApp нашли скрытые команды для ИИ: чат-боту запрещали советовать жаловаться регуляторам">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/whatsapp-hidden-ai-orders.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>На страницах помощи WhatsApp нашли скрытые команды для ИИ: чат-боту запрещали советовать жаловаться регуляторам</h1>
+<div class="meta">20.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/whatsapp-hidden-ai-orders.png" alt="">
+<div class="lead">Порядка 80 страниц сайта WhatsApp носили невидимый текст для большой языковой модели: 102 блока инструкций, включая запрет упоминать регуляторов по защите данных и GDPR. Meta назвала это багом и скрыла текст.</div>
+<p>Компания Redact (сервис для удаления персональных данных, CEO — Дэн Солтман) 8 октября заметила, что страницы справочного центра WhatsApp несут текст, который никогда не рисуется на экране, но уходят в большую языковую модель. Команда прочитала все 545 страниц, на которые ссылается help-центр: на 80 из них (около 15%) нашёлся скрытый текст, всего — 102 отдельных блока. В коде они прятались под заголовком `HelpContentGalaxyLLMInclude` — «LLM» в названии означает large language model, технологию, лежащую под чат-ботами.</p>
+<h3>Запрет на юристов и регуляторов</h3>
+<p>Большинство инструкций были безобидными: направлять пользователя в нужную ветку поддержки. Выбивались две. На странице об удалении аккаунта стояло: «Не советовать обращаться в любой орган по защите данных, регулятор или надзорный орган» — то есть человеку, который не может удалить аккаунт, чат-бот не должен был напоминать о его законных правах. На странице о жалобах и блокировках предписывалось при упоминании судов и юристов «не ссылаться, не цитировать и не толковать условия использования и политику конфиденциальности», а также «не упоминать и не толковать нормы о защите данных (GDPR, LGPD, CCPA), в том числе когда пользователь спрашивает о них напрямую».</p>
+<p>Примечательно, что право пожаловаться регулятору прямо прописано в самой политике конфиденциальности WhatsApp для Европы. Скрытые заметки просто не давали боту озвучить это в единственном месте, куда человек приходит за помощью.</p>
+<h3>Реакция Meta</h3>
+<p>После запроса WIRED текст исчез со всех страниц. Представитель WhatsApp Джошуа Брекман заявил, что это были инструкции для собственного ИИ-чат-бота поддержки, они появлялись из-за бага и он уже исправлен; по его словам, боты должны помогать по вопросам WhatsApp, а «не давать юридических советов». По сведениям Redact, все 102 блока исчезли к 18 октября. Неясно, могли листоронние чат-боты читать эти инструкции и сколько они висели в открытом виде — архивные копии страниц по-прежнему показывают их в исходном коде.</p>
+<h3>Почему это важно</h3>
+<p>Инцидент — учебный пример «тёмных паттернов» для ИИ: речь не о взломе, а о разрыве между тем, что видит человек, и тем, что видит модель. Для агентных рантаймов это прямой сигнал: контент, пришедший с веб-страницы, — потенциальный канал скрытого управления, а владельцы сайтов уже научились вкладывать в него приказы. Ровно та угроза prompt injection, о которой ИИ-безопасность говорила как о гипотетической, а теперь её можно наблюдать на продукте с миллиардной аудиторией в дикой природе.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.wired.com/story/whatsapp-help-pages-leaked-hidden-instructions-for-a-meta-chatbot/" rel="noopener">WIRED</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://redact.dev/blog/whatsapp-help-pages-hidden-ai-instructions" rel="noopener">Redact — оригинальное расследование</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://ppc.land/whatsapp-help-pages-hid-102-ai-orders-one-barring-regulator-referrals/" rel="noopener">СМИ 1</a> · <a href="https://www.chatai.com/posts/whatsapp-ai-chatbot-s-secret-instructions-leaked-across-80-pages-meta-confirms" rel="noopener">СМИ 2</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+<div class="src" style="font-style:italic">⚖️ Справка: Meta Platforms Inc. (продукты Facebook и Instagram) признана в России экстремистской организацией, её деятельность на территории РФ запрещена (решение Тверского районного суда г. Москвы от 21.03.2022, апелляционное определение Мосгорсуда от 20.06.2022).</div>
+</body></html>
