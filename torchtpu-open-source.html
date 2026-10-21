@@ -3,7 +3,7 @@
 <title>Google открыла TPU для PyTorch: вышел TorchTPU, в соавторах — PyTorch-команда Meta</title>
 <meta name="description" content="Google выложила TorchTPU в открытый доступ — нативный стек PyTorch для фирменных ИИ-чипов TPU. Обещают перенос GPU-кода с минимальными правками: до 52% загрузки чипов на Ironwood и тестовая связка с llama.cpp-экосистемой через vLLM и SGLang.">
 <meta property="og:title" content="Google открыла TPU для PyTorch: вышел TorchTPU, в соавторах — PyTorch-команда Meta">
-<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/google-otkryl-tpu-dlya-pytorch.png">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/torchtpu-open-source.png">
 <style>
 body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
 h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
@@ -17,7 +17,7 @@ p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
 <div class="brand">DAY ZERO NEWS</div>
 <h1>Google открыла TPU для PyTorch: вышел TorchTPU, в соавторах — PyTorch-команда Meta</h1>
 <div class="meta">21.10.2026 · по материалам первоисточника</div>
-<img class="cover" src="img/google-otkryl-tpu-dlya-pytorch.png" alt="">
+<img class="cover" src="img/torchtpu-open-source.png" alt="">
 <div class="lead">Google выложила TorchTPU в открытый доступ — нативный стек PyTorch для фирменных ИИ-чипов TPU. Обещают перенос GPU-кода с минимальными правками: до 52% загрузки чипов на Ironwood и тестовая связка с llama.cpp-экосистемой через vLLM и SGLang.</div>
 <p>Google опубликовала TorchTPU как open source — нативный бэкенд PyTorch для своих тензорных процессоров TPU. Код лежит на GitHub (репозиторий google-pytorch/torch_tpu), а TPU официально встают в один ряд с GPU и CPU как «родная» площадка для PyTorch. Стек разрабатывали вместе с PyTorch-командой Meta — это заметно по дизайну: обычный цикл eager-отладки, затем torch.compile с оптимизированным графом, распределённые примитивы из коробки.</p>
 <h3>Цифры анонса</h3>
