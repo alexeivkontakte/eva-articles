@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Broadcom представила HyperArmor: гипервизор VMware ESX защищают от ИИ-атак «на живую»</title>
+<meta name="description" content="Broadcom выпустила VMware HyperArmor — защиту гипервизора ESX от ИИ-ускоренных атак: виртуальные патчи без перезагрузки, «позитивные» ограничители кода и многофакторная аутентификация прямо на уровне гипервизора.">
+<meta property="og:title" content="Broadcom представила HyperArmor: гипервизор VMware ESX защищают от ИИ-атак «на живую»">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/vmware-hyperarmor-zashchita-esx-ot-ii-atak.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Broadcom представила HyperArmor: гипервизор VMware ESX защищают от ИИ-атак «на живую»</h1>
+<div class="meta">22.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/vmware-hyperarmor-zashchita-esx-ot-ii-atak.png" alt="">
+<div class="lead">Broadcom выпустила VMware HyperArmor — защиту гипервизора ESX от ИИ-ускоренных атак: виртуальные патчи без перезагрузки, «позитивные» ограничители кода и многофакторная аутентификация прямо на уровне гипервизора.</div>
+<h3>Зачем гипервизору защита от ИИ</h3>
+<p>Broadcom представила VMware HyperArmor — решение, которое закрывает гипервизор ESX в составе VMware Cloud Foundation (VCF) от так называемых ИИ-ускоренных киберугроз. Смысл сдвига, на который ссылается анонс, простой: автономные ИИ-агенты находят и эксплуатируют уязвимости нулевого дня быстрее, чем вендор успевает выпустить и установить обычный патч. Окно между появлением дыры и её закрытием измеряется уже не месяцами, а часами — и именно это окно HyperArmor обещает схлопнуть.</p>
+<h3>Как это устроено</h3>
+<p>Три основных механизма, судя по официальному анонсу VMware. Первый — виртуальное патирование на уровне хоста: вредоносное поведение блокируется на гипервизоре ещё до выхода настоящего патча, без простоя и без обновления ПО. Второй — «позитивные» ограничители (positive security guardrails): вместо чёрных списков разрешается только заранее известное доброе поведение, всё остальное отсекается. Третий — многофакторная аутентификация на уровне самого гипервизора, в том числе для SSH-доступа к ESX: украденный ключ администратора больше не должен открывать хост целиком.</p>
+<h3>Почему это важно именно сейчас</h3>
+<p>Гипервизор — идеальная цель: один скомпрометированный ESX отдаёт атакующему десятки виртуальных машин целиком. Осенние инциденты с массовыми атаками на ESXi показали, что гипервизоры взламывают и реально вымогают деньги за «тихую» эксплуатацию. А после того как ИИ-модели начали сами находить дыры в инфраструктурном коде, оборона без человека на дозорном участке становится не экзотикой, а необходимостью. Примечательно, что анонс HyperArmor совпал по времени с другой горячей историей недели — массовыми атаками через критическую уязвимость в PHP, которую, по предварительным данным, нашли с помощью ИИ-агентов.</p>
+<h3>Что это значит для администраторов</h3>
+<p>Broadcom подчёркивает: защита включается без остановки рабочих нагрузок и без апгрейда — то есть обходят главное оправдание «патч поставим в следующее окно». Практический вывод для владельцев VCF-средств прежний: окно между публикацией уязвимости и патчем всё равно нужно сокращать вручную, а HyperArmor стоит рассматривать как страховку на случай, когда патча ещё нет. Официального анонса аналогичной «виртуальной брони» для гипервизоров от российских вендоров на момент публикации статьи не было.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.heise.de/news/VMware-HyperArmor-schuetzt-ESX-Hypervisor-vor-KI-Angriffen-11496495.html" rel="noopener">Heise Online</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://blogs.vmware.com/cloud-foundation/2026-10-13/proactive-hypervisor-defense-introducing-vmware-hyperarmor/" rel="noopener">Официальный блог VMware Cloud Foundation</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.broadcom.com/company/news/product-releases/64761" rel="noopener">СМИ 1</a> · <a href="https://www.sdxcentral.com/news/broadcom-arms-vmware-security-with-hyperarmor/" rel="noopener">СМИ 2</a> · <a href="https://www.channeldive.com/news/broadcom-vmware-hypervisor-security-software-ai-attacks/833031/" rel="noopener">СМИ 3</a> · <a href="https://futurumgroup.com/insights/broadcoms-hyperarmor-brings-virtual-patching-to-the-hypervisor/" rel="noopener">СМИ 4</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
