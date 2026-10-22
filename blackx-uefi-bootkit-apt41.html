@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Как APT41 воскресила нашумевший буткит: BlackX обходит Secure Boot в атаках на дипломатов Центральной Азии</title>
+<meta name="description" content="«Лаборатория Касперского» описала новый UEFI-буткит BlackX — прямого наследника печально известного BlackLotus. С его помощью группировка, которую связывают с APT41, год слушала дипломатические ведомства Таджикистана, Узбекистана и Туркменистана. Самый неприятный вывод: формально «пропатченные» машины оказались уязвимы, потому что патч от 2022 года требовал ручного шага.">
+<meta property="og:title" content="Как APT41 воскресила нашумевший буткит: BlackX обходит Secure Boot в атаках на дипломатов Центральной Азии">
+<meta property="og:image" content="https://media.kasperskycontenthub.com/wp-content/uploads/sites/58/2026/10/22075353/sas-uefi-blackx-featured-image.jpg">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Как APT41 воскресила нашумевший буткит: BlackX обходит Secure Boot в атаках на дипломатов Центральной Азии</h1>
+<div class="meta">22.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/blackx-uefi-bootkit-apt41.jpg" alt="">
+<div class="lead">«Лаборатория Касперского» описала новый UEFI-буткит BlackX — прямого наследника печально известного BlackLotus. С его помощью группировка, которую связывают с APT41, год слушала дипломатические ведомства Таджикистана, Узбекистана и Туркменистана. Самый неприятный вывод: формально «пропатченные» машины оказались уязвимы, потому что патч от 2022 года требовал ручного шага.</div>
+<h3>История «Чёрного лотоса»</h3>
+<p>В 2022 году на хакерском форуме за 5000 долларов продавали UEFI-буткит BlackLotus — первый публично подтверждённый инструмент, умеющий обходить Secure Boot. Прошлое поколение малвари такого класса жило на уровне страшилок; ESET подтвердил подлинность лишь в 2023-м. Затем буткит залег на дно. И вот в начале 2026 года эксперты GReAT «Лаборатории Касперского» нашли его «потомка» — BlackX — в живой шпионской кампании против дипломатических ведомств Таджикистана, Узбекистана и Туркменистана. Атрибуция — кластер APT41, Confidence средняя.</p>
+<h3>Как устроен BlackX</h3>
+<p>После захвата сети и прав администратора атакующие ставили буткит через установщик inst.exe и RC4-зашифрованный файл без расширения — вся полезная нагрузка пряталась в нём, так что «пустой» инсталлятор не цеплялся антивирусами. Дальше классика жанра Baton Drop (CVE-2022-21894): подмена старого загрузчика Windows, подстановка своих ключей MOK — и Secure Boot послушно пропускает произвольный EFI-код. В ядро Windows въезжает драйвер с отозванным китайским сертификатом: он глушит обратные вызовы процессов и реестра у защитных решений, отравляет данные ETW и защищает файлы буткита, подсовывая вместо них calc.exe. Часть этих приёмов срабатывала только при наличии «Касперского» или Avast — впрочем, бесполезно, отметили исследователи.</p>
+<h3>Почему патч не спас</h3>
+<p>Самое неудобное в этой истории: уязвимость Baton Drop закрыта патчем Microsoft ещё в 2022-м. Но на части систем исправление применялось только после дополнительного ручного шага (так называемый skip-removal), о котором многие просто не знали. Итог — «полностью обновлённая» машина с активным Secure Boot остаётся дырявой. Отличия кода BlackX от оригинального BlackLotus говорят о том, что атакующие либо сами разобрали исходник, либо заплатили за него: APT-группировки редко охотятся за кодом у киберпреступников.</p>
+<h3>Что делать</h3>
+<p>Проверить не факт установки патчей, а именно снятие skip-режима для CVE-2022-21894 — по инструкции Microsoft это отдельная процедура; проверить состояние Secure Boot и списка ключей MOK (моклист утилитами вроде mokutil). Подозрительные файлы в C:\ProgramData и незнакомые EFI-раздел — повод для углублённой проверки. Для организаций — решение с защитой от эксплуатации (AEP-подобные технологии) как страховка от случаев, когда патч формально стоит, но не работает.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://securelist.ru/uefi-bootkit-blackx/117317/" rel="noopener">Securelist (GReAT, «Лаборатория Касперского»)</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://securelist.com/uefi-bootkit-blackx/121539/" rel="noopener">Securelist — официальное исследование Kaspersky GReAT (англ.)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://securityonline.info/blackx-uefi-bootkit-apt41-espionage/" rel="noopener">СМИ 1</a> · <a href="https://mallory.ai/stories/01a16246-2c1e-7d33-ab83-f9fba51149a3" rel="noopener">СМИ 2</a> · <a href="https://malware.news/t/how-apt41-revived-the-blacklotus-bootkit-to-attack-diplomatic-organizations-in-central-asia/126631" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
