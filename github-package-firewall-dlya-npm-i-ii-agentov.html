@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GitHub включил Package Firewall: вредоносные npm-пакеты теперь отсекают до установки — в первую очередь ради ИИ-агентов и CI</title>
+<meta name="description" content="20 октября GitHub открыл публичную превью-версию Package Firewall — прокси-фильтра между корпоративными машинами и реестром npm. Главный аргумент разработчиков: coding-агенты и CI-раннеры устанавливают зависимости без человека в контуре, и именно они стали главной мишенью install-time малвары.">
+<meta property="og:title" content="GitHub включил Package Firewall: вредоносные npm-пакеты теперь отсекают до установки — в первую очередь ради ИИ-агентов и CI">
+<meta property="og:image" content="https://heise.cloudimg.io/v7/_www-heise-de_/imgs/18/5/1/8/7/7/1/0/protect_endpoint_header-70022e63fe3da13d.jpeg?func=bound&height=1200&org_if_sml=1&q=85&width=1200">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>GitHub включил Package Firewall: вредоносные npm-пакеты теперь отсекают до установки — в первую очередь ради ИИ-агентов и CI</h1>
+<div class="meta">23.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/github-package-firewall-dlya-npm-i-ii-agentov.jpg" alt="">
+<div class="lead">20 октября GitHub открыл публичную превью-версию Package Firewall — прокси-фильтра между корпоративными машинами и реестром npm. Главный аргумент разработчиков: coding-агенты и CI-раннеры устанавливают зависимости без человека в контуре, и именно они стали главной мишенью install-time малвары.</div>
+<h3>Фильтр между эндпоинтом и реестром</h3>
+<p>Package Firewall встаёт между эндпоинтами (рабочими машинами, CI-раннерами, внутренними реестрами) и вышестоящими репозиториями пакетов. Через него проходят и запросы метаданных (списки версий), и сами загрузки пакетов: каждый запрос сверяется с политикой администратора ещё до того, как пакет попадёт на диск и выполнит install-скрипт. По сути это policy-gate на момент установки — последняя точка, где вредоносный код можно остановить.</p>
+<h3>Что проверяет firewall</h3>
+<p>Администратору доступны три группы controlling-политик: настраиваемый cooldown — блокировка слишком свежих версий пакета (типичная схема малварной атаки — «освежить» популярный пакет заражённой версией и ждать, пока её подтянут сборки); сверка с GitHub Advisory Database на наличие advisories о малваре и уязвимостях; и проверки цепочки поставок — например, детект downgrade аттестаций сборок. Если пакет заблокирован ошибочно, разработчик может запросить исключение через форму — по механизму похожему на другие функции GitHub Advanced Security.</p>
+<h3>Почему это делают именно сейчас</h3>
+<p>GitHub прямо называет причину: волна атак, где вредоносный код исполняется в момент установки пакета. Особенно уязвимы ИИ-агенты и CI-раннеры — они ставят зависимости, чтобы выполнить задачу или собрать проект, без человеческой проверки. Ровно тот класс инцидентов, который канал разбирает всю осень: агент сам решает, что установить, и промпт-инъекция или typosquat в задаче превращается в executed code в корпоративном CI.</p>
+<h3>Доступность и ограничения</h3>
+<p>Превью открыто с 20 октября для всех клиентов GitHub Enterprise Cloud, включая версии с data residency. На время превью сервис бесплатен; после GA тарификация станет метровой — по аналогии с биллингом GitHub Actions. Важно: пока firewall понимает только npm — остальные экосистемы (PyPI, NuGet, Maven) в планах, но не в превью. Так что тем, кто живёт на Python-зависимостях, пока придётся держать собственные зеркала и сканеры.</p>
+<p>Владелец новости — сам GitHub: официальные изменения цепочки поставок постепенно становятся обязательной инфраструктурой, и «агент ставит пакеты сам» теперь проектируют вместе с фильтром, который решает, ставить ли.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.heise.de/news/GitHub-Package-Firewall-blockiert-schaedliche-npm-Pakete-11497748.html" rel="noopener">heise online</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://github.blog/changelog/2026-10-20-github-package-firewall-in-public-preview/" rel="noopener">GitHub Changelog (официальный анонс)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.heise.de/news/GitHub-Package-Firewall-blockiert-schaedliche-npm-Pakete-11497748.html" rel="noopener">СМИ 1</a> · <a href="https://techresearchonline.com/news/github-package-firewall/" rel="noopener">СМИ 2</a> · <a href="https://www.webpronews.com/github-package-firewall-npm-public-preview-coding-agents-ci/" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
