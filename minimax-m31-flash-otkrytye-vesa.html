@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MiniMax открыла веса M3.1 Flash: модель на 428 млрд параметров для агентов и кибербезопасности</title>
+<meta name="description" content="Китайская MiniMax выложила открытые веса M3.1 Flash на Hugging Face: MoE-модель с 428 млрд общих и 23 млрд активных параметров, контекстом в миллион токенов и результатом 82,2% на тесте поиска уязвимостей CyberGym.">
+<meta property="og:title" content="MiniMax открыла веса M3.1 Flash: модель на 428 млрд параметров для агентов и кибербезопасности">
+<meta property="og:image" content="https://habr.com/share/publication/1098434/03ad8233a48882386e32581423688b21/">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>MiniMax открыла веса M3.1 Flash: модель на 428 млрд параметров для агентов и кибербезопасности</h1>
+<div class="meta">23.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/minimax-m31-flash-otkrytye-vesa.jpg" alt="">
+<div class="lead">Китайская MiniMax выложила открытые веса M3.1 Flash на Hugging Face: MoE-модель с 428 млрд общих и 23 млрд активных параметров, контекстом в миллион токенов и результатом 82,2% на тесте поиска уязвимостей CyberGym.</div>
+<p>Компания MiniMax 23 октября опубликовала открытые веса модели M3.1 Flash на Hugging Face. Это next-generation «Flash»-модель для агентных задач:программирования, многошаговых цепочек с вызовом инструментов, управления компьютером и анализа уязвимостей. Всего в архитектуре MoE около 428 млрд параметров, но на каждый токен активируется примерно 23 млрд — отсюда высокая скорость инференса. Модель принимает текст, изображения и видео, контекстное окно достигает миллиона токенов.</p>
+<h3>Бенчмарки: сильно, но не везде первая</h3>
+<p>Официальный анонс приводит такие цифры: 73,7% на DeepSWE v1.1 (сложные задачи разработки), 61,7 балла на OSWorld V2 (управление компьютером), 76,2 на BankerToolBench (финансовые сценарии с инструментами) и 82,2% на CyberGym — тесте поиска и проверки уязвимостей. Именно CyberGym делает модель интересной для безопасности: это один из лучших открытых результатов в агентном фаззинге и анализа кода. При этом лидером во всех категориях M3.1 Flash не стала: на DeepSWE у DeepSeek V4.1 Flash-1017 — 77%, а на OSWorld у Claude Opus 5 — 70,6.</p>
+<h3>Как ускорена работа</h3>
+<p>За скорость отвечают три механизма: разреженное внимание MiniMax Sparse Attention, спекулятивное декодирование DSpark и обучение с учётом квантизации (QAT). Компания обещает nearly трёхкратный рост скорости онлайнового инференса и снижение стоимости использования на 70% по сравнению с предыдущим поколением. Любопытная деталь из анонса: анонимный аккаунт «Space Bunny», накануне обработавший более 200 трлн токенов на открытых платформах, оказался ранней версией этой модели.</p>
+<h3>Что нужно для запуска</h3>
+<p>Веса доступны под MiniMax Community License, в документации есть инструкции для vLLM и SGLang. Но 23 млрд активных параметров не означают, что хватит памяти под такой объём: хранить нужно весь набор весов, а это порядка 250 ГБ даже в 8-битной сборке — потребуется серьёзная многокарточная инфраструктура или сильно квантизованная сборка. Для тех, у кого такой инфраструктуры нет, модель остаётся доступной через MiniMax API и их агентский продукт MiniMax Code.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://habr.com/ru/companies/bothub/news/1098434/" rel="noopener">Хабр</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.minimax.io/blog/minimax-m31f" rel="noopener">Официальный блог MiniMax</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://featherless.ai/blog/minimax-m3-1-flash-is-live-on-featherless" rel="noopener">СМИ 1</a> · <a href="https://cellcog.ai/blog/minimax-m3-1-flash/" rel="noopener">СМИ 2</a> · <a href="https://aimlapi.com/blog/minimax-m3-1-flash-review" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
