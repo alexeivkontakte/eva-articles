@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PHP2Shell: ИИ нашёл в ядре PHP уязвимости, от которых «чуть не сломался интернет»</title>
+<meta name="description" content="Исследователи Wiz при помощи frontier-моделей ИИ нашли в самом движке PHP критические уязвимости (CVE-2026-109618 и CVE-2026-109619, CVSS 9.2), позволяющие чужаку выполнить код на сервере. PHP работает примерно на 70% сайтов мира — задеты все версии за последнее десятилетие, включая WordPress и MediaWiki. Патчи вышли 21 октября, CISA выпустила экстренное предупреждение.">
+<meta property="og:title" content="PHP2Shell: ИИ нашёл в ядре PHP уязвимости, от которых «чуть не сломался интернет»">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/php2shell-ii-nashel-rce-v-php.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>PHP2Shell: ИИ нашёл в ядре PHP уязвимости, от которых «чуть не сломался интернет»</h1>
+<div class="meta">24.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/php2shell-ii-nashel-rce-v-php.png" alt="">
+<div class="lead">Исследователи Wiz при помощи frontier-моделей ИИ нашли в самом движке PHP критические уязвимости (CVE-2026-109618 и CVE-2026-109619, CVSS 9.2), позволяющие чужаку выполнить код на сервере. PHP работает примерно на 70% сайтов мира — задеты все версии за последнее десятилетие, включая WordPress и MediaWiki. Патчи вышли 21 октября, CISA выпустила экстренное предупреждение.</div>
+<h3>Две дыры в фундаменте веба</h3>
+<p>Команда Wiz Research объявила об открытии PHP2Shell — цепочке критических уязвимостей в самом ядре PHP, а не в надстроенных над ним сайтах. Речь о CVE-2026-109618 (удалённое выполнение кода через повреждение памяти при нехватке OOM-памяти) и CVE-2026-109619 (утечка содержимого памяти процесса — туда попадают пароли, токены и API-ключи чужих запросов). Обе оценке CVSS v4.0 — 9.2. Поражены все версии PHP последнего десятилетия, начиная с 5.4, а PHP — это около 70% веба: WordPress, Joomla, MediaWiki с «Википедией» внутри.</p>
+<h3>Роль ИИ — не маркетинг</h3>
+<p>Wiz прямо пишет: сами ошибки жили в коде десятилетиями, но демонстративно проэксплуатировать их человек практически не мог — цепочка шагов слишком сложна. Frontier-модели ИИ сократили разработку и адаптацию эксплойта под разные приложения до часов. Wiz называет это поворотной точкой для «эры ИИ» после Heartbleed и Log4Shell: сложность кода перестаёт быть защитой, потому что машиной её вскрывать стало недорого. В открытии и координации участвовали команды OpenAI и исследовательская группа Calif; CISA 21 октября выпустила отдельное предупреждение с призывом патчить немедленно.</p>
+<h3>Что уже случилось после патча</h3>
+<p>Выпуски PHP 8.5.12, 8.4.27, 8.3.36 и 8.2.35 (плюс патчи для снятых с поддержки 7.4/8.0/8.1) закрыли обе дыры 21 октября. 23 октября PHP-проект предупредил ещё об одном, куда более экзотическом векторе CVE-2026-115560: сработать он может только при редком сочетании настроек (session.serialize_handler plus переключение через ini_set), по умолчанию не работает; как временная защита — параметр session.upload_progress.enabled=0. Cloudflare, Fastly, Google, Microsoft и Vercel заранее выпустили экранные правила для тех, кто не может обновиться сразу.</p>
+<h3>Что делать, если у вас сервер на PHP</h3>
+<p>Практика простая: обновить PHP до закрытых версий — единственная полная защита; при задержке с обновлением включить WAF-правила от хостера или CDN и поставить session.upload_progress.enabled=0; после обновления проверить сервер на признаки компрометации (подозрительные процессы, свежие cron-задачи, изменившиеся файлы) — утечка памяти предшествовала патчу месяцами, и никто не знает, кто ещё нашёл дыру первым. Российским владельцам сайтов стоит помнить: рекомендации ФСТЭК по оперативному закрытию опасных уязвимостей в значимых объектах информинфраструктуры никуда не девались, а PHP — самая массовая платформа в российском веб-хостинге.</p>
+<h3>Почему это важно за пределами одной дыры</h3>
+<p>PHP2Shell — первый громкий случай, когда ИИ стал соавтором находки уровня «сердце веба». Те же модели, что помогают защитникам, сокращают и работу наступающим: NBC уже окрестил это «головокружительной гонкой» между обороняющимися и атакующими. Ответ индустрии — не запретить модели, а перестроить процесс: координированное раскрытие, отраслевые экраны и патчи за считанные дни стали нормой именно потому, что на поиск уязвимости теперь уходят часы, а не годы.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.wiz.io/blog/php2shell-php-rce" rel="noopener">Wiz Research (блог)</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.php.net/archive/2026.php" rel="noopener">Официальное уведомление PHP.net о критическом выпуске</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://techcrunch.com/2026-10-24/php-ocalypse-how-two-critical-web-bugs-almost-broke-the-internet/" rel="noopener">СМИ 1</a> · <a href="https://www.nbcnews.com/tech/security/ai-cybersecurity-hackers-php-flaws-rcna605276" rel="noopener">СМИ 2</a> · <a href="https://www.cisa.gov/news-events/alerts/2026-10-21/critical-vulnerabilities-php-require-immediate-patching" rel="noopener">СМИ 3</a> · <a href="https://habr.com/ru/news/1098822/" rel="noopener">СМИ 4</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
