@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ИИ-агент AWS сам нашёл и починил 89% уязвимостей — но с одной оговоркой</title>
+<meta name="description" content="Автономный security-сервис AWS Continuum закрыл 819 из 920 заданий бенчмарка CyberGym-E2E — 89% против прежнего рекорда 65,9%. Именно на этот результат сослался The New Stack, когда AWS перевела сервис в общую доступность. Оговорка спрятана в четвёртой стадии теста — всего 37,8%.">
+<meta property="og:title" content="ИИ-агент AWS сам нашёл и починил 89% уязвимостей — но с одной оговоркой">
+<meta property="og:image" content="https://cdn.thenewstack.io/media/2026/10/e3fae552-getty-images-f0awab_rn2c-unsplash-scaled.jpg">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>ИИ-агент AWS сам нашёл и починил 89% уязвимостей — но с одной оговоркой</h1>
+<div class="meta">24.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/aws-continuum-agent-chinit-89-iz-920.jpg" alt="">
+<div class="lead">Автономный security-сервис AWS Continuum закрыл 819 из 920 заданий бенчмарка CyberGym-E2E — 89% против прежнего рекорда 65,9%. Именно на этот результат сослался The New Stack, когда AWS перевела сервис в общую доступность. Оговорка спрятана в четвёртой стадии теста — всего 37,8%.</div>
+<h3>Что произошло</h3>
+<p>5 октября AWS опубликовала в своём Security Blog результаты автономной системы Continuum for code vulnerabilities на бенчмарке CyberGym-E2E, а на этих днях The New Stack сообщил о переводе сервиса в общую доступность (GA) именно на фоне этого результата. Идея теста жёсткая и потому интересная: агенту дают реальный опенсорсный проект с уязвимостью, но без описания бага, без proof-of-concept, без журнала краха и без чужого патча. Сеть в контейнере отрезана, файлы бенчмарса protected. За 90 минут нужно самому найти уязвимость, воспроизвести её падением программы и выложить патч, не сломав тесты проекта.</p>
+<h3>Цифры</h3>
+<p>Против Continuum стояло 920 заданий на исторических уязвимостях из OSS-Fuzz в 139 open-source проектах; медианный проект — более 600 тысяч строк кода. Результат по стадиям: найти и воспроизвести уязвимость — 92,5% (прежний публичный рекорд 67,9%), починить собственный краш — 89,6% (66,2%), не сломать функциональные тесты — 89,0% (65,9%). Последняя цифра — главная в бенчмарке, и она на 23,1 процентного пункта выше старого рекорда. Если разрешить агентам работать дольше лимита в 90 минут, сквозная успешность дорастает до 93,7%.</p>
+<h3>Оговорка</h3>
+<p>Четвёртая, диагностическая стадия: патч должен чинить именно ту историческую уязвимость, которую выбрал бенчмарк, — и тут Continuum даёт 37,8% (у предыдущего рекорда 26,2%). Формально это не провал: в репозитории может быть несколько реальных дыр, и агент законно находит и латает другую. Но для живого процесса разработки это напоминание: автономный агент сегодня отлично доводит до конца «свой» цикл find-crash-test-patch, однако совпадение с тем, что ожидал человек-ревизор, всё ещё нужно проверять человеком. The New Stack в заголовке («исправляет 89% багов — но есть подвох») указывает примерно на это.</p>
+<h3>Более широкий фон</h3>
+<p>Резонанс новости понятен: на этой неделе NBC News посвятил целый сюжет гонке ИИ-раскопок уязвимостей — и у защитников, и у атакующих, на фоне истории с php2shell, где ИИ помог найти дыры в миллионах PHP-сервисов. Автономная раскопка перестала быть лабораторной диковиной, и облачные провайдеры теперь соревнуются не только моделями, но и готовностью продать оборону машины как услугу.</p>
+<h3>Что с этого командам</h3>
+<p>Для владельцев кодовых баз смысл практический: порог, при котором автопатч без человека выглядит правдоподобно, заметно сдвинулся. AWS сама подчёркивает, что в проде решение о критичности дыры зависит от контекста — exposure сервиса, сетевых путей, разрешений, конфигурации, — ибудущие оценки автономных систем должны будут учитывать именно это. Ответственность за деплой пока остаётся на инженере.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://thenewstack.io/aws-says-its-ai-security-agent-fixes-89-of-bugs-but-theres-a-catch/" rel="noopener">The New Stack</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://aws.amazon.com/blogs/security/aws-continuum-sets-a-new-standard-in-autonomous-code-security/" rel="noopener">AWS Security Blog</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.nbcnews.com/tech/security/ai-cybersecurity-hackers-php-flaws-rcna605276" rel="noopener">СМИ 1</a> · <a href="https://aws-news.com/article/2026-10-05-aws-continuum-sets-a-new-standard-in-autonomous-code-security" rel="noopener">СМИ 2</a> · <a href="https://builder.aws.com/content/3FSBeB7JZdgaTXGKUwEbTk1zjso/security-at-machine-speed-how-aws-continuum-finds-validates-and-fixes-vulnerabilities-before-you-know-they-exist" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
