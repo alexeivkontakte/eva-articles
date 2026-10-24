@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kimi K3.1 Pro от Moonshot: открытый ИИ-агент бьёт GPT-6 Astra, вес модели обещают до 4 ноября</title>
+<meta name="description" content="Moonshot AI представила Kimi K3.1 Pro — самую способную открытую модель класса 3 трлн параметров с контекстом в миллион токенов. В агентском программировании она уже обошла GPT-6 Astra и отстала от Claude Opus 5.5 на доли процента, а полные веса обещают выложить до 4 ноября.">
+<meta property="og:title" content="Kimi K3.1 Pro от Moonshot: открытый ИИ-агент бьёт GPT-6 Astra, вес модели обещают до 4 ноября">
+<meta property="og:image" content="https://habr.com/share/publication/1098732/d56df9a93b1a96565585cddd2c7126d4/">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Kimi K3.1 Pro от Moonshot: открытый ИИ-агент бьёт GPT-6 Astra, вес модели обещают до 4 ноября</h1>
+<div class="meta">24.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/kimi-k31-pro-otkrytye-vesa-3t.jpg" alt="">
+<div class="lead">Moonshot AI представила Kimi K3.1 Pro — самую способную открытую модель класса 3 трлн параметров с контекстом в миллион токенов. В агентском программировании она уже обошла GPT-6 Astra и отстала от Claude Opus 5.5 на доли процента, а полные веса обещают выложить до 4 ноября.</div>
+<h3>Что показали</h3>
+<p>Kimi K3.1 Pro — первая модель новой серии K3.1 и дообученная версия K3 с существенно бóльими вычислительными затратами на reinforcement learning. Компания делает ставку на одновременное обучение в сотнях прикладных областей: агент по терминалу, 3D, финансы, длинные многошаговые задачи. Модель уже доступна в Kimi.ai, Kimi Work, Kimi Code и через API, плюс вышел вариант Highspeed — в 2-3 раза быстрее обычной версии.</p>
+<h3>Цифры из официального анонса</h3>
+<p>На Terminal-Bench 4.0, где агентов проверяют на реалистичных задачах в терминале со строгими тестами, K3.1 Pro набрала 65,7% — это выше GPT-6 Astra (58,2%) и совсем немного ниже Claude Opus 5.5 (66,4%). На внутреннем бенчмарке Kimi Code Bench 3.0 Long-horizon — 61,2% против 55,95% у предшественницы. В BenchCAD (3D-реконструкция через генерацию CAD-кода) — 92,7% с инструментами, при 96,2% у Opus и 95,9% у GPT-6. Уровень галлюцинаций на «стресс-бенчмарке» Kimi Hallu Bench Hard упал с 23,4% у K3 до 8,3% на уровне утверждений.</p>
+<h3>Любопытный пример длинного цикла</h3>
+<p>Moonshot показывает, как модель строила симулятор ходьбы человека поверх анатомической модели human-atlas (296 компонентов скелета, 402 мышцы): за 167 «миссий» и 420 независимых проверок агент сам диагностировал проблемы, чинил контроллер и в итоге поднял время устойчивой ходьбы с пары секунд до 11,2 секунды. Когда подкрутка награды не помогла с руками, модель сама прогнала открытые тесты динамики, нашла и исправила 36 ошибок в расчёте плечевых мышц — без внешнего пинка.</p>
+<h3>ИИ × безопасность: кибер-возможности под контролем</h3>
+<p>Отдельно интересно признание авторов: по мере масштабирования дообучения возможности в поиске уязвимостей росли сами собой — кибер-контент оказался «вшит» в общий корпус данных и смесь RL-сред. Для открытого релиза weights Moonshot намеренно вычистила кибер-ориентированные данные с обеих стадий обучения, сохранив общее программирование. Редкий случай, когда лаборатория публично описывает, как именно ограничивает опасную сторону модели, — полезный прецедент для всей открытой экосистемы.</p>
+<h3>Что дальше</h3>
+<p>Полные веса обещают опубликовать до 4 ноября — тогда модель можно будет смотреть и тестировать локально. Для открытого сегмента это заметный шаг: агентское программирование на уровне фронтира перестает быть эксклюзивом закрытых лабораторий.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://habr.com/ru/news/1098732/" rel="noopener">Хабр</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.kimi.ai/blog/kimi-k3-1-pro" rel="noopener">Официальный блог Kimi (Moonshot AI)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.ithome.com/1/017/284.htm" rel="noopener">СМИ 1</a> · <a href="https://artificialanalysis.ai/models/kimi-k3-1-pro" rel="noopener">СМИ 2</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
