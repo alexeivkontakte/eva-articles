@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HTTP2Shell: одна ошибка в декодере сжатия Brotli ставит под удар Node.js, Python и пол-интернета — CVSS 9.2</title>
+<meta name="description" content="Критическая уязвимость CVE-2026-111497 в декодере Brotli позволяет удалённо выполнить произвольный код — и за три дня её зона поражения расползлась с Node.js на Python, C++, Bun, Envoy и десятки HTTP-библиотек. Пикантность в том, что нашла её OpenAI ещё в феврале, но никто не придал значения.">
+<meta property="og:title" content="HTTP2Shell: одна ошибка в декодере сжатия Brotli ставит под удар Node.js, Python и пол-интернета — CVSS 9.2">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/http2shell-brotli-rce.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>HTTP2Shell: одна ошибка в декодере сжатия Brotli ставит под удар Node.js, Python и пол-интернета — CVSS 9.2</h1>
+<div class="meta">25.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/http2shell-brotli-rce.png" alt="">
+<div class="lead">Критическая уязвимость CVE-2026-111497 в декодере Brotli позволяет удалённо выполнить произвольный код — и за три дня её зона поражения расползлась с Node.js на Python, C++, Bun, Envoy и десятки HTTP-библиотек. Пикантность в том, что нашла её OpenAI ещё в феврале, но никто не придал значения.</div>
+<h3>Ошибка на 9.2 балла</h3>
+<p>21 октября команда Node.js выпустила экстренное обновление безопасности и закрыла CVE-2026-111497 — запись за границы буфера в декодере Brotli (сжатие от Google, стандарт для HTTP-передачи HTML, CSS и JS). Оценки — CVSS v4.0 9.2, атака не требует ни аутентификации, ни особых условий: достаточно скормить процессу специально собранный Brotli-поток. Итог — утечка памяти, падение или выполнение чужого кода. Вред работает в обе стороны: злонамеренный сервер захватывает незакрытый клиент, а вредный клиент — сервер.</p>
+<h3>Почему это «не одна программа», а целый HTTP2Shell</h3>
+<p>Сначала уязвимость назвали Node2Shell — по месту первой публичной disclosure. Но Brotli статически вкомпилирован в множество рантаймов и библиотек, и уже к 22 октября подтвердилось поражение пакетов Python (Brotli и brotlicffi до 1.2.1, которые автоматически подхватывают requests, httpx и aiohttp), а к 23-му — других языков и HTTP-сервисов. Компания Aikido, ведущая трекер, переименовала сюжет в HTTP2Shell. Затронуты декодеры с 1.0.3 по 1.2.0 включительно; Apache и Nginx по умолчанию Brotli не декодируют — им пока спокойнее.</p>
+<h3>Десять месяцев «это не баг»</h3>
+<p>Самое тревожное: уязвимость нашла OpenAI в феврале 2026-го и описала как неаутентифицированный RCE. Первопричину в исходниках Brotli починили в тот же месяц — но авторы не распознали в правке вопрос безопасности, фикс не попал ни в один релиз, и все, кто вендорит Brotli, оставались уязвимыми до этой недели. OpenAI опубликовала серию рекомендаций на портале Patch the Planet. Пока база advisory-данных не связала CVE с pypi-пакетами, привычные pip-audit и Dependabot вредоносные версии не видят — надеяться на автооповещение нельзя.</p>
+<h3>Что делать прямо сейчас</h3>
+<p>Обновить Node.js до 22.23.4 / 24.22.1 / 26.12.1 (ветки 20 и старее — EOL, патчей не будет), нативный libbrotli — до 1.2.1 (для старых линий — латаные 1.0.10 / 1.1.1), python-пакеты Brotli до 1.2.1 и brotlicffi до 1.2.1.0; патчи уже вышли для Bun и Envoy. После обновления пересобрать контейнеры, где Brotli лежит внутри образа. Где патча нет — временно отключить декодирование Brotli. И проверить не только свои серверы: если ваш клиент умеет Brotli, злой сервер — такая же угроза, как злой клиент.</p>
+<p>Для рядовых сайтов и пользователей ничего не горит: браузеры и веб-серверы по умолчанию Brotli не распаковывают, а патчи основных рантаймов уже опубликованы. Героизм тут лишний — обычный рабочий круг обновления. Даты патчей и список зафиксированных версий — по официальным бюллетеням Node.js и рекомендациям OpenAI.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.aikido.dev/blog/python-packages-vulnerable-node2shell-brotli-cve-2026-111497" rel="noopener">Aikido Security</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://nodejs.org/en/blog/vulnerability/october-2026-security-releases" rel="noopener">Официальный блог Node.js (security release 21.10.2026)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://patchtheplanet.org/brotli" rel="noopener">СМИ 1</a> · <a href="https://thehackernews.com/2026/10/researchers-demonstrate-node2shell-rce.html" rel="noopener">СМИ 2</a> · <a href="https://cycode.com/blog/node2shell-cve-2026-111497/" rel="noopener">СМИ 3</a> · <a href="https://blog.qualys.com/product-tech/2026-10-23/node-js-patches-brotli-remote-code-execution-flaw-find-vulnerable-runtimes-before-attackers-do" rel="noopener">СМИ 4</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
