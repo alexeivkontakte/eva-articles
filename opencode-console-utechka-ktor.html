@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ИИ-агентов «доили» через чужие ключи: взлом OpenCode стоил разработчикам до $1000</title>
+<meta name="description" content="OpenCode — популярный опенсорсный ИИ-агент для программирования — признал взлом своей онлайн-консоли: пострадали 1,4% пользователей, у которых были привязаны ключи OpenAI, Anthropic и Google. Компания назвала это «масштабной атакой дистилляции», а часть пользователей обнаружила у себя счета почти на тысячу долларов.">
+<meta property="og:title" content="ИИ-агентов «доили» через чужие ключи: взлом OpenCode стоил разработчикам до $1000">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/opencode-console-utechka-ktor.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>ИИ-агентов «доили» через чужие ключи: взлом OpenCode стоил разработчикам до $1000</h1>
+<div class="meta">25.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/opencode-console-utechka-ktor.png" alt="">
+<div class="lead">OpenCode — популярный опенсорсный ИИ-агент для программирования — признал взлом своей онлайн-консоли: пострадали 1,4% пользователей, у которых были привязаны ключи OpenAI, Anthropic и Google. Компания назвала это «масштабной атакой дистилляции», а часть пользователей обнаружила у себя счета почти на тысячу долларов.</div>
+<p>В ночь на 17 октября злоумышленники получили доступ к OpenCode Console — устаревшей онлайн-панели сервиса, из которой как раз уходили. Уже в субботу команда подтвердила взлом: атака затронула 1,4% пользователей консоли, а именно тех, кто сохранил там API-ключи внешних ИИ-провайдеров — OpenAI, Anthropic и Google. Все пострадавшие получили письма с уведомлением, остальным компания просила не паниковать: «не получили письмо — не затронуты».</p>
+<h3>Что такое «атака дистилляции»</h3>
+<p>Сам термин в официальном заявлении — «large scale distillation attack». По смыслу это означает, что украденные ключи использовались для массовых промпты через чужие аккаунты: типичная цель таких атак — выкачивать ответы флагманских моделей, чтобы на их основе обучать («дистиллировать») собственные дешёвые модели. Побочный эффект — жертвы получают чужие расходы: издание Stack сообщило, что отдельные пользователи насчитали у себя около $1000 списаний за вызовы ИИ, которых не совершали.</p>
+<h3>Реакция и последствия</h3>
+<p>OpenCode заявил, что инцидент ещё развивался на момент объявления, поэтому деталей не раскрывает, но работает над ликвидацией совместно с Anthropic, OpenAI и Google. Консоль, через которую прошёл взлом, решено добить и вывести из эксплуатации полностью. Для рынка это заметный сигнал: OpenCode позиционировался как открытая альтернатива Claude Code и Cursor, и теперь доверие к хранению ключей провайдеров внутри сторонних агентских платформ заметно пошатнулось.</p>
+<h3>Что делать клиентам</h3>
+<p>Практический вывод из инцидента прост и касается не только OpenCode. Если вы где-либо сохраняли API-ключи OpenAI, Anthropic или Google в сторонних консолях и панелях — отзовите и перевыпустите их в кабинетах провайдеров, даже если письмо о взломе ещё не пришло. Включите лимиты расходов и уведомления о списаниях, проверьте счета за последние недели: при атаке дистилляции счета растут стремительно. И на будущее: ключ лучше держать в переменных окружения на своей машине, а не в чужом веб-интерфейсе — любой доступный из интернета сервис с ключами внутри это потенциальная точка входа.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://techcrunch.com/2026-10-19/hackers-hit-ai-coding-tool-opencode-running-up-charges-on-users-ai-accounts/" rel="noopener">TechCrunch</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://x.com/opencode/status/2111519637049319818" rel="noopener">Официальное заявление OpenCode в X</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://thehackernews.com/2026/10/opencode-console-breach-may-have.html" rel="noopener">СМИ 1</a> · <a href="https://tech.yahoo.com/cybersecurity/articles/opencode-says-1-4-console-030500192.html" rel="noopener">СМИ 2</a> · <a href="https://www.cyera.com/research/opencode-breach-what-happened-and-how-to-rotate-exposed-ai-api-keys" rel="noopener">СМИ 3</a> · <a href="https://labs.cloudsecurityalliance.org/research/csa-research-note-opencode-console-provider-key-breach-20261/" rel="noopener">СМИ 4</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
