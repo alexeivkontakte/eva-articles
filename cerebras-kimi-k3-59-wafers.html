@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Полтора терабайта на кремниевом блине: Cerebras показала, как трёхтриллионная Kimi K3 бежит на 59 чипах со скоростью 2000 токенов в секунду</title>
+<meta name="description" content="Cerebras опубликовала инженерный разбор: открытую модель Kimi K3 с ~2,8 триллиона параметров её wafer-scale чипы размещают на 59 кристаллах WSE-3T и выдают 1000–2000+ токенов в секунду — там, где GPU-облака вязнут в памяти.">
+<meta property="og:title" content="Полтора терабайта на кремниевом блине: Cerebras показала, как трёхтриллионная Kimi K3 бежит на 59 чипах со скоростью 2000 токенов в секунду">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/cerebras-kimi-k3-59-wafers.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Полтора терабайта на кремниевом блине: Cerebras показала, как трёхтриллионная Kimi K3 бежит на 59 чипах со скоростью 2000 токенов в секунду</h1>
+<div class="meta">25.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/cerebras-kimi-k3-59-wafers.png" alt="">
+<div class="lead">Cerebras опубликовала инженерный разбор: открытую модель Kimi K3 с ~2,8 триллиона параметров её wafer-scale чипы размещают на 59 кристаллах WSE-3T и выдают 1000–2000+ токенов в секунду — там, где GPU-облака вязнут в памяти.</div>
+<h3>Сколько блинов нужно триллиону параметров</h3>
+<p>Пост Cerebras от 22 октября отвечает на частый вопрос: как модель, весящая больше терабайта, влезает в чип, у которого вообще-то немного памяти? Один кристалл WSE-3T несёт 44 ГБ внутрикристалльной SRAM, а весам триллионной модели нужны терабайты. Ответ — конвейер: модель режут по слоям, каждый блин хранит «свои» слои целиком и передаёт промежуточные результаты следующему, как узлы сборочной линии.</p>
+<h3>Арифметика на примере Kimi K3</h3>
+<p>В качестве подопытной взята открытая Kimi K3 от Moonshot — 2,8–3 триллиона параметров, 69 слоёв линейного внимания и 24 плотных слоя. При 4-битном квантовании весов (как в реализации на Hugging Face) и 8-битном KV-кэше на слой приходится около 16 ГБ — на один блин встаёт несколько слоёв, а вся модель растягивается на 59 кристаллов. Заявленная скорость инференса — от 1000 до 2000+ токенов в секунду.</p>
+<h3>Почему это больно GPU-облакам</h3>
+<p>Обычные ускорители таскают веса из внешней HBM-памяти на каждый токен — именно узкое место «память–вычисление» ограничивает скорость генерации у GPU-кластеров. У wafer-scale подхода веса живут на самом кристалле и пропускная способность памяти на порядки выше. Для сравнения Cerebras приводит и бенчмарки K3: 88,3% на Terminal-Bench 2.1 против 88,8% у GPT-5.6 Sol и 91,2% на BrowseComp против 90,4% — то есть открытая модель уже идёт ноздря в ноздрю с флагманами, а теперь ещё и быстрее их на «железе» конкурента Nvidia.</p>
+<h3>Что с этим делать</h3>
+<p>Смысл поста не только в хвастовстве: Cerebras явно строит позиционирование «быстрый инференс открытых моделей» как альтернативу экосистеме CUDA — под открытые веса K3 уже есть квантованные сборки, а компания обещает, что та же механика масштабируется на «несколько триллионов» параметров. Рыночный спор переезжает из области «чья модель умнее» в область «чей токен быстрее и дешевле» — и это, пожалуй, самый заметный сдвиг недели для всех, кто оплачивает ИИ-инференс.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.neoteo.com/en/how-cerebras-maps-kimi-k3-across-59-wse-3t-wafers" rel="noopener">Neoteo</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.cerebras.ai/blog/how-we-deploy-trillion-parameter-frontier-models-on-cerebras" rel="noopener">Блог Cerebras (официальный пост от 22.10.2026)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.neoteo.com/en/how-cerebras-maps-kimi-k3-across-59-wse-3t-wafers" rel="noopener">СМИ 1</a> · <a href="https://explainx.ai/blog/cerebras-trillion-parameter-kimi-k3-59-wafers-how-it-works-2026" rel="noopener">СМИ 2</a> · <a href="https://www.kimi.ai/blog/kimi-k3" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
