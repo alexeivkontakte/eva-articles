@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OWASP выпустил Red Teaming Manual v1.0: как правильно «ломать» ИИ-агентов</title>
+<meta name="description" content="OWASP GenAI Security Project выпустил GenAI Red Teaming Manual v1.0 — 144 страницы методики испытаний ИИ-моделей, приложений и агентных систем. Документ даёт командам безопасности общую систему координат: восемь этапов от планирования до проверки исправлений, плюс ответ на неудобный вопрос — а кому вообще верить в отчёте красной команды.">
+<meta property="og:title" content="OWASP выпустил Red Teaming Manual v1.0: как правильно «ломать» ИИ-агентов">
+<meta property="og:image" content="https://habr.com/share/publication/1099746/a6ccacdd722d3f579366369388a2733f/">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>OWASP выпустил Red Teaming Manual v1.0: как правильно «ломать» ИИ-агентов</h1>
+<div class="meta">26.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/owasp-genai-red-teaming-manual-v1.jpg" alt="">
+<div class="lead">OWASP GenAI Security Project выпустил GenAI Red Teaming Manual v1.0 — 144 страницы методики испытаний ИИ-моделей, приложений и агентных систем. Документ даёт командам безопасности общую систему координат: восемь этапов от планирования до проверки исправлений, плюс ответ на неудобный вопрос — а кому вообще верить в отчёте красной команды.</div>
+<h3>Восемь этапов вместо импровизации</h3>
+<p>Manual вышел 20 октября 2026 года и построен вокруг восьмифазной методики: планирование, разведка, картирование поверхности атаки, эксплуатация, закрепление, оценка влияния, отчётность и устранение. Проверяются не только языковые модели, но и приложения, мультимодальные интерфейсы и целиком ИИ-агенты. Акцент — на этичном тестировании, воспроизводимых находках и измеримых результатах, вписанных в защитные процессы компании, а не живущих отдельным «актом вандализма».</p>
+<h3>Агент — не чат-бот</h3>
+<p>Отдельная ценность документа — разделы про агентные системы. Методика требует проверять, выполняет ли агент вообще то, что ему поручили: ИИ-агент может работать с формально ограниченными правами и при этом делать совсем не то, что от него ждали. В многоагентных средах отдельно проверяются передача полномочий, разрешения и то, как сохранённая память влияет на последующие действия. Это прямой ответ на практику 2026 года, где агентские рантаймы стали полноценной поверхностью атаки.</p>
+<h3>Оценка оценщика</h3>
+<p>Вторая тонкость, которой не хватало прежде:Manual предлагает проверять достоверность самих результатов испытаний. Если серия атак не дала успеха — это пока лишь факт неудачи красной команды, а не гарантия безопасности; для количественных выводов руководство предлагает доверительные интервалы и явные ограничения выводов. Вердикт человека, программы или модели-оценщика тоже может ошибаться — и это петля обратной связи, которую нужно закрывать.</p>
+<h3>Откуда руки растут</h3>
+<p>Авторы — те же, что выпустили OWASP Top 10 для LLM-приложений; предшественник, Red Teaming Guide, вышел в январе 2025 года на 77 страницах, новый документ удвоился в объёме и прошёл публичное обсуждение. Рядом живёт GenAI Red Team Lab на GitHub — песочницы и примеры эксплуатации в придачу к методике. Для рынка это первый случай, когда «потестить ИИ на взлом» перестаёт быть искусством отдельных энтузиастов и получает общую методику и метрики — полезную и тестировщикам, и заказчикам, которые хотят понимать, что именно проверяла команда и на чём основаны её выводы.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://habr.com/ru/news/1099746/" rel="noopener">Хабр</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://genai.owasp.org/resource/genai-red-teaming-manual-version-1-0/" rel="noopener">OWASP GenAI Security Project (официальная страница Manual v1.0)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://aigovernance.com/news/owasp-red-teaming-manual-sets-a-genai-security-evidence-benchmark" rel="noopener">СМИ 1</a> · <a href="https://eyeon.ai/f/1129" rel="noopener">СМИ 2</a> · <a href="https://techno-news.net/2026/10/26/news_75035/" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
