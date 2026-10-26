@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>«Радар ДПС», «карта АЗС» и «оповещение о тревоге»: Android-троян RedWing поразил больше 10 тысяч устройств в России</title>
+<meta name="description" content="F6 сообщила, что мошенники распространяют банковский троян RedWing под видом полезных Android-приложений — радаров патрулей ДПС, карт АЗС с «бензином в реальном времени» и даже оповещений о воздушной тревоге. По оценке компании, за два месяца в России заражено более 10 тысяч смартфонов.">
+<meta property="og:title" content="«Радар ДПС», «карта АЗС» и «оповещение о тревоге»: Android-троян RedWing поразил больше 10 тысяч устройств в России">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/f6-redwing-troyan-radar-dps.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>«Радар ДПС», «карта АЗС» и «оповещение о тревоге»: Android-троян RedWing поразил больше 10 тысяч устройств в России</h1>
+<div class="meta">26.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/f6-redwing-troyan-radar-dps.png" alt="">
+<div class="lead">F6 сообщила, что мошенники распространяют банковский троян RedWing под видом полезных Android-приложений — радаров патрулей ДПС, карт АЗС с «бензином в реальном времени» и даже оповещений о воздушной тревоге. По оценке компании, за два месяца в России заражено более 10 тысяч смартфонов.</div>
+<p>Компания F6, российский разработчик технологий борьбы с киберугрозами, рассказала о новой волне распространения Android-трояна RedWing: свежие образцы злоумышленники маскируют под приложения-«радары» мест патрулей ДПС. Например, в выборке вредоносного ПО аналитики нашли файл RadarMotobat.apk — судя по названию, его предлагали мотоциклистам как радар постов ГИБДД. Всего, по данным F6, с мая по сентябрь 2026 года встречалось более 800 образцов ВПО под обложками привычных утилит: радары беспилотной опасности, карты АЗС, сервисы видео 18+, VPN, читы и моды для популярных игр.</p>
+<h3>Двойное дно</h3>
+<p>RedWing — «двуликое» вредоносное ПО: одна составляющая отвечает за удалённое управление заражённым смартфоном, вторая — за сбор данных. Троян перехватывает СМС и push-уведомления банков, крадёт контакты, файлы и данные банковских и криптовалютных сервисов, умеет подставлять фишинговые страницы поверх настоящих банковских приложений, разблокировать телефон без хозяина, смотреть через камеру и слушать через микрофон, а также участвовать в DDoS-атаках. После выдачи разрешения «Специальные возможности» приложение становится практически невидимым.</p>
+<h3>Как распаляли</h3>
+<p>RedWing распространяется через Telegram по модели MaaS (вредонос как услуга) как минимум с начала 2026 года; впервые о нём сообщили исследователи Zimperium летом 2026-го, а уже через несколько дней первую кампанию в России зафиксировал F6. Одна из самых циничных схем — поддельные сайты приложения RadarTrevog «об оповещениях о воздушных атаках» с фальшивыми отзывами: домены в зоне .ru регистрировали 20 июля и 3 августа, а по инициативе CERT F6 их заблокировали. Троян написан русскоязычными авторами и нацелен на клиентов банков России, Узбекистана и Казахстана. По оценке F6, с середины июля по середину сентября количество скомпрометированных Android-устройств только в России превысило 10 тысяч.</p>
+<h3>Что делать, если у вас Android</h3>
+<p>Это оценки и рекомендации самой F6 и профильных СМИ, а не официально «подтверждённый масштаб катастрофы»: точное число жертв внедрённых банков не раскрывается. Практическая часть простая: ставить приложения только из официальных магазинов (RadarTrevog и «радар ДПС» туда не попали бы), не открывать APK-ссылки из Telegram-каналов, уделить внимание разрешениям «Специальные возможности» и «Доступ к уведомлениям» — именно они делают трояна невидимым и дают перехват СМС. Если такое разрешение выдавали «радару» или «моду» — удалить приложение, проверить телефон защитным сканером и сменить пароли банковского приложения с другого устройства.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://secpost.ru/android-troyan-redwing-rasprostranyaetsya-pod-vidom-prilozheniya-dlya-opoveshhenij-o-vozdushnyh-atakah" rel="noopener">SecPost</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.f6.ru/media-center/press-releases/redwing-stealer/" rel="noopener">Пресс-релиз F6 «Опасная бритва: стилер RedWing»</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://habr.com/ru/companies/F6/articles/1086012/" rel="noopener">СМИ 1</a> · <a href="https://www.itsec.ru/news/moshenniki-predlagali-rossiyskim-polzvoateliam-android-troyan-redwing-pod-vidom-prilozheniya-radartrevog" rel="noopener">СМИ 2</a> · <a href="https://www.f6.ru/blog/redwing-stealer-research/" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
