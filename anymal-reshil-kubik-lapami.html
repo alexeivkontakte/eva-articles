@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Робопёс ANYmal решил гигантский кубик Рубика лапами: 30 ходов за 9 минут без единого манипулятора</title>
+<meta name="description" content="Робототехники из Цюриха научили четырёхлапого ANYmal-D решать гигантский кубик Рубика — и делают это исключительно лапами: пес балансирует на задних, а передними крутит слои. Три полностью автономных решения, примерно 30 ходов и 8–9 минут на каждое.">
+<meta property="og:title" content="Робопёс ANYmal решил гигантский кубик Рубика лапами: 30 ходов за 9 минут без единого манипулятора">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/anymal-reshil-kubik-lapami.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Робопёс ANYmal решил гигантский кубик Рубика лапами: 30 ходов за 9 минут без единого манипулятора</h1>
+<div class="meta">26.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/anymal-reshil-kubik-lapami.png" alt="">
+<div class="lead">Робототехники из Цюриха научили четырёхлапого ANYmal-D решать гигантский кубик Рубика — и делают это исключительно лапами: пес балансирует на задних, а передними крутит слои. Три полностью автономных решения, примерно 30 ходов и 8–9 минут на каждое.</div>
+<h3>Без рук, без манипулятора — только лапы</h3>
+<p>Лаборатория Robotics Systems Lab Швейцарской высшей технической школы Цюриха (ETH Zürich) показала, как служебный робот-пёс ANYmal-D справляется с гигантским кубиком Рубика весом около 4,6 кг. Никаких рук и манипуляторов: робот крутит слои передними лапами, удерживая равновесие на задних. В науке это называют педипуляцией — «манипулирование ногами», и именно оно оказалось самой сложной частью задачи.</p>
+<h3>Как это работает</h3>
+<p>Процесс разбит на три фазы: сканирование, планирование и исполнение. Бортовая RGB-D камера обходит куб со всех сторон, робот переворачивает его лапами, распознаёт цвета всех граней, а алгоритм Кочембы строит решение примерно в 20–30 ходов — чтобы собаке не пришлось делать лишних опасных движений. Ключевой трюк инженеров: куб специально сделали тяжёлым, чтобы нижний слой сам не проворачивался, — одна лапа прижимает куб, вторая поворачивает верхние слои. Навыки переворота и поворота слоёв обучены reinforcement learning и переведены в политики, которые работают только с бортовыми датчиками и выдерживают даже внешние помехи.</p>
+<h3>Результат</h3>
+<p>Система трижды решила куб полностью автономно от начала до конца: около 30 ходов, 8–9 минут на решение, без ошибок-перекосов, которые обнулили бы заранее просчитанный план. Статья «Solving a Giant Rubik's Cube with a Quadruped Robot» выложена на arXiv 17 октября, видео и материалы — на странице проекта лаборатории.</p>
+<h3>Зачем это нужно</h3>
+<p>На первый взгляд — забавная демонстрация. На деле это тест на то, чего не хватает полевым роботам: долгие многоступенчатые физические задачи, где каждая ошибка портит все последующие шаги. Тот, кто умеет стабильно и точно взаимодействовать с механизированным объектом часами, сможет открыть вентиль, собрать образец или обслужить оборудование в опасной среде — без оператора и без манипулятора.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.heise.de/news/ETH-Zuerich-Roboterhund-ANYmal-loest-Rubik-s-Cube-mit-seinen-Fuessen-11499641.html" rel="noopener">Heise Online</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://leggedrobotics.github.io/rubik-skills/" rel="noopener">Legged Robotics Lab / ETH Zürich — страница проекта Rubik Skills</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://arxiv.org/abs/2610.24610" rel="noopener">СМИ 1</a> · <a href="https://www.heise.de/en/news/ETH-Zurich-s-ANYmal-robot-dog-solves-Rubik-s-Cube-with-its-feet-11499728.html" rel="noopener">СМИ 2</a> · <a href="https://www.techeblog.com/eth-zurich-anymal-robot-solves-rubiks-cube/" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
