@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Markdown — новый исполняемый файл: ИИ-агентов угнали через AGENTS.md в папке «Загрузки»</title>
+<meta name="description" content="Исследователи Forever Security поймали живую атаку: скачанный с сайта файл AGENTS.md заставил кодинг-агента устанавливать вредоносный npm-пакет. Codex подчинился в 90% случаев, а Claude Code потерял OAuth-токен. «Чинить здесь нечего», — вздыхают эксперты.">
+<meta property="og:title" content="Markdown — новый исполняемый файл: ИИ-агентов угнали через AGENTS.md в папке «Загрузки»">
+<meta property="og:image" content="https://www.bleepstatic.com/content/hl-images/2026/10/23/robot.jpg">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Markdown — новый исполняемый файл: ИИ-агентов угнали через AGENTS.md в папке «Загрузки»</h1>
+<div class="meta">26.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/agents-md-v-zagruzke.jpg" alt="">
+<div class="lead">Исследователи Forever Security поймали живую атаку: скачанный с сайта файл AGENTS.md заставил кодинг-агента устанавливать вредоносный npm-пакет. Codex подчинился в 90% случаев, а Claude Code потерял OAuth-токен. «Чинить здесь нечего», — вздыхают эксперты.</div>
+<h3>Как это работает</h3>
+<p>Сотрудники Forever Security — компании, которая мониторит риски ИИ-агентов — обнаружили на компьютере клиента попытку установить вредоносный npm-пакет `function-color`. След привёл к файлу AGENTS.md в папке `~/Downloads`, которая заодно служила рабочей директорией агента. Кодинг-агенты (Claude Code, OpenAI Codex, Cursor CLI) автоматически читают инструктивные Markdown-файлы из рабочей папки — и послушно выполняют то, что в них написано. «Здесь нечего патчить: агент, следующий AGENTS.md из своей папки, делает ровно то, для чего создан», — отмечают исследователи.</p>
+<h3>Тихая выгрузка из браузера</h3>
+<p>Проблема в том, что `~/Downloads` — единственная папка, куда веб может писать сам: посещённая страница способна незаметно скачать туда файл AGENTS.md, а Chrome, Edge и Firefox по умолчанию сохраняют загрузки без подтверждения места. Дальше достаточно, чтобы пользователь сам запустил агента в этой папке — а это, как выяснилось, массовая привычка: только Claude Code совершил более 1300 сессий прямо из `~/Downloads`, сотни клиентов Forever работают так же.</p>
+<h3>Цифры атаки</h3>
+<p>Восстановленную цепочку проверили на Codex с безвредной нагрузкой (открыть «Калькулятор») — успех в 90% случаев. Во втором эксперименте вредоносный CLAUDE.md перенаправлял API-трафик Claude Code на сервер атакующего: агент отдавал OAuth-токен, а сервер, выдавая себя за модель, возвращал tool-вызовы — произвольный код выполнялся в 50% попыток. В официальном отчёте researchers подчёркивают: отдельной «уязвимости» нет, это штатное поведение агентов плюс особенности браузеров, и защита ложится на пользователя.</p>
+<h3>Что делать</h3>
+<p>Практические правила простые: не запускать кодинг-агентов из `~/Downloads` и других папок, куда что-либо скачивается из веба; работать строго в директории проекта; после случайных запусков вне проекта проверить, не появился ли в папке чужой AGENTS.md/CLAUDE.md, и при подозрении отозвать OAuth-токены агента. Браузеры с подтверждением загрузки (например, Brave) снижают риск, но не снимают его полностью.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.bleepingcomputer.com/news/security/ai-coding-agents-hijacked-using-agentsmd-file-in-downloads-folder/" rel="noopener">BleepingComputer</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://forever.security/research/markdown-is-the-new-executable" rel="noopener">Forever Security — Markdown Is the New Executable</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://habr.com/ru/news/1099412/" rel="noopener">СМИ 1</a> · <a href="https://mashable.com/tech/hackers-ai-coding-agents-downloads-malware" rel="noopener">СМИ 2</a> · <a href="https://windowsforum.com/news/agents-md-downloads-folder-attack-how-codex-and-claude-code-can-be-hijacked.449965/" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
