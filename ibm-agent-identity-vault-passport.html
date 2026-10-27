@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IBM выдаёт ИИ-агентам «паспорта»: Agent Identity доступен, Vault — короткие пропуска</title>
+<meta name="description" content="На конференции TechXchange 2026 IBM объявила о доступности IBM Agent Identity и о расширении HashiCorp Vault на ИИ-агентов: каждый агент получает подотчётную личность, короткоживущие учётные данные и право на отзыв доступа в реальном времени. По данным Gartner, к 2028 году средняя фирма из Fortune 500 будет использовать более 150 000 агентов — а правильным управлением агентов сегодня уверены лишь 13% компаний.">
+<meta property="og:title" content="IBM выдаёт ИИ-агентам «паспорта»: Agent Identity доступен, Vault — короткие пропуска">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/ibm-agent-identity-vault-passport.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>IBM выдаёт ИИ-агентам «паспорта»: Agent Identity доступен, Vault — короткие пропуска</h1>
+<div class="meta">27.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/ibm-agent-identity-vault-passport.png" alt="">
+<div class="lead">На конференции TechXchange 2026 IBM объявила о доступности IBM Agent Identity и о расширении HashiCorp Vault на ИИ-агентов: каждый агент получает подотчётную личность, короткоживущие учётные данные и право на отзыв доступа в реальном времени. По данным Gartner, к 2028 году средняя фирма из Fortune 500 будет использовать более 150 000 агентов — а правильным управлением агентов сегодня уверены лишь 13% компаний.</div>
+<h3>Паспорт для каждого агента</h3>
+<p>IBM представила на TechXchange 2026 (Атланта, 27 октября) набор инструментов, который превращает ИИ-агентов в «сотрудников с оформленным допуском». IBM Agent Identity ведёт центральный реестр агентов: кто владелец, какие метаданные, к какому классу риска относится агент и какие полномочия ему делегированы. Продукт вышел из превью в общую доступность.</p>
+<h3>Короткие пароли вместо вечных ключей</h3>
+<p>Второй слой — HashiCorp Vault, который десятилетиями хранит секреты приложений, теперь выдаёт учётные данные самим агентам: динамические, короткоживущие, с принципом минимальных прав и отзывом в реальном времени, если агент пытается сделать лишнее. Идея проста: агент, сливший ключ, теряет его через минуты, а не навсегда, как это бывает с постоянными токенами в .env-файлах.</p>
+<h3>Один контур для чужих облаков</h3>
+<p>Третья часть — IBM watsonx Orchestrate: обнаружение, изоляция и оценка агентов в одном месте, независимо от того, собраны ли они в Amazon Bedrock, Microsoft Foundry или Google Gemini. Vault и Agent Identity также интегрированы с NVIDIA OpenShell. Компания недвусмысленно отвечает на проблему, которая в этом году стала главной в агентской безопасности: агенты разворачиваются быстрее, чем люди успевают их проверить, и «невидимый» агент с постоянным токеном — уже не гипотеза, а источник реальных инцидентов.</p>
+<h3>Зачем это нужно</h3>
+<p>Ссылка на цифры Gartner из пресс-релиза звучит как приговор хаотичному «ай-агент-в-каждый-ящик»: 150 000 агентов на компанию к 2028 году при 13% уверенных в собственном управлении агентами. Vault уже защищает «не-human» идентичности в ABN AMRO, Adobe, BBVA, BlackRock, Starbucks и Target — теперь та же дисциплина распространяется на автономные модели.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.unite.ai/ibm-brings-governed-identity-and-credential-controls-to-ai-agents/" rel="noopener">Unite.AI</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://newsroom.ibm.com/2026-10-27-IBM-Introduces-Identity-and-Control-for-AI-Agents,-Securing-Frontier-Intelligence-for-the-Enterprise" rel="noopener">IBM Newsroom (пресс-релиз TechXchange 2026)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.ibm.com/new/announcements/ibm-agent-identity-is-now-generally-available-building-trust-for-the-agentic-era" rel="noopener">СМИ 1</a> · <a href="https://www.hashicorp.com/en/blog/advancing-ai-agent-security-in-vault" rel="noopener">СМИ 2</a> · <a href="https://www.prnewswire.com/news-releases/ibm-introduces-identity-and-control-for-ai-agents-securing-frontier-intelligence-for-the-enterprise-302920156.html" rel="noopener">СМИ 3</a> · <a href="https://techobserver.in/news/enterprise-it/ibm-ai-agent-identity-access-controls-hashicorp-vault-330168/" rel="noopener">СМИ 4</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
