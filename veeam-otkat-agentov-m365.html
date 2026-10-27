@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ИИ-агент удалил файлы в Microsoft 365? Veeam выпустила «карту восстановления» с откатом действий агента по одной файле</title>
+<meta name="description" content="Veeam объявила об общей доступности Veeam Intelligent ResOps for Microsoft 365 — надстройки, которая находит всех ИИ-агентов (включая неизвестных) в SharePoint, OneDrive, Teams и Exchange, показывает, что именно они меняли и удаляли, и умеет отменять их изменения файл за файлом. По данным самого вендора, 88% компаний уже используют или пилотируют ИИ-агентов, но лишь 7% считаются готовыми к ним.">
+<meta property="og:title" content="ИИ-агент удалил файлы в Microsoft 365? Veeam выпустила «карту восстановления» с откатом действий агента по одной файле">
+<meta property="og:image" content="https://heise.cloudimg.io/v7/_www-heise-de_/imgs/18/5/1/8/9/5/3/4/veeam_logo__1_-f3a762946660f951.png?func=bound&height=1200&org_if_sml=1&q=85&width=1200">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>ИИ-агент удалил файлы в Microsoft 365? Veeam выпустила «карту восстановления» с откатом действий агента по одной файле</h1>
+<div class="meta">27.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/veeam-otkat-agentov-m365.png" alt="">
+<div class="lead">Veeam объявила об общей доступности Veeam Intelligent ResOps for Microsoft 365 — надстройки, которая находит всех ИИ-агентов (включая неизвестных) в SharePoint, OneDrive, Teams и Exchange, показывает, что именно они меняли и удаляли, и умеет отменять их изменения файл за файлом. По данным самого вендора, 88% компаний уже используют или пилотируют ИИ-агентов, но лишь 7% считаются готовыми к ним.</div>
+<h3>Что произошло</h3>
+<p>15 октября 2026 года Veeam Software объявила о доступности Veeam Intelligent ResOps (iResOps) for Microsoft 365 — первого продукта новой линейки в виде надстройки к Veeam Data Cloud for Microsoft 365. Подключение «в несколько кликов», без миграции данных. Надстройка строится на графе DataAI Command Graph и связывает продуктивные данные с контекстом бэкапов: видно, какие агенты (в том числе Copilot и вовсе неизвестные) получили доступ к каким данным, что они изменили или удалили — и это можно отменить поштучно, а не откатывать весь тенант к точке восстановления.</p>
+<h3>Цифры от самого вендора</h3>
+<p>Из отчёта Veeam Data Trust &amp; Resilience Report 2026: 88% организаций уже используют или тестируют ИИ-агентов, но по-настоящему готовыми к ним можно назвать лишь 7%. Более 82% предприятий обнаруживают в своих ИТ-средах неизвестных ИИ-агентов, а 95% жалуются, что проблемы с данными тормозят прогресс в ИИ. В пилотах, по словам Veeam, в одном тенанте нашли сразу 25 агентов, из которых двое активно меняли данные.Цена продукта: Foundation — 2,49 доллара за пользователя в месяц, Advanced (с классификацией и маркировкой чувствительных данных) — 4,99 доллара при годовой оплате.</p>
+<h3>Зачем это нужно</h3>
+<p>CEO Veeam Ананд Эсваран объяснил запуск конкретным прецедентом: в сентябре испанский регулятор AEPD впервые зарегистрировал утечку, где ИИ-агент третьей стороны искал уязвимости и менял персональные данные. Чтобы уложиться в 72 часа на уведомление об инциденте, компания обязана знать, какие записи изменились, что в них сейчас и как они выглядели раньше. «Точки восстановления на это не отвечают, — говорит Эсваран, — нужна карта восстановления: что откатывать в первую очередь, что изменилось и что возвращать не надо».</p>
+<h3>Что ещё в семье iResOps</h3>
+<p>Одновременно открыты приватные превью iResOps для собственной Veeam Data Platform и для Okta — последняя не умеет точечного восстановления, а окно мягкого удаления пользователей там всего 30 дней, поэтому Veeam обещает неизменяемые точки для 29 типов объектов с восстановлением ролей и членств в правильном порядке. В четвёртом квартале 2026 заявлены превью для GitHub и Azure DevOps (код, пайплайны, права) и Google IAM; в очереди — Google Workspace, AWS IAM, GitLab. Функции данных безопасности и комплаенса в продукт принесло поглощаемое направление Securiti AI.</p>
+<h3>Контекст</h3>
+<p>Сюжет важен не столько для бэкап-индустрии, сколько для всех, кто выпускает агентов в рабочие данные: «агент что-то удалил» перестаёт быть аварией и становится штатной операцией с аудиторским следом. Побочный вывод из отчёта Veeam для тех, кто строит агентские рантаймы, — неизвестные агенты в контуре это не гипотеза, а большинство: 82% компаний даже не знают, кто там ходит.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.heise.de/news/KI-Agent-loescht-M365-Dateien-Veeam-will-gezielt-zurueckspulen-11501353.html" rel="noopener">heise online</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.veeam.com/company/press-release/veeam-intelligent-resops-for-microsoft-365-helps-customers-safely-use-ai-cut-storage-costs-and-recover-with-precision.html" rel="noopener">Пресс-релиз Veeam Software (15.10.2026)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.heise.de/en/news/AI-agent-deletes-M365-files-Veeam-aims-to-roll-back-selectively-11501582.html" rel="noopener">СМИ 1</a> · <a href="https://windowsforum.com/news/veeam-undo-ai-for-microsoft-365-agent-rollback-restore-point-limits-and-admin-risks.450072/" rel="noopener">СМИ 2</a> · <a href="https://nand-research.com/veeam-intelligent-resops-for-microsoft-365/" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
