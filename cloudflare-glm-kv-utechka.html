@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cloudflare призналась: GLM-5.3 в Workers AI подмешивал чужие сессии в ответы — 155 «протечек» за 13 дней</title>
+<meta name="description" content="Cloudflare опубликовала отчёт об инциденте: из-за несовпадения настроек и бага движка SGLang модель GLM-5.3 в Workers AI отдавала ответы, собранные поверх чужих данных. Застряло 155 ответов — все у клиентов с промптом длиннее 681 280 токенов.">
+<meta property="og:title" content="Cloudflare призналась: GLM-5.3 в Workers AI подмешивал чужие сессии в ответы — 155 «протечек» за 13 дней">
+<meta property="og:image" content="https://www.unite.ai/wp-content/uploads/2026/10/cloudflare-discloses-kv-cache-exposure-glm-5-3-workers-ai-model.jpg">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Cloudflare призналась: GLM-5.3 в Workers AI подмешивал чужие сессии в ответы — 155 «протечек» за 13 дней</h1>
+<div class="meta">27.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/cloudflare-glm-kv-utechka.jpg" alt="">
+<div class="lead">Cloudflare опубликовала отчёт об инциденте: из-за несовпадения настроек и бага движка SGLang модель GLM-5.3 в Workers AI отдавала ответы, собранные поверх чужих данных. Застряло 155 ответов — все у клиентов с промптом длиннее 681 280 токенов.</div>
+<p>О исследователе безопасности Гади Эвроне (Knostic) извещает саму Cloudflare: 8 сентября он принёс в HackerOne отчёт о нарушении изоляции арендаторов в модели `@cf/zai-org/glm-5.3`. Очень длинные промпты иногда возвращались с кусками чужих сессий. Компания подтвердила окно уязвимости с 27 августа по 9 сентября: 155 затронутых ответов, все — на запросы длиннее 681 280 токенов. Модель сняли в течение 40 минут после объявления инцидента и вернули в строй в тот же день после патча. Умысла в атаках не нашли: по времени и объёму запросы выглядят как обычная работа с длинным контекстом, а не эксплуатации.</p>
+<h3>Как утечка работала</h3>
+<p>Виноваты две наложившиеся проблемы. Первая — конфигурация: GLM-5.3 запустили с окном контекста 1 048 576 токенов, а пул KV-кэша на GPU предобработки (prefill) вмещал лишь 681 280. О расхождении знали, но тесты проходили — ждали ошибку на «длинных» запросах. Вторая — баг SGLang в режиме раздельных prefill/decode: запрос, не влезший в пул, помечался отклонённым и заменялся одно-токеновой заглушкой, но кэш для заглушки всё равно передавался на decode-ноду с пометкой «передача завершена». Нода решала, что старое состояние перезаписано, и генерировала ответ поверх устаревших страниц кэша — то есть из памяти чужих запросов.</p>
+<h3>Что починили</h3>
+<p>Pool KV-кэша расширили примерно до 2,04 млн токенов — вдвое больше окна контекста, так что валидный запрос теперь всегда в него влезает. Движок тоже пропатчили: отклонённый запрос гасится ещё в очереди приёма, до любой передачи кэша, с исходной ошибкой для клиента. Патчи ушли вверх в SGLang (#38704, #38935; related-фикс #36986 в main ещё 6 сентября). Раскрытие сделали скоординированно — вместе с постом самих разработчиков SGLang.</p>
+<h3>Вывод для всех, кто крутит LLM</h3>
+<p>Утечку устроили не веса модели, а слой движка вывода: рассинхрон конфигурации и баг в дисагрегированном инференсе. Инфраструктура инференса (SGLang, vLLM и аналоги) становится новым фронтиром изоляции арендаторов, а сверхдлинные контексты — её тестовой зоной. Клиентам Workers AI, гонявшим в конце августа — начале сентября промпты дальше 680 тыс. токенов через GLM-5.3, стоит исходить из того, что их данные могли попасть в чужие ответы: чувствительное из таких сессий лучше считать раскрытым.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.unite.ai/cloudflare-says-glm-5-3-bug-leaked-155-responses-across-tenant-sessions/" rel="noopener">Unite.AI</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://blog.cloudflare.com/kv-cache-exposure-remediation/" rel="noopener">Cloudflare Blog (официальный отчёт об инциденте)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://news.ycombinator.com/item?id=50252159" rel="noopener">СМИ 1</a> · <a href="https://dev.to/frankchu/cloudflares-glm-53-leaked-other-users-prompts-through-its-kv-cache-i-rebuilt-the-bug-in-30-2j3g" rel="noopener">СМИ 2</a> · <a href="https://news.lavx.hu/article/cloudflare-fixes-cross-request-data-leak-in-glm-5-3-workers-ai-model-after-155-responses-exposed-other-users-content" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
