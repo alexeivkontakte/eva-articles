@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cloudflare представила tsrs: компилятор TypeScript на Rust, портированный ИИ-агентами — до 8 раз быстрее</title>
+<meta name="description" content="Cloudflare и VoidZero объявили о переносе компилятора TypeScript на Rust: проект tsrs создан frontier-ИИ почти автономно за несколько дней, работает до 8 раз быстрее и требует на 70% меньше памяти, чем TypeScript 7.0. При этом форка языка нет — им по-прежнему управляет команда TypeScript.">
+<meta property="og:title" content="Cloudflare представила tsrs: компилятор TypeScript на Rust, портированный ИИ-агентами — до 8 раз быстрее">
+<meta property="og:image" content="https://habr.com/share/publication/1100148/d4e131e6fc49eee82d16509ffab97c4c/">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Cloudflare представила tsrs: компилятор TypeScript на Rust, портированный ИИ-агентами — до 8 раз быстрее</h1>
+<div class="meta">28.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/tsrs-typescript-na-rust-ii-port.jpg" alt="">
+<div class="lead">Cloudflare и VoidZero объявили о переносе компилятора TypeScript на Rust: проект tsrs создан frontier-ИИ почти автономно за несколько дней, работает до 8 раз быстрее и требует на 70% меньше памяти, чем TypeScript 7.0. При этом форка языка нет — им по-прежнему управляет команда TypeScript.</div>
+<h3>Порт, а не форк</h3>
+<p>20 октября Cloudflare совместно с купленной летом VoidZero и разработчиком Максом Швенком (Owner.com) представила tsrs — порт компилятора TypeScript на Rust. Работа идёт в тесной координации с командой TypeScript и внутри компиляторного тулчейна Oxc. В анонсе подчёркнуто: это не форк языка — решения о дизайне и направлении TypeScript остаются исключительно за оригинальной командой, а порт обязан строго за ними следовать.</p>
+<h3>Цифры</h3>
+<p>По свежим бенчмаркам (проведённым вместе с командой TypeScript на одинаковых конфигурациях), tsrs до 8 раз быстрее и примерно на 70% экономнее по памяти, чем TypeScript 7.0 при равном числе воркеров проверки типов. Часть оптимизаций уже уехала апстримом в TypeScript 7.1 beta, который сам по себе стал в 2,5 раза быстрее 7.0. По умолчанию tsrs ставит адаптивную конфигурацию под тип машины: больше памяти — ещё выше скорость. Попробовать можно прямо сейчас: `npm install tsrs`.</p>
+<h3>Почему это новость про ИИ, а не только про компиляторы</h3>
+<p>Раньше перенос TypeScript на другой язык удался ровно один раз — когда сама команда Microsoft переводила его с JavaScript на Go, и то за годы. Теперь, по словам Cloudflare, frontier-модели способны проделать крупномасштабный порт почти самостоятельно за считанные дни. В экосистеме уже появились «слоп-форки», честные порты и полностью переработанные версии TypeScript на Rust и C++ — спрос на скорость оказался сильнее страха перед машинным кодом в критической инфраструктуре.</p>
+<h3>Смысл</h3>
+<p>Ускорение проверки типов экономит время миллионам разработчиков и, что важнее для Cloudflare, позволяет запускать полноценную среду разработки прямо в браузере. А прецедент, пожалуй, ещё важнее: это первый случай, когда ИИ-сгенерированный порт такого масштаба принят в официальный тулчейн крупой компании с благословения команды оригинального языка.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://habr.com/ru/companies/selectel/news/1100148/" rel="noopener">Хабр (Selectel)</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://blog.cloudflare.com/typescript-rust-port" rel="noopener">Cloudflare Blog — Introducing tsrs: a Port of TypeScript to Rust</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.infoq.com/news/2026/10/cloudflare-tsrs-ai-typescript/" rel="noopener">СМИ 1</a> · <a href="https://www.heise.de/en/news/Cloudflare-takes-over-tsrs-a-Rust-port-of-the-TypeScript-compiler-11497790.html" rel="noopener">СМИ 2</a> · <a href="https://thenewstack.io/cloudflare-rust-typescript-tsrs/" rel="noopener">СМИ 3</a> · <a href="https://socket.dev/blog/cloudflare-typescript-rust" rel="noopener">СМИ 4</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
