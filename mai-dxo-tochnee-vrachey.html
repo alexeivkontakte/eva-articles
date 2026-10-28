@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ИИ-диагност Microsoft поставил врачи: 83% верных диагнозов против 36% у терапевтов</title>
+<meta name="description" content="Microsoft представила диагностическую систему MAI-DxO и бенчмарк SDBench: на самых сложных клинических случаях ИИ оказался вдвое точнее врачей, а в отделениях неотложной помощи — в 1,7 раза, при затратах на анализы в два-три раза ниже.">
+<meta property="og:title" content="ИИ-диагност Microsoft поставил врачи: 83% верных диагнозов против 36% у терапевтов">
+<meta property="og:image" content="https://naukatv.ru/upload/resize/bestfit/1200/630/25/2566767ad1871e62efe1056b442938c0ae593f9a.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>ИИ-диагност Microsoft поставил врачи: 83% верных диагнозов против 36% у терапевтов</h1>
+<div class="meta">28.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/mai-dxo-tochnee-vrachey.png" alt="">
+<div class="lead">Microsoft представила диагностическую систему MAI-DxO и бенчмарк SDBench: на самых сложных клинических случаях ИИ оказался вдвое точнее врачей, а в отделениях неотложной помощи — в 1,7 раза, при затратах на анализы в два-три раза ниже.</div>
+<h3>Как проверяли</h3>
+<p>Microsoft 22 октября опубликовала в журнале Science работу о последовательной ИИ-диагностике. Вместе с бенчмарком SDBench представлена система MAI-DxO (Microsoft AI Diagnostic Orchestrator). Смысл бенчмарка в том, что и врач, и ИИ начинают с ограниченной информацией о пациенте и сами решают, какие вопросы задать и какие анализы назначить дальше, — оценивается не только итоговый диагноз, но и путь к нему, включая стоимость каждого теста.</p>
+<h3>Цифры</h3>
+<p>На 304 сложных случаях из журнала The New England Journal of Medicine MAI-DxO поставила верный диагноз в 83% случаев. Врачи-терапевты — 36% со справочными ресурсами (книги и интернет) и 22% без них: ИИ точнее примерно в 2,3 и 3,7 раза соответственно. На более типовых случаях отделения неотложной помощи (датасет MIMIC-IV-ED) — 80% против 47% у врачей, то есть в 1,7 раза выше. Одна из конфигураций системы сохранила 81% точности менее чем за половину стоимости сравнимых систем. По обоим наборам данных ни один другой подход — человеческий или машинный — не оказался одновременно точнее и дешевле.</p>
+<h3>Как устроена система</h3>
+<p>MAI-DxO — это не одна модель, отвечающая мгновенно, а «виртуальный консилиум»: несколько агентов-терапевтов выдвигают версии диагнозов, выбирают полезные вопросы и тесты и оспаривают назревающий консенсус. Оркестратор координирует несколько раундов дебата, обновляет оценку по мере поступления данных и взвешивает пользу каждого анализа против его стоимости. По заявлению Microsoft, такой подход обходится в два-три раза дешевле обычной выписки и требует меньше анализов.</p>
+<h3>Что дальше</h3>
+<p>Microsoft открыла часть бенчмарка SDBench (подборка случаев NEJM, код валидации, «судьи» и расчёт стоимости) — исследователи смогут воспроизвести оценку и испытать другие модели. Параллельно компания сводит медицинские команды в единый блок Microsoft AI: учёные Microsoft Research объединяются с создателями продуктов Dragon Copilot и PowerScribe. Оговоримся: речь о симуляции на архивных клинических разборах, а не о допуске ИИ к живым пациентам, — но планка для медицинских ассистентов поднята заметно.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://naukatv.ru/news/ii_stavit_bolshe_pravilnykh_diagnozov_chem_vrachi_obschej_praktiki_v_meditsinskom_ispytanii" rel="noopener">Наука ТВ</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://microsoft.ai/news/building-medical-superintelligence/" rel="noopener">Microsoft AI — Building Medical Superintelligence</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://techcrunch.com/2026-10-22/microsofts-mustafa-suleyman-says-its-ai-outperforms-doctors-on-hard-cases-as-he-chases-medical-superintelligence/" rel="noopener">СМИ 1</a> · <a href="https://www.reuters.com/business/healthcare-pharmaceuticals/microsoft-develops-ai-tool-that-can-diagnose-sequentially-like-doctor-2026-10-23/" rel="noopener">СМИ 2</a> · <a href="https://www.science.org/doi/10.1126/science.aeh7930" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
