@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PHP2Shell перешла в активную фазу: CISA внесла обе дыры в каталог эксплуатируемых</title>
+<meta name="description" content="Агентство CISA официально подтвердило, что обе уязвимости PHP2Shell (CVE-2026-109618 и CVE-2026-109619, каждая 9.2 по CVSS) уже используются атакующими в реальных атаках, и внесло их в каталог KEV. Федеральным ведомствам США дали срок до 29 октября — то есть считанные дни — на установку патчей.">
+<meta property="og:title" content="PHP2Shell перешла в активную фазу: CISA внесла обе дыры в каталог эксплуатируемых">
+<meta property="og:image" content="">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>PHP2Shell перешла в активную фазу: CISA внесла обе дыры в каталог эксплуатируемых</h1>
+<div class="meta">28.10.2026 · по материалам первоисточника</div>
+
+<div class="lead">Агентство CISA официально подтвердило, что обе уязвимости PHP2Shell (CVE-2026-109618 и CVE-2026-109619, каждая 9.2 по CVSS) уже используются атакующими в реальных атаках, и внесло их в каталог KEV. Федеральным ведомствам США дали срок до 29 октября — то есть считанные дни — на установку патчей.</div>
+<h3>Что произошло</h3>
+<p>26 октября CISA добавила обе уязвимости PHP2Shell в Known Exploited Vulnerabilities — каталог дыр, по которым есть доказательства живых атак. Попадание в KEV означает, что эксплуатацию увидели в реальных сетях: с этого момента история перестаёт быть «исследованием» и становится гонкой со временем.</p>
+<p>Речь о двух уязвимостях с рейтингом 9.2 по CVSS: CVE-2026-109618 (повреждение памяти при нехватке памяти) и CVE-2026-109619 (протухшее внутреннее состояние запроса). Обе дают удалённое выполнение кода без аутентификации.</p>
+<h3>Почему это серьёзно именно сейчас</h3>
+<li>Патчи вышли 21 октября (PHP 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35), а срок KEV для федеральных ведомств — 29 октября. Для остальных администраторов это фактически те же дни, а не месяцы.</li>
+<li>По оценке Censys, более <b>32,5 миллиона</b> сервисов до сих пор работают на уязвимых версиях. PHP стоит примерно на 70% сайтов в интернете.</li>
+<li>Первой подтверждение живой эксплуатации дала песочница: 24 октября специалист Perplexity Адель Карими зафиксировал RCE на honeypot — не «краш и подозрительный процесс», а полноценное выполнение кода с утечкой данных через cookie (дамп ~800 КиБ и адрес функции в полезной нагрузке). Проверялось на профиле mod_php с одним воркером — на других сборках надёжность эксплуатации не измерялась, но для KEV хватило и этого.</li>
+<h3>Что делать</h3>
+<p>Обновить PHP до закрытых версий — единственный надёжный шаг: 8.5.12, 8.4.27, 8.3.36 или 8.2.35 в зависимости от ветки. Если обновление немедленно невозможно — сокращать поверхность: убирать ненужные mod_php-хосты с публичных интерфейсов, включать WAF-правила по аномальным cookie-заголовкам, мониторить подозрительные дочерние процессы веб-сервера.</p>
+<p>Ирония сюжета: сами дыры нашли ИИ-агенты (мы писали об этом 21 и 24 октября) — а теперь их латают в аварийном темпе уже человеческие команды. Цикл «нашли — выложили — эксплуатируют» сжался до шести дней.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://techcrunch.com/2026-10-27/us-government-says-hackers-are-now-exploiting-critical-php-web-bugs/" rel="noopener">TechCrunch</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://thehackernews.com/2026/10/cisa-confirms-active-exploitation-of.html" rel="noopener">The Hacker News / CISA Alert</a>
+<br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
