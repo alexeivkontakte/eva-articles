@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Дыра в UEFI за 9,5 балла: ИИ-исследователь из Anthropic нашёл способ захватывать серверы до загрузки Windows и Linux</title>
+<meta name="description" content="Критическая уязвимость CVE-2026-97631 в открытом коде EDK II, на котором построена прошивка большинства серверов мира, позволяет выполнить произвольный код до запуска операционной системы — Secure Boot и TPM против неё бессильны. Нашли её исследователь Anthropic и специалист Google.">
+<meta property="og:title" content="Дыра в UEFI за 9,5 балла: ИИ-исследователь из Anthropic нашёл способ захватывать серверы до загрузки Windows и Linux">
+<meta property="og:image" content="">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Дыра в UEFI за 9,5 балла: ИИ-исследователь из Anthropic нашёл способ захватывать серверы до загрузки Windows и Linux</h1>
+<div class="meta">28.10.2026 · по материалам первоисточника</div>
+
+<div class="lead">Критическая уязвимость CVE-2026-97631 в открытом коде EDK II, на котором построена прошивка большинства серверов мира, позволяет выполнить произвольный код до запуска операционной системы — Secure Boot и TPM против неё бессильны. Нашли её исследователь Anthropic и специалист Google.</div>
+<h3>Что случилось</h3>
+<p>Проект TianoCore опубликовал бюллетень GHSA-99cj-7hg9-mp4m по уязвимости CVE-2026-97631 с оценкой критичности 9,5 из 10. Проблема живёт в PXE-драйвере UEFI-прошивок EDK II — эталонной открытой кодовой базы, из которой собирают свой код почти все серверные вендоры и дата-центры. Ошибка в обработке ICMP-сообщений: драйвер копирует их в фиксированный буфер на 504 байта, но при длинных пакетах считает границы неверно и пишет байты отправителя за пределы поля.</p>
+<h3>Почему это опасно</h3>
+<p>Атака возможна в тот короткий момент, когда сервер загружается по сети (PXE-boot): атакующему не нужны ни доступ, ни аутентификация — достаточно доставить на IP загружающейся машины поддельное ICMP-сообщение, откуда бы его ни послали. Код выполняется на этапе DXE — до загрузки ОС, до того как Secure Boot и измеренная загрузка успели что-либо проверить. Итог либо отказ в загрузке, либо выполнение произвольного кода с правами уровня кольца 0. Окно уязвимости — время сетевого запуска, а в дата-центрах серверы перезагружаются и восстанавливаются по сети постоянно. Патч уже слит в EDK II, вендорам выпускают обновления прошивок (например, Dell уже опубликовал DSA-2026-089).</p>
+<h3>Причём тут ИИ</h3>
+<p>В бюллетене отдельно указано авторство находки: уязвимость обнаружили Алекс Матросов из Anthropic и Дэн Холмс-Митра из Google. Это заметное продолжение тренда: лаборатории ИИ всё активнее находят настоящие критические дыры в системном коде, а не только в игрушечных задачах. Ранее Anthropic отчитывалась о подобных находках в собственном отчёте для биржи, теперь речь о чужой инфраструктуре мирового масштаба.</p>
+<h3>Что делать администраторам</h3>
+<p>Обновлять прошивки серверов по мере выхода патчей от вендоров; не держать PXE-загрузку включённой постоянно — включать её только на время раздачи и восстановления машин; сегментировать загрузочные сети и фильтровать ICMP на подступах к ним; проверки сканером уязвимостей уже ждут CVE-2026-97631 (базы Tenable и Rapid7 обновлены). Эксплуатация требует попадания в окно сетевого запуска, так что паниковать рано, но игнорировать точно нельзя.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://arstechnica.com/security/2026/10/code-execution-flaw-in-uefi-firmware-threatens-most-servers-on-planet-earth/" rel="noopener">Ars Technica</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://github.com/tianocore/edk2/security/advisories/GHSA-99cj-7hg9-mp4m" rel="noopener">TianoCore EDK II — официальный бюллетень GHSA-99cj-7hg9-mp4m</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.archyde.com/cve-2026-97631-uefi-firmware-flaw-threatens-enterprise-servers/" rel="noopener">СМИ 1</a> · <a href="https://piqmarkets.com/story/critical-uefi-firmware-flaw-cve-2026-97631-exposes-servers-to-boot-time-code-execution" rel="noopener">СМИ 2</a> · <a href="https://www.tenable.com/cve/CVE-2026-97631" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
