@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zero-click взлом Telegram через стикеры: LLM-фаззинг нашёл дыры, которые «закрыл» сервер</title>
+<meta name="description" content="На OffensiveCon Tokyo 28 октября исследователь Сайфелдин Азиз представил годовой разбор Telegram: цепочка ошибок в библиотеке rlottie плюс логические обходы серверной проверки якобы дают выполнение кода на iOS без единого действия пользователя. Отдельного официального анонза от Telegram нет.">
+<meta property="og:title" content="Zero-click взлом Telegram через стикеры: LLM-фаззинг нашёл дыры, которые «закрыл» сервер">
+<meta property="og:image" content="https://habr.com/share/publication/1100814/1ace66ef8d5a0d9b833c13f33591900d/">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Zero-click взлом Telegram через стикеры: LLM-фаззинг нашёл дыры, которые «закрыл» сервер</h1>
+<div class="meta">28.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/telegram-zero-click-stickers-llm-fuzzing.jpg" alt="">
+<div class="lead">На OffensiveCon Tokyo 28 октября исследователь Сайфелдин Азиз представил годовой разбор Telegram: цепочка ошибок в библиотеке rlottie плюс логические обходы серверной проверки якобы дают выполнение кода на iOS без единого действия пользователя. Отдельного официального анонза от Telegram нет.</div>
+<h3>Стикер как вектор атаки</h3>
+<p>Анимированные стикеры Telegram (формат TGS) — это, по сути, сжатые JSON-файлы с векторной анимацией, которые клиент сам разбирает и рисует через библиотеку rlottie. Исследователь Сайфелдин Азиз применил к ней фаззинг под управлением больших языковых моделей и, по его словам, нашёл несколько ошибок повреждения памяти в клиентах Telegram для iOS, Android и настольных систем. Именно ИИ-ассистированный фаззинг стал двигателем находки: модели перебирали входные данные там, где человек перебирает годами.</p>
+<h3>Почему 9,8 балла превратились в 7,0</h3>
+<p>Ещё в марте 2026-го Майкл Деплант из Zero Day Initiative сообщил Telegram об уязвимости rlottie — позже она получила номер CVE-2026-111105. Изначальная оценка CVSS 9,8 затем была снижена до 7,0: Telegram заявил, что опасные файлы отсекает серверная проверка стикеров. По официальным данным ZDI, компания даже запросила у исследователя полную рабочую цепочку RCE — что противоречит обычной практике ответственного раскрытия, — а 15 октября опубликовала описание со статусом 0-day.</p>
+<h3>Что показал новый доклад</h3>
+<p>Азиз утверждает, что за год независимого исследования нашёл несколько 0-click уязвимостей и обходов как серверной, так и клиентской логики доставки стикеров — и цепочкой обошёл «недостижимую» поверхность атаки вплоть до выполнения кода на iOS. Итоговый вопрос доклада прозвучал жёстко: если безопасность клиентов всецело зависит от серверной фильтровалки поставщика, а уязвимый код рисования остаётся в официальных приложениях, — это митигация, архитектурный риск или что-то ближе к бэкдору? Официального анонза от Telegram нет; полный технический разбор цепочки не опубликован, независимого подтверждения работоспособности в открытых материалах тоже.</p>
+<h3>Что делать обычным пользователям</h3>
+<p>Патча, закрывающего цепочку, публично не заявлено, а сами условия эксплуатации не раскрыты — «закрыть стикеры кнопкой» в Telegram нельзя. Разумный минимум: держать клиент обновлённым до последней версии, не добавлять в чаты и каналы подозрительные стикерпаки от незнакомцев и следить за официальными уведомлениями Telegram и ZDI. Если подтверждение цепочки появится — решение за компанией, пользователю остаётся только оперативно ставить обновления.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://habr.com/ru/news/1100814/" rel="noopener">Хабр</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.zerodayinitiative.com/advisories/ZDI-26-757/" rel="noopener">Trend Micro ZDI (официальный бюллетень CVE-2026-111105)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.offensivecon.jp/speakers/2026/saifeldeen-aziz.html" rel="noopener">СМИ 1</a> · <a href="https://habr.com/ru/news/1100814/" rel="noopener">СМИ 2</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
