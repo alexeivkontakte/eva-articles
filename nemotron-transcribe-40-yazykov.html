@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NVIDIA открыла Nemotron 3.5 Transcribe: одна модель слушает 40 языков, разбирает спор восьмерых и весит всего 4 миллиарда активных параметров</title>
+<meta name="description" content="NVIDIA выпустила открытую речевую модель Nemotron 3.5 Transcribe: транскрипция 40 языков, перевод 31 из них, распознавание до восьми говорящих на записи длиной до часа — и всё это в одной модели с ~4,3 млрд активных параметров. Парой к модели пришёл датасет Granary v2 на 463 тысячи часов речи.">
+<meta property="og:title" content="NVIDIA открыла Nemotron 3.5 Transcribe: одна модель слушает 40 языков, разбирает спор восьмерых и весит всего 4 миллиарда активных параметров">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/nemotron-transcribe-40-yazykov.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>NVIDIA открыла Nemotron 3.5 Transcribe: одна модель слушает 40 языков, разбирает спор восьмерых и весит всего 4 миллиарда активных параметров</h1>
+<div class="meta">29.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/nemotron-transcribe-40-yazykov.png" alt="">
+<div class="lead">NVIDIA выпустила открытую речевую модель Nemotron 3.5 Transcribe: транскрипция 40 языков, перевод 31 из них, распознавание до восьми говорящих на записи длиной до часа — и всё это в одной модели с ~4,3 млрд активных параметров. Парой к модели пришёл датасет Granary v2 на 463 тысячи часов речи.</div>
+<h3>Одна модель вместо конвейера</h3>
+<p>NVIDIA представила Nemotron 3.5 Transcribe — речевую модель, которая объединяет то, что раньше собирали из нескольких программ: дословную и «причёсанную» транскрипцию, разбор речи с несколькими говорящими, перевод и вопросы по аудиозаписи. В основе — гибридная Mamba–Transformer MoE-модель Nemotron 3.5 Lightning: около 34 млрд параметров всего, но лишь ~4,3 млрд активных на шаг, поэтому модель быстрая и дешёвая в запуске. Стиль результата задаётся обычной текстовой инструкцией — без дообучения: попросила дословник, получила дословник.</p>
+<h3>Цифры из первоисточника</h3>
+<p>По данным NVIDIA, модель транскрибирует 40 языков, переводит 31 из них в английском направлении, различает до восьми говорящих и работает с записями длиной до часа. На англоязычном Open ASR Leaderboard средний WER составил 4,71%, на мультиязычном — 4,62%: лучший результат среди открытых весов. По записям с наложениями голосов заявлен рекорд точности среди систем с привязкой речи к говорящему — это первая речевая LLM, обогнавшая специализированные каскадные системы. Парой к модели вышел датасет Granary v2 — 463 062 часа речи на 48 языках из 16 корпусов.</p>
+<h3>Почему это важно для инженеров</h3>
+<p>Модель выходит под лицензией OpenMDW-1.1 с правом коммерческого использования, вместе с инструментами дообучения NeMo Speech и поддержкой vLLM. Обещаны квантованные версии: модель можно запускать локально на RTX, DGX Spark, Jetson AGX Thor и дата-центровых Blackwell. Для совещаний, созвонов, многоязычной поддержки и медиоархивов это означает простое: распознавание можно держать у себя, не отправляя запись в чужое облако.</p>
+<h3>Честная оговорка</h3>
+<p>NVIDIA предупреждает: модель заточена под записанное аудио, а не под живую потоковую речь, и общим ассистентом она не является. Зато набор умений звучит как ТЗ на целый отдел: кто говорит, что сказал, как это оформить и перевести — всё из одного чекпойнта.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.ithome.com/1/019/545.htm" rel="noopener">IT Home (ithome.com)</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://research.nvidia.com/labs/nemotron/NVIDIA-Nemotron-3.5-Transcribe" rel="noopener">NVIDIA Research — официальная страница Nemotron 3.5 Transcribe</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://huggingface.co/blog/nvidia/nemotron-transcribe-granary" rel="noopener">СМИ 1</a> · <a href="https://thenextweb.com/news/nvidia-nemotron-3-5-transcribe-granary-v2-open-speech" rel="noopener">СМИ 2</a> · <a href="https://thenewstack.io/nvidia-nemotron-promptable-transcription" rel="noopener">СМИ 3</a> · <a href="https://www.marktechpost.com/2026-10-28/nvidia-nemotron-3-5-transcribe-open-speech-llm/" rel="noopener">СМИ 4</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
