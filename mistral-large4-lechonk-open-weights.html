@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mistral выпустила Le Chonk: триллион параметров в открытых весах, и модель лучше всех чинит дыры в коде</title>
+<meta name="description" content="Mistral AI открыла веса своей флагманской модели Mistral Large 4, известной как le Chonk: это мультимодальная MoE-модель примерно на 1 трлн параметров (49 млрд активных) с контекстом в 1 млн токенов. Главная фишка — кибербезопасность: 82% на тесте «найди и почини реальную уязвимость», там, где закрытые модели часто просто отказываются отвечать.">
+<meta property="og:title" content="Mistral выпустила Le Chonk: триллион параметров в открытых весах, и модель лучше всех чинит дыры в коде">
+<meta property="og:image" content="https://huggingface.co/blog/assets/ml4/thumbnail.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Mistral выпустила Le Chonk: триллион параметров в открытых весах, и модель лучше всех чинит дыры в коде</h1>
+<div class="meta">29.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/mistral-large4-lechonk-open-weights.png" alt="">
+<div class="lead">Mistral AI открыла веса своей флагманской модели Mistral Large 4, известной как le Chonk: это мультимодальная MoE-модель примерно на 1 трлн параметров (49 млрд активных) с контекстом в 1 млн токенов. Главная фишка — кибербезопасность: 82% на тесте «найди и почини реальную уязвимость», там, где закрытые модели часто просто отказываются отвечать.</div>
+<p>Компания Mistral AI (Франция) выложила веса своей флагманской модели Mistral Large 4 — unofficially ML4, very officially *le Chonk* — на Hugging Face в вариантах FP8 и NVFP4, плюс GGUF-кванты от Unsloth и команды llama.cpp. Модель принята в трансформеры, vLLM и llama.cpp «с первого дня». Формально анонс публичного превью вышел ещё 6 октября, но именно 29 октября модель стала полноценно открытой: веса, лицензия и документация доступны всем.</p>
+<h3>Архитектура: разреженность дважды</h3>
+<p>Le Chonk — мультимодальная модель «текст+картинки на входе, текст на выходе», построенная на смеси экспертов (MoE): из 128 экспертов на каждый токен активируются четыре плюс один постоянный, а разреженное внимание дополнительно выбирает, к каким позициям контекста обращаться. Контекстное окно — 1 млн токенов, зрение — через кодировщик Pixtral. В смешанном индексе кодинг-агентов (Coding Agent Index) модель набрала 49,8% — по данным Mistral, это выше DeepSeek V4 Pro 0813 и Qwen3.8 Max, а в общем рейтинге открытых моделей Artificial Analysis Intelligence Index она занимает пятое место.</p>
+<h3>Кибербезопасность — главное заявление</h3>
+<p>Mistral позиционирует модель прежде всего для защитников, и цифры подкрепляют: 82% на Artificial Analysis Cyber Index — тесте, где нужно воспроизвести настоящую уязвимость в open-source-программе, а затем залатать её. Это лучший зафиксированный результат теста; при этом несколько закрытых флагманов дают около нуля, потому что отказываются даже браться за работу. Плюс 93% решения задач из 40 конкурсов по кибербезопасности (Cybench) и 93,3% устойчивости к инъекциям промптов на бенчмарке Lakera B3. При этом модель не превратилась в универсального злоумышленника: средний процент отказа на вредных запросах (JailbreakBench, StrongREJECT, AgentHarm) у неё выше, чем у любой другой открытой модели.</p>
+<h3>Почему открытые веса — не просто жест щедрости</h3>
+<p>Лицензия — Mistral Ecosystem Open-Weight License (производная от MIT с ограничением на продажу «модели как сервиса»). Логика компании: исследование уязвимостей и реакция на инциденты со стороны похожи на атаку, поэтому фильтры закрытых API блокируют защиту посреди работы, а команда, зависящая от чужого API, рискует потерять доступ в разгар инцидента. С открытыми весами и политика использования, и развёртывание остаются у самой команды — на базе модели можно строить собственный контур вокруг своей кодовой базы, крэш-логов и образцов вредоносов, а поведение отказов исследователи могут измерять сами, а не читать про него в пресс-релизе.</p>
+<p>Показательно, что полезность в анализе вредоносного кода, приоритизации уязвимостей и написании правил детектирования Mistral получила «в нагрузку» — модель этому явно не обучали. Для открытого сегмента это первый триллионный игрок, который системно целился в нишу агентной киберзащиты.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://huggingface.co/blog/mistral-large4" rel="noopener">Hugging Face Blog</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://mistral.ai/news/mistral-large-4" rel="noopener">Mistral AI — Introducing Mistral Large 4</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.theverge.com/ai-artificial-intelligence/1022184/mistral-ai-has-officially-released-its-large-4-le-chonk-model" rel="noopener">СМИ 1</a> · <a href="http://fortune.com/2026/10/29/mistral-releases-new-model-large-4-and-claims-top-open-model-for-agentic-coding-and-cyber-defense/" rel="noopener">СМИ 2</a> · <a href="https://gigazine.net/gsc_news/en/20261007-mistral-large-4-le-chonk" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
