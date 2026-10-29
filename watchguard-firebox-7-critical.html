@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Семь критических дыр в Firebox: WatchGuard залатала уязвимости с оценками до 9,5</title>
+<meta name="description" content="WatchGuard выпустила рекордный пакет из 18 бюллетеней безопасности для Fireware OS: семь уязвимостей получили оценки от 9,1 до 9,5, а три из них позволяют выполнить код на файрволе вообще без входа в систему.">
+<meta property="og:title" content="Семь критических дыр в Firebox: WatchGuard залатала уязвимости с оценками до 9,5">
+<meta property="og:image" content="http://cybersecuritynews.com/wp-content/uploads/2026/10/WatchGuard-Discloses-7-Critical-Firewall-Flaws-Allowing-Remote-Code-Execution-and-Root-Level-Attacks.webp">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Семь критических дыр в Firebox: WatchGuard залатала уязвимости с оценками до 9,5</h1>
+<div class="meta">29.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/watchguard-firebox-7-critical.jpg" alt="">
+<div class="lead">WatchGuard выпустила рекордный пакет из 18 бюллетеней безопасности для Fireware OS: семь уязвимостей получили оценки от 9,1 до 9,5, а три из них позволяют выполнить код на файрволе вообще без входа в систему.</div>
+<h3>Дыры до аутентификации</h3>
+<p>27 октября 2026 года WatchGuard опубликовала пакет из 18 рекомендаций по безопасности для файрволов Firebox и Windows-клиента Mobile VPN with SSL. Семь проблем помечены как критические с CVSS от 9,1 до 9,5. Самая опасная — CVE-2026-103594 (9,5): переполнение стека в конфигурации WireGuard, ведущее к удалённому выполнению кода. Отдельно выделяются две дыры в службе Active Directory-аутентификации (CVE-2026-112709 и CVE-2026-112710, оба 9,2) и уязвимость SIP-прокси (CVE-2026-93857, 9,2): во всех случаях злоумышленнику не нужно даже проходить аутентификацию — уязвимый код срабатывает до входа.</p>
+<h3>Полный список критики</h3>
+<p>Ещё три критические проблемы: CVE-2026-103593 (9,1) — переполнение стека в службе журналирования; CVE-2026-93865 (9,2) — отсутствие аутентификации в демоне синхронизации FireCluster, что даёт удалённую инъекцию действий от root; CVE-2026-93866 (9,2) — целочисленное переполнение в Access Portal. Всего в релизе также исправлены утечки конфигурационных секретов, изменения файлов с правами root, перехват сессий и отказ в обслуживании сервисов файрвола.</p>
+<h3>Что делать владельцам Firebox</h3>
+<p>Производитель выпустил закрытые версии: Fireware OS 2026.4 (для ветки 2026.x) и 12.12.4 (для ветки 12.12), а для клиента Mobile VPN with SSL — версия 2026.4 и новее. Практическая памятка: обновить все Firebox — свои, управляемые и клиентские; обновить Windows-клиент VPN; проверить, какие сервисы (WireGuard, SIP, Access Portal, AD-аутентификация) вообще включены, и отключить неиспользуемые; ограниченными силами — временно закрыть доступ к этим сервисам с WAN. Полные описания — на странице PSIRT компании (psirt.watchguard.com); в собственном блоге WatchGuard требует обновляться немедленно.</p>
+<h3>Контекст</h3>
+<p>Показательный момент для всей отрасли периметровой защиты: edge-устройства (файрволы, VPN-шлюзы) остаются главной точкой входа для программ-вымогателей — свежая волна атак как раз била по VPN Palo Alto, Fortinet, Citrix и Check Point. Для российских администраторов это ещё один напоминательный звонок: у отечественных решений такого же класса (периметровые МЭ) практика срочных патчей аналогичная — следить за бюллетенями производителя и ФСТЭК и не откладывать обновления «до планового окна».</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://cybersecuritynews.com/watchguard-discloses-critical-firewall-flaws/" rel="noopener">Cyber Security News</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://psirt.watchguard.com/" rel="noopener">WatchGuard PSIRT — Security Advisories (27.10.2026)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://securityonline.info/watchguard-fireware-os-vulnerabilities-2" rel="noopener">СМИ 1</a> · <a href="https://watchguard.com/wgrd-blog/immediate-action-required-update-your-firebox-now" rel="noopener">СМИ 2</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
