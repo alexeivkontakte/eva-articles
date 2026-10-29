@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude сама написала пять рабочих эксплойтов: от обхода блокировки Android до root на Linux-сервере за 53 минуты</title>
+<meta name="description" content="Anthropic опубликовала исследование Frontier Red Team: её внутренняя модель Claude нашла и превратила в рабочие цепочки атак уязвимости в Chrome, Safari, Android, Windows и Linux. Самая опасная — нулевое взаимодействие с жертвой: атакующий получает root на Linux-сервере по сети, просто отправляя пакеты.">
+<meta property="og:title" content="Claude сама написала пять рабочих эксплойтов: от обхода блокировки Android до root на Linux-сервере за 53 минуты">
+<meta property="og:image" content="">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Claude сама написала пять рабочих эксплойтов: от обхода блокировки Android до root на Linux-сервере за 53 минуты</h1>
+<div class="meta">29.10.2026 · по материалам первоисточника</div>
+
+<div class="lead">Anthropic опубликовала исследование Frontier Red Team: её внутренняя модель Claude нашла и превратила в рабочие цепочки атак уязвимости в Chrome, Safari, Android, Windows и Linux. Самая опасная — нулевое взаимодействие с жертвой: атакующий получает root на Linux-сервере по сети, просто отправляя пакеты.</div>
+<h3>Пять цепочек, собранных почти без человека</h3>
+<p>Команда Anthropic Frontier Red Team несколько месяцев использовала не выпускавшуюся внутреннюю модель для поиска уязвимостей в самом массовом и критичном софте. Результат — пять законченных цепочек атак с удалённым выполнением кода, описанных в официальном исследовании «Discovering and exploiting vulnerabilities in critical, real-world software with Claude». Каждая находка передана вендорам по правилам координированного раскрытия (90 дней на патч плюс 45 дней до подробностей).</p>
+<h3>Браузеры и телефон</h3>
+<p>В Chrome Claude нашла дыру в движке V8, песочницу памяти, гонку в CacheStorage и use-after-free в FedCM — вместе это даёт запуск произвольного кода вне песочницы браузера буквально через несколько секунд после открытия страницы. Google закрыла вопросы в Chrome 156: всего по материалам Anthropic назначено 62 CVE, из них 13 выходов из песочницы и 21 уязвимость для компрометации рендерера. В Safari цепочка оказалась «только для данных»: без выполнения кода модель обошла политики одного источника и получила доступ к истории, cookie и чужим сессиям — Apple выпустила исправление в тот же день. Для Android на реальном Pixel 9 Claude объединила три слабости протокола USB-сопряжения и выкачивала фото с заблокированного телефона; Google уязвимость закрыла.</p>
+<h3>53 минуты до root без единого клика</h3>
+<p>Самая серьёзная демонстрация — ядро Linux. В сетевом стеке multipath TCP модель нашла гонку, приводящую к use-after-free: удалённый атакующий без учётных данных сначала раскрывает раскладку памяти ядра (48 минут), затем перехватывает управление и выполняет команду с правами root (ещё 5 минут). Проигрыш гонки не роняет систему — можно пробовать бесконечно. Уязвимость получила CVE-2026-98432 и уже исправлена в апстриме и всех поддерживаемых ветках stable. Для Windows Claude написала удалённый отказ сервиса HTTP/3-серверов — без выполнения кода.</p>
+<h3>Что это значит для защитников</h3>
+<p>Anthropic подчёркивает: многошаговые эксплойты, доступные раньше лишь узким командам специалистов, теперь моделируют ИИ почти без человеческой помощи — и доказывают это рабочим кодом. Компания советует защитникам начинать сканировать собственный код и получила расширенный доступ к программе Cyber Verification Program. Ранее той же командой был проверен 21-годичный open-source проект и 25 крупных репозиториев, где модель нашла около 500 дефектов безопасности.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.ithome.com/1/019/268.htm" rel="noopener">IT之家 (iThome)</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.anthropic.com/research/discovering-vulnerabilities-with-claude" rel="noopener">Anthropic Research — официальное исследование Frontier Red Team</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.notebookcheck.net/Anthropic-s-secret-AI-extracted-data-from-a-locked-Android-phone-and-escaped-Chrome-s-sandbox.1436556.0.html" rel="noopener">СМИ 1</a> · <a href="https://3dnews.ru/1150354" rel="noopener">СМИ 2</a> · <a href="https://cn-sec.com/archives/5538158.html" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
