@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Официальное расширение Claude Code в маркетплейсе Cursor оказалось SSH-бэкдором</title>
+<meta name="description" content="Через маркетплейс расширений Cursor распространялась подделанная версия официального расширения Claude Code: она подбрасывала на машины разработчиков SSH-ключ атакующих и закреплялась в системе. Затронуто до 5000 пользователей.">
+<meta property="og:title" content="Официальное расширение Claude Code в маркетплейсе Cursor оказалось SSH-бэкдором">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/cursor-claude-code-backdoor.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Официальное расширение Claude Code в маркетплейсе Cursor оказалось SSH-бэкдором</h1>
+<div class="meta">30.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/cursor-claude-code-backdoor.png" alt="">
+<div class="lead">Через маркетплейс расширений Cursor распространялась подделанная версия официального расширения Claude Code: она подбрасывала на машины разработчиков SSH-ключ атакующих и закреплялась в системе. Затронуто до 5000 пользователей.</div>
+<p>30 октября Cursor опубликовал официальное уведомление о безопасности: пакет Anthropic.claude-code версии 2.1.313, распространявшийся через маркетплейс расширений редактора, был подменён. Вредоносная сборка создана не Anthropic — неизвестные подложили в официальное расширение SSH-бэкдор. Опасная версия висела в маркетплейсе в четверг с 10:27 до 21:35 по центрально-европейскому времени; по оценке Cursor, от неё пострадали не более 5000 пользователей, и компания обещает связаться с каждым напрямую.</p>
+<h3>Бэкдор с логической ошибкой</h3>
+<p>Аналитику первым опубликовало исследовательское подразделение Phorion: малварь содержала отдельную логику под Linux, macOS и Windows. Её задачи — положить на машину публичный SSH-ключ атакующих, закрепиться в автозапуске и отправить на сервер сведения о компьютере. Ирония в том, что главный свой замысел бэкдор почти никогда не реализовывал: на macOS он проверял состояние удалённого входа командой, которая без прав администратора выдаёт ошибку и нулевой код возврата, — скрипт считал это штатным ответом и активацию SSH просто пропускал. Ключи, автозапуск и телеметрия при этом доезжали до атакующих в любом случае.</p>
+<h3>Что делать пользователям</h3>
+<p>В тот же день Cursor выложил чистую версию 2.1.314, и на неё нужно обновиться как минимум. Важный нюанс: одного удаления расширения недостаточно — бэкдор остаётся в системе. Cursor рекомендует завершить активные процессы SSH-туннелей, затем удалить следы закрепления: на macOS — файл LaunchAgents/com.apple.sysmond.plist, в Linux — cron-запись @reboot, в Windows — запланированную задачу SysMon и её стартовый скрипт. Дальше — удалить файлы ~/.config/.smt и ~/.config/.smtk, убрать ключ svc-telemetry из ~/.ssh/authorized_keys и временные файлы /tmp/.stk_*. Если SSH на машине был включён или найдены следы входящих подключений — менять учётные данные. Phorion дополнительно публикует индикаторы компрометации для самопроверки.</p>
+<h3>Почему это важно</h3>
+<p>Расширения редактора кода работают с правами самой среды разработки и её пользователя, поэтому один подменённый пакет в маркетплейсе даёт атакующим доступ к исходникам, токенам и ключам на машинах всей аудитории — включая тех, кто доверяет расширению как официальному каналу ИИ-инструмента. Атаки на цепочку поставок остаются самым коротким путём к разработчикам: репутация вендора в имени пакета больше не означает, что код под ним настоящий.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.heise.de/news/Claude-Code-Erweiterung-im-Cursor-Marktplatz-mit-Malware-infiziert-11506368.html" rel="noopener">heise online</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://cursor.com/blog/claude-code-extension-security-notice" rel="noopener">Cursor — официальное уведомление о безопасности</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.reuters.com/technology/artificial-intelligence/up-5000-users-affected-tampered-claude-code-extension-says-cursor-2026-10-30/" rel="noopener">СМИ 1</a> · <a href="https://phorion.io/blog/offical-claude-code-vsx-compromise/" rel="noopener">СМИ 2</a> · <a href="https://thehackernews.com/2026/10/official-claude-code-vs-code-extension.html" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
