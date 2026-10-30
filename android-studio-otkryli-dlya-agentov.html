@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google пустила Claude и Codex в Android Studio: что такое Bring Your Own Agent</title>
+<meta name="description" content="На Android Dev Summit Google выпустила стабильную версию Android Studio Rabbit 2 с функцией Bring Your Own Agent: теперь в официальную среду разработки Android можно подключить любого ИИ-агента — Claude, Codex, Antigravity и других — через открытый протокол ACP.">
+<meta property="og:title" content="Google пустила Claude и Codex в Android Studio: что такое Bring Your Own Agent">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/android-studio-otkryli-dlya-agentov.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Google пустила Claude и Codex в Android Studio: что такое Bring Your Own Agent</h1>
+<div class="meta">30.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/android-studio-otkryli-dlya-agentov.png" alt="">
+<div class="lead">На Android Dev Summit Google выпустила стабильную версию Android Studio Rabbit 2 с функцией Bring Your Own Agent: теперь в официальную среду разработки Android можно подключить любого ИИ-агента — Claude, Codex, Antigravity и других — через открытый протокол ACP.</div>
+<h3>Чужой агент — теперь официальный</h3>
+<p>Google представила стабильный релиз Android Studio Rabbit 2 — главной среды разработки под Android. Ключевая новинка называется Bring Your Own Agent (BYOA): вместо привязки к собственному Gemini студия официально открывает двери сторонним кодинг-агентам. Первыми поддерживаются Claude Agent от Anthropic, Codex от OpenAI, Google Antigravity и JetBrains Junie, а через открытый протокол Agent Client Protocol (ACP) к студии можно подключить более 40 агентов, умеющих с ним работать.</p>
+<h3>Что агенту разрешают внутри IDE</h3>
+<p>Это не плагин-автодополнение: агент получает доступ ко всей инфраструктуре студии — проекнному графу, сборочной системе, эмулятору, Logcat, предпросмотру Jetpack Compose и SDK-инструментам. Он может читать и менять файлы, запускать тесты и команды, а для сложных задач — порождать подагентов на подзадачи вроде код-ревью. При этом «тормоз» остаётся у разработчика: гранулярные разрешения позволяют агенту действовать самостоятельно только в рутинных операциях, а рискованные шаги он обязан останавливать на подтверждение.</p>
+<h3>Польза для Google — в отказе от монополии</h3>
+<p>Снимается и вопрос лимитов: если у одного агента закончилась квота или он хуже тянет задачу, работу может подхватить другой — прямо посреди сессии, с сохранением контекста. Контекст подается экономно: студия сама фильтрует релевантные файлы проекта через ACP, снижая расход токенов и задержки. Для Gemini Google теперь рекомендует агент Antigravity с новейшими моделями Gemini и расширенными квотами — жест недвусмысленный, особенно на фоне недавнего закрытия собственного агента Jules.</p>
+<h3>Мелочи для ежедневной работы</h3>
+<p>Вместе с BYOA в студии появился Skill Manager — управление «навыками» агента: готовые скиллы помогают мигрировать легаси-экраны с XML на Jetpack Compose, обновляться до AGP 9, делать адаптивные раскладки для раскладушек, подключать CameraX и Firebase. Агентские сессии становятся долгими: подхватываются навыки проекта, slash-команды и память. Preview-версия BYOA доступна в canary-канале, стабильный Rabbit 2 раскатывается постепенно.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.heise.de/news/Android-Entwickler-duerfen-Fremdgehen-Google-oeffnet-Studio-fuer-Claude-GPT-usw-11506272.html" rel="noopener">heise online</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://android-developers.googleblog.com/2026/09/build-your-way-use-any-ai-agent-in-android-studio.html" rel="noopener">Android Developers Blog (Google)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.heise.de/news/Android-Entwickler-duerfen-Fremdgehen-Google-oeffnet-Studio-fuer-Claude-GPT-usw-11506272.html" rel="noopener">СМИ 1</a> · <a href="https://developer.android.com/blog/posts/ai-agents-android-studio-integration" rel="noopener">СМИ 2</a> · <a href="https://dev.to/gabrielanhaia/android-studio-now-runs-claude-and-codex-through-acp-android-cli-doesnt-need-the-ide-3kkp" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
