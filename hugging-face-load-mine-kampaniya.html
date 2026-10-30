@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Вторая волна malware на Hugging Face: поддельные модели Qwen2 скачали 28 тысяч раз, а ловят они и ИИ-агентов</title>
+<meta name="description" content="Исследователи Pluto Security описали кампанию Load/Mine: 31 вредоносный репозиторий на Hugging Face маскируется под крошечные тестовые чекпойнты Qwen2, устанавливает майнер и бэкдор на GPU-серверы — и возвращается через считаные дни после блокировок. Флагманскую модель скачали более 28 тысяч раз.">
+<meta property="og:title" content="Вторая волна malware на Hugging Face: поддельные модели Qwen2 скачали 28 тысяч раз, а ловят они и ИИ-агентов">
+<meta property="og:image" content="https://www.bleepstatic.com/content/hl-images/2026/07/20/Hugging-Face.jpg">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Вторая волна malware на Hugging Face: поддельные модели Qwen2 скачали 28 тысяч раз, а ловят они и ИИ-агентов</h1>
+<div class="meta">30.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/hugging-face-load-mine-kampaniya.jpg" alt="">
+<div class="lead">Исследователи Pluto Security описали кампанию Load/Mine: 31 вредоносный репозиторий на Hugging Face маскируется под крошечные тестовые чекпойнты Qwen2, устанавливает майнер и бэкдор на GPU-серверы — и возвращается через считаные дни после блокировок. Флагманскую модель скачали более 28 тысяч раз.</div>
+<h3>Модель без модели</h3>
+<p>Аналитики Pluto Security нашли 31 вредоносный репозиторий на семи аккаунтах Hugging Face, появлявшихся двумя волнами с сентября. Все они притворяются маленькими тестовыми чекпойнтами Qwen2 и нацелены на GPU-хосты с самостоятельными инференс-серверами — Xinference, GPUStack и аналогами. Связанные репозитории набрали более 32 тысяч загрузок (Pluto подчёркивает: это загрузки, а не подтверждённые заражения). Самая популярная модель MENXIANGYU/qwen2-tiny не содержала модели вообще — только код.</p>
+<h3>Как это работает</h3>
+<p>Кампания эксплуаттирует не «отравленные веса» и не pickle-уязвимости, а легальную опцию trust_remote_code: модель может поставлять собственный Python-код, который выполняется на машине пользователя в момент загрузки. Этот код ставит криптовалютный майнер, маскируясь под системный процесс Linux, перезапускает себя при убийстве и вычищает конкурентов-майнеров, а отдельные версии открывают reverse shell — прямой доступ атакующего к серверу. Пока исследователи наблюдали, девять машин исследовательского GPU-кластера одновременно начали майнить на оператора кампании; админ заметил это примерно через шесть минут.</p>
+<h3>Возврат после сноса</h3>
+<p>Первую волну удалили после обращения Pluto в Hugging Face и китайский ModelScope — но через несколько дней под новыми аккаунтами появилась вторая волна из 19 репозиториев, а через несколько часов после репорта оператор выложил модель со скриптом побега из контейнера. Восьмого дня после обращения вторая волна всё ещё была жива: счётчик флагманской модели вырос с 7354 загрузок до 28412, причём антивирусные сканеры площадки (в том числе от Protect AI и JFrog) выдавали «чисто» — они ищут известные сигнатуры, а не анализируют, что код модели делает по факту. Доход оператора — около 5000 долларов в криптовалюте Pearl (PRL); Pluto приписывает кампанию мотивированному деньгами китайскоязычному атакующему по комментариям в коде и C2-серверам на Alibaba Cloud.</p>
+<h3>Ловушка и для ИИ-агентов</h3>
+<p>В отдельном отчёте Air Security описывает фейковый Solana starter kit на GitHub (репозиторий живёт с ноября 2025-го, 286 звёзд): по сути это одно README без кода, которое ИИ-агенты-кодогенераторы находят первым по запросу и послушно выполняют — единственная «инструкция установки» собирает по частям URL и запускает в памяти PowerShell-загрузчик RAT. То есть жертвой ловушки может стать не только человек, скопировавший команду, но и агент, который прочитал README вместо разработчика.</p>
+<h3>Что делать, если вы загружали такие модели</h3>
+<p>Если вы поднимали подозрительные чекпойнты с trust_remote_code=True, считайте машину скомпрометированной: сверьте её с индикаторами компрометации из отчёта Pluto, ротируйте все доступные с неё учётные данные и ключи. Простая остановка майнера не спасает — вместе с ним ставились бэкдоры и reverse shell. Практика для всех, кто разворачивает открытые веса: не включать trust_remote_code для моделей из непроверенных аккаунтов, а агентам-кодогенераторам запрещать исполнение команд из README без человеческой проверки.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.bleepingcomputer.com/news/security/hugging-face-malware-campaign-returns-to-hijack-gpus-for-crypto-mining/" rel="noopener">BleepingComputer</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://pluto.security/blog/hugging-face-malware-campaign-load-mine/" rel="noopener">Pluto Security — отчёт Load/Mine</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://isc.sans.edu/podcastdetail/10158" rel="noopener">СМИ 1</a> · <a href="https://markets.businessinsider.com/news/currencies/pluto-security-explains-the-hugging-face-cryptominer-campaign-in-plain-terms-1036684806" rel="noopener">СМИ 2</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
