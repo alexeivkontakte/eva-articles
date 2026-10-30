@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anthropic сняла последний тормоз: Claude Code теперь можно разрешить стирать файлы без подтверждения человека</title>
+<meta name="description" content="В свежей сборке Claude Code (v2.1.311) появился флаг, отключающий даже те защиты, что раньше считались неприкосновенными. Переменная окружения с красноречивым названием позволяет ИИ-агенту выполнять самые опасные команды терминала — включая полное удаление каталогов — без единого вопроса пользователю.">
+<meta property="og:title" content="Anthropic сняла последний тормоз: Claude Code теперь можно разрешить стирать файлы без подтверждения человека">
+<meta property="og:image" content="https://habr.com/share/publication/1101046/d6f42e9ae27fdffdbf528430023710ca/">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Anthropic сняла последний тормоз: Claude Code теперь можно разрешить стирать файлы без подтверждения человека</h1>
+<div class="meta">30.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/claude-code-yolo-flag.jpg" alt="">
+<div class="lead">В свежей сборке Claude Code (v2.1.311) появился флаг, отключающий даже те защиты, что раньше считались неприкосновенными. Переменная окружения с красноречивым названием позволяет ИИ-агенту выполнять самые опасные команды терминала — включая полное удаление каталогов — без единого вопроса пользователю.</div>
+<h3>Что произошло</h3>
+<p>Сотрудница Anthropic Дэйзи Холлман сообщила, что в релизе v2.1.311 Claude Code добавила переменную окружения `CLAUDE_CODE_EVEN_MORE_DANGEROUSLY_SKIP_PERMISSIONS=1`. Если её выставить, агент перестаёт спрашивать разрешение даже на «очевидно опасные» операции вроде полного стирания домашнего каталога. Прежний флаг `--dangerously-skip-permissions` и режим bypassPermissions тоже снимали почти все подтверждения, но рекурсивное удаление файлов агент обязан был согласовать с человеком. Теперь согласование можно отключить совсем. «Это не шутка! Надеюсь, это поможет, а название переменной легко запомнится», — подписала Холлман.</p>
+<h3>Зачем это нужно</h3>
+<p>Логика разработчиков понятна: автономные агенты всё чаще работают в контейнерах и CI, где каждое подтверждение — тупик, а риск для изолированной среды минимален. The Register описал нововведение без сантиментов: «прыжок из самолёта без парашюта». Практика последних месяцев показывает, что парашют был не лишним: агенты Claude уже стирали домашние каталоги пользователей — например, перепутав при резервном копировании путь `C:\Users\harih` на `/c/Users/harih`, агент снёс всё на диске, а в другом случае удалил несколько сотен гигабайт «резервной копии».</p>
+<h3>Почему это важно для безопасности</h3>
+<p>Дыра здесь не в коде, а в модели доверия: автономность — главный аргумент в пользу агентов, и именно она превращает prompt injection из неприятности в катастрофу. Достаточно вредоносного README или комментария в скачанном репозитории, чтобы агент с включённым флагом без единой остановки добрался до удаления данных, шифровальщика или кражи ключей. Недавняя кампания testmetest, минировавшая 42 реальных GitHub-репозитория ловушками для Claude Code, Gemini и Cursor, — прямое подтверждение: за автономию агентов уже охотятся те, кто ждёт отключённых подтверждений.</p>
+<h3>Что делать разработчикам</h3>
+<p>Правило простое: новый флаг уместен только в одноразовой изолированной среде без доступа к личным файлам, SSH-ключам и облачным креденшелам. Для рабочих машин — оставить хотя бы прежний уровень с подтверждением удалений, а критичные каталоги закрывать read-only монтированием или снапшотами. Anthropic, впрочем, честно предупреждает уже в названии переменной: даже «ещё более опасно» — это выбор пользователя, а не рекомендация компании.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://habr.com/ru/news/1101046/" rel="noopener">Хабр</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://x.com/The_Whole_Daisy/status/2114796466850202103" rel="noopener">Анонс Дэйзи Холлман, Anthropic (X)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.theregister.com/ai-and-ml/2026/10/27/anthropic-now-lets-claude-users-jump-out-of-plane-without-parachute/5305807" rel="noopener">СМИ 1</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
