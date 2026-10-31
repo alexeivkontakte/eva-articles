@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Открытая модель GLM 5.3 сама собрала рабочие эксплойты против шести версий Firefox — за $1000 каждый</title>
+<meta name="description" content="Исследователи Epoch AI скормили китайской открытой модели общедоступные, но ещё не доехавшие до пользователей патчи Firefox — и получили готовые атаки на шесть релизов браузера. Быстрая попытка заняла 12 часов, человека в контуре не было вовсе.">
+<meta property="og:title" content="Открытая модель GLM 5.3 сама собрала рабочие эксплойты против шести версий Firefox — за $1000 каждый">
+<meta property="og:image" content="https://lapaasvoice.com/wp-content/uploads/2026/10/fgsdtywef-1200x675.jpg">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Открытая модель GLM 5.3 сама собрала рабочие эксплойты против шести версий Firefox — за $1000 каждый</h1>
+<div class="meta">31.10.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/glm-firefox-patch-gap.jpg" alt="">
+<div class="lead">Исследователи Epoch AI скормили китайской открытой модели общедоступные, но ещё не доехавшие до пользователей патчи Firefox — и получили готовые атаки на шесть релизов браузера. Быстрая попытка заняла 12 часов, человека в контуре не было вовсе.</div>
+<h3>Окно, которое ИИ закрыл первым</h3>
+<p>29 октября исследовательская организация Epoch AI опубликовала работу о так называемом «patch gap» — разрыве между выходом исправления уязвимости и его доставкой пользователям. У открытого Firefox фиксы заранее видны в публичных ветках разработки и бета-сборках. Epoch AI дала открытовесовой модели GLM 5.3 (китайская Z.ai, релиз августа 2026 года) эти публичные диффы — и модель по ним восстановила сами уязвимости, прежде чем обновления дошли до обычных пользователей.</p>
+<h3>Шесть релизов, один клик, ноль человек</h3>
+<p>По данным первоисточника, GLM 5.3 построила рабочие цепочки эксплойтов для шести свежих релизов Firefox — целиком автономно, без единой подсказки человека. Итог — вредоносная веб-страница: жертве достаточно её открыть, чтобы модель вытянула локальный файл с компьютера. Самая быстрая успешная сборка заняла 12 часов при отведённом окне в 48 часов, а каждая готовая атака обошлась примерно в $1000 расходов на API. Mozilla уже успела закрыть одну из использованных уязвимостей, о которой раньше не сообщалось, — в Firefox 159.0.</p>
+<h3>Chrome модели не поддаётся — пока</h3>
+<p>В той же постановке опыта аналогичной цепочки против Google Chrome модель построить не смогла. Но вывод исследователей неприятно простой: раньше «патч-окно» защищало тем, что людям физически не хватало времени и квалификации собрать атаку до раскатки обновления. ИИ-агенту времени хватает — окно схлопывается до скорости модели.</p>
+<h3>Что делать обычным людям</h3>
+<p>Операционных деталей атак Epoch AI не раскрывает, да и не нужно. Практический вывод ровно один: автообновление браузера — не вежливость, а единственная защита от этого класса атак. Проверьте, что Firefox обновлён хотя бы до 159.0, а обновления включены автоматически: пока вы откладываете «перезапустить завтра», окно между патчем и вашей версией кто-то уже умеет монетизировать машиной за $1000.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://lapaasvoice.com/open-weight-model-glm-5-3-built-full-firefox-exploit-chains-with-zero-human-input-in-under-48-hours/" rel="noopener">Lapaas Voice</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://epoch.ai/publications/open-weight-models-patch-gap" rel="noopener">Epoch AI — официальная публикация исследования</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://the-decoder.com/open-weight-model-glm-5-3-built-full-firefox-exploit-chains-with-zero-human-input-in-under-48-hours/" rel="noopener">СМИ 1</a> · <a href="https://shattered.io/epoch-ai-glm-5-3-firefox-patch-gap-six-versions-1000-each-2026/" rel="noopener">СМИ 2</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
