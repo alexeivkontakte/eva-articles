@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>«Зашифрованная» флешка Lenovo оказалась обычной SD-картой, а ИИ-разбор вскрыл бэкдоры у целого ряда вендоров</title>
+<meta name="description" content="Реверс-инженер Xu Shi раскрыл: накопитель ThinkPlus FU100 с датчиком отпечатка и обещанием AES-256 внутри хранил данные вообще без шифрования. Помог искусственный интеллект">
+<meta property="og:title" content="«Зашифрованная» флешка Lenovo оказалась обычной SD-картой, а ИИ-разбор вскрыл бэкдоры у целого ряда вендоров">
+<meta property="og:image" content="https://cdn.mos.cms.futurecdn.net/m5tLgsKmfPcc5fZ3Ygd8Wc-1200-80.jpg">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>«Зашифрованная» флешка Lenovo оказалась обычной SD-картой, а ИИ-разбор вскрыл бэкдоры у целого ряда вендоров</h1>
+<div class="meta">01.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/nesushifrovannaya-fleshka.jpg" alt="">
+<div class="lead">Реверс-инженер Xu Shi раскрыл: накопитель ThinkPlus FU100 с датчиком отпечатка и обещанием AES-256 внутри хранил данные вообще без шифрования. Помог искусственный интеллект</div>
+<h3>Что нашлось внутри «AES-256»</h3>
+<p>Флешка Lenovo ThinkPlus FU100 продаётся как аппаратно шифруемый накопитель: AES-256, доступ по отпечатку пальца, «защита от утечек». Реверс-инженер Xusheng Li разобрал её и обнаружил внутри обычную SD-карту, на которой данные лежали вообще без всякого шифрования. Датчик отпечатка решал лишь одно: подключаться накопитель к компьютеру или молчать. О ошибке Lenovo узнала ещё в августе 2025 года, а первым «исправлением» стал… слой эпоксидки поверх карты, чтобы её нельзя было вытащить. Полноценный патч обещали к декабрю; в собственном бюллетене компания признала слабость, позволяющую любому с физическим доступом прочитать содержимое диска.</p>
+<h3>Второй аккорд: пароль по USB открытым текстом</h3>
+<p>Внешний SSD ThinkPlus TSD303 шифровал данные по-настоящему, но паспорт отдавал компьютеру открытым текстом прямо по шине USB — его мог подсмотреть любой, кто перехватывает трафик или читает память программы. Исправление тоже оказалось половинчатым: вместо пароля накопитель стал присылать блок, зашифрованный китайским алгоритмом SM4, а ключ выводился из даты — в тестах это оказалось значение вида 2021012700000000. Восстановить пароль по-прежнему было реально.</p>
+<h3>Роль ИИ и другие вендоры</h3>
+<p>Как отмечает Tom's Hardware, в продолжении исследования автор прибег к помощи ИИ: ассистент ускорило разбор чужих прошивок и утилит, и на «защищённых» продуктах других производителей нашлись бэкдоры и жёстко зашитые ключи. В разборе также отличились Netac (утилита NetacLockFile шифровала лишь треть байтов в каждом блоке, а «256-битный» ключ был вшит прямо в exe; на уведомление компания не ответила), KakaSoft, Nexcopy, SecZure и Lexar. Отдельного официального анонса у истории нет — только исследовательский доклад с конференции RE//verse и лаконичный бюллетень безопасности Lenovo.</p>
+<h3>Практический вывод</h3>
+<p>Надпись «AES-256» на упаковке — не криптографическое доказательство, а маркетинговое. Если на флешке лежат чувствительные данные, шифруйте их сами проверенным ПО (например VeraCrypt) — тогда носителю не придётся доверять, а отпечаток пальца считайте convenience-функцией, а не защитой. И держите в голове старую истину: физический доступ к носителю означает доступ к данным — вопрос лишь в стоимости атаки.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.tomshardware.com/tech-industry/cyber-security/lenovo-fingerprint-usb-stick-sold-as-aes-256-encrypted-had-a-plain-sd-card-inside-ai-assisted-follow-up-finds-a-backdoor-and-hardcoded-keys-in-other-secure-usb-products" rel="noopener">Tom's Hardware</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://hackingpassion.com/lenovo-thinkplus-encrypted-usb-sd-card/" rel="noopener">Подробный разбор доклада Xusheng Li (RE//verse)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.linkedin.com/posts/krehlik_lenovos-thinkplus-fu100-fingerprint-usb-activity-7521721511825764352-EHiD" rel="noopener">СМИ 1</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
