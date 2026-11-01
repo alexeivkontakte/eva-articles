@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DeepSeek выпустила Harness: открытый ИИ-агент «всё есть плагин» — прямой вызов Claude Code</title>
+<meta name="description" content="DeepSeek открыла глобальное тестирование и выложила в открытый код собственный фреймворк для ИИ-агентов Harness (dsh) под лицензией MIT: архитектура «всё есть плагин», плагины создаются разговором, а конкуренты уже называют это вызовом Claude Code.">
+<meta property="og:title" content="DeepSeek выпустила Harness: открытый ИИ-агент «всё есть плагин» — прямой вызов Claude Code">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/deepseek-harness-open-agent.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>DeepSeek выпустила Harness: открытый ИИ-агент «всё есть плагин» — прямой вызов Claude Code</h1>
+<div class="meta">01.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/deepseek-harness-open-agent.png" alt="">
+<div class="lead">DeepSeek открыла глобальное тестирование и выложила в открытый код собственный фреймворк для ИИ-агентов Harness (dsh) под лицензией MIT: архитектура «всё есть плагин», плагины создаются разговором, а конкуренты уже называют это вызовом Claude Code.</div>
+<p>DeepSeek представила <b>Harness</b> (команда `dsh`) — собственный открытый фреймворк для ИИ-агентов. Компания открыла его для тестирования по всему миру и одновременно выложила код на GitHub под лицензией MIT. Продукт работает как десктопное приложение (macOS на Apple чипах и Windows 64-бит) и как локальный веб-сервер по адресу 127.0.0.1:3080; запустить можно одной командой `npx @deepseek-ai/dsh web`. Статус — превью для разработчиков: в README честно предупреждают, что грядут обратно несовместимые изменения, а перед запуском советуют прочитать файл SAFETY.md.</p>
+<h3>Всё есть плагин</h3>
+<p>Ключевая идея архитектуры — «всё есть плагин»: инструменты, навыки и даже интерфейс расширенияются плагинами. Harness построен на системе Cordis, чья идеология описана в статье DeepSeek «A Programming Paradigm for Spatiotemporal Composability» на arXiv. Самая эффектная функция — режим «создания»: пользователь описывает нужную возможность разговором, а агент сам пишет плагин, устанавливает его и проверяет. В официальной демонстрации плаги «помодоро» с плавающим таймером собран и проверен за 5 минут 24 секунды. Также в превью заявлены команды агентов, субагенты, терминальный цикл, автоматическая проверка разрешений и запланированные задачи (например, автоматически собирать недельный отчёт по пятницам).</p>
+<h3>Ответ Claude Code</h3>
+<p>СМИ сразу поставили релиз в один ряд с агентами Anthropic и OpenAI: VentureBeat назвала Harness «открытым соперником Claude Code», LiveMint — «усиленным кодинг-агентом против Anthropic». Это логичное продолжение линии DeepSeek: её API уже понимает формат Anthropic, так что Claude Code можно подключить к моделям DeepSeek без кода, а прошлой компанией была открыта система инференса DeepInfer. Теперь у DeepSeek есть и собственный клиент поверх своих моделей — deepseek-flash (сейчас за ним стоит V4.1-Flash-1017) и deepseek-v4-pro.</p>
+<p>По сообщению агрегатора BigGo, часть концепции носит имя Super-agent — прототип, который следит за групповыми чатами разработчиков и сам подхватывает упоминаемые там задачи на кодинг; отдельного официального анонза именно этого компонента нет.</p>
+<h3>Что это значит</h3>
+<p>Для рынка агентской разработки это важный сдвиг: раньше открытые «обвязки» вокруг моделей делали в основном сторонние энтузиасты (OpenCode, OpenHands), теперь же в эту нишу вышла лаборатория уровня DeepSeek с собственной моделью, своим хarness'ом и открытой лицензией. Практический путь знакомых с Claude Code короткий: поменять переменные окружения на эндпоинт api.deepseek.com/anthropic — либо ставить dsh целиком и пробовать «создание» плагинов разговором.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://venturebeat.com/technology/deepseek-harness-launches-as-open-source-rival-to-claude-code-alongside-v4-pro-on-api-with-higher-prices" rel="noopener">VentureBeat</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://deepseek.com/harness" rel="noopener">Официальная страница DeepSeek Harness</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://github.com/deepseek-ai/deepseek-harness" rel="noopener">СМИ 1</a> · <a href="https://www.livemint.com/companies/deepseek-drops-enhanced-coding-agent-with-aim-to-rival-anthropic-11793506699829.html" rel="noopener">СМИ 2</a> · <a href="https://finance.biggo.com/news/11350f30-4ed6-4069-ac13-0062ca642d55" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
