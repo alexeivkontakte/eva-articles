@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Вирус-стилер теперь сам нанимает ИИ: VOLTA просит Claude оценить, сколько стоит жертва</title>
+<meta name="description" content="Cisco Talos описал Windows-стилер VOLTA-AUTODOXER, который после кражи паролей, сессий и криптокошельков отправляет собранный «досье-пакет» в большую языковую модель и просит её ранжировать добычу по денежной ценности. Модель по умолчанию — Claude Opus 4.6, а при отказе вредонос переключается на Kimi K2 и Gemini 2.5 Flash.">
+<meta property="og:title" content="Вирус-стилер теперь сам нанимает ИИ: VOLTA просит Claude оценить, сколько стоит жертва">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/volta-ai-otsenchik-zhertv.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Вирус-стилер теперь сам нанимает ИИ: VOLTA просит Claude оценить, сколько стоит жертва</h1>
+<div class="meta">01.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/volta-ai-otsenchik-zhertv.png" alt="">
+<div class="lead">Cisco Talos описал Windows-стилер VOLTA-AUTODOXER, который после кражи паролей, сессий и криптокошельков отправляет собранный «досье-пакет» в большую языковую модель и просит её ранжировать добычу по денежной ценности. Модель по умолчанию — Claude Opus 4.6, а при отказе вредонос переключается на Kimi K2 и Gemini 2.5 Flash.</div>
+<h3>Аналитик на стороне злоумышленника</h3>
+<p>Исследователь Cisco Talos Райан Феттерман 31 октября опубликовал разбор нового самостирающегося Windows-стилера VOLTA-AUTODOXER, найденного через исследовательскую программу CAIRN для отслеживания вредоносов с ИИ-интеграцией. Обычный стилер крадёт пароли из браузеров, cookie, платёжные карты, сид-фразы криптокошельков, сессии Discord, Telegram, Steam и Roblox, токены Microsoft OAuth, SSH- и облачные ключи — и на этом обычно заканчивает. VOLTA идёт дальше: она собирает из этого структурированный «пакет улик» — геолокацию и домашний адрес, работодателя, год рождения по документам, последние четыре цифры карт, рабочие Slack-пространства, оценку инвентаря Roblox по живому курсу — и отдаёт его языковой модели.</p>
+<h3>«Сколько они стоят»: запрос, который пишет модель</h3>
+<p>Пакет уходит на эндпоинт OpenRouter с системным промптом «форензик-аналитик, составляющий оценку цели». От модели требуют раздел «WHAT THEY'RE WORTH» — ценности жертвы, ранжированные по низкому/среднему/высокому уровню монетизации, — и раздел «THEIR OPSEC» с оценкой её цифровой гигиены. Температуру злоумышленник выставил жёстко детерминированную — 0.2, чтобы выводы были стабильными. Модель по умолчанию — anthropic/claude-opus-4.6; если она отказывается (вредонос подмечает фразы вроде «I can't»), запускается цепочка запасных аэродромов: moonshotai/kimi-k2, затем google/gemini-2.5-flash. По мнению Talos, сама цепочка отказов доказывает: автор заранее рассчитывал наткнуться на защитные фильтры моделей.</p>
+<h3>Живая докрутка через украденные сессии</h3>
+<p>Перед обращением к ИИ VOLTA делает «обогащающий» проход уже похищенными сессиями: ищет в почте жертвы чеки Amazon, Walmart, PayPal и по ним подтверждает домашний адрес, вытаскивает историю заказов Uber Eats и DoorDash, дополняет профиль Discord по украденному токену. Любопытная деталь от Talos: весь ИИ-анализ происходит с сети и машины самой жертвы — запрос к модели уходит с её же IP, и только потом результат (файл AI_Analysis.txt) вместе с досье упаковывается в архив и утекает. Инфраструктуры, принадлежащей атакующему, в этой схеме почти нет — стилер к тому же самостирающийся.</p>
+<h3>Конструктор на продажу</h3>
+<p>Talos полагает, что VOLTA — товарный продукт: вместо зашитых настроек в ней шесть сменных слотов (канал приёма, ключи и т.п.), которые заполняются при сборке под конкретного заказчика — то есть автор продаёт сборку кастомных сборок. Ключ шифрования этих слотов — по сути SHA-256 двух констант из того же файла, так что это скорее имитация заботы о клиенте. Главный вывод исследователей даже не в конкретном вредоносе, а в смене парадигмы: «закинь широкая сеть, укради всё, а разберётся ИИ» — модель впервые работает не помощником малвари, а аналитиком-триажником на стороне оператора.</p>
+<h3>Что делать обычному человеку</h3>
+<p>Рецепт скучен, но именно он ломает такую схему: не пользоваться одним паролем на почте, играх и крипте; включить 2FA на почте (именно почтовые сессии дают VOLTA почти всю «живую» докрутку); для криптокошельков — отдельные устройства или хотя бы отдельный профиль браузера; раз в полгода выходить из всех сессий в Google/Microsoft/Discord и менять пароли; не хранить сид-фразы в файлах на рабочем Windows. Если антивирус ругается на «подозрительный PowerShell» или исчезают файлы отчётов — это повод не радоваться, а сменить пароли с чистого устройства.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.wired.com/story/kernel-panic-volta-autodoxer-ai-infostealer-malware/" rel="noopener">WIRED</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/" rel="noopener">Cisco Talos Blog</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.wired.com/story/kernel-panic-volta-autodoxer-ai-infostealer-malware/" rel="noopener">СМИ 1</a> · <a href="https://blog.talosintelligence.com/introducing-cairn-frontier-tracking-for-ai-integrated-malware/" rel="noopener">СМИ 2</a> · <a href="https://mezha.net/eng/news/mezha-ac5641694b06acb9462bb5f6_infostealer_malware_uses/" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
