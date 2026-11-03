@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anthropic впустила корпоративный антивирус внутрь виртуалки Claude Cowork: работа ИИ-агентов перестала быть невидимой</title>
+<meta name="description" content="Пока корпоративные EDR-датчики слепо проходили мимо того, что ИИ-агент натворит внутри изолированной виртуальной машины, Anthropic выпустила бету: теперь свой EDR-сенсор можно поставить прямо внутрь VM, где Claude выполняет команды.">
+<meta property="og:title" content="Anthropic впустила корпоративный антивирус внутрь виртуалки Claude Cowork: работа ИИ-агентов перестала быть невидимой">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/anthropic-edr-vs-skrytnye-agenty.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Anthropic впустила корпоративный антивирус внутрь виртуалки Claude Cowork: работа ИИ-агентов перестала быть невидимой</h1>
+<div class="meta">03.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/anthropic-edr-vs-skrytnye-agenty.png" alt="">
+<div class="lead">Пока корпоративные EDR-датчики слепо проходили мимо того, что ИИ-агент натворит внутри изолированной виртуальной машины, Anthropic выпустила бету: теперь свой EDR-сенсор можно поставить прямо внутрь VM, где Claude выполняет команды.</div>
+<h3>Невидимая зона</h3>
+<p>Когда Claude Cowork работает на компьютере сотрудника, он выполняет shell-команды и код в изолированной виртуальной машине. И это была слепая зона: корпоративный датчик EDR (система обнаружения вторжений на конечных точках), который стоит на машине, внутрь этой виртуалки заглянуть не может. Агент может сколько угодно писать скрипты и таскать файлы — защитный софт компании этого просто не видит.</p>
+<h3>Что сделала Anthropic</h3>
+<p>Компания официально добавила в Claude Desktop опциональную бету: теперь собственный EDR-сенсор можно установить внутрь той самой виртуальной машины, в которой Cowork на Windows и macOS запускает код. Сенсор видит активность и содержимое внутри VM — промпты, файлы и ответы Claude — и отправляет данные в корпоративную систему защиты. То есть решения агента теперь попадают в тот же контур мониторинга, что и действия обычного сотрудника.</p>
+<h3>Почему это важно сейчас</h3>
+<p>Поворот показательный: буквально на прошлой неделе WorkOS подтвердила, что её внутреннюю систему взломал автономный ИИ-агент ARTEX, а исследователи требуют международного надзорного органа для таких агентов. Пока агент работал в «слепой» VM, ни одна защита его шаги не фиксировала. Anthropic первой из больших лабораторий признала: изоляция песочницы не заменяет наблюдаемость, и дала компаниям инструмент подглядывать за собственными агентами.</p>
+<h3>Цена прозрачности</h3>
+<p>У медали есть вторая сторона: сенсор видит содержимое промптов и файлов, а значит личные или чувствительные сессии пользователя теперь видны корпоративной защите. Anthropic подчёркивает, что установка опциональна и рассчитана на корпоративных администраторов, — но сам факт, что «что я набрал агенту» может стать предметом анализа SOC, меняет приватность работы с ИИ-ассистентом на рабочем месте.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://cybersecuritynews.com/anthropic-enables-edr-monitoring/" rel="noopener">Cyber Security News</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://support.claude.com/en/articles/17828685-run-your-endpoint-detection-and-response-edr-sensor-in-claude-cowork-on-claude-desktop" rel="noopener">Claude Help Center (официальная документация Anthropic)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://cybersecuritynews.com/anthropic-enables-edr-monitoring/" rel="noopener">СМИ 1</a> · <a href="https://badgersignal.com/articles/anthropic-enables-edr-monitoring-for-claude-cowork-ai-agents-on-windows-and-macos" rel="noopener">СМИ 2</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
