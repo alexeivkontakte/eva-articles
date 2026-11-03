@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Свой среди ботов: партнёр Google превратил 1,3 миллиона ТВ-приставок в ботнет</title>
+<meta name="description" content="Google вместе с партнёрами разоблачил ботнет XCPE из более чем 1,3 миллиона ТВ-приставок в ~200 странах. Оказалось, вредонос не «прилетел» извне — его намеренно встроил в прошивки сам производитель оборудования Videostrong, а доступ к устройствам продавал криптовалютным аферистам и рекламным фродерам.">
+<meta property="og:title" content="Свой среди ботов: партнёр Google превратил 1,3 миллиона ТВ-приставок в ботнет">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/google-xcpe-botnet-videostrong.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Свой среди ботов: партнёр Google превратил 1,3 миллиона ТВ-приставок в ботнет</h1>
+<div class="meta">03.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/google-xcpe-botnet-videostrong.png" alt="">
+<div class="lead">Google вместе с партнёрами разоблачил ботнет XCPE из более чем 1,3 миллиона ТВ-приставок в ~200 странах. Оказалось, вредонос не «прилетел» извне — его намеренно встроил в прошивки сам производитель оборудования Videostrong, а доступ к устройствам продавал криптовалютным аферистам и рекламным фродерам.</div>
+<h3>Бэкдор с заводской пропиской</h3>
+<p>Google Threat Intelligence Group 2 ноября отчитался о ликвидации бэкдора x.cpe (пакет com.oemservice), который был вшит прямо в прошивки Android-приставок с заводскими системными привилегиями. Обычное удаление пакета не помогало: после перезагрузки вредонос восстанавливался из раздела /oem/. По оценке Google с высокой уверенностью, бэкдор «намеренно разработан, развёрнут и эксплуатировался ради наживы» компанией Videostrong Technology — китайским OEM/ODM-производителем, который годами ставил его на разные модели устройств, обходя сертификационные тесты Google с помощью обфускации и загрузки кода после первой загрузки устройства.</p>
+<h3>Как это работало</h3>
+<p>Архитектура была трёхступенчатой: управление шло по лёгкому протоколу MQTT (сервер mqtt.szbboys[.]com на портах 3885–3887), а исполнение отделялось отдельным загрузчиком com.abc.nexus — это затрудняло обнаружение. Заражённые устройства становились выходными точками резидентных прокси-сетей, генерировали накрутку рекламных показов и догружали следующий вредонос. Операторы могли молча устанавливать приложения, выполнять shell-команды, снимать экран и выкачивать учётные данные; вредонос умел отключать проверку Google Play Protect. Среди жертв были не только приставки: встречались телемедицинское оборудование, караоке-машины и цифровые вывески.</p>
+<h3>Бан на всю компанию</h3>
+<p>Google разорвал отношения с Videostrong и запретил ей и её будущим дочерним структурам выпускать сертифицированные Android-устройства и поставлять софт сертифицированным вендорам. В операции участвовали Национальное полицейское управление Японии, Lumen, HUMAN Security, Plume, Synthient и TrendAI; судейские действия по серверам управления и доменам аффилиатов, по оценке Google, перекроют доступ ещё минимум к 10 миллионам скомпрометированных устройств — это отдельная цифра, не входящая в 1,3 миллиона XCPE. Компания также признала дыру в собственной системе проверки устройств и объявила об изменениях в процессе ревью и усилении проверок целостности прошивок.</p>
+<h3>Чему учит история</h3>
+<p>Самое тревожное здесь даже не масштаб, а источник угрозы: «поставщик безопасности» оказался продавцом доступа для преступников. Прошивка от брендированного OEM не гарантия чистоты — а сертификат Android не заменяет аудит. Покупателям устройств для дома и офиса Google советует выбирать проверенных производителей, а уроки прошлого кейса BadBox 2.0 (более 10 млн неверифицированных устройств) показывает: рынок дешёвых ТВ-боксов остаётся конвейером для ботнетов. Ликвидация инфраструктуры не означает, что каждое устройство теперь чисто — это лишь отсечение каналов управления.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://cybersecuritynews.com/google-dismantles-xcpe-botnet/" rel="noopener">Cyber Security News</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://cloud.google.com/blog/topics/threat-intelligence/shutting-the-door-on-the-xcpe-botnet" rel="noopener">Google Cloud Blog — Threat Intelligence</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.theverge.com/1024807/google-botnet-android-tv-shut-down" rel="noopener">СМИ 1</a> · <a href="https://thehackernews.com/2026/11/google-disrupts-13-million-device.html" rel="noopener">СМИ 2</a> · <a href="https://www.plume.com/newsroom/google-leads-industry-takedown-of-botnet-hidden-in-more-than-1-3-million-set-top-boxes-across-200-countries" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
