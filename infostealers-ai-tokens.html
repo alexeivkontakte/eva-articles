@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Стилеры охотятся за токенами ИИ: украденный доступ к Claude и ChatGPT переживает смену пароля</title>
+<meta name="description" content="Исследователи SpyCloud нашли в логах двух вредоносных программ-стилеров кое-что новенькое: помимо паролей из браузеров они выносят OAuth-токены, API-ключи и session-файлы Claude Code, Codex, Cursor, GitHub Copilot и десктопных Claude и ChatGPT. Главное: такой токен часто остаётся живым после сброса пароля. С августа 2026 года зафиксировано более 130 тысяч заражений WardenStealer.">
+<meta property="og:title" content="Стилеры охотятся за токенами ИИ: украденный доступ к Claude и ChatGPT переживает смену пароля">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/infostealers-ai-tokens.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Стилеры охотятся за токенами ИИ: украденный доступ к Claude и ChatGPT переживает смену пароля</h1>
+<div class="meta">04.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/infostealers-ai-tokens.png" alt="">
+<div class="lead">Исследователи SpyCloud нашли в логах двух вредоносных программ-стилеров кое-что новенькое: помимо паролей из браузеров они выносят OAuth-токены, API-ключи и session-файлы Claude Code, Codex, Cursor, GitHub Copilot и десктопных Claude и ChatGPT. Главное: такой токен часто остаётся живым после сброса пароля. С августа 2026 года зафиксировано более 130 тысяч заражений WardenStealer.</div>
+<h3>Новый улов в старых логах</h3>
+<p>Компания SpyCloud в отчёте от 30 октября описала, как два семейства Windows-стилеров — WardenStealer (на Rust, распространяется по модели «вредонос как услуга») и Aoki — начали целенаправленно собирать учётные данные локально установленных ИИ-инструментов. WardenStealer вытаскивает из Claude Code OAuth-токены доступа и обновления, материалы авторизации подключённых MCP-серверов и даже конфигурационные инструкции ассистента; из Codex — ключ API OpenAI вместе с токенами; Aoki складывает добычу в отдельную категорию и охватывает ChatGPT, Claude Desktop, GitHub Copilot и Cursor. Всего с августа 2026 года переснято более 130 000 заражений WardenStealer.</p>
+<h3>Почему смена пароля не спасает</h3>
+<p>Речь о краже учётных данных на конечной точке, а не о взломе самих сервисов. Но дьявол в деталях: действующая cookie или refresh-токен позволяют продолжить сессию без ввода пароля и без нового прохода MFA. Сброс пароля при этом не отзывает уже выпущенные токены — пострадавший уверен, что «защитился», а преступник сидит в аккаунте как аутентифицированный пользователь. Для разработчика цена выше: ИИ-инструменты обычно подключены к репозиториям, облакам и CI/CD-конвейерам, так что украденная сессия открывает путь в проектную инфраструктуру.</p>
+<h3>За ИИ-доступ уже платят</h3>
+<p>Подпольные магазины торгуют подписками и API-кредитами со скидкой 40–91% от розничной цены: например, 100 долларов кредита Codex или Claude предлагали за 8,94 доллара, а оптовые скупщики платят поставщикам до 35% от списаний по украденным ключам. Это кормит «LLMjacking» — потребление ИИ-сервисов за чужой счёт. В 2024 году исследователи Sysdig оценивали, что один эксплуатируемый аккаунт может принести более 46 000 долларов счетов за сутки, и находили обратные прокси, передавшие свыше двух миллиардов токенов. Краденые ключи, по их словам, могут идти и на несанкционированную дистилляцию — обучение маленьких моделей на ответах фронтирных.</p>
+<h3>Что делать разработчику</h3>
+<p>SpyCloud советует относиться к токенам ИИ-инструментов как к полноценной зоне поражения при любом расследовании заражения машины разработчика: ротировать ключи и токены, отзывайте активные сессии (не только менять пароль), мониторить аномальное потребление API. Проверьте, какие MCP-серверы и интеграции были подключены к локальному агенту — скомпрометированная машина обнуляет доверие ко всем их ключам.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://cybersecuritynews.com/hackers-use-new-infostealer-malware/" rel="noopener">Cybersecurity News</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://spycloud.com/blog/infostealers-now-target-ai-tokens-and-api-keys/" rel="noopener">SpyCloud Labs (официальный отчёт, 30.10.2026)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://cyberpress.org/infostealers-hijack-ai-accounts/" rel="noopener">СМИ 1</a> · <a href="https://tech.yahoo.com/cybersecurity/articles/spycloud-finds-ai-tool-tokens-231656521.html" rel="noopener">СМИ 2</a> · <a href="https://www.broadcom.com/support/security-center/protection-bulletin/aoki-infostealer-targets-ai-coding-assistant-credentials" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
