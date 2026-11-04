@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Джейлбрейк с рекламной кампанией: пакет Haiou вживил рекламу в ответы ИИ-агента Codex</title>
+<meta name="description" content="Исследователи Check Point описали новый тип угрозы для ИИ-агентов — «промпт-адваре». Китайский пакет Haiou для OpenAI Codex не только ослабляет ограничения модели, но и незаметно встраивает в настройки агента рекламу платного ИИ-шлюза: обычное приветствие пользователя внезапно превращается в рекламный ответ.">
+<meta property="og:title" content="Джейлбрейк с рекламной кампанией: пакет Haiou вживил рекламу в ответы ИИ-агента Codex">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/prompt-adware-haiou-codex.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Джейлбрейк с рекламной кампанией: пакет Haiou вживил рекламу в ответы ИИ-агента Codex</h1>
+<div class="meta">04.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/prompt-adware-haiou-codex.png" alt="">
+<div class="lead">Исследователи Check Point описали новый тип угрозы для ИИ-агентов — «промпт-адваре». Китайский пакет Haiou для OpenAI Codex не только ослабляет ограничения модели, но и незаметно встраивает в настройки агента рекламу платного ИИ-шлюза: обычное приветствие пользователя внезапно превращается в рекламный ответ.</div>
+<h3>Что нашли исследователи</h3>
+<p>Аналитики Check Point Research наткнулись на набор инструментов, оставленный на неправильно настроенном сервере Cobalt Strike, который belonged злоумышленникам: в логах сервера видны компрометации личных компьютеров китайскоязычных пользователей. Рядом с сетевым сканером Ladon и пентест-агентом VulnClaw у атакующего лежал китайский джейлбрейк-пакет для OpenAI Codex под именем Haiou. В отчёте от 3 ноября разобрана версия 4.5.0, которую распространяли через GitHub как «улучшение» для Codex. Сам факт, что такие пакеты двойного назначения уже входят в реальные киберпреступные сценарии, авторы отмечают отдельно — хотя связи автора Haiou с киберпреступностью они не нашли.</p>
+<h3>Как работает «промпт-адваре»</h3>
+<p>Пакет защищает своё содержимое шифрованием: установщики под Windows, Linux и macOS проверяют подписи Ed25519 и хэши SHA-256, затем расшифровывают полезную нагрузку ключом AES-256-GCM. Внутри — модули промптов и шесть «навыков» безопасности: от пентеста и реверс-инжиниринга до анализа памяти. А рекламное правило спрятано в модуле идентичности: при совпадении определённого приветствия агент обязан выдать вместо ответа фиксированный рекламный текст стороннего шлюза моделей. Продвигаемый сервис (OpenAI-совместимый шлюз) пакет даже объявляет «защищённой инфраструктурой» и запрещает тестировать его на уязвимости. Важно: всё держится на установленных инструкциях и файлах конфигурации, а не на изменении самой модели, — прилагаемый деинсталлятор возвращает исходные настройки.</p>
+<h3>Почему это важно</h3>
+<p>Классическим вредоносом Haiou назвать нельзя: данных о краже учётных записей или вредоносном коде через этот шлюз отчёт не приводит. Скорее всего, бизнес-модель прозаична: бесплатный «разблокировщик» работает каналом привлечения клиентов в платный гейтвей. Но механизм опасен как таковой — сторонние инструкции, установленные в доверенного агента, тихо меняют его поведение на всех проектах подряд. На фоне свежих инцидентов с взломанными ИИ-агентами у WorkOS и GitBook это выглядит логичным продолжением одной тенденции: код агента теперь определяют текстовые файлы, и их подмена становится каналом атаки.</p>
+<h3>Что делать разработчикам</h3>
+<p>Check Point советует относиться к промпт-конфигурации как к исполняемому коду: перед установкой любых «улучшателей» из неофициальных репозиториев проверять изменения в файлах инструкций (AGENTS.md и аналогах), список установленных навыков и настройки шлюза, через который агент ходит в модель. У двойных по назначению инструментов (пентест, крекинг лицензий) отдельный риск — они часто приходят в одном пакете с рекламой и скрытыми правилами поведения.</p>
+<p><b>Источники:</b> официальный отчёт Check Point Research (3 ноября 2026) — первоисточник; пересказ Cyber Security News и других СМИ — в ссылках ниже. Отдельного анонса со стороны OpenAI по этому случаю не было.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://cybersecuritynews.com/openai-codex-jailbreak/" rel="noopener">Cyber Security News</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://research.checkpoint.com/2026/free-the-model-sell-the-gateway-prompt-adware-hidden-in-jailbreak-bundles/" rel="noopener">Check Point Research</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://blog.checkpoint.com/security/prompt-adware-how-hidden-ai-instructions-could-create-a-new-enterprise-security-risk/" rel="noopener">СМИ 1</a> · <a href="https://mallory.ai/stories/01a1a1bc-1092-757d-bf09-213c6baad836" rel="noopener">СМИ 2</a> · <a href="https://daily.dev/posts/free-the-model-sell-the-gateway-prompt-adware-hidden-in-jailbreak-bundles-8eyrf9u3k" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
