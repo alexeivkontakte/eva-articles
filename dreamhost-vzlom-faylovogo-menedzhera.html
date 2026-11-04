@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Хостинг под чужим контролем: DreamHost подтвердил месячную кражу логов FTP, SFTP и почтовых ящиков</title>
+<meta name="description" content="Хостинг-провайдер DreamHost подтвердил: с августа по 23 октября 2026 года злоумышленник через уязвимость в стороннем файловом менеджере files.dreamhost.com выкачивал имена пользователей и пароли FTP/SFTP, а часть клиентских почтовых ящиков просмотрел. Затронуто «значительно меньше 10%» аккаунтов из примерно 400 тысяч, уведомление подано генеральному прокурору Калифорнии.">
+<meta property="og:title" content="Хостинг под чужим контролем: DreamHost подтвердил месячную кражу логов FTP, SFTP и почтовых ящиков">
+<meta property="og:image" content="https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2249547675.jpg?w=1024">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Хостинг под чужим контролем: DreamHost подтвердил месячную кражу логов FTP, SFTP и почтовых ящиков</h1>
+<div class="meta">04.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/dreamhost-vzlom-faylovogo-menedzhera.jpg" alt="">
+<div class="lead">Хостинг-провайдер DreamHost подтвердил: с августа по 23 октября 2026 года злоумышленник через уязвимость в стороннем файловом менеджере files.dreamhost.com выкачивал имена пользователей и пароли FTP/SFTP, а часть клиентских почтовых ящиков просмотрел. Затронуто «значительно меньше 10%» аккаунтов из примерно 400 тысяч, уведомление подано генеральному прокурору Калифорнии.</div>
+<h3>Что произошло</h3>
+<p>Вечером в пятницу 23 октября DreamHost обнаружил несанкционированный доступ к серверу своего браузерного файлового менеджера files.dreamhost.com. По официальному уведомлению компании, атакующий использовал уязвимость в стороннем ПО, на котором построен менеджер, и получил доступ к именам пользователей и паролям FTP/SFTP всех, кто логинился в менеджер с августа 2026 года. Также были скомпрометированы логины ограниченного числа пользователей веб-почты — в нескольких случаях, по оценке самой компании, злоумышленник успел заглянуть в содержимое писем. TechCrunch со ссылкой на уведомление генпрокурору Калифорнии добавляет: похищались и session-токены, которые держат пользователя залогиненным без пароля.</p>
+<h3>Масштаб и что не пострадало</h3>
+<p>По текущему анализу DreamHost, затронуто «значительно меньше примерно 10%» почтовых и FTP/SFTP-аккаунтов — при базе около 400 тысяч платящих клиентов это десятки тысяч потенциальных жертв, точную цифру в компании называть отказались. Улик доступа к панелям управления аккаунтами и платёжным данным нет: полные номера карт DreamHost не хранит, их обрабатывает сторонний процессинг. Отдельно компания подчёркивает: инцидент не связан с недавней волной эксплойтов PHP2Shell — её PHP-серверы залатали в течение часов после выхода патчей, а веб-файрволл отбил десятки тысяч попыток вторжения. Почему атаку длиной в несколько месяцев заметили только 23 октября — официально не объясняется: расследование идёт, работает внешняя форензика.</p>
+<h3>Почему это важно</h3>
+<p>Классическая цепочка «один дырявый сервис у хостера — сотни тысяч сайтов под риском»: украденные FTP-логины дают ключ не к DreamHost, а к чужим сайтам и почтам на нём, а почтовый доступ — это ещё и сброс паролей от других сервисов. Примечательно, что первоначальная волна сбросов паролей оказалась шире реального поражения: часть получивших письма клиентов по итогу не пострадала.</p>
+<h3>Что делать клиентам</h3>
+<p>Если вы или ваши FTP/SFTP-пользователи заходили в File Manager DreamHost в период с августа по 23 октября 2026 года — считайте эти логин и пароль скомпрометированными и смените их везде, где повторялись. Письмо от DreamHost пароль не запрашивает: любое такое письмо — фишинг. Остальным клиентам стоит включить двухфакторную аутентификацию на почте и хостинге, проверить пересылки и фильтры в почтовых ящиках (их часто настраивают после взлома) и настороженно относиться к письмам «от имени хостера» с просьбами «подтвердить данные». Владельцам сайтов на скомпрометированных аккаунтах разумно выгрузить и просмотреть логи FTP-сессий и код сайта на предмет подменённых файлов.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://techcrunch.com/2026/11/04/hackers-stole-dreamhost-customer-files-and-inboxes-during-months-long-attack/" rel="noopener">TechCrunch</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.dreamhost.com/news/announcements/october-security-incident/" rel="noopener">Официальное уведомление DreamHost «October Security Incident»</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://simonwillison.net/tags/dreamhost/" rel="noopener">СМИ 1</a> · <a href="https://webhosting.today/2026/11/02/wordpress-update-flaw-draws-tens-of-thousands-of-attack-attempts-hosts-can-block-it-at-the-web-server/" rel="noopener">СМИ 2</a> · <a href="https://www.dreamhoststatus.com/pages/incident/575f0f606826303142000510/6adbcf944b61a805acedb4cd" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
