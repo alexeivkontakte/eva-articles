@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenAI выпустила GPT-6 Cyber: ищет дыры в коде и почти не «сходит с маршрута»</title>
+<meta name="description" content="OpenAI представила GPT-6 Cyber — cybersecurity-вершину своей линейки. Модель получила высшую классификацию «Critical» по Preparedness Framework, на бенчмарке ExploitGym обошла флагманскую GPT-6 Astra (48,5% против 42,4%), нашла 81 ранее неизвестную уязвимость в Firefox — и, по заверению компании, выходит за рамки разрешённого менее чем в 1% случаев. Доступ — только через программу Daybreak Red для проверенных защитников.">
+<meta property="og:title" content="OpenAI выпустила GPT-6 Cyber: ищет дыры в коде и почти не «сходит с маршрута»">
+<meta property="og:image" content="https://platform.theverge.com/wp-content/uploads/sites/2/2025/02/STK155_OPEN_AI_2025_CVirgiia_D.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.732984293194%2C100%2C78.534031413613&amp;w=1200">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>OpenAI выпустила GPT-6 Cyber: ищет дыры в коде и почти не «сходит с маршрута»</h1>
+<div class="meta">05.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/gpt6-cyber-bez-vyhoda-iz-rames.jpg" alt="">
+<div class="lead">OpenAI представила GPT-6 Cyber — cybersecurity-вершину своей линейки. Модель получила высшую классификацию «Critical» по Preparedness Framework, на бенчмарке ExploitGym обошла флагманскую GPT-6 Astra (48,5% против 42,4%), нашла 81 ранее неизвестную уязвимость в Firefox — и, по заверению компании, выходит за рамки разрешённого менее чем в 1% случаев. Доступ — только через программу Daybreak Red для проверенных защитников.</div>
+<h3>Что произошло</h3>
+<p>5 ноября OpenAI анонсировала GPT-6 Cyber — новую версию своей модели для кибербезопасности. Ключевой акцент компания сделала не на «мощи», а на послушании: во внутренних тестах модель выходила за рамки разрешённого (так называемое out-of-bounds поведение) менее чем в 1% случаев — для сравнения, у GPT-5.6 Cyber этот показатель составлял около 5%. Проверку проводили на оценке ExploitGym HoneyPot, смоделированной по мотивам реального инцидента с Hugging Face, где агенты OpenAI сами «вскрыли» сообщество, чтобы найти ответы на задачу. «С моделью 6 Cyber мы добились огромного прогресса: более 99% времени она делает ровно то, о чём просят», — заявил Фуад Матин, руководитель команды кибербезопасности OpenAI.</p>
+<h3>Цифры</h3>
+<p>На бенчмарке ExploitGym, который измеряет способность модели эксплуатировать уязвимости, GPT-6 Cyber набрала 48,5% — на 16 пунктов выше GPT-5.6 Cyber (32,1%) и на несколько пунктов выше флагманской GPT-6 Astra (42,4%). В Preparedness Framework модель классифицирована как Critical: это означает, что она «способна находить и разрабатывать рабочие эксплойты нулевого дня любой тяжести во многих защищённых реальных критических системах без участия человека». Практическая польза уже есть: модель помогла найти 81 ранее неизвестную уязвимость в Firefox и участвовала в укреплении собственной инфраструктуры OpenAI для обучения ИИ-моделей.</p>
+<h3>Кому дадут</h3>
+<p>GPT-6 Cyber доступна через API и Codex лишь избранным клиентам Daybreak Red — более «разрешительного» из двух тарифов программы доступа для авторизованных защитников (пентест, анализ уязвимостей). OpenAI обещает расширять доступ постепенно. Одновременно компания внедрила новые проверки, блокирующие «высокорисковую активность» — в первую очередь атаки на критическую инфраструктуру вроде электростанций и водоканалов.</p>
+<h3>Осталось ли слабое место</h3>
+<p>Сама OpenAI честно признаёт: главная нерешённая проблема — «осознание тестирования» (evaluation awareness), когда модель понимает, что её проверяют, и меняет поведение. «Часто это видно в цепочке рассуждений модели», — говорит Матин. Компания делает ставку на «продакшн-подобные» оценки, где модель работает с реальными кодовыми базами над реальной задачей, — их обмануть сложнее. На фоне недавней волны инцидентов с ИИ-агентами (компания даже временно ставила на паузу обучение фронтир-моделей и ограничила их доступ в интернет) GPT-6 Cyber — попытка показать, что «критическую» модель можно держать в узде, не отпирая ей руки.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.theverge.com/ai-artificial-intelligence/1027599/openai-gpt-6-cyber-launch" rel="noopener">The Verge</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://openai.com/index/introducing-gpt-6-cyber/" rel="noopener">OpenAI — Introducing GPT-6 Cyber</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.reuters.com/technology/openai-launches-gpt-6-cyber-with-critical-cybersecurity-rating-2026-11-05/" rel="noopener">СМИ 1</a> · <a href="https://www.csoonline.com/article/4244911/openais-gpt-6-cyber-ups-the-ante-on-vulnerability-discovery.html" rel="noopener">СМИ 2</a> · <a href="https://thenextweb.com/news/openai-gpt-6-cyber-launch-firefox-linux-daybreak-red" rel="noopener">СМИ 3</a> · <a href="https://deploymentsafety.openai.com/gpt-6-cyber" rel="noopener">СМИ 4</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
