@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>«Сбер» открыл веса Kandinsky Avatar: говорящие аватары вслепую обошли Kling и HeyGen</title>
+<meta name="description" content="Команда «Сбера» выпустила Kandinsky Avatar 1.0 — модель, которая оживляет любой кадр: на вход подаются картинка и запись речи, на выходе — анимированный персонаж с синхронными губами, мимикой и жестами. Код и веса открыты под лицензией MIT, а в слепом сравнении Pro-версия оказалась лучше китайского Kling и сервиса HeyGen.">
+<meta property="og:title" content="«Сбер» открыл веса Kandinsky Avatar: говорящие аватары вслепую обошли Kling и HeyGen">
+<meta property="og:image" content="https://habr.com/share/publication/1103678/8185a3a7d8c0f3c1c5b0fa1d16c544e5/">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>«Сбер» открыл веса Kandinsky Avatar: говорящие аватары вслепую обошли Kling и HeyGen</h1>
+<div class="meta">05.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/kandinsky-avatar-otkrytye-vesa.jpg" alt="">
+<div class="lead">Команда «Сбера» выпустила Kandinsky Avatar 1.0 — модель, которая оживляет любой кадр: на вход подаются картинка и запись речи, на выходе — анимированный персонаж с синхронными губами, мимикой и жестами. Код и веса открыты под лицензией MIT, а в слепом сравнении Pro-версия оказалась лучше китайского Kling и сервиса HeyGen.</div>
+<h3>Две модели: Lite для бедных видеокарт, Pro для HD</h3>
+<p>Семейство Kandinsky Avatar 1.0 (в академическом реестре — Kandinsky S2V 1.0) включает Lite с 2 млрд параметров для SD-видео и Pro с 21 млрд для HD. Модель принимает одно изображение, голосовую дорожку и текстовый запрос: манеру речи и эмоции можно задать словами, а аватаром сделать человека, героя мультфильма или животное. Видео строится в 25 кадров в секунду, липсинк, мимика, позы и жесты следуют за речью.</p>
+<h3>Архитектура: Qwen2.5-Omni вместо привычного распознавателя речи</h3>
+<p>Обучение шло от базы Kandinsky 5.0 Video на датасете из 1,17 млн видеофрагментов с одним говорящим в кадре, на 95 языках. Вместо стандартного Wav2Vec или Whisper текст и аудио подаются через единый «фронтенд» Qwen2.5-Omni, а за консистентность лица отвечает трёхуровневая визуальная память. Отдельно выпущены дистиллированные версии: Pro генерирует видео за 16 шагов и ускоряется в 5,4 раза без потери качества по метрикам.</p>
+<h3>Слепое тестирование: люди выбирали Kandinsky чаще</h3>
+<p>Pro сравнивали с ведущими открытыми и закрытыми моделями: участники смотрели пары роликов и выбирали лучший, не зная автора. Ролики Kandinsky Avatar 1.0 Pro выбирали чаще конкурентов — в 63% случаев против Kling Avatar 2, в 60% против LongCat-Avatar-1.5 и в 54% против HeyGen IV. На общепринятых бенчмарках речь-в-видео обе версии входят в число лидеров.</p>
+<h3>Что это значит для разработчиков</h3>
+<p>Заявленные сценарии — учебные и рекламные ролики, видеоинструкции, персональные обращения к клиентам. «Мы открываем модель, чтобы у российских разработчиков была собственная технологическая основа для таких решений — можно встраивать в свои продукты и дообучать, не создавая технологию с нуля», — пояснил Денис Димитров, управляющий директор по исследованию данных Сбербанка. За рубежом эту нишу держат закрытые HeyGen и аналогичные сервисы с оплатой за минуту ролика; теперь есть открытая альтернатива, которую можно крутить у себя.</p>
+<p>Скромность обязательна: версии Lite хватит видеокарты Nvidia на 48 ГБ, для Pro в HD нужно 80 ГБ; при покадровом декодировании пик можно снизить до 28 ГБ, но на видео могут проступать границы участков. Код, веса и интеграция в ComfyUI и Diffusers уже лежат на GitHub, GitVerse и Hugging Face.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://habr.com/ru/news/1103678/" rel="noopener">Habr</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://kandinskyavatar.github.io/" rel="noopener">Kandinsky Lab — официальная страница Kandinsky S2V 1.0</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.ixbt.com/news/2026-11-03/ozivit-foto-i-zastavit-govorit-sber-otkryl-dostup-k-kandinsky-avatar.html" rel="noopener">СМИ 1</a> · <a href="https://www.forbes.ru/tekhnologii/571554-sber-vylozil-v-opensors-nejroset-dla-sozdania-videoavatarov-po-foto-i-golosu" rel="noopener">СМИ 2</a> · <a href="https://vc.ru/ai/3233090-kandinsky-avatar-1-0-ot-sbera" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
