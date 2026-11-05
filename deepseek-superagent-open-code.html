@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DeepSeek выложила на GitHub исходники Super‑Agent: ИИ-кодер сам следит за чатами команды и защищается от посторонних приказов</title>
+<meta name="description" content="DeepSeek опубликовала полный исходный код dsh-superagent — исследовательского прототипа автономного ИИ-агента для программирования. Код под MIT-лицензией, репозиторий за считаные дни собрал 18,6 тысячи звёзд. Главная фишка — агент сам решает, какие сообщения в командном чате ему адресованы, а посторонние команды не выполняет, а записывает в журнал.">
+<meta property="og:title" content="DeepSeek выложила на GitHub исходники Super‑Agent: ИИ-кодер сам следит за чатами команды и защищается от посторонних приказов">
+<meta property="og:image" content="https://habr.com/share/publication/1103946/e7d835a935dd1bbdfaa3197a2a90a4b9/">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>DeepSeek выложила на GitHub исходники Super‑Agent: ИИ-кодер сам следит за чатами команды и защищается от посторонних приказов</h1>
+<div class="meta">05.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/deepseek-superagent-open-code.jpg" alt="">
+<div class="lead">DeepSeek опубликовала полный исходный код dsh-superagent — исследовательского прототипа автономного ИИ-агента для программирования. Код под MIT-лицензией, репозиторий за считаные дни собрал 18,6 тысячи звёзд. Главная фишка — агент сам решает, какие сообщения в командном чате ему адресованы, а посторонние команды не выполняет, а записывает в журнал.</div>
+<p>DeepSeek выложила на GitHub репозиторий dsh-superagent-prototype — исходный код своего «Суперагента» для написания кода в репозиториях GitHub. Это продолжение линии Harness, которую компания представила в начале ноября: тогда был открыт сам рантайм агентов («всё есть плагин»), а теперь доступно ядро автономного агента, который берёт задачу, выполняет её в отдельной сессии и папке, а результат возвращает в тот же разговор — например, готовым пул-реквестом.</p>
+<h3>Как устроена автономность</h3>
+<p>Агент приступает к работе в двух случаях: если запрос прислал авторизованный пользователь или если задача подходит под правила, которые команда настроила заранее. Ему можно дать доступ к чату — участники ставят задачи простым упоминанием. Внутри рабочей сессии агент выполняет команды без подтверждения запускающего, но в основной код изменения попадают только через людей-ревьюеров. Автомердж доступен для пул-реквеста с одобрениями и правкой не меньше 200 строк — мелочь агент себе в main не протаскивает. Для контроля предусмотрена веб-панель.</p>
+<h3>Безопасность по умолчанию</h3>
+<p>Самое интересное для тех, кто следит за безопасностью агентских систем: по умолчанию агент не выполняет неявно сформулированные запросы — сообщение без прямого обращения, реплику другого бота или текст от неавторизованного пользователя. Такие сообщения он не исполняет, а анализирует и фиксирует в журнале как «потенциально принятые». По сути это встроенная защита от prompt injection и от захвата агента третьими лицами через общий чат — ровно та проблема, на которой уже ловили коммерческих агентов.</p>
+<p>В DeepSeek подчёркивают: опубликованное — исследовательский прототип, а не финальный продукт. Код советуют сначала проверить на ошибки и доработать под свои нужды. В репозитории — модули src, prompts, skills, docs с архитектурой и cookbook, тесты и примерами; лицензия MIT.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://habr.com/ru/news/1103946/" rel="noopener">Хабр Новости</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://github.com/deepseek-ai/dsh-superagent-prototype" rel="noopener">Официальный репозиторий DeepSeek (github.com/deepseek-ai)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://shattered.io/deepseek-open-sources-super-agent-oct-31-2026/" rel="noopener">СМИ 1</a> · <a href="https://habr.com/ru/news/1103946/" rel="noopener">СМИ 2</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
