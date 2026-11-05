@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NVIDIA открыла Cosmos 3: мир можно крутить вперёд и назад, а роботы учатся в этой песочнице</title>
+<meta name="description" content="NVIDIA выложила на Hugging Face открытые модели Cosmos 3 для интерактивной симуляции мира: сгенерированное видео оказывается виртуальным полигоном, где сцену можно двигать вперёд и назад, менять камеру и переигрывать события, а роботы отрабатывают в ней действия до выхода на объект. Тяжёлые веса — Nano и Super — обещают выпустить 6 ноября.">
+<meta property="og:title" content="NVIDIA открыла Cosmos 3: мир можно крутить вперёд и назад, а роботы учатся в этой песочнице">
+<meta property="og:image" content="https://cdn-uploads.huggingface.co/production/uploads/677c471f8b4c4e271e57eaa5/rtmGVvFdD6JqkjBc26vsp.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>NVIDIA открыла Cosmos 3: мир можно крутить вперёд и назад, а роботы учатся в этой песочнице</h1>
+<div class="meta">05.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/nvidia-cosmos3-otkryly-dlya-simulyacii.png" alt="">
+<div class="lead">NVIDIA выложила на Hugging Face открытые модели Cosmos 3 для интерактивной симуляции мира: сгенерированное видео оказывается виртуальным полигоном, где сцену можно двигать вперёд и назад, менять камеру и переигрывать события, а роботы отрабатывают в ней действия до выхода на объект. Тяжёлые веса — Nano и Super — обещают выпустить 6 ноября.</div>
+<h3>Из видео — в тренажёр</h3>
+<p>5 ноября NVIDIA опубликовала на Hugging Face открытые модели семейства Cosmos 3 для интерактивной симуляции мира. Логика такая: модель генерирует физически правдоподобное видео будущего — и это не ролик, а симуляция, которой можно управлять. В демо на примере вождения ролик переигрывали в обе стороны, меняли ракурсы и «отматывали» момент аварии, чтобы показать, как она выглядела бы при другом сценарии.</p>
+<h3>Оммимодель с действиями</h3>
+<p>NVIDIA описывает Cosmos 3 как первую полностью открытую омнимодель для physical AI: за один проход она рассуждает о физическом мире, генерирует фотореалистичную симуляцию и выдаёт исполняемые действия для робота. В основе — архитектура mixture-of-transformers; по заявлениям компании, модель лидирует среди открытых моделей на бенчмарках физического ИИ (Physics-IQ и других). Весы уже доступны в трёх вариантах: лёгкая Cosmos3-Edge на 4 млрд параметров для устройств (до 15 Гц управления на Jetson Thor), и облачные Nano и Super — тяжёлые версии NVIDIA обещает выпустить 6 ноября под разрешительной лицензией, допускающей коммерческое использование.</p>
+<h3>Зачем это роботам и беспилотникам</h3>
+<p>Интерактивная симуляция закрывает главную боль робототехники — нехватку редких и опасных случаев. Виртуальный инцидент можно воспроизвести десятки раз, меняя погоду, ракурс и поведение людей, не рискуя железом. Фреймворк Cosmos при этом не зациклен на собственных моделях: к нему подключены Alpamayo, GR00T, Qwen и pi0.5 с Hugging Face, а развёртывать всё можно контейнерами NIM на большинстве серверных GPU NVIDIA — Nano требует до ~58 Гигабайт видеопамяти, Super — до ~150 в зависимости от режима.</p>
+<h3>А в России</h3>
+<p>Похожее направление есть и у нас: в январе 2025 года «Сбер» и Росавтодор договорились испытывать беспилотный грузовой транспорт в виртуальной среде — цифровой двойник трассы М-11 уже построен и включает участки с капитальным ремонтом. Это точечный проект под конкретную дорогу, а не открытая платформа для всех, однако сам подход — натренировать автономию на симулированных редких ситуациях — у обеих сторон один.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://huggingface.co/blog/nvidia/cosmos-interactive-world-simulation" rel="noopener">Hugging Face Blog (NVIDIA)</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://developer.nvidia.com/blog/build-world-models-for-interactive-simulation-with-nvidia-cosmos/" rel="noopener">Блог-анонс NVIDIA (Developer Blog)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://aws.amazon.com/blogs/physical-ai/nvidia-cosmos-3-on-aws-omnimodal-world-models-for-physical-ai/" rel="noopener">СМИ 1</a> · <a href="https://www.usnationaltimes.com/article/916482760-nvidia-launches-cosmos-3-the-open-frontier-foundation-model-for-physical-ai" rel="noopener">СМИ 2</a> · <a href="https://awesomeagents.ai/news/nvidia-cosmos-3-physical-ai-omnimodel/" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
