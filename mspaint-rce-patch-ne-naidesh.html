@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paint умеет запускать чужой код по сети — а исправления в магазине нет</title>
+<meta name="description" content="В стандартном Microsoft Paint нашли опасную уязвимость CVE-2026-83844 (CVSS 8,1): специально подготовленный файл изображения позволяет выполнить произвольный код на ПК с Windows 11. Microsoft назвала исправленную версию — но в Microsoft Store её до сих пор не существует: админы по всему миру застряли на уязвимом релизе.">
+<meta property="og:title" content="Paint умеет запускать чужой код по сети — а исправления в магазине нет">
+<meta property="og:image" content="https://habr.com/share/publication/1103722/9e6c0f824efb16fdbcd275cb7d04877b/">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Paint умеет запускать чужой код по сети — а исправления в магазине нет</h1>
+<div class="meta">05.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/mspaint-rce-patch-ne-naidesh.jpg" alt="">
+<div class="lead">В стандартном Microsoft Paint нашли опасную уязвимость CVE-2026-83844 (CVSS 8,1): специально подготовленный файл изображения позволяет выполнить произвольный код на ПК с Windows 11. Microsoft назвала исправленную версию — но в Microsoft Store её до сих пор не существует: админы по всему миру застряли на уязвимом релизе.</div>
+<h3>Рисуем, а получается RCE</h3>
+<p>13 октября Microsoft опубликовала в Security Update Guide запись об уязвимости CVE-2026-83844 в приложении Windows Paint. Речь об ошибке типа out-of-bounds read — чтении данных за пределами выделенного буфера при разборе файла изображения. По классификации вендора вектор атаки — сеть, привилегии злоумышленнику не нужны: достаточно, чтобы жертва открыла специально подготовленную картинку. Оценка CVSS — 8,1 балла, высокая степень опасности.</p>
+<h3>Забавная деталь: патч «существует», но его нет</h3>
+<p>Microsoft указала, что проблема исправлена в версии Paint 11.2605.91.0. Вот только найти и скачать эту версию невозможно: в Microsoft Store по-прежнему висит 11.2605.81.0. На форуме Microsoft Q&amp;A системный администратор напрямую спросил, где взять исправленный релиз, — внятного ответа нет. Пользователи Reddit и сообществ сисадминов сообщают о том же: проверка обновлений и сброс кэша WSReset не помогают, Paint остаётся уязвимым. По отдельным сообщениям, исправление завезли пока только в страны Южной Азии, а за исправленную называют уже версию 11.2609.401.0 — сведения противоречивые.</p>
+<h3>Что делать обычным пользователям и админам</h3>
+<p>Проверьте фактическую версию Paint короткой командой в PowerShell: Get-AppxPackage Microsoft.Paint | Select-Object Name, Version. Если версия ниже исправленной — организациям стоит временно ограничить открытие изображений из ненадёжных вложений, а на личном ПК приложение можно просто удалить: Paint выносится одной командой Remove-AppxPackage. Публичного эксплойта «в дикой природе» пока не замечено, а CISA не внесла CVE в каталог эксплуатируемых — время спокойно дождаться нормального обновления Store ещё есть.</p>
+<h3>Почему это вообще новостной повод</h3>
+<p>Paint — самое «безобидное» приложение Windows, и именно поэтому дыра в его парсере изображений выглядит симптоматично: встроенные просмотрщики и редакторы получают файлы из писем, мессенджеров и браузеров, то есть сидят прямо на пути доставки вредоносных вложений. А история с «исправлением, которого нет в магазине» — напоминание, что для экосистемы MS Store выпуск заплатки и фактическое развёртывание на машинах пользователей, увы, не одно и то же.</p>
+<p><b>Итог:</b> ждём, когда исправленная версия доедет до Store; до тех пор не открываем картинки из писем и чатов в Paint и проверяем установленную версию.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://habr.com/ru/news/1103722/" rel="noopener">Хабр</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83844" rel="noopener">Microsoft Security Update Guide</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.neowin.net/news/microsoft-paint-cve-2026-83844-lets-hackers-hack-windows-11-pcs-over-internet/" rel="noopener">СМИ 1</a> · <a href="https://www.techzine.eu/news/security/145581/paint-vulnerability-allows-rce-patch-is-hard-to-find/" rel="noopener">СМИ 2</a> · <a href="https://learn.microsoft.com/en-us/answers/questions/6055591/microsoft-paint-11-2605-91-0" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
