@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ИИ-хакеры сами себя рассекретили: 1465 консолей ARTEX торчат в открытый интернет</title>
+<meta name="description" content="Аналитики Censys насчитали по всему миру 1465 хостов с открытой консолью автономного ИИ-пентестера ARTEX — фактически это свободный доступ к боевому ИИ-инструменту взлома для любого, кто умеет открывать браузер.">
+<meta property="og:title" content="ИИ-хакеры сами себя рассекретили: 1465 консолей ARTEX торчат в открытый интернет">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/artex-1465-otkrytyh-konsol.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>ИИ-хакеры сами себя рассекретили: 1465 консолей ARTEX торчат в открытый интернет</h1>
+<div class="meta">06.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/artex-1465-otkrytyh-konsol.png" alt="">
+<div class="lead">Аналитики Censys насчитали по всему миру 1465 хостов с открытой консолью автономного ИИ-пентестера ARTEX — фактически это свободный доступ к боевому ИИ-инструменту взлома для любого, кто умеет открывать браузер.</div>
+<h3>Сколько и чего торчит</h3>
+<p>5 ноября Силас Катлер, ведущий исследователь исследовательского коллектива ARC компании Censys, опубликовал отчёт под названием «Agentic Asbestos» («агентный асбест»). По состоянию на 4 ноября он зафиксировал 1465 хостов, выставляющих консоль управления ARTEX прямо в публичный интернет; из них около 815 выглядят как отдельные развёртывания. Реальное число, по оценке автора, выше — часть инстансов просто не ответила на сканирование.</p>
+<h3>Почему это опасно</h3>
+<p>ARTEX — тот самый фреймворк автономного ИИ-пентеста, о котором канал уже писал: именно его агент признан первым подтверждённым взломщиком внутренней системы WorkOS, а Microsoft в октябре обвиняла прокитайскую группировку Storm-0940 в масштабной кампании на базе ARTEX с компрометацией цепочки поставок ConnectWise. Консоль ARTEX — это не просто веб-морда: кто к ней подключился, тот получает управление ИИ-агентом с его накопленными секретами, доступами и результатами разведки внутри сети жертвы… то есть компании, которая сама купила этот инструмент для обороны. TechCrunch пишет, что любой человек мог получить доступ к чужим инструментам прямо из браузера.</p>
+<h3>Патча нет — только гигиена</h3>
+<p>SOCRadar подчёркивает: уязвимости как таковой нет, залатать нечего. ARTEX эксплуатирует слабую «гигиену» идентификаторов и открытые сервисы — значит защита строится на закрытии консолей за VPN и аутентификацией, ротации всех ключей, которые агент успел собрать, и принципе минимальных прав. Если консоль хоть раз была видна из интернета, крутить нужно не только пароль консоли, но и всё, что агент успел через неё увидеть.</p>
+<h3>Мораль сезона</h3>
+<p>Получился редкий жанр: инфраструктура защиты стала инфраструктурой риска. Компании гонятся за автономными ИИ-пентестерами, разворачивают их за пять минут и забывают, что у «робота-взломщика» есть пульт управления. Пока агент сам себя не рассекретил, его владельцы живут в уверенности, что оборона на высоте.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://techcrunch.com/2026/11/06/hundreds-of-artex-ai-hacking-tools-found-publicly-exposed-to-the-web/" rel="noopener">TechCrunch</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://censys.com/blog/artex-agentic-asbestos/" rel="noopener">Censys ARC — отчёт «ARTEX: Agentic Asbestos» (Силас Катлер, 5 ноября)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.infosecurity-magazine.com/news/artex-activity-exceeds-reported/" rel="noopener">СМИ 1</a> · <a href="https://socradar.io/blog/artex-ai-pentest-tool-what-security-teams-need-to-know/" rel="noopener">СМИ 2</a> · <a href="https://brandefense.io/knowledge-hub/malware/artex/" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
