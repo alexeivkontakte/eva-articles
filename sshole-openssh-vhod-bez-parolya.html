@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>*sshole: дыра в OpenSSH впускает на серверы Alpine без пароля — достаточно одного подключения</title>
+<meta name="description" content="5 ноября проект Alpine Linux выпустил экстренный бюллетень: уязвимость с именем *sshole позволяет войти по SSH на аккаунты «без пароля», не зная никакого пароля — с одного подключения, без повторов. Нужны длинный пароль-заглушка и обычная конфигурация по умолчанию. Уже доступны OpenSSH 10.6p2 и исправленные пакеты для всех веток Alpine, включая снятые с поддержки.">
+<meta property="og:title" content="*sshole: дыра в OpenSSH впускает на серверы Alpine без пароля — достаточно одного подключения">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/sshole-openssh-vhod-bez-parolya.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>*sshole: дыра в OpenSSH впускает на серверы Alpine без пароля — достаточно одного подключения</h1>
+<div class="meta">06.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/sshole-openssh-vhod-bez-parolya.png" alt="">
+<div class="lead">5 ноября проект Alpine Linux выпустил экстренный бюллетень: уязвимость с именем *sshole позволяет войти по SSH на аккаунты «без пароля», не зная никакого пароля — с одного подключения, без повторов. Нужны длинный пароль-заглушка и обычная конфигурация по умолчанию. Уже доступны OpenSSH 10.6p2 и исправленные пакеты для всех веток Alpine, включая снятые с поддержки.</div>
+<h3>Что произошло</h3>
+<p>5 ноября Alpine Linux опубликовал уведомление об обходе парольной аутентификации в openssh-server. Атакующий, которому доступен SSH-порт, входит на машину без знания пароля: в бюллетене это сформулировано так — «одно соединение, срабатывает всегда, повторы не нужны». Уязвимость нашёл исследователь Эзгюн Кюльтекин (группа Wakefield) и дал ей говорящее имя *sshole. В тот же день проект OpenSSH выпустил исправленную версию 10.6p2, а Alpine собрал патченные пакеты для всех веток с 3.16 по 3.24 — включая релизы, уже снятые с поддержки.</p>
+<h3>Странные условия срабатывания</h3>
+<p>Наложиться должны три факта: система на libc musl (это фирменная лёгкая библиотека Alpine) и пакете OpenSSH, собранном без PAM; включённая парольная аутентификация — в OpenSSH это настройка по умолчанию; и наличие аккаунта со звёздочкой `*` в поле пароля — так нормально живут аккаунты, которые пускают только по ключу (с 3.16 так живёт и root в базовом образе). Второе условие: хотя бы одна учётная запись с обычным хэшем `$5$`/`$6$` — у неё «одалчивается» соль. После этого атакующему достаточно отправить пароль длиннее 256 байт (диапазон 257–1024). Root по умолчанию прикрыт настройкой PermitRootLogin prohibit-password, но если у скомпрометированного пользователя есть права doas или sudo — root в одном шаге.</p>
+<h3>Почему так вышло</h3>
+<p>Механика из бюллетеня: без PAM sshd проверяет пароль функцией crypt() и сравнивает результат с записанным полем. Если сохранённое поле слишком короткое, чтобы содержать соль, sshd берёт соль чужого аккаунта. А musl-версия crypt() при ключе длиннее 256 байт возвращает строку `*` как индикатор ошибки — ровно то и записано в поле пароля у аккаунтов без пароля. «Хэш» совпадает, вход разрешён. Проект OpenSSH считает, что корень проблемы лежит вне sshd, разработчики musl отвечают, что библиотека ни при чём — её просто некорректно вызывали. На момент публикации бюллетеня CVE не был присвоен; позже OX Security завела CVE-2026-123158 с оценкой 8,1 балла.</p>
+<h3>Почему это серьёзно</h3>
+<p>Базовый образ Alpine на Docker Hub перевалил за миллиард скачиваний; дистрибутив годами живёт в роутерах, смарт-телевизорах и промышленных контроллерах, которые вообще не обновляются. По данным Detectify, Shodan показывает около 22 миллионов систем с открытым 22-м портом: под все условия уязвимости подходит лишь часть, но проверить каждую — дело минут. Автор находки также назвал затронутыми OpenWrt (там по умолчанию стоит Dropbear, а не OpenSSH), buildroot и Yocto — последнее пока не подтверждено.</p>
+<h3>Что делать прямо сейчас</h3>
+<p>Правильный ответ официального Alpine: `apk upgrade -U -a` и обязательный перезапуск демона (`rc-service sshd restart`) — обновление пакета само по себе работающий sshd не заменяет. Обновиться нельзя — выключить вход по паролю (`PasswordAuthentication no`), предварительно проверив, что вход по ключу работает. Проверить следы взлома можно в /var/log/messages по строкам `Accepted password` для аккаунтов, у которых пароля нет вовсе; если такой вход не исключить — считать машину скомпрометированной и проверять doas, новых пользователей и authorized_keys.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://arstechnica.com/security/2026/11/vulnerability-allows-attackers-to-log-into-some-linux-devices-sans-password/" rel="noopener">Ars Technica</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://alpinelinux.org/posts/2026-11-05-openssh-password-authentication-bypass/" rel="noopener">Официальный бюллетень Alpine Linux</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://blog.checkpoint.com/exposure-management/a-critical-ssh-password-bypass-hits-musl-based-linux/" rel="noopener">СМИ 1</a> · <a href="https://blog.detectify.com/product-updates/critical-vulnerability-openssh-authentication-bypass-on-alpine-linux/" rel="noopener">СМИ 2</a> · <a href="https://www.openssh.com/releasenotes.html" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
