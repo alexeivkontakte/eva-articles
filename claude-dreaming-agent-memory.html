@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude научился «видеть сны»: Anthropic раскрыла, как устроена память ИИ-агентов</title>
+<meta name="description" content="Anthropic опубликовала исследование «Компоненты памяти агента»: агентов учат «спать» — между сессиями разбирать собственные расшифровки диалогов, исправлять ошибки в заметках и плести базу знаний в вики. В опытах это довело агента до финиша Pokémon там, где без памяти он не добирался вообще, а качество ответов по архиву в 420 млн токенов выросло с 13% до 48%.">
+<meta property="og:title" content="Claude научился «видеть сны»: Anthropic раскрыла, как устроена память ИИ-агентов">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/claude-dreaming-agent-memory.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Claude научился «видеть сны»: Anthropic раскрыла, как устроена память ИИ-агентов</h1>
+<div class="meta">07.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/claude-dreaming-agent-memory.png" alt="">
+<div class="lead">Anthropic опубликовала исследование «Компоненты памяти агента»: агентов учат «спать» — между сессиями разбирать собственные расшифровки диалогов, исправлять ошибки в заметках и плести базу знаний в вики. В опытах это довело агента до финиша Pokémon там, где без памяти он не добирался вообще, а качество ответов по архиву в 420 млн токенов выросло с 13% до 48%.</div>
+<p>Anthropic опубликовала исследовательский пост «The components of agent memory» — системное объяснение того, как агенты на базе Claude запоминают работу между сессиями. Память здесь — не только заметки, написанные прямо во время диалога, но и «мечтание» (dreaming): офлайн-осмысление архива, когда агент без дела. Идея выросла из «вычислений во сне» (sleep-time compute, работы Letta и Калифорнийского университета в Беркли); превью режима dreaming показывали ещё в мае в Managed Agents API — теперь лаборатория выложила архитектуру памяти и серию экспериментов с точными цифрами.</p>
+<h3>Больше — не значит лучше</h3>
+<p>В эксперименте с Pokémon Red модель Claude Sonnet 3.7 записала 413 файлов памяти в 225 папках (около 978 тысяч знаков) и заработала в игре лишь один значок. Claude Fable 5 обошёлся девятью файлами в двух папках плюс один глобальный файл global.md — и добавила: четыре значка. Вывод авторов: умение оценивать значимость информации важнее объёма записей, а жёсткие предписания вроде «записывать только неудачи» у сильных моделей лишь снижали результат.</p>
+<h3>Сны исправляют неверные заметки</h3>
+<p>Одна ошибка в заметке о расположении покецентра упорно выводила агента не туда из горы Луны. Во время «мечтания» Claude сверил заметку с расшифровкой прошлой сессии, поймал ошибку и переписал её — и на 1935-м действии добрался до Селадона. Версия с неверной, но не исправленной памятью раз за разом возвращалась назад, а агент вовсе без памяти до цели не дошёл ни разу.</p>
+<h3>Вики поверх 420 млн токенов</h3>
+<p>На архиве из примерно 350 тысяч файлов (около 420 млн токенов) компании Stainless, которую Anthropic купила в мае, агенты строили вики из связанных страниц. За 128 «сновящих» сессий доля выполненных критериев в ответах на 25 вопросов выросла с 13% до 48%. Со связкой «вики плюс поиск» оценка поднялась с 54% до 61% против 53% у одного поиска, а экономия составила около 20 тысяч токенов на вопрос.</p>
+<h3>Чему научили эксперименты</h3>
+<p>Когда несколько агентов писали в общую таблицу, они перезаписывали друг друга: из 57 фактов контракта в итоговую вики дожило 41 — потеря 28%. Индивидуальные страницы по каждому контракту дали 57 из 57. Сама Anthropic предупреждает: встраиваемые в сессию заметки съедают токены, неверная запись кочует во все будущие диалоги, а «мечтание» может подтолкнуть агента к галлюцинациям. Часть разработчиков, по словам авторов, предпочитает простую память в markdown, которую можно читать и сравнивать вручную.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.ithome.com/1/023/613.htm" rel="noopener">IT之家 (ithome)</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.anthropic.com/research/components-of-agent-memory" rel="noopener">Anthropic Research — официальный пост «The components of agent memory»</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://blockchain.news/news/anthropic-ai-memory-dreaming-salience" rel="noopener">СМИ 1</a> · <a href="https://dev.to/tng_thnhnhn_c933ee88b/anthropics-agent-memory-explained-notes-salience-judgments-and-dreaming-3hm7" rel="noopener">СМИ 2</a> · <a href="https://finance.sina.com.cn/tech/digi/2026-11-07/doc-inixwhsn5177616.shtml" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
