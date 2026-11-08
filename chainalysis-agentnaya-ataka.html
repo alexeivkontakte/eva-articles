@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ИИ-агент взломал Chainalysis: компания, которая ловит криптопреступников, сама стала жертвой «наступательной агентной» атаки</title>
+<meta name="description" content="Chainalysis — главный аналитик блокчейна для полиции и банков — официально подтвердила: в её системы проник внешний злоумышленник с помощью «наступательных агентных техник», то есть ИИ-агента. За две недели инцидента компания лишилась почти всех продуктов, а 4 ноября признала: украдены имена, логины, хеши паролей и живые токены всех пользователей.">
+<meta property="og:title" content="ИИ-агент взломал Chainalysis: компания, которая ловит криптопреступников, сама стала жертвой «наступательной агентной» атаки">
+<meta property="og:image" content="https://www.bleepstatic.com/content/hl-images/2025/03/18/Blockchain-2.jpg">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>ИИ-агент взломал Chainalysis: компания, которая ловит криптопреступников, сама стала жертвой «наступательной агентной» атаки</h1>
+<div class="meta">08.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/chainalysis-agentnaya-ataka.jpg" alt="">
+<div class="lead">Chainalysis — главный аналитик блокчейна для полиции и банков — официально подтвердила: в её системы проник внешний злоумышленник с помощью «наступательных агентных техник», то есть ИИ-агента. За две недели инцидента компания лишилась почти всех продуктов, а 4 ноября признала: украдены имена, логины, хеши паролей и живые токены всех пользователей.</div>
+<h3>Что произошло</h3>
+<p>30 октября 2026 года Chainalysis опубликовала официальное уведомление: на протяжении октября внешний атакующий использовал «offensive agentic techniques» — техники, при которых ИИ-агент сам планирует и выполняет шаги вторжения, — и получил доступ к внутренним системам и инструментам компании. Сначала речь шла о «несекретных» данных: идентификаторах пользователей, именах, адресах почты и ролях в организациях-клиентах. Компания отдельно подчеркнула, что инцидент не связан с недавним хищением на Binance.</p>
+<h3>4 ноября: худшее подтвердилось</h3>
+<p>Развитие событий оказалось хуже первых оценок. В обновлении от 4 ноября Chainalysis сообщила, что злоумышленник получил имена, имена пользователей, хеши паролей и живые токены сессий для всех пользователей платформы. Часть паролей клиентов утекла в результате «атаки на пути» (on-path attack) — этот канал, по заявлению компании, уже нейтрализован. Были остановлены Reactor, Data Solutions, а затем — из-за аномальной активности — интерфейс и API KYT, скрининг адресов и страница входа. При этом компания настаивает: доказательств доступа к данным расследований или подмены её атрибуции нет.</p>
+<h3>Восстановление</h3>
+<p>К 7 ноября Chainalysis вернула в строй Reactor, KYT (интерфейс и API) и скрининг адресов — с усиленными мерами безопасности и требованием переподключаться по особой процедуре. Обязательные условия для клиентов: сброс паролей и ротация API-ключей. Именно токен-сессии, а не сами хеши, — главная опасность: живой токень позволяет пройти в систему без пароля вообще.</p>
+<h3>Почему это важно</h3>
+<p>Это один из первых задокументированных случаев, когда сама жертва официально назвала агентный ИИ методом вторжения (Cloud Security Alliance отмечает, что до этого так признавался разве что Hugging Face в июле). Chainalysis прямо пишет: ИИ-управляемые кибератаки растут по всей отрасли. Через инструменты компании работают правоохранительные органы, биржи и финансовые институты, — компрометация такого игрока опаснее обычного утечки данных.</p>
+<h3>Что делать клиентам</h3>
+<p>Если вы пользуетесь сервисами Chainalysis или любым SaaS с долгими сессиями: немедленно сбросьте пароль и отзовите/перевыпустите API-ключи, включите двухфакторную аутентификацию (Chainalysis настоятельно рекомендует это всем организациям, где её ещё нет), настороженно относитесь к внезапным письмам со сбросом пароля и запросам кодов подтверждения. А если вы сами строите ИИ-агентов — помните уроки ARTEX и Claude Code: агент, имеющий доступ к сети и ключам, это отдельный вектор атаки на вашу же инфраструктуру.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.bleepingcomputer.com/news/security/chainalysis-discloses-data-breach-from-offensive-agentic-techniques/" rel="noopener">BleepingComputer</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.chainalysis.com/blog/security-incident-october-30/" rel="noopener">Официальное уведомление Chainalysis (обновление от 7 ноября)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://thehackernews.com/2026/11/chainalysis-breach-exposes-all-users.html" rel="noopener">СМИ 1</a> · <a href="https://securityweek.com/chainalysis-discloses-data-breach-following-ai-driven-cyberattack" rel="noopener">СМИ 2</a> · <a href="https://theblock.co/news/business/2026-10-31-chainalysis-says-hacker-using-offensive-agentic-techniques-accessed-its-customers-names-and-emails-432244" rel="noopener">СМИ 3</a> · <a href="https://labs.cloudsecurityalliance.org/research/csa-research-note-chainalysis-agentic-intrusion-disclosure-2" rel="noopener">СМИ 4</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
