@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Трилионник без видеокарты: энтузиаст запустил 2,8-триллионную Kimi K3 на старом Xeon и Оptane-памяти, которую Intel давно похоронила</title>
+<meta name="description" content="Хозяин домашнего сервера собрал конфигурацию, которая официально «невозможна»: модель Moonshot AI Kimi K3 на 2,8 триллиона параметров инференится на одном 40-ядерном Xeon без единой видеокарты. Топливо — планки Intel Optane PMem 200, выпущенные в 2020 году и снятые с производства. Расплата — 0,85 токена в секунду и предупреждение: активное охлаждение DIMM обязательно, иначе Optane спалит соседнюю оперативку.">
+<meta property="og:title" content="Трилионник без видеокарты: энтузиаст запустил 2,8-триллионную Kimi K3 на старом Xeon и Оptane-памяти, которую Intel давно похоронила">
+<meta property="og:image" content="https://cdn.mos.cms.futurecdn.net/Wpdi2avEo8ZBZMremLVgaU-2496-80.jpg">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Трилионник без видеокарты: энтузиаст запустил 2,8-триллионную Kimi K3 на старом Xeon и Оptane-памяти, которую Intel давно похоронила</h1>
+<div class="meta">08.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/optane-kimi-k3-na-cpu.jpg" alt="">
+<div class="lead">Хозяин домашнего сервера собрал конфигурацию, которая официально «невозможна»: модель Moonshot AI Kimi K3 на 2,8 триллиона параметров инференится на одном 40-ядерном Xeon без единой видеокарты. Топливо — планки Intel Optane PMem 200, выпущенные в 2020 году и снятые с производства. Расплата — 0,85 токена в секунду и предупреждение: активное охлаждение DIMM обязательно, иначе Optane спалит соседнюю оперативку.</div>
+<h3>Что собрали</h3>
+<p>Пользователь Reddit-сабреддита r/homelab запустил Moonshot AI Kimi K3 (2,8 трлн параметров) на двухсокетной платформе с 40-ядерным Xeon Scalable третьего поколения — и ни одного GPU в инференсе. Вместо гигантского парка DDR-памяти роль «банки» играет Intel Optane Persistent Memory 200: планки на 128, 256 и 512 ГБ, которые Intel представила в 2020 году специально под эти Xeon'ы, а затем полностью похоронила направление. По словам автора, б/у Optane обошёлся «долей» от стоимости эквивалентного объёма DRAM — а цены на обычную память за последний год взлетели. Даже самое маленькое сообщественное квантование Kimi K3 требует минимум 610 ГБ ОЗУ, так что для домашней машины подержанный Optane — один из немногих способов вообще дотянуть до этой ёмкости.</p>
+<h3>Скорость и режимы</h3>
+<p>При 1-битном квантовании сервер выдаёт 0,85 токена в секунду; при 3-битном — уже 0,75. В комментариях подсчитали: задача на 50 тысяч токенов займёт около 13 часов. Для сравнения, предыдущая сборка (модель K2.5 на 1 трлн параметров, Optane первого поколения плюс RTX 3060, помогавшая части слоёв) давала около 4 токенов в секунду. Второй builds' использует App Direct Mode — Optane виден как отдельная персистентная область, и софт сам решает, где лежат тензоры модели, — против Memory Mode в первой сборке. Цифры получены до тюнинга: автор обещает догнать GPU-ускорение и многоуровневую раскладку «DRAM поверх Optane».</p>
+<h3>Опасный перегрев</h3>
+<p>Главное предупреждение автора: под длительной нагрузкой планки Optane разогреваются «экстремально» и могут вывести из строя соседние модули DRAM. Это согласуется со спецификацией Intel: модули рассчитаны на обдув 2,4–2,7 м/с — типичный датацентровый поток воздуха, — потребляют 12–15 Вт каждый независимо от объёма, троттлят при 83 °C и аварийно отключаются при 85 °C. Четыре планки — это до 60 Вт тепла вплотную к оперативной памяти. Автор решает вопрос двумя 12-ваттными турбинами (blower fans), направленными прямо на DIMM, и советует «считать активное охлаждение памяти обязательным». Отдельного официального анонса у компании здесь нет и не ожидается: это народная сборка, а не продукт, — но Moonshot действительно рекомендует для Kimi K3 датацентровые движки инференса, так что домашний запуск на снятом с производства железе выглядит вызовом, а не инструкцией.</p>
+<h3>Почему это интересно</h3>
+<p>История показывает обратную сторону ИИ-гонки: пока гиперскейеры строят кластеры на десятки мегаватт, сообщество доказывает, что фронтир-модель в 2,8 трлн параметров влезает в сервер 2020 года на мёртвой технологии памяти — медленно, горячо, но работает. На фоне дефицита и дорогущей DDR это и практический лайфхак для домашних лабораторий, и напоминание, сколько ещё жизни в «утильном» железе.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/homelabber-uses-second-gen-optane-memory-sticks-to-run-a-2-8-trillion-parameter-ai-model-on-cpu-alone-warns-that-optanes-extreme-heat-can-burn-out-nearby-memory-dram-used-blower-fans-to-prevent-melting-ram" rel="noopener">Tom's Hardware</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.reddit.com/r/homelab/comments/1xlljut/secondgen_optane_pmem_server_running_kimi_k3_28t/" rel="noopener">Оригинальная сборка в r/homelab</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/homelabber-uses-second-gen-optane-memory-sticks-to-run-a-2-8-trillion-parameter-ai-model-on-cpu-alone-warns-that-optanes-extreme-heat-can-burn-out-nearby-memory-dram-used-blower-fans-to-prevent-melting-ram" rel="noopener">СМИ 1</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
