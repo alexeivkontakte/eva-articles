@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ИИ-агенты строят симуляции в Omniverse: NVIDIA показала рабочие проекты</title>
+<meta name="description" content="NVIDIA опубликовала подборку проектов, где разработчики доверяют ИИ-агентам всю цепочку создания симуляции — от 3D-модели до проверки физики. Агенты уровня GPT-6 и Claude работают с библиотеками Omniverse через обычный человеческий язык.">
+<meta property="og:title" content="ИИ-агенты строят симуляции в Omniverse: NVIDIA показала рабочие проекты">
+<meta property="og:image" content="https://blogs.nvidia.com/wp-content/uploads/2026/10/Copy-of-nvidia-ov-x-astra-4up-KV-r1-press-4k-r2-1680x945.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>ИИ-агенты строят симуляции в Omniverse: NVIDIA показала рабочие проекты</h1>
+<div class="meta">08.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/nvidia-omniverse-agenty-simulyacii.png" alt="">
+<div class="lead">NVIDIA опубликовала подборку проектов, где разработчики доверяют ИИ-агентам всю цепочку создания симуляции — от 3D-модели до проверки физики. Агенты уровня GPT-6 и Claude работают с библиотеками Omniverse через обычный человеческий язык.</div>
+<h3>От идеи до работающей сцены — через чат</h3>
+<p>NVIDIA рассказала, как разработчики соединяют frontier-модели с библиотеками NVIDIA Omniverse, чтобы превращать идею в работающую симуляцию. Схема одна и та же: человек формулирует задачу обычными словами, ИИ-агент собирает ассеты, подключает физику и рендер, а разработчик проверяет результат и направляет правки. Сами библиотечные возможности — GPU-ускоренная физика, рендеринг и симуляция сенсоров — остаются за Omniverse, агент выступает «прорабом».</p>
+<h3>Синтезатор и роботизированная кисть</h3>
+<p>Старший технический художник команды NVIDIA BondLab Ник Скарчелла с помощью агентов (преимущественно Claude и GPT-6 Astra) воссоздал портативный синтезатор OP-1 по продуктовым фотографиям, инструкциям и техническим указаниям: модель экспортировали в формат OpenUSD, проверили в Houdini и Blender, а материалы и свет доработали для рендера через библиотеку ovrtx. В другом эксперименте команда собрала визуализацию «Echos»: полупрозрачные копии роботизированной кисти из Isaac Sim накладываются друг на друга, показывая процесс обучения робота.</p>
+<h3>Робот-разборщик и облачный CAD</h3>
+<p>Менеджер NVIDIA по продуктам OpenUSD Йенс Йебенс направил агента смоделировать подвеску автомобиля в облачном CAD PTC Onshape и настроить её в Isaac Sim. По обратной связи от симуляции агент переделал инструмент — ключ подобрали так, чтобы он доставал до болтов, — и в симуляции деталь подвески была успешно снята роботом. Стартап Sensori через SimReady Publisher от Onshape переносит своего робота Yuri в Isaac Sim вместе с геометрией, шарнирами и конфигурацией — теперь дизайны оценивают без пересборки модели симуляции каждый раз.</p>
+<h3>Почему это важно</h3>
+<p>Ещё в июле NVIDIA расширила Agent Toolkit новыми библиотеками Omniverse — теперь агенты получают готовые инструменты для построения и проверки «симуляционно-готовых» миров. Свежая подборка показывает: связка «агент + OpenUSD + Isaac Sim» уже не демо, а рабочий процесс художников и инженеров. Для робототехники это самый дешёвый способ тысячи раз прогнать сценарий до выхода робота в реальность.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://blogs.nvidia.com/blog/developers-simulation-frontier-ai-agents/" rel="noopener">NVIDIA Blog</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://nvidianews.nvidia.com/news/nvidia-agent-toolkit-expands-with-new-omniverse-libraries-putting-ai-agents-to-work-building-simulation-ready-worlds" rel="noopener">Пресс-релиз NVIDIA (Agent Toolkit + Omniverse libraries)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://developer.nvidia.com/blog/developers-build-fast-and-reliable-robot-simulations-with-nvidia-omniverse-libraries/" rel="noopener">СМИ 1</a> · <a href="https://www.cgw.com/Press-Center/News/2026/NVIDIA-Agent-Toolkit-expands-with-new-Omniverse-.aspx" rel="noopener">СМИ 2</a> · <a href="https://markets.businessinsider.com/news/stocks/nvidia-agent-toolkit-expands-with-new-omniverse-libraries-putting-ai-agents-to-work-building-simulation-ready-worlds-1036341992" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
