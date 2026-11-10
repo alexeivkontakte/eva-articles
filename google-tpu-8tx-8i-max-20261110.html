@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google показала сразу четвёртый и пятый ИИ-чип за год: TPU 8tx с конфиденциальными вычислениями и 8i Max против «стены памяти»</title>
+<meta name="description" content="Google впервые выпустила четыре системы TPU за один календарный год: к обучающему 8t и рассуждающему 8i добавились TPU 8tx с аппаратным шифрованием данных прямо в памяти и TPU 8i Max с удвоенной вычислительной мощностью и пропускной способностью памяти в том же шкафу.">
+<meta property="og:title" content="Google показала сразу четвёртый и пятый ИИ-чип за год: TPU 8tx с конфиденциальными вычислениями и 8i Max против «стены памяти»">
+<meta property="og:image" content="">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Google показала сразу четвёртый и пятый ИИ-чип за год: TPU 8tx с конфиденциальными вычислениями и 8i Max против «стены памяти»</h1>
+<div class="meta">10.11.2026 · по материалам первоисточника</div>
+
+<div class="lead">Google впервые выпустила четыре системы TPU за один календарный год: к обучающему 8t и рассуждающему 8i добавились TPU 8tx с аппаратным шифрованием данных прямо в памяти и TPU 8i Max с удвоенной вычислительной мощностью и пропускной способностью памяти в том же шкафу.</div>
+<h3>Четыре чипа — четыре задачи</h3>
+<p>Google <a href="https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/">официально представила</a> два новых ИИ-ускорителя — это уже третья и четвёртая системы восьмого поколения в 2026 году (рекорд для компании). В апреле вышли TPU 8t для обучения больших моделей (до 2,7 раза быстрее предыдущего поколения) и TPU 8i для рассуждений в реальном времени (плюс 80% к соотношению цены и скорости инференса). Теперь семейство замыкают две специализированные конфигурации под агентскую эпоху.</p>
+<h3>TPU 8tx: данные зашифрованы даже «в руках»</h3>
+<p>TPU 8tx построен на том же кремнии, что и 8t, но в паре с хостами на AMD EPYC пятого поколения получил защиту данных на уровне «железа». Обычно данные расшифровываются в памяти процессора во время обработки — 8tx держит их и веса моделей изолированными и зашифрованными даже в активном использовании. Это ответ на запрос регулируемых отраслей и госзаказчиков: запуск агентов и приватный дообучение на своих данных без переноса чувствительной информации в отдельные кластеры. За счёт низколатентной сети Boardfly задержка многошаговых агентов до 2 раз ниже, чем на TPU 8t, практически без потери производительности.</p>
+<h3>TPU 8i Max: две кнопки в одном пакете</h3>
+<p>Второй новичок бьётся с «стеной памяти» — узким горлом агентов с контекстом в миллионы токенов. Google взяла два чипа TPU 8i и объединила их в один пакет: удвоенные вычисления, удвоенный SRAM и удвоенная пропускная способность HBM при прежнем занимаемом месте в стойке. Плотность вычислений на квадратный фут и на ватт — максимальная в линейке.</p>
+<h3>Память как система</h3>
+<p>Вместе с чипами Google открыла исходники TPU Sync — «слоя состояния модели», который объединяет HBM чипов, оперативную память хостов, общее хранилище и сеть дата-центра в единую иерархию памяти. Перенос KV-кэша и синхронизация весов при дообучении ускорены так, что задержка передачи кэша и время до первого токена (TTFT) сокращаются более чем на 90%. Бизнес вокруг TPUs Google называет быстро растущим: почти 100 клиентов — от фронтир-лабораторий до торговых компаний и университетов.</p>
+<h3>Зачем это рынку</h3>
+<p>Главный посыл анонса — конкуренция с NVIDIA смещается с пиковых гигагерц на системный баланс: отдельные конфигурации под обучение, рассуждения, конфиденциальность и огромный контекст, плюс открытый софт (TorchTPU, vLLM, TPU Sync). На бенчмарках InferenceX и AgentX стек Google показал, по заявлению компании, лучшее соотношение цены и качества на реальных агентских нагрузках.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://the-decoder.com/google-ships-four-tpu-variants-in-one-year-as-it-ramps-up-competition-with-nvidia/" rel="noopener">The Decoder</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/" rel="noopener">Блог Google (официальный анонс)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.constellationr.com/insights/news/google-launches-tpu-8tx-tpu-8i-max" rel="noopener">СМИ 1</a> · <a href="https://mlq.ai/news/google-adds-tpu-8tx-for-confidential-ai-and-a-two-chip-tpu-8i-max-its-third-and-fourth-tpu-systems-this-year/" rel="noopener">СМИ 2</a> · <a href="https://www.unite.ai/google-adds-tpu-8tx-and-tpu-8i-max-to-eighth-generation-lineup/" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
