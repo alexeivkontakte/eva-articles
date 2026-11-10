@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google закрыла нулевой день в Chrome: уязвимость уже используют для удалённого выполнения кода</title>
+<meta name="description" content="Google 9 ноября экстренно обновила Chrome до 157.0.8103.50/.51 и закрыла девять дыр, одна из которых — CVE-2026-125350 (use-after-free в компоненте XML) — уже эксплуатируется в дикой природе. Компания прямо подтверждает: эксплойт существует.">
+<meta property="og:title" content="Google закрыла нулевой день в Chrome: уязвимость уже используют для удалённого выполнения кода">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/chrome-xml-zero-day-125350-20261110.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Google закрыла нулевой день в Chrome: уязвимость уже используют для удалённого выполнения кода</h1>
+<div class="meta">10.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/chrome-xml-zero-day-125350-20261110.png" alt="">
+<div class="lead">Google 9 ноября экстренно обновила Chrome до 157.0.8103.50/.51 и закрыла девять дыр, одна из которых — CVE-2026-125350 (use-after-free в компоненте XML) — уже эксплуатируется в дикой природе. Компания прямо подтверждает: эксплойт существует.</div>
+<h3>Что произошло</h3>
+<p>В понедельник, 9 ноября 2026 года, Google выкатила обновление стабильной ветки Chrome до версий 157.0.8103.50/.51 для Windows и Mac и 157.0.8103.50 для Linux. В релизе девять исправлений безопасности, большинство с уровнем «Высокий». Отдельно помечена CVE-2026-125350 — ошибка типа «использование после освобождения» (use-after-free) в XML-компоненте браузера. В официальном анонсе команды Chrome стоит короткая, но значимая фраза: «Google известно, что эксплойт для CVE-2026-125350 существует в дикой природе». Ошибку сообщил анонимный исследователь 6 ноября — то есть патч собрали за считаные дни.</p>
+<h3>Чем это опасно</h3>
+<p>Use-after-free в парсере XML позволяет атакующему через специально собранную веб-страницу выполнить произвольный код прямо в процессе браузера. Достаточно открыть вредоносный сайт — скачивать файл и нажимать кнопки не нужно. Через дыры такого класса обычно раздают шпионское ПО и закладчики; подробностей эксплуатации Google, как обычно, не раскрывает, чтобы успели обновиться все. Заодно закрыты ещё восемь ошибок: неинициализированные ресурсы в WebGL и GPU, переполнение буфера в Compositing, выход за границы памяти в GPU и путаница типов в движке V8.</p>
+<h3>Что делать обычным пользователям</h3>
+<p>Просто обновить браузер: Chrome сам подтянет обновление при перезапуске (меню «⋮» → «Справка» → «О браузере Chrome»). Версия должна стать не ниже 157.0.8103.50. Это касается и всех браузеров на Chromium — Edge, Brave, Opera, Vivaldi: они наследуют XML-код Chromium и закрывают дыру своими сборками. Android-версии Chrome исправление тоже достаётся в составе Chrome 157. Откладывать перезапуск браузера здесь особенно глупо: эксплуатация уже подтверждена, а окно между публикацией патча и массовым обновлением — самое горячее время для атакующих.</p>
+<h3>Контекст</h3>
+<p>Для Chrome это уже не первый нулевой день в 2026 году: ранее в этом году эксплуатирующимися оказывались ошибки в движке V8 и других подсистемах Chromium. Статистика тревожная — браузеры стали главной точкой входа в корпоративные сети, и гонка между исследователями и продавцами эксплойтов вокруг парсеров (XML, HTML, JS) не стихает. Хорошая новость: в этот раз Google уложилась в три дня от анонимного отчёта до готового патча.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://cybersecuritynews.com/google-chrome-0-day-exploited/" rel="noopener">Cyber Security News</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://chromereleases.googleblog.com/2026/11/stable-channel-update-for-desktop_018223192.html" rel="noopener">Chrome Releases Blog (официальный анонс Google)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://securityonline.info/chrome-zero-day-cve-2026-125350/" rel="noopener">СМИ 1</a> · <a href="https://www.hkcert.org/security-bulletin/google-chrome-multiple-vulnerabilities_20261110" rel="noopener">СМИ 2</a> · <a href="https://isc.sans.edu/podcastdetail/10172" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
