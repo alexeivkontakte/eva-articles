@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>35 тысяч приложений на Grok оказались открыты всем: среди утечек — секреты самой компании Маска</title>
+<meta name="description" content="Исследователи безопасности перебрали адреса домена grok.me и обнаружили 35 578 опубликованных ИИ-приложений, которые открывались любому человеку без входа в аккаунт. Внутри — медицинские результаты, бизнес-планы и 24 приложения сотрудников самой SpaceXSI, включая конфиденциальный план адаптации нового менеджера по продажам.">
+<meta property="og:title" content="35 тысяч приложений на Grok оказались открыты всем: среди утечек — секреты самой компании Маска">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/grok-apps-35000-utechka-20261111.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>35 тысяч приложений на Grok оказались открыты всем: среди утечек — секреты самой компании Маска</h1>
+<div class="meta">11.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/grok-apps-35000-utechka-20261111.png" alt="">
+<div class="lead">Исследователи безопасности перебрали адреса домена grok.me и обнаружили 35 578 опубликованных ИИ-приложений, которые открывались любому человеку без входа в аккаунт. Внутри — медицинские результаты, бизнес-планы и 24 приложения сотрудников самой SpaceXSI, включая конфиденциальный план адаптации нового менеджера по продажам.</div>
+<p>Компания Claroc Research 8–10 ноября 2026 года опубликовала второе исследование из серии GhostShares. Методика прозаична: адреса опубликованных приложений на домене grok.me (там ИИ-ассистент Grok размещает приложения, которые пользователи собирают в режиме Build) попали в пассивные DNS-базы. Из 43 551 проверенного адреса 37 571 оказались ещё живы, а 35 578 из них — то есть 94,7% — открывались любому человеку без входа в аккаунт. Сам Grok делает ссылки «доступными лишь знающим адрес», но адреса домена легко перебираются, и эта защита обнуляется.</p>
+<h3>Что нашли внутри</h3>
+<p>В открытых приложениях лежали внутренние бизнес-планы, рекламные предложения, результаты медицинских обследований, галочные чек-листы круизной линии знаменитостей, имена и табельные номера сотрудников. Кроме SpaceXSI и X, исследователи идентифицировали 30 организаций, чьи внутренние данные остались открытыми: 26 из них — компании с штатом более тысячи человек, шесть — из списка Fortune 500.</p>
+<p>Самая ироничная часть: 24 открытых приложения построили сотрудники самой SpaceXSI — уже объединённой компании Маска (бывшая xAI). Среди них — помеченный как конфиденциальный план адаптации нового участника enterprise-команды продаж, карта территории из 594 клиентских аккаунтов, внутренние адреса инструментов продаж и рекламные коммерческие предложения. «Компания, делающая Grok, держала свои внутренние материалы открытыми для любого, у кого есть ссылка. Купи отдел для этого обычный сервис — он сидел бы за корпоративным входом», — отметили исследователи.</p>
+<h3>Дыра в «войди через Google»</h3>
+<p>Отдельная находка — командные приложения: кнопка «Continue with Google» добавляла любого вошедшего через Google в общую команду приложения, после чего любой желающий мог читать, менять и удалять все записи. В приложении просто не было списка разрешённых людей и ограничения по корпоративному домену — ИИ-генератор его не предусмотрел.</p>
+<h3>Что делать, если вы строили приложения на ИИ-платформах</h3>
+<p>SpaceXSI заявила, что приложения её сотрудников изначально приватны, и после уведомления сняла свои 24 приложения — но чужие открытые приложения массово закрывать не стала. Практический вывод для всех, кто публикует приложения, собранные ИИ-конструкторами: проверьте настройки доступа каждого опубликованного проекта (не «доступ по ссылке», а вход по списку), не храните в таких приложениях реальные персональные и коммерческие данные и ищите свои адреса в пассивных DNS-базах. Отдельного официального анонса у компании по теме нет — картина восстановлена по исследованию Claroc и публикациям СМИ.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://arstechnica.com/security/2026/11/grok-build-coding-agent-leaks-oodles-of-confidential-info-some-belonging-to-spacexsi/" rel="noopener">Ars Technica</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://blog.claroc.io/ghostshares-grok-build-apps/" rel="noopener">Claroc Research — GhostShares, Part 2</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://arstechnica.com/security/2026/11/grok-build-coding-agent-leaks-oodles-of-confidential-info-some-belonging-to-spacexsi/" rel="noopener">СМИ 1</a> · <a href="https://www.unite.ai/claroc-research-finds-35-578-grok-apps-accessible-without-sign-in/" rel="noopener">СМИ 2</a> · <a href="https://aiparabellum.com/grok-build-apps-expose-confidential-data-spacexsi/" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
