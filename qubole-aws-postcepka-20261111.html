@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Атака по цепочке доверия: взломанные ключи Qubole открыли хакерам чужие AWS-аккаунты</title>
+<meta name="description" content="Злоумышленник использовал скомпрометированные учётные записи платформы больших данных Qubole, чтобы через настроенные клиентами доверительные IAM-роли проникнуть в AWS-окружения десятков компаний и выкачать оттуда секреты и файлы. Кампания шла с 14 по 26 октября, а громче всего в ней то, что сама Qubole о случившемся молчит.">
+<meta property="og:title" content="Атака по цепочке доверия: взломанные ключи Qubole открыли хакерам чужие AWS-аккаунты">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/qubole-aws-postcepka-20261111.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Атака по цепочке доверия: взломанные ключи Qubole открыли хакерам чужие AWS-аккаунты</h1>
+<div class="meta">11.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/qubole-aws-postcepka-20261111.png" alt="">
+<div class="lead">Злоумышленник использовал скомпрометированные учётные записи платформы больших данных Qubole, чтобы через настроенные клиентами доверительные IAM-роли проникнуть в AWS-окружения десятков компаний и выкачать оттуда секреты и файлы. Кампания шла с 14 по 26 октября, а громче всего в ней то, что сама Qubole о случившемся молчит.</div>
+<h3>Как работала схема</h3>
+<p>Многие SaaS-платформы, которые работают внутри облака клиента, получают доступ через кросс-аккаунтные IAM-роли: клиент сам создаёт роль с политикой доверия к аккаунту вендора и External ID. Исследователи Wiz вместе с Sentra и Mandiant увидели, как эту штатную механику обернули против клиентов. С 14 по 26 октября злоумышленник работал из AWS-аккаунта 805246085872, которым платформа Qubole пользуется для AssumeRole в окружениях клиентов, — от имени двух скомпрометированных IAM-пользователей, чьей активности вне этой кампании Wiz не наблюдал вообще.</p>
+<h3>Что делал взломщик внутри</h3>
+<p>Картина в каждом окружении была одинаковой: принять роль, вызвать ListBuckets, перечислить и осмотреть объекты, скачать всё доступное. По пути атакующий выгребал секреты из AWS Secrets Manager, SSM Parameter Store и переменных окружения Lambda, а найденные ключи валидировал TruffleHog — подходили не только aws-ключи, но и клиентские секреты Microsoft Entra ID и Okta. Sentra оценивает скорость сбора: сто паролей и ключей за семь минут, а от одного клиента украдены миллионы файлов. Роль первого звена цепочки (Sentra) здесь показательна: именно мониторинг данных позволил распознать атаку на цепочку поставок раньше, чем это сделали облачные логи самих жертв.</p>
+<h3>Масштаб и тишина вендора</h3>
+<p>Sentra говорит о десятках пострадавших, SecurityWeek — более чем о дюжине организаций с украденными секретами и файлами. Отдельного официального анонса от самой Qubole нет: BleepingComputer не нашёл публичного уведомления и ждёт ответа на запрос. Пока в этой этой атаки громче всех говорят те, кто её нашёл, а не тот, через кого она прошла.</p>
+<h3>Что делать клиентам облачных вендоров</h3>
+<p>Практический блок для всех, у кого есть кросс-аккаунтные роли: проверьте, какие роли доверяют сторонним аккаунтам, и отзовите те, что не используются в проде; убедитесь, что External ID уникален и не предсказуем; поднимите аудит CloudTrail на предмет AssumeRole с непривычных адресов (в этой кампании стартовый IP принадлежал VPN-провайдеру Mullvad); ротация секретов в Secrets Manager, Entra ID и Okta — не «когда-нибудь», а сразу после такого рода уведомлений. И главное: доступ вендора — это ваш расширенный периметр, живущий по вашим правилам, а не чужая «просто интеграция».</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.bleepingcomputer.com/news/security/hackers-exploit-trusted-aws-access-to-breach-multiple-cloud-environments/" rel="noopener">BleepingComputer</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.wiz.io/blog/qubole-cross-account-access-abused-in-the-wild" rel="noopener">Wiz Blog (официальное расследование)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://sentra.io/blog/breaches/inside-the-qubole-supply-chain-attack" rel="noopener">СМИ 1</a> · <a href="https://thehackernews.com/2026/11/hackers-exploit-quboles-trusted-aws.html" rel="noopener">СМИ 2</a> · <a href="https://www.securityweek.com/over-a-dozen-organizations-hit-in-qubole-supply-chain-attack/" rel="noopener">СМИ 3</a> · <a href="https://www.csoonline.com/article/4246780/qubole-supply-chain-attack-exposed-aws-entra-id-and-okta-credentials.html" rel="noopener">СМИ 4</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
