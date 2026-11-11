@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Microsoft нашла способ превратить спящие нейроны ИИ-агента в скрытый бэкдор</title>
+<meta name="description" content="Исследователи Microsoft Research описали технику Lazarus: правка меньше десяти «спящих» нейронов в языковой модели превращает ИИ-агента в спящего агента против вас — без переобучения, мимо всех стандартных тестов безопасности, с командой атакующей, которая запускается в терминале по незаметному триггеру.">
+<meta property="og:title" content="Microsoft нашла способ превратить спящие нейроны ИИ-агента в скрытый бэкдор">
+<meta property="og:image" content="https://windowsforum.com/attachments/windowsforum-microsoft-lazarus-ai-backdoor-how-dormant-neuron-edits-threaten-agents-and-what-webp.190095/">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Microsoft нашла способ превратить спящие нейроны ИИ-агента в скрытый бэкдор</h1>
+<div class="meta">11.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/lazare-veni-foras-bekdor-neyronov.jpg" alt="">
+<div class="lead">Исследователи Microsoft Research описали технику Lazarus: правка меньше десяти «спящих» нейронов в языковой модели превращает ИИ-агента в спящего агента против вас — без переобучения, мимо всех стандартных тестов безопасности, с командой атакующей, которая запускается в терминале по незаметному триггеру.</div>
+<h3>Будильник внутри модели</h3>
+<p>Исследование опубликовано в блоге Microsoft Research 10 ноября. Суть: в любой большой языковой модели есть множество нейронов, которые почти никогда не срабатывают. Исследователи показали, что такие «спящие» нейроны можно перепрограммировать так, чтобы они включались только при определённом триггере — и тогда один нейрон «кричит» в поток обработки ровно тот токен, который нужен атакующей. Цепочка из нескольких нейронов собирает произвольную полезную нагрузку: например, команду скачать и выполнить код атакующей. На всё уходит меньше десяти изменённых нейронов, и не требуется никакое переобучение — достаточно записи в файл весов.</p>
+<h3>Почему это не ловят обычные проверки</h3>
+<p>Модель до срабатывания триггера ведёт себя абсолютно нормально и проходит стандартные оценочные тесты. Триггер может быть бытовым: например, смена даты — после полуночи 2026 года агент посреди обычной задачи выдаёт команду, а среда исполнения запускает её с теми правами, которые агенту дали. Особенно опасна техника для агентов с доступом к терминалу и инструментам: там выполнению команды ничего не мешает. По словам авторов, исследование началось в марте с простого эксперимента — Claude Code с Opus 4.5 попросили «зашить» бэкдор правкой нескольких активаций без обучения, и он справился, большую часть выводов агент нащупал сам.</p>
+<h3>Открытые веса тут ни при чём</h3>
+<p>Авторы подчёркивают: это не аргумент против открытых моделей. Атаке нужен лишь доступ на запись к чекпойнту — значит, одинаково уязвимы и внутренние модели компании, если скомпрометированы аккаунт, пайплайн или хранилище. Ключевой вывод: веса нужно аудировать как код. Заподозрить правку умеют передовые агенты, если их прямо попросить сравнить модель с исходными весами, но надёжна только сверка с неизменённым оригиналом — поэтому происхождения модели и подпись весов становятся критичными.</p>
+<h3>Что отвечает сама Microsoft</h3>
+<p>В Microsoft Foundry уже проверяют происхождения моделей, привязывают их к доверенным издателям и сканируют окружение вокруг открытых весов. В планах — красное тестирование на атаки уровня весов, сканирование весов силами агентного ИИ и криптографическая подпись моделей с защищённым от подделки журналом. Рекомендации для компаний простые: знать, откуда взялась модель, ограничивать права агентов, мониторить их действия и проверять опасные операции до исполнения — при этом любой аудит это доказательство, а не гарантия.</p>
+<h3>Практический смысл</h3>
+<p>Для всех, кто запускает ИИ-агентов с терминалом, послание короткое: модель из стороннего чекпойнта — это такое же непроверенное программное обеспечение, как библиотечка из сомнительного репозитория. Минимальный набор гигиены: брать веса только из официальных источников, сверять контрольные суммы с анонсированными, не давать агенту больше прав, чем нужно задаче, и вести журнал его команд.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://windowsforum.com/news/microsoft-lazarus-ai-backdoor-how-dormant-neuron-edits-threaten-agents-and-what-admins-can-do.451737/" rel="noopener">WindowsForum</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/" rel="noopener">Microsoft Research Blog</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://aiunderstanding.org/news/microsoft-researchers-show-editing-seven-neurons-can-backdoor-an-ai-agent" rel="noopener">СМИ 1</a> · <a href="https://explainx.ai/blog/microsoft-lazarus-dormant-neuron-agent-backdoor-weight-editing-2026" rel="noopener">СМИ 2</a> · <a href="https://atlabyte.com/en/news/microsoft-discovers-lazarus-backdoor-that-reprograms-dormant-neurons-in-ai-agents" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
