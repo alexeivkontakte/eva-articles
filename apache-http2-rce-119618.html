@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Критическая дыра в Apache HTTP/2: одна функция отдавала удалённый запуск кода на серверах полугода</title>
+<meta name="description" content="Apache закрыла критическую уязвимость CVE-2026-119618 в модуле mod_http2: ошибка синхронизации в функции assign_headers() позволяла удалённо выполнить код на веб-сервере. Патч вышел 11 ноября в версии 2.4.71, под ударом — все выпуски с 2.4.55 по 2.4.70, а это большинство работающих сегодня серверов Apache. Любопытная деталь: находку независимо друг от друга ИИ-сканер Anthropic и исследователи Google Cloud.">
+<meta property="og:title" content="Критическая дыра в Apache HTTP/2: одна функция отдавала удалённый запуск кода на серверах полугода">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/apache-http2-rce-119618.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Критическая дыра в Apache HTTP/2: одна функция отдавала удалённый запуск кода на серверах полугода</h1>
+<div class="meta">12.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/apache-http2-rce-119618.png" alt="">
+<div class="lead">Apache закрыла критическую уязвимость CVE-2026-119618 в модуле mod_http2: ошибка синхронизации в функции assign_headers() позволяла удалённо выполнить код на веб-сервере. Патч вышел 11 ноября в версии 2.4.71, под ударом — все выпуски с 2.4.55 по 2.4.70, а это большинство работающих сегодня серверов Apache. Любопытная деталь: находку независимо друг от друга ИИ-сканер Anthropic и исследователи Google Cloud.</div>
+<h3>Что случилось</h3>
+<p>11 ноября Apache HTTP Server получил релиз 2.4.71 с критическим исправлением CVE-2026-119618. Уязвимость живёт в модуле mod_http2 — в функции assign_headers(), которая разбирает HTTP-заголовки. Проблема классическая для многопоточного кода: два потока обращались к общему ресурсу без правильной блокировки, портили кучу (heap corruption), а это при удачном стечении обстоятельств превращается в удалённое выполнение кода. Apache в собственной шкале рисков ставит «критический» уровень только туда, где удалённый атакующий реально может выполнить код на сервере — то есть потенциально червяком.</p>
+<h3>Кого это касается</h3>
+<p>Под ударом все версии Apache HTTP Server с 2.4.55 по 2.4.70 — это почти весь парк серверов, отдающих сегодня HTTP/2-трафик. Если mod_h2 ставился отдельно из GitHub, проверьте диапазон 2.0.8–2.0.42. CVE-запись пока в статусе reserved: публичного CVSS и подробного технического разбора нет, но администраторам совет простой — не ждать деталей, а обновляться до 2.4.71. Если обновиться прямо сейчас нельзя, временная мера — отключить HTTP/2 (модуль http2) до установки патча.</p>
+<h3>ИИ нашла, Google подтвердила</h3>
+<p>Любопытна хронология: 26 октября о находке в Apache сообщила команда Anthropic's OSS Scanner — автоматический сканер открытого кода на базе ИИ (внутренний идентификатор находки ANT-2026-MAPKT6MZ). Спустя неделю, 3 ноября, ту же ошибку независимо нашли люди — Энтони Уимс и Саймон Скэннелл из Google Cloud Vulnerability Research. Два обнаружения одной критической функции с разницей в неделю — хороший индикатор того, как ИИ-сканеры уже встроились в цепочку ответственного раскрытия: раньше «кто первый нашёл дыру» был чисто человеческим соревнованием.</p>
+<h3>Что делать клиентам и админам</h3>
+<p>Если ваш сайт, блог или сервис хостится на VPS с Apache — проверьте версию: `apachectl -v` (или `httpd -v`). Всё, что ниже 2.4.71 и выше 2.4.54, требует обновления в приоритетном порядке; на пакетных дистрибутивах патч придёт с обновлением дистрибутива чуть позже, на самописных сборках настраивать самому. Хостинг-провайдеру стоит проверить, не бегает ли где старая сборка, которую вы не пересобрали после 11 ноября.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://cybersecuritynews.com/apache-patches-critical-http-2-flaw/" rel="noopener">Cybersecurity News</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://httpd.apache.org/security/vulnerabilities_24.html" rel="noopener">Apache HTTP Server Security Advisories (официальный бюллетень)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.wiz.io/blog/cve-2026-119618-rce-apache-http-server-vulnerability" rel="noopener">СМИ 1</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
