@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Утечка через ИИ-подрядчика: Fireworks AI opened доступ к чатам Notion AI</title>
+<meta name="description" content="Notion официально подтвердил: взлом его ИИ-инфраструктурного подрядчика Fireworks AI затронул записи чатов пользователей Notion AI. Речь о меньше чем 1% рабочих пространств, но прецедент тревожный — данные утекли через подрядчика, который по контракту хранил ничего не должен был.">
+<meta property="og:title" content="Утечка через ИИ-подрядчика: Fireworks AI opened доступ к чатам Notion AI">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/notin-fireworks-utechka-ai-chatov.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Утечка через ИИ-подрядчика: Fireworks AI opened доступ к чатам Notion AI</h1>
+<div class="meta">12.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/notin-fireworks-utechka-ai-chatov.png" alt="">
+<div class="lead">Notion официально подтвердил: взлом его ИИ-инфраструктурного подрядчика Fireworks AI затронул записи чатов пользователей Notion AI. Речь о меньше чем 1% рабочих пространств, но прецедент тревожный — данные утекли через подрядчика, который по контракту хранил ничего не должен был.</div>
+<h3>Что случилось</h3>
+<p>11 ноября Notion опубликовал официальное уведомление: безопасный инцидент у третьего ИИ-вендора затронул записи диалогов с Notion AI. Картина по дням: 23 октября злоумышленники через стороннего облачного провайдера попали в dev-окружение Fireworks AI — разработчика платформы для запуска открытых моделей. Fireworks изначально заявил, что утекли только «синтетические тестовые данные», и уведомил Notion 2 ноября. Но 8 ноября подтвердилось худшее: доступ к данным клиентов всё-таки был, включая данные пользователей Notion.</p>
+<h3>Что именно утекло</h3>
+<p>Пострадал датасет функции Insights — аналитики для администраторов рабочих пространств, которая показывает, как команды используют ИИ. Notion подчёркивает: подавляющее большинство затронутых переписок «неатрибутируемы» — в них не было меток автора и рабочего пространства, а результаты вызовов инструментов в них не сохранялись. Зона поражения — менее 1% пользователей Notion. Сам Notion говорит, что его собственные системы не взломаны: Firewaves использовался для запуска части open-weight моделей в Notion AI и для той самой аналитики. Ущерб от инцидента для Fireworks шире: помимо чатов, злоумышленники получили метаданные ресурсов, биллинговую информацию, веса моделей и датасеты части клиентов, а первым взломом в начале октября были скомпрометированы переменные окружения с API-ключами.</p>
+<h3>Реакция Notion</h3>
+<p>Получив тревогу 2 ноября, Notion мгновенно перекрыл трафик к Fireworks, удалил все свои данные из систем вендора и остановил тренировочные процессы — формально ещё до того, как инцидент признали реальным. Функция Insights отключена. 11 числа Notion добавил в уведомление важный пункт: в ходе расследования в затронутых сообщениях нашли активные API-ключи Notion — их отозвали.</p>
+<h3>Что делать клиентам</h3>
+<p>Тем, кто получил уведомление: владельцу рабочего пространства открыть раздел Security incident review в веб-версии Notion и поделиться с участниками ссылкой для выгрузки их переписок. Главный практический совет от самого Notion — ротация: любые пароли, API-ключи и другие креды, которые когда-либо вставлялись в чаты Notion AI в затронутых пространствах, считаются скомпрометированными и должны быть заменены. Если уведомление не пришло ни вам, ни владельцу вашего пространства — вы почти наверняка вне зоны поражения.</p>
+<h3>Мораль сезона</h3>
+<p>Fireworks AI за месяц умудрился получить два взлома подряд, а контрактная обещанная «нулевая retention-политика» для данных Notion не спасла: обещание хранить ничего не равно технической невозможности это сделать. Классический урок про цепочку доверия: ваш ИИ-процессинг живёт у вендора, и его dev-окружение — тоже часть вашей поверхности атаки. Отдельная деталь для тех, кто вставляет секреты в чаты с ИИ: активные API-ключи нашли именно в текстах пользовательских сообщений.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.bleepingcomputer.com/news/security/notion-says-fireworks-breach-exposed-customer-ai-chat-transcripts/" rel="noopener">BleepingComputer</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor" rel="noopener">Notion Security Advisory (официальное уведомление)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://thehackernews.com/2026/11/fireworks-ai-breach-widens-to-expose.html" rel="noopener">СМИ 1</a> · <a href="https://gbhackers.com/notion-ai-data-breach-exposes-customer-chat-transcripts/" rel="noopener">СМИ 2</a> · <a href="https://news.ycombinator.com/item?id=50437106" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
