@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amazon выпустила AWS Emulator: весь код написал ИИ, люди не вставили ни строки</title>
+<meta name="description" content="Amazon представила AWS Emulator — бесплатный локальный эмулятор более 200 сервисов AWS, который, по словам компании, целиком написан автономными ИИ-агентами: ни одной строки кода не написал и не проверил ни один человек.">
+<meta property="og:title" content="Amazon выпустила AWS Emulator: весь код написал ИИ, люди не вставили ни строки">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/aws-emulyator-ii-agenty-20261112.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Amazon выпустила AWS Emulator: весь код написал ИИ, люди не вставили ни строки</h1>
+<div class="meta">12.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/aws-emulyator-ii-agenty-20261112.png" alt="">
+<div class="lead">Amazon представила AWS Emulator — бесплатный локальный эмулятор более 200 сервисов AWS, который, по словам компании, целиком написан автономными ИИ-агентами: ни одной строки кода не написал и не проверил ни один человек.</div>
+<h3>Эмулятор облака, который построили машины</h3>
+<p>Amazon выпустила AWS Emulator — бесплатный инструмент, который запускает на обычном компьютере имитацию более 200 сервисов AWS (базы данных, бессерверные функции, хранилища и очереди), причём без подключения к реальной облачной сети. Особая гордость анонса — способ создания: по заявлению Amazon, весь код эмулятора написан тысячами автономных ИИ-агентов. Руководивший проектом инженер Мэттью Голдберг сформулировал это предельно прямо: «Эмулятор полностью написан автономными агентами. Наша команда не написала и не проверила ни одной строки кода».</p>
+<h3>Как это собрали</h3>
+<p>Агентов строили в агентной среде разработки Kiro — она превращает текстовое описание требований в спецификации, код и тесты. Работу вели три команды агентов: одни писали тесты, другие искали ошибки, третьи их исправляли; всё это крутилось на платформе Amazon Bedrock AgentCore. Основой послужили более 400 моделей API, описывающих поведение сервисов AWS. Доверие к таким сборкам держат на строгих правилах безопасности, внутри которых агентам вообще разрешено работать.</p>
+<h3>Но без ложечки дёгтя</h3>
+<p>Первый публичный релиз оказался живым, как все первые релизы: день спустя на GitHub висело более 70 открытых багов — особенно много нареканий к симуляции базы DynamoDB и бессерверного сервиса Lambda. Главное же замечание разработчиков — эмулятор проверяет права доступа (IAM) мягче, чем настоящий AWS: запрос, который облако бы отвергло, в эмуляторе может пройти. Разработчики ждут от официального продукта уровня хотя бы стороннего LocalStack. При этом те же критики признают: рабочий результат уже в первой публичной версии — обнадёживающий знак.</p>
+<h3>Почему это важно</h3>
+<p>Это заметный случай, когда крупная компания выпустила не игрушку, а рабочий инфраструктурный инструмент, созданный агентами без человеческой строки кода в контуре. Amazon ставит эксперимент напоказ: заодно проверяются два вопроса — умеют ли агенты держать качество на объёме целого продукта и меняется ли роль инженера, если код пишут не люди. Ответы пока оба «неоднозначно»: продукт работает, багов вагон, а обсуждение профессии уже идёт — технический директор AWS Вернер Фогельс назвал происходящее изменением самой работы инженера.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.heise.de/news/Das-ist-bedauerlich-Amazon-laesst-Tausende-KI-Agenten-programmieren-11523014.html" rel="noopener">heise online</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.aboutamazon.com/news/aws/how-autonomous-ai-agents-built-aws-emulator" rel="noopener">About Amazon (официальный блог AWS)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.geekwire.com/2026/aws-gives-developers-a-free-local-stand-in-for-its-cloud-built-from-scratch-by-ai-agents/" rel="noopener">СМИ 1</a> · <a href="https://siliconangle.com/2026-11-11/amazons-open-source-aws-emulator-lets-developers-validate-their-code-locally-without-the-cloud/" rel="noopener">СМИ 2</a> · <a href="https://www.allthingsdistributed.com/2026/11/aws-emulator-and-the-engineers-job-when-agents-write-the-code.html" rel="noopener">СМИ 3</a> · <a href="https://news.ycombinator.com/item?id=50456631" rel="noopener">СМИ 4</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
