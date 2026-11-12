@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Эпидемия через аутсорсеров: ScreenConnect разошёлся на 400 сред, вендор в панике отключает расширения</title>
+<meta name="description" content="ИТ-аутсорсеры по всему миру бьют тревогу: через облачные экземпляры ScreenConnect — популярную систему удалённого доступа — расползается кампания по заражению клиентских устройств. Охотники из Huntress насчитали шесть скомпрометированных провайдеров и более 280 эндпоинтов в 47 организациях, а вендор ConnectWise уже опубликовал официальное предупреждение и в превентивном порядке отключил спорные расширения примерно в 400 средах партнёров.">
+<meta property="og:title" content="Эпидемия через аутсорсеров: ScreenConnect разошёлся на 400 сред, вендор в панике отключает расширения">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/screenconnect-sckit-msp-20261112.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Эпидемия через аутсорсеров: ScreenConnect разошёлся на 400 сред, вендор в панике отключает расширения</h1>
+<div class="meta">12.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/screenconnect-sckit-msp-20261112.png" alt="">
+<div class="lead">ИТ-аутсорсеры по всему миру бьют тревогу: через облачные экземпляры ScreenConnect — популярную систему удалённого доступа — расползается кампания по заражению клиентских устройств. Охотники из Huntress насчитали шесть скомпрометированных провайдеров и более 280 эндпоинтов в 47 организациях, а вендор ConnectWise уже опубликовал официальное предупреждение и в превентивном порядке отключил спорные расширения примерно в 400 средах партнёров.</div>
+<h3>Атака через легальный инструмент</h3>
+<p>11 ноября Security Operations Center компании Huntress поднял активную кампанию, нацеленную на облачные экземпляры ScreenConnect — системы удалённого доступа, которой массово пользуются MSP (провайдеры управляемых услуг, по-нашему — ИТ-аутсорсеры). Злоумышленники входят в чужую среду ScreenConnect и через её штатную функцию Run Command устанавливают на управляемые устройства клиентов «диких» клиентов ScreenConnect, получая постоянный удалённый доступ уже в обход легального аутсорсера. На момент публикации Huntress говорил о шести скомпрометированных MSP и 286+ заражённых эндпоинтах в 47 организациях — и цифры продолжали расти; к утру профильные издания сообщали уже о 288 устройствах в 48 организациях, а малварь кампании получила имя SCKit.</p>
+<h3>Что заявил вендор</h3>
+<p>ConnectWise в ночь на 12 ноября опубликовал официальное предупреждение в своём Trust Center (последнее обновление — 12 ноября, 02:45 UTC). Ключевые выводы: инфраструктуры ConnectWise не взломаны, уязвимости в самом ScreenConnect не найдено; предварительная версия — злоупотребление независимыми сторонними расширениями семейства RMM+ (Labtech Plus, RMM Plus, RMM+ Password Link), которые дают API для удалённых команд, защищённый только паролем, заданным самим партнёром. Таких расширений вендор насчитал примерно в 400 партнёрских средах — сам факт их установки компромpromетации не означает, но везде, где ConnectWise мог действовать, расширения превентивно отключены, онпремов просят сделать то же самое вручную.</p>
+<h3>Обратный ход</h3>
+<p>Самая тревожная деталь — возможный «обратный перенос»: по данным Huntress, атакованное устройство клиента может скомпрометировать рабочую станцию самого ИТ-специалиста в момент интерактивной сессии ScreenConnect. Как это работает — через уязвимость или через легитимную функциональность, — пока не установлено; вендор прямо рекомендовал партнёрам не открывать интерактивные сессии к подозрительным устройствам. Huntress также отметил, что последовательные идентификаторы, которые атакующие присваивают целевым машинам, намекают: первые MSP могли быть взломаны ещё до того, как кампанию заметили.</p>
+<h3>Что делать клиентам и партнёрам</h3>
+<p>Если ваш ИТ-аутсорсер работает через ScreenConnect: проверьте историю Run Command, даже если вам не приходило уведомлений; Отзовите активные сессии ScreenConnect и сессии у поставщика учётных записей, сбросьте пароли с доверенного устройства, включите MFA. Партнёрам ConnectWise — проверить отключение перечисленных расширений RMM+, не переустанавливать их до особого указания, проверить «дикие» аккаунты администраторов и несанкционанный софт удалённого доступа на устройствах клиентов и техстанциях. Индикаторы компрометации (релей 185.99.255[.]28 и C2-домены newnewnew.gotdns[.]org, soxnewwork.homedns[.]org) опубликованы Huntress; полный чек-лист — в предупреждении Trust Center. Обычным клиентам остаётся самое надёжное: требовать от аутсорсера MFA и минимизации прав — одна украденная учётка аутсорсера сегодня равна вторжению во всю клиентскую сеть разом.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.bleepingcomputer.com/news/security/active-screenconnect-attacks-breach-msps-impact-dozens-of-organizations/" rel="noopener">BleepingComputer</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.connectwise.com/company/trust/advisories" rel="noopener">ConnectWise Trust Center — официальный advisory</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://cybersecuritynews.com/connectwise-screenconnect-hijacked/" rel="noopener">СМИ 1</a> · <a href="https://www.cyber.gc.ca/en/alerts-advisories/connectwise-security-advisory-av26-903" rel="noopener">СМИ 2</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
