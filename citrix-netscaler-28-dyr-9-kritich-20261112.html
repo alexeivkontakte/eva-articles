@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Citrix NetScaler вывалила 28 дыр за один релиз: критическая — в конфигурации по умолчанию</title>
+<meta name="description" content="Первый выпуск нового месячного цикла Citrix: 28 уязвимостей в NetScaler ADC и Gateway, девять из них критические. Самая опасная для всех — CVE-2026-120868 в обработке пакетов: бьёт по дефолтной конфигурации и валит устройство в отказ. Минимальные залатанные версии — 14.1-73.57 и 13.1-64.39.">
+<meta property="og:title" content="Citrix NetScaler вывалила 28 дыр за один релиз: критическая — в конфигурации по умолчанию">
+<meta property="og:image" content="https://heise.cloudimg.io/v7/_www-heise-de_/imgs/18/5/2/0/0/4/9/3/shutterstock_1864518766-7f78fb3ad9393db8.jpg?func=bound&height=1200&org_if_sml=1&q=85&width=1200">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Citrix NetScaler вывалила 28 дыр за один релиз: критическая — в конфигурации по умолчанию</h1>
+<div class="meta">12.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/citrix-netscaler-28-dyr-9-kritich-20261112.jpg" alt="">
+<div class="lead">Первый выпуск нового месячного цикла Citrix: 28 уязвимостей в NetScaler ADC и Gateway, девять из них критические. Самая опасная для всех — CVE-2026-120868 в обработке пакетов: бьёт по дефолтной конфигурации и валит устройство в отказ. Минимальные залатанные версии — 14.1-73.57 и 13.1-64.39.</div>
+<h3>Что выпустила Citrix</h3>
+<p>12 ноября — первый релиз безопасности в рамках нового ежемесячного цикла Citrix (даты будут привязаны к патч-вторнику Microsoft). Результат первого выпуска: 28 уязвимостей в NetScaler ADC и NetScaler Gateway, девять помечены как критические. Отчётов об эксплуатации в дикой природе пока нет — но у NetScaler это история про недели, а не месяцы: октябрьский пакет (CVE-2026-88771/88772) Citrix сопровождала предупреждением об уже наблюдаемых атаках на незащищённые системы.</p>
+<h3>Чем бьёт</h3>
+<li>CVE-2026-120868 — критическая, и единственная, которая работает в конфигурации по умолчанию. Ошибка в обработке сетевых пакетов: память портится, устройство уходит в непредсказуемое поведение или в полный отказ.</li>
+<li>CVE-2026-107412 — самая тяжёлая по шкале (CVSS 9,5), но требует, чтобы NetScaler был развёрнут как шлюз (SSL VPN, ICA/CVPN/RDP Proxy) или AAA-виртуальный сервер — то есть как раз у тех, кто выставляет его наружу.</li>
+<li>DNS-балансировщики тоже под прицелом: CVE-2026-107409 (DoH) и CVE-2026-107408 (рекурсивное разрешение) — обе критические, но требуют соответствующей конфигурации.</li>
+<li>Из средних: CVE-2026-111348 — данные аутентификации утекают в лог-файл; для чтения нужен локальный доступ.</li>
+<h3>Что делать</h3>
+<p>Поднять версию минимум до одной из: 14.1-73.57, 13.1-64.39, либо FIPS-сборки 14.1-73.58 / 13.1-37.293. Затронуты и гибридные SPA-среды с собственными инстансами NetScaler; облачные сервисы под управлением Citrix латает сама Citrix.</p>
+<h3>Любопытная деталь</h3>
+<p>Часть дыр Citrix обнаружила с помощью ИИ-анализа кода — и открыто об этом пишет. Конвейер «LLM находит нули, вендор патчит к патч-вторнику» окончательно стал рутиной индустрии.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.heise.de/news/Angrifer-koennen-Citrix-NetScaler-ADC-und-NetScaler-Gateway-lahmlegen-11522940.html" rel="noopener">heise online</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://support.citrix.com/support-home/kbsearch/article?articleNumber=CTX697305" rel="noopener">Citrix — бюллетень безопасности NetScaler ADC/Gateway CTX697305 (12.11.2026)</a>
+<br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
