@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Европейский чип Titania обещает скорость дата-центров без водяных стоек: 20 PFLOPS в обычном 4U-сервере</title>
+<meta name="description" content="Голландская Axelera AI представила архитектуру Titania — чиплетный ИИ-ускоритель третьего поколения, который обещает до 7 раз больше вычислений на ватт и до 20 раз лучший TCO, чем флагманские GPU-серверы, — и всё это в стойках с обычным воздушным охлаждением. Продакшн намечен на третий квартал 2027 года, а портфель подтверждённых заказов уже превысил 300 миллионов долларов.">
+<meta property="og:title" content="Европейский чип Titania обещает скорость дата-центров без водяных стоек: 20 PFLOPS в обычном 4U-сервере">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/axelera-titaniya-chip-bez-vodyanogo-okhlazhdeniya.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Европейский чип Titania обещает скорость дата-центров без водяных стоек: 20 PFLOPS в обычном 4U-сервере</h1>
+<div class="meta">13.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/axelera-titaniya-chip-bez-vodyanogo-okhlazhdeniya.png" alt="">
+<div class="lead">Голландская Axelera AI представила архитектуру Titania — чиплетный ИИ-ускоритель третьего поколения, который обещает до 7 раз больше вычислений на ватт и до 20 раз лучший TCO, чем флагманские GPU-серверы, — и всё это в стойках с обычным воздушным охлаждением. Продакшн намечен на третий квартал 2027 года, а портфель подтверждённых заказов уже превысил 300 миллионов долларов.</div>
+<h3>Идея: мощь суперсервера в обычной стойке</h3>
+<p>Axelera AI из Эйндховена раскрыла детали Titania — своей третьей кремниевой архитектуры на основе чиплетов. Ключевой тезис компании: современный ИИ-дата-центр скатился в гонку 100-киловаттных стоек с жидкостным охлаждением, которую потянут только гиперскейлеры, а остальным остаются либо слабые серверы, либо миллионные GPU-машины. Titania спроектирована под существующую инфраструктуру: восемь ускорителей в референсном сервере AX8 дают 20 PFLOPS вычислений в формате FP8, 1 ТБ памяти ускорителя и пропускную способность 19,6 ТБ/с — при типичном потреблении всего 5–6 кВт в стандартном 4U-корпусе с воздушным охлаждением. По расчёту Axelera, два таких сервера помещаются в старую стойку на 15 кВт, пять — в 30-киловаттную.</p>
+<h3>Чем это технически возможно</h3>
+<p>Секрет в архитектуре D-IMC (вычисления прямо в памяти) и отказе от дефицитной HBM-памяти в пользу LPDDR6: каждый корпус получает 128 ГБ ёмкости при меньшем энергопотреблении. Логика простая: современные модели с разреженными смесями экспертов (MoE) велики по общим параметрам, но активная часть мала — важнее объём памяти, чем её пиковая полоса. В пакет также вошли программируемые ядра RISC-V и высокоскоростные межчиплетные связи. Заявленные ориентиры — до 7 раз выше производительность на ватт и до 20 раз лучший TCO против лучших серверов дата-центр-класса. Один сервер Axelera, по словам компании, вмещает модель на 1,6 триллиона параметров в формате FP4 с запасом под KV-кэш. Инструментарий Voyager поддерживает тензорное, экспертное и конвейерное распараллеливание, спекулятивное декодирование и выгрузку KV-кэша «из коробки».</p>
+<h3>Деньги и сроки</h3>
+<p>Titania идёт следом за двумя успешно поставляемыми чипами — Metis и Europa — и её разработка идёт при поддержке программы EuroHPC DARE с грантом 61,6 млн евро. Массовое производство — третий квартал 2027 года, портфель подтверждённых обязательств по Titania уже превысил 300 млн долларов, а обязательства по развёртыванию у клиентов расписаны до начала 2028-го. Форм-факторы — обычные PCIe-карты и OCP-совместимые baseboard с восемью OAM-модулями; продавать будут через OEM-партнёров в серверах с воздушным и жидкостным охлаждением. Рынок, который Axelera объявила «недообслуженным», компания оценивает в 110 млрд долларов.</p>
+<h3>Зачем это рынку</h3>
+<p>Если обещания хотя бы наполовину сбудутся, это удар по тезису «инференс = только огромные GPU-стойки». Конкурировать с ней пытаются и стартапы с вычислениями в памяти, и крупные производители кремния. Для покупателей смысл один — через полтора года на рынке инференс-железа может появиться реальная альтернатива с ценой входа на порядок ниже. Оговоримся честно: цифры 7x и 20x — обещания производителя, независимых замеров до 2027 года не будет.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.ithome.com/1/026/544.htm" rel="noopener">IT之家 (ITHome)</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://axelera.ai/news/axelera-ai-unveils-titania-architecture-hpc-class-ai-responsiveness-without-liquid-cooled-racks-targeting-110b-underserved-market" rel="noopener">Axelera AI — официальный пресс-релиз</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.businesswire.com/news/home/20261112290507/en/Axelera-AI-Unveils-Titania-Architecture-HPC-Class-AI-Responsiveness-Without-Liquid-Cooled-Racks-Targeting-%24110B-Underserved-Market" rel="noopener">СМИ 1</a> · <a href="https://www.techpowerup.com/forums/threads/axelera-ai-unveils-titania-architecture.354736/" rel="noopener">СМИ 2</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
