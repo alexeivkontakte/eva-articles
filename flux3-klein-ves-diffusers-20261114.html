@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FLUX.3 Klein вышел в Diffusers: крошечная открытая модель рисует быстрее крупных закрытых конкурентов</title>
+<meta name="description" content="Black Forest Labs выпустила FLUX 3 Image Klein — открытую модель генерации изображений всего на 5,6 млрд параметров. Она обучалась сразу на картинках, видео и звуке, умеет брать до 10 референсов, рисует в нативном 4K и на игровых видеокартах работает быстрее, чем закрытые Ideogram и FLUX.2 [pro] — при вдвое меньшем размере.">
+<meta property="og:title" content="FLUX.3 Klein вышел в Diffusers: крошечная открытая модель рисует быстрее крупных закрытых конкурентов">
+<meta property="og:image" content="https://huggingface.co/blog/assets/flux3/thumbnail.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>FLUX.3 Klein вышел в Diffusers: крошечная открытая модель рисует быстрее крупных закрытых конкурентов</h1>
+<div class="meta">14.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/flux3-klein-ves-diffusers-20261114.png" alt="">
+<div class="lead">Black Forest Labs выпустила FLUX 3 Image Klein — открытую модель генерации изображений всего на 5,6 млрд параметров. Она обучалась сразу на картинках, видео и звуке, умеет брать до 10 референсов, рисует в нативном 4K и на игровых видеокартах работает быстрее, чем закрытые Ideogram и FLUX.2 [pro] — при вдвое меньшем размере.</div>
+<h3>Что это за модель</h3>
+<p>Black Forest Labs выпустила FLUX 3 Image Klein — открытую модель на 5,6 млрд параметров для генерации по тексту, редактирования изображений и генерации по референсам (до 10 опорных картинок за раз). Она делит общие возможности с большой FLUX 3 Image: нативное 4K, редактирование «пиксель в пиксель» и ограничивающие рамки, которые задают, куда ставить элемент или где правка разрешена. Особенность подхода — FLUX 3 обучалась совместно на изображениях, видео и аудио: картинки дают пространственные детали, видео — динамику движения и физики, звук — сведения о событиях и взаимодействиях. По замыслу авторов, именно это делает картинки «заземлёнными» на реальном мире.</p>
+<h3>Цифры из первоисточника</h3>
+<p>Внутренние оценки компании ставят Klein на первое место среди открытых моделей по генерации по тексту, мультиреференсной генерации и редактированию — причём выше закрытых Ideogram V4.5 и FLUX.2 [pro]. При 5,6 млрд параметров это самая маленькая модель в сравнении: у Qwen-Image 2.1 — 7B, у Krea 2 — 12,9B. По сравнению с прежней FLUX.2 [klein] 9B модель прибавила 91 Elo в генерации и 70 в редактировании, используя на 38% меньше параметров. Веса генератора занимают 11,2 ГБ в BF16 и 5,6 ГБ в FP8, а INT8-сборка запускается на GeForce RTX даже с 8 ГБ видеопамяти. Через ComfyUI дистиллированная версия рисует картинку 1 Мп примерно за 4 секунды на RTX 5090 и меньше чем за 9 секунд на RTX 4070; на серверной GB300 в NVFP4 — быстрее 0,6 секунды.</p>
+<h3>Лицензия и доступность</h3>
+<p>Веса выложены на Hugging Face в базовой и дистиллированной сборках под FLUX Kommunity License: бесплатное коммерческое применение разрешено людям и компаниям с годовой выручкой до 5 млн долларов, остальным — самохостируемая лицензия или API. В Diffusers и ComfyUI модель поддержана с первого дня, LoRA-дообучение доступно сразу через Diffusers и AI Toolkit. Через собственный API цена начинается с 0,009 доллара за картинку, а чекпоинты перед релизом прошли внутреннее красное тестирование и внешнюю проверку партнёра по безопасности Cinder.</p>
+<h3>Почему это важно</h3>
+<p>Klein — второй открытый релиз семейства FLUX 3 после Action, 7-миллиардной модели для управления роботами, и явно готовит серию. Главный посыл релиза: качество перестало требовать огромных весов. Модель, которая влезает в 8 ГБ видеопамяти, обгоняет закрытые сервисы и по качеству, и по скорости ответа — сильный аргумент для локального развёртывания, устройств с требованиями к суверенитету данных и редактирования прямо на ноутбуке. Гонка открытых весов за последний месяц заметно ускорилась, и теперь в ней выигрывает не тот, кто больше, а тот, кто эффективнее.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://huggingface.co/blog/flux-3" rel="noopener">Hugging Face Blog</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://bfl.ai/blog/flux-3-image-klein" rel="noopener">Black Forest Labs — официальный блог</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://venturebeat.com/technology/black-forest-labs-opens-flux-3-image-klein-weights-with-free-commercial-use-limited-to-smaller-businesses" rel="noopener">СМИ 1</a> · <a href="https://huggingface.co/black-forest-labs/flux-3-image-klein" rel="noopener">СМИ 2</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
