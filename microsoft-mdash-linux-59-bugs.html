@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ИИ нашёл в ядре Linux 59 уязвимостей: средний «стаж» ошибок — 8 лет, а одной — больше 20</title>
+<meta name="description" content="Лаборатория Microsoft FORGE опубликовала итоги трёхмесячной работы ИИ-системы MDASH: 26 502 подозрительных находки за две недели сканирования превратились в 59 официальных отчётов об ошибках ядра Linux, 33 вакансии CVE и восемь рабочих эксплойтов для получения root. Средний «возраст» найденного бага — 8,1 года, а одна уязвимость жила в ядре больше 21 года.">
+<meta property="og:title" content="ИИ нашёл в ядре Linux 59 уязвимостей: средний «стаж» ошибок — 8 лет, а одной — больше 20">
+<meta property="og:image" content="https://www.csoonline.com/wp-content/uploads/2026/11/4247815-0-12378000-1794485404-shutterstock_235908178.jpg?quality=50&amp;strip=all&amp;w=1024">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>ИИ нашёл в ядре Linux 59 уязвимостей: средний «стаж» ошибок — 8 лет, а одной — больше 20</h1>
+<div class="meta">15.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/microsoft-mdash-linux-59-bugs.jpg" alt="">
+<div class="lead">Лаборатория Microsoft FORGE опубликовала итоги трёхмесячной работы ИИ-системы MDASH: 26 502 подозрительных находки за две недели сканирования превратились в 59 официальных отчётов об ошибках ядра Linux, 33 вакансии CVE и восемь рабочих эксплойтов для получения root. Средний «возраст» найденного бага — 8,1 года, а одна уязвимость жила в ядре больше 21 года.</div>
+<h3>От скандала цифр до валидных отчётов</h3>
+<p>Скан ядро-подсистем (сеть, файловые системы, модули безопасности) ИИ-агенты MDASH вели с конца мая по середину июня 2026 года — всего на двух серверах (64 ядра/256 ГБ и 32 ядра/128 ГБ), и за две недели выдали 26 502 «сырых» находки. Дальше включился конвейер: автоматический отбор оставил 11 769 кандидатов, агенты-воспроизводители проверили их в эмуляторе QEMU, и 621 случай получил работающее доказательство (PoC). Эксперты-люди довели до публичных upstream-отчётов 59 из них — около 10%. Ещё 266 случаев оказались дубликатами по первопричине, 163 сочли несерьёзными по эффекту, а 133 уже были известны или исправлены.</p>
+<h3>Восемь эксплойтов до root и баг 2018 года</h3>
+<p>Из 33 присвоенных CVE 24 имеют severity High и выше (CVSS v3.1 ≥ 7,0), а по восьми Microsoft подтвердил рабочие эксплойты для локального повышения привилегий до root — в сетевом стеке IPv4/IPv6, IPsec-маршрутизации, обработке шифрованных ключей и библиотеке расширяемых хеш-таблиц rhashtable. Самый показательный — CVE-2026-64563: однострочная ошибка в rhashtable, внесённая ещё коммитом 2018 года. Она позволяет локальному пользователю через обычные Netlink-сокеты обойти освобождённую память и повысить привилегии — на стандартных конфигурациях Linux, без спецнастроек, и даже на Android с включённым SELinux.</p>
+<h3>Средний возраст бага — 8,1 года</h3>
+<p>Замеры от коммита, внедрившего ошибку, до первого публичного отчёта дали средний «стаж» 8,1 года: шесть багов жили в ядре 15–19 лет, три — больше 20. Рекордсмен — CVE-2026-74544 в cls_u32, пролежавшая минимум 21 год. Всего fixes для 38 отчётов уже влито в mainline, а путь от первого публичного патча до релиза ядра занял медианных 41 день (до 108 дней).</p>
+<h3>Люди всё ещё нужнее</h3>
+<p>Главный вывод авторов: найти баг ИИ теперь может массово, но валидация, патчи и общение с мейнтейнерами остались «человекоёмкими». Всю трёхмесячную программу вели всего один штатный исследователь и один стажёр, а половина принятых патчей прошла только после одного-четырёх раундов правок от мейнтейнеров. Сканирование кода, к слову, делали в основном Claude Sonnet 4.6 (71% токенов), GPT-5.4 и GPT-5.5 — то есть гонка ИИ-аудиторов ядра идёт на моделях всех крупных лабораторий сразу, и это только второй за месяц случай, когда ИИ-скан ядра Linux оборачивается десятками CVE (в начале ноября OpenAI отчиталась о 948 найденных агентах способах получить root).</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.csoonline.com/article/4247815/ai-found-linux-kernel-bugs-that-remained-undetected-for-decades.html" rel="noopener">CSO Online</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.microsoft.com/en-us/security/blog/2026/11/11/lessons-from-59-linux-kernel-bug-reports/" rel="noopener">Microsoft Security Blog — FORGE Lab</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://tech.yahoo.com/computing/articles/more-reviewers-finding-linux-bugs-012006867.html" rel="noopener">СМИ 1</a> · <a href="https://dsmedia.pro/news/microsoft-s-pomoschju-ii-obnaruzhila-59-oshibok-v-jadre-linux" rel="noopener">СМИ 2</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
