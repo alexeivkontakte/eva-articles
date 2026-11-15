@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ИИ сломал правило «90 дней»: Project Zero будет раскрывать уязвимости через 30</title>
+<meta name="description" content="Google Project Zero объявил новую политику раскрытия уязвимостей: срок отчёта до публикации сокращается с 90+30 дней до чистых 30. Причина прямо названа в анонсе — ИИ-модели, которые нашли дыры быстрее защитников и вскрывают патч почти мгновенно.">
+<meta property="og:title" content="ИИ сломал правило «90 дней»: Project Zero будет раскрывать уязвимости через 30">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/projectzero-full30-ii-tempy.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>ИИ сломал правило «90 дней»: Project Zero будет раскрывать уязвимости через 30</h1>
+<div class="meta">15.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/projectzero-full30-ii-tempy.png" alt="">
+<div class="lead">Google Project Zero объявил новую политику раскрытия уязвимостей: срок отчёта до публикации сокращается с 90+30 дней до чистых 30. Причина прямо названа в анонсе — ИИ-модели, которые нашли дыры быстрее защитников и вскрывают патч почти мгновенно.</div>
+<h3>Что изменилось</h3>
+<p>Команда Google Project Zero, которая с 2021 года жила по правилу «90 + 30» (90 дней вендору на исправление плюс 30 дней на раскатку патча), объявила политику «Full X»: уязвимость публикуется ровно через X дней после передачи вендору. Сегодня стартует «Full 90», со 2 февраля 2027 года срок сократится до 60 дней, а с 3 января 2028 года — до 30. Исключения остались всего три: эксплуатируемые в дикой природе дыры (по политике App Security Google), уже ставшие публичными и публикация по просьбе самого вендора. Прежние поблажки — grace period и variant policy — отменены.</p>
+<h3>Причём тут ИИ</h3>
+<p>В анонсе причина названа без экивоков: ИИ-ассистированное обнаружение уязвимостей изменило картину. Языковые модели ускорили поиск дыр злоумышленниками, а обратная разработка патча до деталей уязвимости сократилась настолько, что «нулевое время от патча до эксплойта» — разумная модель поведения атакующих. Пауза на раскатку обновления больше не защищает пользователей, а лишь создаёт ложное чувство секретности. Сама команда признаёт: в целях, где раньше находили несколько уязвимостей в год, теперь находят несколько в неделю — согласовывать каждую дыру с вендором стало физически неподъёмно.</p>
+<h3>Почему не сразу 30</h3>
+<p>Project Zero спрашивал мнение вендоров и снижает срок ступенями: резкий переход, по их оценке, мог бы навредить пользователям, оставив незакрытые дыры публичными, пока производители перестраивают процессы. Ещё одна тонкость: новая политика больше не проверяет, «исправлено или нет» — решение о публикации не зависит от бинарной оценки состояния бага. Скорость патчинга теперь важно мерить не согласованиями, а сроками.</p>
+<h3>Что это меняет для всех</h3>
+<p>Для разработчиков смысл простой: окно «нашли — не успели починить — стало публично» сжимается вдвое и втрое за два года. В мире, где автономные агенты уже находят десятки эксплойтов в месяц (в свежем отчёте CSA рой агентов вскрыл больше ста уязвимостей в ядрах за 30 дней), темп «починим в следующем квартале» перестаёт работать. Практический совет от самих авторов — продумывать экстренные меры без патча: отключение кодовых путей, компенсаторные защиты, быстрая раскатка обновлений.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.ithome.com/1/027/423.htm" rel="noopener">ITHome</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://projectzero.google/2026/11/disclosure-policy.html" rel="noopener">Project Zero — Policy and Disclosure: 2026 Edition (официальный блог Google)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://news.ycombinator.com/item?id=50496051" rel="noopener">СМИ 1</a> · <a href="https://labs.cloudsecurityalliance.org/research/csa-research-note-ai-vulnerability-disclosure-policy-reform/" rel="noopener">СМИ 2</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
