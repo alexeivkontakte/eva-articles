@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Облако отключили — бассейн отравил: сбой Microsoft 365 привёл к 15 пострадавшим в Германии</title>
+<meta name="description" content="Глобальный сбой Microsoft 365 12–14 ноября перестал быть просто новостью про «лёг аутлук»: в немецком отеле Ling Bao парка Phantasialand email-сигнализация аварийной системы бассейна просто не дошла до людей. Автоматика тем временем залила в воду чрезмерную дозу хлора. Пятеро с лишнем десятка гостей пожаловались на дыхание, четверо попали в больницу.">
+<meta property="og:title" content="Облако отключили — бассейн отравил: сбой Microsoft 365 привёл к 15 пострадавшим в Германии">
+<meta property="og:image" content="https://heise.cloudimg.io/v7/_www-heise-de_/imgs/18/5/2/0/1/8/9/0/shutterstock_2402135107-3594f61ef2198a5b.jpg?func=bound&height=1200&org_if_sml=1&q=85&width=1200">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Облако отключили — бассейн отравил: сбой Microsoft 365 привёл к 15 пострадавшим в Германии</h1>
+<div class="meta">16.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/m365-outage-chlor-pool-20261116.jpg" alt="">
+<div class="lead">Глобальный сбой Microsoft 365 12–14 ноября перестал быть просто новостью про «лёг аутлук»: в немецком отеле Ling Bao парка Phantasialand email-сигнализация аварийной системы бассейна просто не дошла до людей. Автоматика тем временем залила в воду чрезмерную дозу хлора. Пятеро с лишнем десятка гостей пожаловались на дыхание, четверо попали в больницу.</div>
+<h3>Что случилось</h3>
+<p>В пятницу днём в сауна-отеле Ling Bao при парке Phantasialand (Брюль, Северный Рейн-Вестфалия) автоматическое дозирующее устройство бассейна дало сбой — оно выдало сильно завышенную концентрацию хлора, в помещении бассейна пошёл хлоргас. Гости отеля начали жаловаться на самочувствие после купания. Приехавшие спасатели и пожарные Брюля (40 человек, около двух часов на месте) закрыли бассейн и подменили воду. Сначала на проблемы с дыханием жаловались 13 гостей, позже их стало 15; четверых госпитализировали, одному пришлось остаться под наблюдением. Пожарные сначала говорили о пятерых госпитализированных, позже цифру уточнили до четырёх. Бассейн уже снова открыт.</p>
+<h3>При чём тут облако</h3>
+<p>Аварийная система сигнализировала о проблеме письмом — а письма в те дни просто не доходили: облако Microsoft лежало с четверг дня минимум до пятницы обеда. Никто в отеле не узнал, что дозатор сошёл с ума. Microsoft связывала сбой с компонентом, который обрабатывает состояние серверов: проверка ошибочно признавала живые серверы мёртвыми и запускала каскадную остановку. Отдельного развёрнутого технического разбора именно по инциденту в отеле ни Microsoft, ни Phantasialand не публиковали — факты собраны из репортажа WDR и сообщения пожарной команды Брюля. Отдельная заметка для безопасности: по горячим следам пошли фишинговые письма с приманкой про «задержанные письма, которые скоро удалятся» — классика эксплуатации чужого сбоя.</p>
+<h3>Урок для инженерной культуры</h3>
+<p>Сигнализация критической системы, живущая на email-канале внешнего облака, — это единая точка отказа с чужим облаком в корневой зависимости. Вывод скучный и полезный: аварийные оповещения для систем, где ошибка бьёт по здоровью (дозация химии, вентиляция, холодильные цепи), должны дублироваться независимым каналом — SMS, выделенным GSM-сигнализатором, локальной сиреной — и опираться на локальную автоматическую защиту, не зависящую от почты и облака.</p>
+<h3>Что делать, если у вас похоже</h3>
+<p>Проверьте, куда реально падают аварийные уведомления вашего оборудования — и придите туда руками в течение недели. Включите альтернативный канал для самых злых сценариев. А в дни крупных облачных сбоев не открывайте «уведомления о сбое» из писем — это сезон фишинга: заходите в сервис только вручную, не по ссылкам из почты.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.heise.de/news/Microsoft-Cloud-Ausfall-fuehrte-zu-15-Verletzten-im-Phantasialand-11525711.html" rel="noopener">heise online</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www1.wdr.de/nrw/rheinland/rhein-erft-kreis/technischer-defekt-chlor-phantasialand-100.html" rel="noopener">WDR (первоисточник репортажа об инциденте; отдельного официального анонза Microsoft/Phantasialand нет)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.tomshardware.com/tech-industry/data-centers/microsoft-365-outage-leads-to-chlorine-gas-poisoning-of-15-hotel-guests-email-warning-system-fails-40-first-responders-deployed-for-triage-four-hospitalized" rel="noopener">СМИ 1</a> · <a href="https://www.heise.de/en/news/Microsoft-cloud-outage-leaves-15-injured-at-Phantasialand-11525764.html" rel="noopener">СМИ 2</a> · <a href="https://habr.com/ru/articles/1108202/" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
