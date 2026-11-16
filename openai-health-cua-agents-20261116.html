@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ИИ-агенты OpenAI вышли в больницы: 99% задач в медкартах признаны безопасными</title>
+<meta name="description" content="OpenAI анонсировала ИИ-агентов, которые работают внутри привычных медицинских систем: читают экран, кликают, заполняют формы в электронных картах и порталах страховых. По заявлению компании, 99% из 325 разобранных задач агент доводит клинически безопасно, а CVS Health его агенты уже разгребли многомесячный завал документов за одни выходные.">
+<meta property="og:title" content="ИИ-агенты OpenAI вышли в больницы: 99% задач в медкартах признаны безопасными">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/openai-health-cua-agents-20261116.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>ИИ-агенты OpenAI вышли в больницы: 99% задач в медкартах признаны безопасными</h1>
+<div class="meta">16.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/openai-health-cua-agents-20261116.png" alt="">
+<div class="lead">OpenAI анонсировала ИИ-агентов, которые работают внутри привычных медицинских систем: читают экран, кликают, заполняют формы в электронных картах и порталах страховых. По заявлению компании, 99% из 325 разобранных задач агент доводит клинически безопасно, а CVS Health его агенты уже разгребли многомесячный завал документов за одни выходные.</div>
+<h3>Агенты, которые пользуются мышкой, а не API</h3>
+<p>16 ноября OpenAI представила computer-use агентов для медицинских команд: они выполняют многошаговые операции прямо в том софте, где врачи и администраторы работают сегодня, — электронных медицинских картах (EHR), порталах страховых, системах направлений и выписок. Агент сам читает экран, кликает и переносит данные между приложениями там, где программные интерфейсы (API) работу целиком не покрывают. Доступны три пути: ChatGPT for Healthcare, ChatGPT for Clinicians и API OpenAI.</p>
+<h3>Цифры безопасности и стоимости</h3>
+<p>Компания приводит оценку безопасности: из 325 разобранных задач агента в очереди входящих сообщений электронной карты 99% признаны клинически безопасными (без риска вреда пациенту). Врачи в 93% из 646 оценок поставили ответы в две верхние категории полезности по пятибалльной шкале. На независимом стенде HealthAdminBench от Стэнфорда (135 задач и 1698 подзадач: согласования лечения, заказы оборудования, апелляции) модель GPT-6 Astra набрала 94,3% баллов, GPT-6 Luna — 91,8%, при этом задача через Luna обошлась в 8,5 цента — на 98% дешевле. В демонстрации на синтетическом пациенте агент по жалобе на боль в спине поднимает истории визитов и снимки, готовит направление на МРТ, заметку приёма и ответ пациенту — и всё это отдаётся на проверку человеку.</p>
+<h3>Реальная работа у CVS Health и Cigna</h3>
+<p>Это не только пилоты: CVS Health сообщает, что её рабочий агент за выходные ликвидировал многомесячный backlog по отправке документов, а другой обрабатывает шаги для десятков тысяч консультаций специалистов ежедневно. CVS даже опубликовала свой CUA Agent Kit под свободной лицензией Apache-2.0: агент однажды «проходит» рабочий процесс в браузере или Windows-приложении, а удачный прогон превращается в обычный код Playwright/pywinauto, который дальше работает без запросов к модели. Cigna Healthcare говорит, что её кураторы пациентов раньше сводили данные больше чем из 10 разных систем, а новый агент собирает их воедино — от идеи до запуска прошло меньше восьми недель. Abridge и Ambience тестируют похожие сценарии с обязательным контролем:: при неоднозначной записи агент останавливается и спрашивает врача.</p>
+<h3>Человек остаётся в контуре</h3>
+<p>OpenAI подчёркивает: агенты работают под ролевой моделью доступа с журналами аудита, организации могут ограничивать разрешённые приложения и действия, добавлять шаги согласования, а данные клиентов не уходят в обучение моделей. Для работы с персональными медицинскими данными в США требуется HIPAA-совместимый контур (соглашение BAA). Сами вендоры предупреждают о новой гигиене: CVS в документации к своему набору прямо пишет, что следы работы агентов могут содержать куки, токены сессий и попадать на скриншоты, — поэтому очистке логов агентских систем придётся учить так же строго, как правам доступа.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.unite.ai/openai-brings-computer-use-agents-to-healthcare-workflows/" rel="noopener">Unite.AI</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://openai.com/index/advancing-computer-use-for-healthcare-teams/" rel="noopener">OpenAI — официальная страница анонса</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.fiercehealthcare.com/ai-and-machine-learning/hlth26-cvs-health-cigna-and-ambience-collaborating-openai-test-computer-use" rel="noopener">СМИ 1</a> · <a href="https://www.beckershospitalreview.com/healthcare-information-technology/ai/openai-builds-healthcare-ai-agents-with-cvs-cigna-abridge-ambience/" rel="noopener">СМИ 2</a> · <a href="https://openai.com/index/more-ways-to-move-care-forward-with-chatgpt-for-healthcare" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
