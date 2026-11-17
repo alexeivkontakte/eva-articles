@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google: ИИ-агенты превращают патчи в эксплойты без человека — и это уже боевая практика</title>
+<meta name="description" content="Группа разведки угроз Google (GTIG) зафиксировала перелом: атакующие ушли от ручных запросов к нейросетям и начали применять автономные мультиагентные системы, которые сами разбирают вышедшие патчи и вооружают известные уязвимости — без единого причастного человека.">
+<meta property="og:title" content="Google: ИИ-агенты превращают патчи в эксплойты без человека — и это уже боевая практика">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/gtig-agentic-threat-threshold-20261117.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Google: ИИ-агенты превращают патчи в эксплойты без человека — и это уже боевая практика</h1>
+<div class="meta">17.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/gtig-agentic-threat-threshold-20261117.png" alt="">
+<div class="lead">Группа разведки угроз Google (GTIG) зафиксировала перелом: атакующие ушли от ручных запросов к нейросетям и начали применять автономные мультиагентные системы, которые сами разбирают вышедшие патчи и вооружают известные уязвимости — без единого причастного человека.</div>
+<p>В свежем квартальном отчёте GTIG AI Threat Tracker команда Google совместно с Mandiant сообщает о «значимом пороге», который пересёк агентный криминальный ИИ. Речь уже не об отдельных экспериментах с чат-ботами: злоумышленники разворачивают открытые мультиагентные фреймворки для тестирования на проникновение — ARTEX, CAIRN, CyberStrikeAI, PentAGI и HexStrike AI — и поручают им целые фазы реальных вторжений. Агенты сами находят простые уязвимости, генерируют разовые полезные нагрузки на лету и подстраивают тактику по обратной связи от исполнения.</p>
+<h3>Патчи под прицелом</h3>
+<p>Ключевой сдвиг — автоматизация «дифференциального анализа» патчей: агент сравнивает закрытую и открытую версии программы, вычленяет исправленную уязвимость и быстро собирает работающий эксплойт. По данным GTIG, цепочка «расследование уязвимости → фаззинг протоколов → оружие из proof-of-concept» теперь проходится без человека, а окно между выходом патча и атакой сжимается до машинной скорости. Цифры за январь–август 2026 года: общих публикаций об уязвимостях и случаев их использования стало почти вдвое больше, при этом настоящих zero-day выросло совсем немного — со средних 8 в месяц за 2025 год до 11 в месяц в 2026-м. Иными словами, бизнес сместился туда, где дорогого нулевого дня не нужно: молниеносные удары по не успевшим обновиться системам.</p>
+<h3>Кто уже воюет агентами</h3>
+<p>GTIG наблюдала CAIRN в реальном вторжении на цели в аэрокосмическом секторе США, а платформу на базе PentAGI — в систематической разведке организаций по всей Азии с конца августа по начало октября. Отдельно в отчёте фигурирует группа с китайским следом, которая разрабатывает собственный фреймворк автоматизированных атак. Финансово мотивированные игроки монетизируют ИИ через LLMJacking: крадут корпоративные ключи и облачные ресурсы с нейросетями и перепродают доступ к сильным моделям через подпольные прокси-сервисы вроде «LLM Mixers».</p>
+<h3>Ответная сторона</h3>
+<p>Своей мерой Google описывает архитектуру Google AI Threat Defense: лёгкие модели сканируют периметр непрерывно, а тяжёлые (в том числе Gemini 4 Carbon и CodeMender) рассуждают и латают, опираясь на приоритизацию рисков Wiz и данные Mandiant. Сама Gemini 4 Carbon, по заявлению компании, построена с ярусами защит — от классификаторов входа/выхода до мониторинга агентных траекторий — чтобы отказывать в сборке боевых эксплойтов.</p>
+<h3>А в России</h3>
+<p>Феномен подмечен не только в Кремниевой долине: «Лаборатория Касперского» в свежем обзоре Security Week отдельно разобрала применение ИИ-фреймворка ARTEX в реальных атаках — то есть российский ИБ-мейнстрим фиксирует те же инструменты в дикой природе.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://thenewstack.io/autonomous-ai-exploit-agents/" rel="noopener">The New Stack</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold" rel="noopener">Google Cloud Blog — GTIG AI Threat Tracker</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://timesofindia.indiatimes.com/technology/tech-news/google-threat-team-finds-first-ai-hacking-without-human-intervention-why-and-how-your-phone-and-laptop-security-updates-may-be-at-risk/articleshow/135898222.cms" rel="noopener">СМИ 1</a> · <a href="https://mlq.ai/news/google-says-attackers-used-an-ai-tool-that-turns-security-patches-into-working-exploits-with-no-human-involved/" rel="noopener">СМИ 2</a> · <a href="https://habr.com/ru/companies/kaspersky/articles/1108470/" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
