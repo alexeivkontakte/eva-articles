@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Суперкомпьютер на письменном столе: NVIDIA показала готовый кластер из четырёх DGX Spark с 512 ГБ памяти</title>
+<meta name="description" content="На конференции SC26 в Чикаго NVIDIA представила DGX Spark HPC Developer Kit — четыре мини-компьютера на GB10 Grace Blackwell, соединённые в кольцо без коммутатора. 512 ГБ общей памяти, 20 ТБ накопителей и запуск ИИ-моделей до 700 млрд параметров прямо на рабочем столе.">
+<meta property="og:title" content="Суперкомпьютер на письменном столе: NVIDIA показала готовый кластер из четырёх DGX Spark с 512 ГБ памяти">
+<meta property="og:image" content="https://habr.com/share/publication/1109072/cbde1155942a0efe2029693b42b90733/">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Суперкомпьютер на письменном столе: NVIDIA показала готовый кластер из четырёх DGX Spark с 512 ГБ памяти</h1>
+<div class="meta">17.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/dgx-spark-hpc-dev-kit-sc26.jpg" alt="">
+<div class="lead">На конференции SC26 в Чикаго NVIDIA представила DGX Spark HPC Developer Kit — четыре мини-компьютера на GB10 Grace Blackwell, соединённые в кольцо без коммутатора. 512 ГБ общей памяти, 20 ТБ накопителей и запуск ИИ-моделей до 700 млрд параметров прямо на рабочем столе.</div>
+<h3>Что произошло</h3>
+<p>На суперкомпьютерной конференции SC26 в Чикаго NVIDIA объявила о выходе DGX Spark HPC Developer Kit — готового четырёхузлового кластера из своих настольных DGX Spark. Каждый узел построен на суперчипе GB10 Grace Blackwell (20-ядерный Arm + ускоритель Blackwell, до петафлопса в FP4) и несёт 128 ГБ общей памяти LPDDR5X. Вчетвером это даёт 512 ГБ объединённой памяти и 20 ТБ NVMe-хранилища. Узлы связываются кольцом через сетевые карты ConnectX-7: каждый соединён с двумя соседями, так что отдельный коммутатор покупать и настраивать не нужно. Кластер масштабируется от одного узла до четырёх.</p>
+<h3>Зачем это исследователям</h3>
+<p>Главный аргумент NVIDIA — очередь в общий GPU-кластер. Команда может отлаживать распределённые задачи и гонять ресурсоёмкие расчёты локально, оставив серверное время для production-прогонов, а unpublished-результаты и проприетарные датасеты — на своей территории. В NVFP4-формате кластер тянет модели до 700 млрд параметров локально, например DeepSeek V4.1. Уже готовы демо на четырёх узлах: LAMMPS с Kokkos для моделирования материалов и NAMD для молекулярной динамики; сообщество также проверило GROMACS, OpenFOAM, WRF и микросервисы NIM вроде OpenFold3. Playbook для HPC SDK с GPU-компиляторами C, C++ и Fortran и MPI обещают «в ближайшее время».</p>
+<h3>Живые примеры</h3>
+<p>В блоге NVIDIA приводит конкретные кейсы: лаборатория Рубина в Калифорнийском университете в Беркли предсказывает признаки бактерий по геномам с 15-кратным ускорением против 11-часовых очередей кластера, а группа Хартвига там же дообучает Nemotron 3 Super 120B методом LoRA прямо на одном устройстве в NVFP4, запуская 8–24-часовые тренировки подряд. Kvantify считает тензорные сети для квантовой химии до 70 кубитов на одном Spark.</p>
+<h3>Почём и почём правда</h3>
+<p>Комплект уже показывают на SC26 и он доступен для заказа через OEM-партнёров (Acer, ASUS, Dell, GIGABYTE, HP, Lenovo, MSI и другие), но цену NVIDIA не называет — на сайте форма заявки. Habr прикидывает: четыре отдельных DGX Spark со 128 ГБ и SSD на 4 ТБ выйдут почти в 28 тысяч долларов без учёта обвязки. Оговоримся: это оценка пересказчика, официальный прайс молчит. Любопытная ирония для обладателей этих самых GB10: «лаборатория на столе» — это, по сути, четыре наших мини-ПК, кольцом и в красивом маркетинге.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://habr.com/ru/articles/1109072/" rel="noopener">Хабр</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://blogs.nvidia.com/blog/dgx-spark-hpc-developer-kit-sc26/" rel="noopener">NVIDIA Official Blog</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://thedefiant.io/frontier/technology/nvidia-targets-desktop-hpc-with-four-spark-developer-kit" rel="noopener">СМИ 1</a> · <a href="https://forums.developer.nvidia.com/t/dgx-spark-developer-kit/389379" rel="noopener">СМИ 2</a> · <a href="https://habr.com/ru/articles/1109072/" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
