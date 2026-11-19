@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google выпустила Gemini 4 Neon: первая строчка в агентском кодинге и модель-защитник для кибербезопасности</title>
+<meta name="description" content="Google закрывает неделю четвёртой моделью подряд: Gemini 4 Neon заняла первое место в рейтинге агентского кодинга Artificial Analysis, получила окно в 1 млн токенов и ценник вдвое ниже старших моделей, а её защитная версия уже идёт экспертам через программу Fairwind.">
+<meta property="og:title" content="Google выпустила Gemini 4 Neon: первая строчка в агентском кодинге и модель-защитник для кибербезопасности">
+<meta property="og:image" content="https://habr.com/share/publication/1109644/558142a0763d9194b8fffe271d196c3b/">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Google выпустила Gemini 4 Neon: первая строчка в агентском кодинге и модель-защитник для кибербезопасности</h1>
+<div class="meta">19.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/gemini-4-neon-coding-agent-20261119.jpg" alt="">
+<div class="lead">Google закрывает неделю четвёртой моделью подряд: Gemini 4 Neon заняла первое место в рейтинге агентского кодинга Artificial Analysis, получила окно в 1 млн токенов и ценник вдвое ниже старших моделей, а её защитная версия уже идёт экспертам через программу Fairwind.</div>
+<h3>Между Carbon и Hydrogen</h3>
+<p>Google представила Gemini 4 Neon — четвёртую модель семейства Gemini 4 примерно за семь недель (после Argon, Carbon и Hydrogen). Neon встала посередине линейки: Carbon остаётся для сложных долгих проектов, Hydrogen — для быстрых повседневных запросов, а Neon рассчитана на агентные задачи, где мало сгенерировать ответ: нужно понять контекст, вызвать инструменты и выполнить цепочку шагов. Контекстное окно — 1 млн токенов, глубина рассуждений регулируется четырьмя уровнями от low до xhigh.</p>
+<h3>Цифры с первой строчки</h3>
+<p>По данным официального анонса Google, Neon заняла первое место в Artificial Analysis Coding Agent Index с результатом 58.6, набрала 65,2% в Terminal-Bench 4.1 и 46,2% в FrontierCode 2.0 (на уровне по умолчанию high). В Intelligence Index той же Artificial Analysis модель получила 61 балл на уровне xhigh — третье место в общем зачёте, причём обошла более крупные и медленные модели. В научной секции заявлены лучшие результаты в классе: Terminal-Bench Science — 70,5%, RiemannBench — 84,0%, HLE-Diamond — 71,3%.</p>
+<h3>Киберверсия для защитников</h3>
+<p>Отдельно Google выкатывает Gemini 4 Neon for cyber — версию для задач обороны: поиск уязвимостей, оценка рисков и помощь в исправлении кода. Модель показала 90,5% на SEC-bench Pro при примерно вдвое меньшей стоимости на задачу, чем у сопоставимых фронтир-моделей (русский пересказ на Habr добавляет 76% на сложном уровне AutoBaxBench). Доступ к ней получат проверенные специалисты в рамках программы Fairwind — в ближайшие дни. Google подчёркивает, что защита от серьёзного злоупотребления и prompt injection в Neon сохранена на уровне Gemini 4 Carbon.</p>
+<h3>Цена и доступность</h3>
+<p>Neon уже доступна через Gemini API и Google AI Studio: $3 за миллион входных токенов и $15 за миллион выходных, причём входные токены из кэша стоят $0,15 — скидка 95%. Подписчики Google AI Pro и Ultra получат модель в Antigravity, платные пользователи — в выпадающем списке приложения Gemini. Наблюдатели из Artificial Analysis отмечают: Google заметно ускоряет темп релизов, и Neon — попытка дать «качество почти Carbon» по скорости и цене модели эконом-класса.</p>
+<h3>Что это значит практикам</h3>
+<p>Для команд, которые гоняют ИИ-агентов на репозиториях, главное — не рекорды бенчмарков, а стоимость ошибки: кэш входных токенов за $0,15 и регулируемая глубина рассуждений позволяют дёшево прогонять длинные агентные сессии. Ну и отдельный сюжет — ставка Google на «ИИ-защитника»: модель, которая ищет дыры и проверяет их эксплуатацией, но доступ к ней выдают по именному допуску. Похоже, эра свободно доступных фронтир-моделей в кибербезопасности заканчивается — вместо неё Google выбирает закрытые программы с именным допуском.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://habr.com/ru/companies/bothub/articles/1109644/" rel="noopener">Habr</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/" rel="noopener">Google — Introducing Gemini 4 Neon (официальный блог)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://artificialanalysis.ai/articles/gemini-4-neon-intelligence-gain" rel="noopener">СМИ 1</a> · <a href="https://www.vals.ai/models/google_gemini-4-neon" rel="noopener">СМИ 2</a> · <a href="https://www.ithome.com/1/029/144.htm" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
