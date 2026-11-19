@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Malware внутри официального ИИ-фреймворка Microsoft: два релиза agent-framework на PyPI крали ключи Azure и CI/CD</title>
+<meta name="description" content="Злоумышленники подменили официальные версии 1.26.1 и 1.26.2 популярного Python-пакета Microsoft Agent Framework — того самого, на котором разработчики строят собственных ИИ-агентов. Вредонос выкачивал учётные данные Azure, GitHub, Docker и Hugging Face и молча отправлял их на чужой вебхук; пакет качают около 200 тысяч раз в месяц.">
+<meta property="og:title" content="Malware внутри официального ИИ-фреймворка Microsoft: два релиза agent-framework на PyPI крали ключи Azure и CI/CD">
+<meta property="og:image" content="https://heise.cloudimg.io/v7/_www-heise-de_/imgs/18/5/2/0/4/5/6/1/shutterstock_581369848-dc842336c4495916.jpg?func=bound&height=1200&org_if_sml=1&q=85&width=1200">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Malware внутри официального ИИ-фреймворка Microsoft: два релиза agent-framework на PyPI крали ключи Azure и CI/CD</h1>
+<div class="meta">19.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/ms-agent-framework-pypi-stealer-20261119.jpg" alt="">
+<div class="lead">Злоумышленники подменили официальные версии 1.26.1 и 1.26.2 популярного Python-пакета Microsoft Agent Framework — того самого, на котором разработчики строят собственных ИИ-агентов. Вредонос выкачивал учётные данные Azure, GitHub, Docker и Hugging Face и молча отправлял их на чужой вебхук; пакет качают около 200 тысяч раз в месяц.</div>
+<h3>Как малварь попала в официальный пакет</h3>
+<p>Исследователи OX Security обнаружили, что на PyPI были опубликованы две заражённые версии официального пакета agent-framework — 1.26.1 и 1.26.2. Судя по всему, атакующие получили доступ к учётным записям, которым доверена публикация релизов Microsoft: после того как заражённую 1.26.1 сняли и откатили на чистую 1.26.0, преступники залили ещё одну версию — 1.26.2 — с другим механизмом активации, но тем же вредоносом. Сам пакет — основной инструмент Microsoft для создания ИИ-агентов на Python (есть также .NET- и Go-версии), его скачивают в среднем около 192,5 тысячи раз в месяц.</p>
+<h3>Кража без единого импорта</h3>
+<p>Самое коварное — способ запуска. В Python-сборку попадал файл `agent_framework_meta.pth` с одной строкой `import agent_framework_meta`: такие файлы Python автоматически выполняет при каждом своём запуске, даже если фреймворк не импортирует. То есть достаточно один раз установить пакет — и считалка работает во всех проектах на этом интерпретаторе. Она собирает секреты окружения, облачные и пакетные учётки, токены управляемых идентификаторов Azure, OIDC-токены CI-конвейеров Azure DevOps и GitHub Actions, ключи Docker и Hugging Face — и выгружает всё на подконтрольный атакующим webhook.site в виде сжатой zlib и закодированной в base64 форме. При этом в зависимостях оставалась настоящая agent-framework-core 1.26.0, поэтому фреймворк продолжал нормально работать и компрометацию было легко не заметить.</p>
+<h3>Реакция Microsoft и Detection</h3>
+<p>Официального поста в блоге Microsoft пока нет — компания лишь подтвердила The Register, что расследует атаку, и на время следования временно скрыла часть своих репозиториев на GitHub. Первой публично разобрала атаку OX Security (17 ноября), Elastic Security Labs заявляет, что поймала вредонос через шесть минут после публикации, а Aikido насчитала 33 минуты между двумя заражёнными релизами. Chainguard заблокировал пакеты в своих образах.</p>
+<h3>Что делать, если ставили</h3>
+<p>Рекомендации исследователей: остановите активные проекты, изолируйте возможные заражённые машины, замените все учётные данные и токены, которые использовались на этих системах (Azure, GitHub, Docker, Hugging Face, реестры пакетов), и проверьте активность в затронутых сервисах. Простой «пакет же официальный, скачан с PyPI» больше не работает даже с логотипом Microsoft на обложке: цепочка поставок ИИ-инструментов теперь такой же вектор атаки, как и сами модели.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.heise.de/news/Microsofts-KI-Framework-verteilt-Malware-So-bekamen-Angreifer-Zugang-11530977.html" rel="noopener">Heise online</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.ox.security/blog/breaking-hijacked-releases-of-microsofts-official-agent-framework-steals-azure-and-ci-credentials/" rel="noopener">OX Security (расследование атаки; отдельного официального анонса Microsoft нет — только подтверждение в работе журналистам)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.theregister.com/security/2026-11-18/microsofts-official-python-agent-framework-hijacked-to-distribute-malware/5310858" rel="noopener">СМИ 1</a> · <a href="https://thehackernews.com/2026/11/attackers-compromise-microsofts-agent.html" rel="noopener">СМИ 2</a> · <a href="https://www.elastic.co/security-labs/threat-command/we-caught-the-agent-framework-pypi-compromise-six-minutes-after-it-published" rel="noopener">СМИ 3</a> · <a href="https://www.aikido.dev/blog/two-malicious-agent-framework-releases-hit-pypi-in-33-minutes" rel="noopener">СМИ 4</a> · <a href="https://www.chainguard.dev/unchained/microsoft-agent-framework-compromised-on-pypi-november-2026" rel="noopener">СМИ 5</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
