@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Signal закрыл ИИ-агентам доступ к переписке: приложение блокирует скриншоты экрана</title>
+<meta name="description" content="Signal официально объявил войну ИИ-агентам, встроенным в операционные системы. С 20 ноября приложение блокирует скриншоты на iOS 27 и автоматически включает защиту экрана на Android, когда детектирует попытку ИИ-ассистента прочитать окно переписки. Так мессенджер защищает переписку от Gemini и Siri AI — и честно признаётся, что на macOS такой защиты у него нет.">
+<meta property="og:title" content="Signal закрыл ИИ-агентам доступ к переписке: приложение блокирует скриншоты экрана">
+<meta property="og:image" content="https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/protecting-your-privacy-1.png?quality=90&amp;strip=all&amp;crop=0%2C3.8035109331691%2C100%2C92.392978133662&amp;w=1200">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Signal закрыл ИИ-агентам доступ к переписке: приложение блокирует скриншоты экрана</h1>
+<div class="meta">20.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/signal-protiv-ii-agentov-20261120.png" alt="">
+<div class="lead">Signal официально объявил войну ИИ-агентам, встроенным в операционные системы. С 20 ноября приложение блокирует скриншоты на iOS 27 и автоматически включает защиту экрана на Android, когда детектирует попытку ИИ-ассистента прочитать окно переписки. Так мессенджер защищает переписку от Gemini и Siri AI — и честно признаётся, что на macOS такой защиты у него нет.</div>
+<h3>Что произошло</h3>
+<p>В официальном блоге Signal фонд Signal Technology Foundation опубликовал заявление главы организации Мередит Уиттакер: мессенджер ограничивает работу ИИ-агентов, встроенных в мобильные операционные системы. Суть защиты: в приложении на iOS 27 создаваемые скриншоты блокируются, а на Android Signal автоматически включает настройку «Screen security», когда система фиксирует попытку ИИ-ассистента считать содержимое экрана. На iOS появилась и явная опция «Block Siri AI».</p>
+<p>Причина простая: Google внедряет агентные возможности Gemini (режим работы с экраном) в Android, Apple — Siri AI с функцией «Onscreen Awareness» в iOS. Такие агенты «сканируют» всё, что открыто на экране, чтобы отвечать на вопросы пользователя. В результате переписка в Signal — включая самоуничтожающиеся сообщения — попадает в локальные базы или на серверы операционной системы, где контроль над ней теряет уже сам Signal. Для мессенджера, чьё существование держится на формально верифицированном шифровании, это, по словам Уиттакер, «экзистенциальная угроза».</p>
+<h3>Это не первый случай</h3>
+<p>Опыт такого сопротивления у Signal уже был: в прошлом году мессенджер заблокировал скриншоты на Windows 11, чтобы система Microsoft Recall — она каждые несколько секунд снимает экран и распознаёт текст — не складывала переписку в поисковую базу. Теперь та же логика перенесена на смартфоны. При этом защита заведомо неполная: пользователь может отключить её в настройках (и тогда риск вернётся для обеих сторон разговора), а любые способы чтения данных мимо скриншотов — например, доступ к файлам на устройстве — блокировка не закрывает.</p>
+<h3>Чего Signal требует от Apple и Google</h3>
+<p>Главная претензия разработчиков — им просто не дают инструментов. Уиттакер пишет, что за месяцы форензических исследований на Android и iOS так и не появилась внятная документация о том, как именно ИИ-агенты получают доступ к данным приложений. Signal требует от создателей операционных систем двух вещей: документированного способа для приложения отказаться от ИИ-обработки своих данных (экран, файлы, уведомления — без поломки основных функций) и честных технических спецификаций по работе самих агентов. Отдельно признано, что «конфиденциальные вычисления» проблему не решают — они оставляют объём приватности на усмотрение самого вендора ОС.</p>
+<h3>Слабое место — Mac</h3>
+<p>Самое уязвимое признание: на macOS защита не работает. Надёжно блокировать скриншоты в macOS у Signal не получилось — существующие API экранных ограничений рассчитаны на стриминг и DRM-контент, а не на приложения. Пока владельцам Mac советуют вручную добавить Signal в раздел «Исключаемые приложения» для Siri в системных настройках. Уиттакер называет Signal «канарейкой в угольной шахте»: если не ответить сейчас, ИИ-агенты получат теневой доступ к данным любых приложений, и шифрование тут уже не спасёт.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.theverge.com/ai-artificial-intelligence/1038390/signal-blocking-ai-agent-screenshots-mobile-app" rel="noopener">The Verge</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://signal.org/blog/protecting-your-privacy/" rel="noopener">Официальный блог Signal</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://thenextweb.com/news/signal-ai-agents-blocks-screenshots-siri-gemini-whittaker" rel="noopener">СМИ 1</a> · <a href="https://www.androidauthority.com/signal-blocks-gemini-siri-ai-private-messages-3737647/" rel="noopener">СМИ 2</a> · <a href="https://www.islandpacket.com/news/business/article318170204.html" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
