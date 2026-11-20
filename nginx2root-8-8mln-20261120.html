@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NGINX2Root: пять дыр в самом популярном веб-сервере мира — 8,8 миллиона хостов всё ещё под ударом</title>
+<meta name="description" content="18 ноября F5 и nginx.org закрыли десять уязвимостей в NGINX. Пять из них — цепочка NGINX2Root: незарегистрированный гость превращается в root хоста. По данным Censys, 8,8 млн сервисов до сих пор не обновлены.">
+<meta property="og:title" content="NGINX2Root: пять дыр в самом популярном веб-сервере мира — 8,8 миллиона хостов всё ещё под ударом">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/nginx2root-8-8mln-20261120.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>NGINX2Root: пять дыр в самом популярном веб-сервере мира — 8,8 миллиона хостов всё ещё под ударом</h1>
+<div class="meta">20.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/nginx2root-8-8mln-20261120.png" alt="">
+<div class="lead">18 ноября F5 и nginx.org закрыли десять уязвимостей в NGINX. Пять из них — цепочка NGINX2Root: незарегистрированный гость превращается в root хоста. По данным Censys, 8,8 млн сервисов до сих пор не обновлены.</div>
+<h3>От гостя до root за один запрос</h3>
+<p>Исследовательская команда Xint нашла пять независимых уязвимостей в NGINX — сервере, который крутит немалую часть мирового веба. Самая опасная, CVE-2026-123007 (переполнение целого с выходом за границы кучи), требует лишь включённого HTTP/2, а он включён у большинства TLS-сайтов. Живёт эта ошибка в NGINX с 2015 года, с релиза 1.9.5. Остальные четыре — use-after-free в HTTP/3, резолвере, прокси с переменными и почтовом прокси. Каждая срабатывает сама по себе; F5 оценивает их в 9,2 по шкале CVSS 4.0. Xint дополнила находку багом в ядре Linux: он превращает закрепление внутри Docker-контейнера в root всей машины. Для самого запуска кода нужно обойти ASLR — но в разборе Xint показала, как вытеснить адреса памяти и сделать это.</p>
+<h3>Масштаб: почти каждый второй сервер</h3>
+<p>До раскрытия Xint прошлась по базе Shodan: 56,7 млн хостов с NGINX, а из 11,94 млн указавших версию в уязвимый диапазон попали 98,9%. Трекер Censys на 19 ноября насчитывает около 8,8 млн сервисов с потенциально уязвимой версией и включённым HTTP/2. Строки версии не гарантируют уязвимость (дистрибутивы досаживают исправления задним числом), но масштаб угрозы огромный — это событие категории «патчить сейчас». Тем же релизом закрыли ещё пять багов, включая бесконечный цикл при чтении тела запроса по TLS 1.3 (CVE-2026-118899).</p>
+<h3>Cloudflare: периферия чиста, но исходные серверы всё равно обновлять</h3>
+<p>Cloudflare подтвердила: её собственная периферия не задета — основной прокси уже написан на Rust-платформе FL2, а старый форк NGINX проверили до публикации. Для доменов за прокси Cloudflare атаки HTTP/2 и HTTP/3 до исходного сервера не доходят: соединения обрываются на периферии. Но уязвимости резолвера и почтового прокси от прокси не зависят — они определяются настройкой самого сервера.</p>
+<h3>Что делать владельцам серверов</h3>
+<p>Обновить NGINX до 1.30.7 или 1.31.9 (либо до исправленной сборки вашего дистрибутива) и перезапустить. Проверить, включены ли HTTP/2, HTTP/3, резолвер с переменными в прокси и почтовый прокси, — если функция не нужна, её можно просто отключить до обновления. Отдельно стоит следить за исправлением ядра Linux: цепочка до root строится именно на нём, а отдельного официального анонса исправления ядра пока нет. Проверить свои поддомены можно публичным трекером Censys.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.bleepingcomputer.com/news/security/critical-nginx-nginx2root-bugs-let-attackers-hijack-servers/" rel="noopener">BleepingComputer</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://my.f5.com/manage/s/article/K000164058" rel="noopener">Официальный бюллетень безопасности F5 (NGINX)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://blog.cloudflare.com/nginx2root/" rel="noopener">СМИ 1</a> · <a href="https://nginx2root.com/" rel="noopener">СМИ 2</a> · <a href="https://www.tenable.com/blog/nginx2root-cve-2026-123007-frequently-asked-questions-about-five-critical-nginx" rel="noopener">СМИ 3</a> · <a href="https://www.sophos.com/en-us/security-advisories/sophos-sa-20261118-nginx2root" rel="noopener">СМИ 4</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
