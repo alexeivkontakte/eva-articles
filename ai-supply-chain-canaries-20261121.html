@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Две миллиона «канареек»: ИИ-провайдеры оказались слушалкой для хакеров</title>
+<meta name="description" content="Исследователь HD Moore разослал около двух миллионов ИИ-запросов с встроенными «приманками» — и поймал три взломанных провайдера, перепродавцов, читающих чужие промпты, и массовое игнорирование настройки «не сохранять данные».">
+<meta property="og:title" content="Две миллиона «канареек»: ИИ-провайдеры оказались слушалкой для хакеров">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/ai-supply-chain-canaries-20261121.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Две миллиона «канареек»: ИИ-провайдеры оказались слушалкой для хакеров</h1>
+<div class="meta">20.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/ai-supply-chain-canaries-20261121.png" alt="">
+<div class="lead">Исследователь HD Moore разослал около двух миллионов ИИ-запросов с встроенными «приманками» — и поймал три взломанных провайдера, перепродавцов, читающих чужие промпты, и массовое игнорирование настройки «не сохранять данные».</div>
+<h3>Эксперимент длиной в пять месяцев</h3>
+<p>Глава исследовательской команды Dragos HD Moore (создатель Metasploit) с июля по ноябрь 2026 года отправил в популярные ИИ-сервисы около двух миллионов запросов. В каждый был «зашит» уникальный отслеживаемый секрет: фальшивый URL или тестовый ключ AWS. Любая попытка использовать этот секрет означала одно: кто-то в экосистеме ИИ прочитал исходный промпт.</p>
+<h3>Три провайдера под атакой</h3>
+<p>Итог: как минимум три ИИ-провайдера уже были взломаны, и никто из них не знал об этом до уведомления исследователей. Крупнейший инцидент — пара сотен угнанных AWS-ключей: каждый был отправлен ровно один раз, и все запросы в окна отправки скопировались. Ключи воровали прямо «на входе» — среди украденных оказались даже запросы, которые провайдер отверг до запуска модели. По фальшивым ключам хакеры успели сделать десятки тысяч вызовов AWS API, перебирая S3-корзины и Secrets Manager, а 1 ноября в их арсенале появился ARTEX — агент для ИИ-пентеста (его юзер-агенты artex-agent и artex-judge-r121 стоит добавить в правила обнаружения).</p>
+<h3>Дешёвый инференс = бесплатный подглядыватель</h3>
+<p>Второй сюжет не требует вообще никакой эксплойты. На маркетплейсах инференса продавец может выставить модель по демпинговой цене, включить логирование запросов — и просто читать чужие промпты. Одна из «канареек» через полтора суток открылась с домашнего интернета во французском браузере, где по паролю из промпта вручную пытались залогиниться по SSH под root. Утечка следует за конкретным продавцом, а не за площадкой целиком — и часть «американских» роутеров тихонько перепродаёт трафик на маркетплейс, добавляя клиента undisclosed hop.</p>
+<h3>Флажок «Zero Data Retention» не работает</h3>
+<p>Третья находка — систематическое игнорирование настроек приватности. Китайская ИИ-лаборатория скрейпила секретные URL более чем из половины отправленных ей запросов, включая примерно две трети помеченных Zero Data Retention. Американские хостинги перепродают её модели — и запросы «американских» клиентов утекали обратно в лабораторию: клиент, выбравший US-провайдера, чтобы держать данные в США, получил ровно обратное. Один крупный американский сервис полз по секретному URL больше двух месяцев после единственного запроса к его поиску.</p>
+<p><b>Что делать, если вы пользуетесь ИИ-API:</b> считать, что промпт увидят все узлы цепочки; не отправлять ключи, токены и confidential-код; проверять, кто реально стоит за «дешёвым инференсом» и роутерами; и не полагаться на ZDR как на гарантию — как показывает эксперимент, это обещание, а не контроль. Ирония месяца: самый надёжный способ узнать, что происходит с вашими данными у ИИ-провайдера, — заложить в них «канарейку» и смотреть, где она запоёт.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/" rel="noopener">Ars Technica</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens" rel="noopener">Dragos Research (HD Moore) — официальное исследование</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/" rel="noopener">СМИ 1</a> · <a href="https://i10x.ai/news/dragos-canary-study-attackers-stole-ai-prompts-credentials-three-providers" rel="noopener">СМИ 2</a> · <a href="https://www.cybrsecmedia.com/security-is-automating-away-its-own-apprenticeship/" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
