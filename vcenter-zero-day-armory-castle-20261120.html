@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Нулевой день в VMware vCenter: хакеры полгода сидели в гипервизорах под видом администратора</title>
+<meta name="description" content="Broadcom экстренно закрыла CVE-2026-123890 — обход аутентификации в vCenter Server, через который группа Armory Castle с сентября получала права administrator@vsphere.local и управляла чужими виртуальными машинами.">
+<meta property="og:title" content="Нулевой день в VMware vCenter: хакеры полгода сидели в гипервизорах под видом администратора">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/vcenter-zero-day-armory-castle-20261120.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Нулевой день в VMware vCenter: хакеры полгода сидели в гипервизорах под видом администратора</h1>
+<div class="meta">20.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/vcenter-zero-day-armory-castle-20261120.png" alt="">
+<div class="lead">Broadcom экстренно закрыла CVE-2026-123890 — обход аутентификации в vCenter Server, через который группа Armory Castle с сентября получала права administrator@vsphere.local и управляла чужими виртуальными машинами.</div>
+<h3>Дыра, для которой не нужен пароль</h3>
+<p>Broadcom 19 ноября выпустила экстренный бюллетень VMSA-2026-0009. Главное в нём — CVE-2026-123890: уязвимость обхода аутентификации в VMware Directory Service внутри vCenter Server. Атакующему достаточно сетевого доступа к уязвимому vCenter — учётная запись не нужна вообще. Успешная атака даёт административный вход в vCenter, а значит полный контроль над всеми виртуальными машинами под его управлением. Заодно закрыты ещё четыре уязвимости в SDDC Manager и VMware Tools for Windows.</p>
+<h3>Кто и как эксплуатировал</h3>
+<p>Самое тревожное — эксплуатацию зафиксировали задолго до патча. Google Mandiant и GTIG описали кампанию группы Armory Castle (ранее UNC5221), которую связывают с китайскими государственными хакерами: первую атаку по CVE-2026-123890 они задокументировали в начале сентября 2026 года. Схема разведывательная, без шифровальщиков: злоумышленники сначала взламывали appliances удалённой поддержки BeyondTrust, через них проникали во внутреннюю сеть, ставили веб-шеллы (SLIMSAVAGE), поднимали права до root, а затем собственным инструментом на Go эксплуатировали vCenter.</p>
+<h3>Golden SAML: ключи вместо паролей</h3>
+<p>Добычей группы становилась база каталога vCenter (data.mdb) и, что опаснее, ключи подписи SAML. Имея их, атакующие подделывали авторизационные токены — приём известен как Golden SAML: можно обходить двухфакторную аутентификацию и выдавать себя за легитимных пользователей сколько угодно долго, даже после смены паролей. Для этого Mandiant описала отдельный инструмент SAWSNAKE, а всего в кампании фигурирует семейство бэкдоров (CAGEMATCH, BEARBONES, LAZYBONES). Это классический пример того, как одна сетевая дыра в панели управления превращается в многомесячное присутствие в ядре инфраструкту­ры.</p>
+<h3>Что делать администраторам</h3>
+<p>Официальных обходных путей Broadcom не опубликовала — только патч. Затронуты все версии vCenter, SDDC Manager и VMware Tools for Windows ниже исправленных, включая поставки в составе VMware Cloud Foundation, vSphere Foundation и Telco Cloud-платформ, независимо от режима Enhanced Linked Mode. Практический минимум: ставить обновления VMSA-2026-0009 как можно скорее, максимально ограничить сетевой доступ к vCenter (фаерволы остаются единственной временной мерой), а после патча — проверить список учётных записей SSO на посторонних администраторов, целостность ключей SAML и признаки веб-шеллов: при компрометации одних патчей может быть мало, нужен аудит всей цепочки доступа.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.bleepingcomputer.com/news/security/vmware-patches-vcenter-zero-day-exploited-in-attacks-since-september/" rel="noopener">BleepingComputer</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/39495" rel="noopener">Broadcom Security Advisory VMSA-2026-0009</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://cybersecuritynews.com/hackers-exploit-vmware-vcenter-0-day/" rel="noopener">СМИ 1</a> · <a href="https://www.rapid7.com/blog/post/etr-cve-2026-123890-critical-authentication-bypass-vmware-vcenter/" rel="noopener">СМИ 2</a> · <a href="https://github.com/vmware/vcf-security-and-compliance-guidelines/blob/main/security-advisories/vmsa-2026-0009/README.md" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
