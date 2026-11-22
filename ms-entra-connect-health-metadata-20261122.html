@@ -1,0 +1,30 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Microsoft призналась: взломали её собственный сервис Entra Connect Health — добычей злоумышленников стала «метадата» клиентов</title>
+<meta name="description" content="Microsoft подтвервила взлом своего облачного сервиса мониторинга Entra Connect Health: с 23 июля по 19 ноября API отдавал посторонним метадату арендаторов и адреса почты админов. Исправление — серверное, но главным «вредоносным приложением» стал сам вендор.">
+<meta property="og:title" content="Microsoft призналась: взломали её собственный сервис Entra Connect Health — добычей злоумышленников стала «метадата» клиентов">
+<meta property="og:image" content="https://www.bleepstatic.com/content/hl-images/2024/01/26/microsoft-red-header.jpg">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Microsoft призналась: взломали её собственный сервис Entra Connect Health — добычей злоумышленников стала «метадата» клиентов</h1>
+<div class="meta">22.11.2026 · по материалам первоисточника</div>
+
+<div class="lead">Microsoft подтвервила взлом своего облачного сервиса мониторинга Entra Connect Health: с 23 июля по 19 ноября API отдавал посторонним метадату арендаторов и адреса почты админов. Исправление — серверное, но главным «вредоносным приложением» стал сам вендор.</div>
+<p>Microsoft разослала администраторам уведомление о взломе собственного облачного сервиса Entra Connect Health — облачной службе мониторинга локальной инфраструктуры идентификации. Уязвимость в API появилась 23 июля 2026 года, компания обнаружила её 9 ноября, а 19 ноября развернула серверное исправление, не требуя от клиентов никаких обновлений. Расследование завершилось 20 ноября: подтверждён несанкционированный доступ только для чтения к метадате уровня арендатора, изменений в конфигурации не нашли.</p>
+<p>Что именно утекло: адреса электронной почты технических контактов и администраторов, ID и названия арендаторов, исходные доменные имена, country-код и регион, тарифы лицензий Entra, статус синхронизации каталога (включая время последней синхронизации), статус подключения Connect Health, а также просроченный сертификат агентов, который API продолжал отдавать из хранилища. Пользовательские пароли, хэши, токены авторизации, действующие криптоключи, топология локального Active Directory и данные подписок Azure, по заявлению Microsoft, не пострадали.</p>
+<p>Сколько организаций затронуто — не раскрывается; на на 21 ноября более десятка администраторов подтвердили получение уведомлений в профильных сообществах, а Managed-Service-провайдеры получили письма сразу за несколько клиентских арендаторов. Кода нет (CVE не присвоен), отдельного публичного анонса на блоге Microsoft нет — официальным источником служит именно уведомление внутри арендатора.</p>
+<p>Показательная деталь для всей индустрии: уязвимость четыре месяца жила в API вендора, чья прямая обязанность — мониторить здоровье чужих систем идентификации, и клиенты узнали о ней только постфактум, через 10 дней после закрытия. «Доверяй, но проверяй» теперь применимо и к самим облачным «мониторам».</p>
+<p><b>Что делать клиентам.</b> Официальных действий по установке патча не требуется, но Microsoft рекомендует: предупредить службы безопасности о риске целевого фишинга и социнженерии на утёкшие адреса админов и данные арендатора; убедится, что привилегированные учётные записи используют MFA, устойчивый к фишингу; просмотреть конфигурацию Connect Health и журналы аудита/входов Entra на подозрительную активность. Проверить, какие поля метадаты относятся к вашему арендатору, можно официальным PowerShell-скриптом Microsoft (aka.ms/ConnectHealth/scripts). Российским организациям, сидящим на Entra ID через зарубежные тенанты, стоит как минимум обновить правила antifishing для адресов техконтактов.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.bleepingcomputer.com/news/security/microsoft-entra-connect-health-flaw-exploited-to-steal-tenant-data/" rel="noopener">BleepingComputer</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://aka.ms/ConnectHealth/scripts" rel="noopener">Официальный ресурс Microsoft по инциденту (уведомление в арендаторе + PowerShell-скрипт проверки)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://securityonline.info/microsoft-entra-connect-health-exposure/" rel="noopener">СМИ 1</a> · <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-october-2026-patch-tuesday-fixes-1-411-flaws-3-zero-days/" rel="noopener">СМИ 2</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
