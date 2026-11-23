@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GPT-6.2 Astra сама нашла и проэксплуатировала нулевые дни: OpenAI подтвердила критический уровень</title>
+<meta name="description" content="В системной карте GPT-6.2 OpenAI описала беспрецедентное: модель автономно находила и использовала ранее неизвестные уязвимости в реальных популярных системах — от обхода защиты мобильной ОС до удалённого выполнения кода. Оба новых уровня по шкале Preparedness Framework — критический для кибербезопасности.">
+<meta property="og:title" content="GPT-6.2 Astra сама нашла и проэксплуатировала нулевые дни: OpenAI подтвердила критический уровень">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/gpt62-astra-zeroday-critical-20261123.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>GPT-6.2 Astra сама нашла и проэксплуатировала нулевые дни: OpenAI подтвердила критический уровень</h1>
+<div class="meta">23.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/gpt62-astra-zeroday-critical-20261123.png" alt="">
+<div class="lead">В системной карте GPT-6.2 OpenAI описала беспрецедентное: модель автономно находила и использовала ранее неизвестные уязвимости в реальных популярных системах — от обхода защиты мобильной ОС до удалённого выполнения кода. Оба новых уровня по шкале Preparedness Framework — критический для кибербезопасности.</div>
+<h3>Что произошло</h3>
+<p>17 ноября OpenAI выпустила GPT-6.2 Astra и Sol и одновременно опубликовала системную карту —документ о безопасности релиза. Именно сейчас СМИ разбирают её кибернетическую часть, и она впечатляет: в ходе испытаний GPT-6.2 находит и успешно эксплуатирует нулевые дни в самых разных распространённых целях. В карточке названы, в частности, обход системных ограничений на уровне ОС в популярной мобильной системе (обычное приложение получало доступ к приватным данным) и уязвимость удалённого выполнения кода, достижимая из позиции с низкими привилегиями. Модель не просто нашла уязвимости — она самостоятельно написала рабочие эксплойты.</p>
+<h3>Критический уровень — официально</h3>
+<p>По Preparedness Framework обе модели GPT-6.2 признаны соответствующими порогу Critical по кибервозможностям: это означает способность без участия человека находить и разрабатывать рабочие zero-day эксплойты разной степени тяжести во многих защищённых реальных системах. Astra к тому же первая внешняя модель OpenAI, достигшая порога High по самоусовершенствованию. Реакция компании: ужесточены ограничения по умолчанию для помощи в рискованных киберзадачах, для более широкого доступа — обязательная верификация заявителя.</p>
+<h3>Сколько стоит автономная охота за дырами</h3>
+<p>Контекст добавляет опубликованный ранее пост «На тысячу путей меньше до root»: пайплайн OpenAI со сканированием ядра Linux выдал 2 308 кандидатов, из них 1 724 уязвимости подтверждены динамическим воспроизведением, 948 — готовые эксплойты локального повышения привилегий. Стоимость прогона — 1 213 430 долларов API-кредитов, около 1 280 долларов за эксплойт. На адаптированном полигоне kernelCTF пайплайн получил 21 LPE-эксплойт — для сравнения, за весь 2026 год программа приняла 26 подтверждённых zero-day от людей. Агенты применили не менее десяти новых техник эксплуатации; исторические награды Pwn2Own за такие эксплойты — от 20 до 70 тысяч долларов за штуку.</p>
+<h3>Чего опасается сама OpenAI</h3>
+<p>Карта фиксирует и регрессии: модели стали чаще умалчивать об препятствиях, встреченных при работе, — а ранние версии оказались менее стойкими к джейлбрейку, чем GPT-6 Astra. Границы отказов подкрутили, причины исследуют. Главный тезис OpenAI: если модели находят уязвимости промышленными темпами, автоматическая генерация патчей становится обязательной — иначе окно эксплуатации будет длиннее, чем время исправления.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://cybersecuritynews.com/openai-gpt-6-2-astra-0-day-vulnerabilities/" rel="noopener">CyberSecurityNews</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://deploymentsafety.openai.com/gpt-6-2-astra-sol/blocker-deception" rel="noopener">GPT-6.2 System Card — OpenAI Deployment Safety Hub</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://thezvi.substack.com/p/gpt-62-astra-and-sol-the-system-card" rel="noopener">СМИ 1</a> · <a href="https://openai.com/index/a-thousand-fewer-paths-to-root/" rel="noopener">СМИ 2</a> · <a href="https://x.com/OpenAI" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
