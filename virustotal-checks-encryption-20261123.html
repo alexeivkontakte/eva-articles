@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VirusTotal начал проверять файлы: ловить вымогатели, которые не увидел ни один антивирус</title>
+<meta name="description" content="VirusTotal и Google Threat Intelligence включили поведенческую проверку encrypts-files: песочницы теперь подтверждают сам факт шифрования документов пользователя. Первым результатом стал пайтонский шифровальщик, невидимый для всех 75 антивирусных движков сразу.">
+<meta property="og:title" content="VirusTotal начал проверять файлы: ловить вымогатели, которые не увидел ни один антивирус">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/virustotal-checks-encryption-20261123.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>VirusTotal начал проверять файлы: ловить вымогатели, которые не увидел ни один антивирус</h1>
+<div class="meta">23.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/virustotal-checks-encryption-20261123.png" alt="">
+<div class="lead">VirusTotal и Google Threat Intelligence включили поведенческую проверку encrypts-files: песочницы теперь подтверждают сам факт шифрования документов пользователя. Первым результатом стал пайтонский шифровальщик, невидимый для всех 75 антивирусных движков сразу.</div>
+<h3>Проверка делом, а не догадками</h3>
+<p>VirusTotal представил поведенческий признак `encrypts-files`: песочницы CAPE Sandbox и Zenbox на Windows и новая macOS Mirage на Apple Silicon запускают подозрительный файл в контролируемой среде с настоящими пользовательскими документами и проверяют, что произошло с файлами на диске — сломанная структура документов, странные байтовые паттерны, возросшая случайность данных. Важная деталь: сам по себе вызов крипто-API или «много файловых операций» теперь не считается доказательством вымогателя — подтверждается именно повреждение документов. Это закрывает лазейку малвари, которая использует встроенные AES, ChaCha20, XOR или частичное шифрование.</p>
+<h3>Невидимка на нуле детектов</h3>
+<p>Показательный кейс — файл `system_update.pyw`, связанный с кампией вымогательства `.k404` и загруженный 17–18 ноября: на статическом скане <b>0 детектов из 75</b> антивирусных движков. Песочница Zenbox увидела, как он запускается через pythonw.exe, удаляет себя и переписывает документы на рабочем столе в шифртекст с расширением `.k404`. Связанный `K404T_Fidye.exe` имел 10/75, локер `lkd.exe` — 3/75, `HotCrypt.exe` — 1/75: у всех CAPE и Zenbox подтвердили шифрование пользовательских документов. Среди пойманных также INC Ransom — группировка, светившаяся в атаках на клиники.</p>
+<h3>Цифры и инструменты</h3>
+<p>С 17 ноября тег `tag:encrypts-files` сработал на <b>55 файлах из 328 257</b> новых уникальных образцов (405 469 с учётом пересканирований). Все 55 совпадений при ручной проверке оказались вредоносными — ноль ложных срабатываний; в предрелизном бэктесте дополнительно проверены 9 976 отчётов CAPE и 400 прогонов macOS Mirage. Параллельно VirusTotal ужесточил маппинг MITRE ATT&amp;CK T1486 («Data Encrypted for Impact») в CAPE: теперь техника присваивается только после подтверждённого шифрования документов. Аналитики могут искать по `entity:file tag:encrypts-files` и строить Livehunt-правила на YARA-X трейт `vt.BehaviourTrait.ENCRYPTS_FILES`.</p>
+<h3>Что это значит</h3>
+<p>Честное предупреждение от самих авторов: отсутствие тега — не «чистое» заключение. Малваре могут понадобиться пароль, ввод пользователя, сеть или просто больше времени, чтобы начать шифровать. И результат 0/75 описывает момент анализа, а не вечный приговор антивирусам. Но сама логика — вердикт по наблюдаемому ущербу, а не по сигнатурам — хороший ориентир для всей индустрии: поведенческие песочницы перестают быть чёрным ящиком и начинают выдавать проверяемое доказательство.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://cybersecuritynews.com/virustotal-ransomware-detection/" rel="noopener">Cyber Security News</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://blog.virustotal.com/2026/11/catching-ransomware-introducing.html" rel="noopener">Официальный блог VirusTotal (Google)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://mallory.ai/stories/01a2046e-a404-7a43-9ee5-05e547293f84" rel="noopener">СМИ 1</a> · <a href="https://x.com/The_Cyber_News/status/2124555073246405114" rel="noopener">СМИ 2</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
