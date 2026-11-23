@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ИИ-агенту дают автономию, но не ключи: Eclipse выпустила песочницу Enclave 1.0</title>
+<meta name="description" content="Фонд Eclipse представил Enclave 1.0 — открытую песочницу, в которой кодинг-агенты вроде Claude Code и Codex работают автономно в изолированных контейнерах, а настоящие API-ключи видны только сетевому шлюзу, а не агенту.">
+<meta property="og:title" content="ИИ-агенту дают автономию, но не ключи: Eclipse выпустила песочницу Enclave 1.0">
+<meta property="og:image" content="https://heise.cloudimg.io/v7/_www-heise-de_/imgs/18/5/2/0/6/0/9/1/AufmacherContainer-f4ae0a17cda74d7c.png?func=bound&height=1200&org_if_sml=1&q=85&width=1200">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>ИИ-агенту дают автономию, но не ключи: Eclipse выпустила песочницу Enclave 1.0</h1>
+<div class="meta">23.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/eclipse-enclave-sandbox-agentov.png" alt="">
+<div class="lead">Фонд Eclipse представил Enclave 1.0 — открытую песочницу, в которой кодинг-агенты вроде Claude Code и Codex работают автономно в изолированных контейнерах, а настоящие API-ключи видны только сетевому шлюзу, а не агенту.</div>
+<h3>Контейнер на каждую сессию</h3>
+<p>19 ноября 2026 года фонд Eclipse Foundation объявил о выпуске Eclipse Enclave 1.0 — open-source среды исполнения (MIT-лицензия), которая запускает ИИ-кодинг-агентов в изолированных контейнерах под управлением политик доступа. Проект разработала компания EclipseSource (член фонда) и передала фонду; заявлена поддержка Claude Code, Codex, Copilot, OpenCode, Pi и Theia IDE, архитектура расширяема под другие инструменты.</p>
+<p>Каждая сессия агента стартует в собственном контейнере на базе Docker или Podman. Агент по умолчанию видит только каталог проекта и папки, явно разрешённые пользователем: домашний каталог и ssh-агент не монтируются. Весь исходящий трафик идёт через шлюз с allowlist доменов, который ведёт журнал решений.</p>
+<h3>Ключи агент не видит</h3>
+<p>Главная фишка — обращение с секретами. API-ключи и токены отдаются агенту в виде плейсхолдеров: подлинное значение подставляет шлюз, и только в HTTPS-запросах к разрешённым хостам. Целый класс инцидентов «агент слил ключ в лог / вывел в чат / его вытащили промптом» здесь просто не должен возникать — агенту физически нечего сливать.</p>
+<p>При этом разработчики честно документируют границы: файлы с токенами и автоматически обновляемые логины Enclave не защищает, а OAuth-логин хранится на хосте и монтируется в контейнер. Каталог проекта по умолчанию смонтирован на запись — агент может менять файлы на хосте и даже оставлять git-хуки, которые сработают позже вне контейнера; для защиты нужен флаг `--project-mount readonly`. В документах по безопасности прямо сказано: песочница ограничивает доступ к хосту и сети, но не является абсолютно защищённой границей от побега из контейнера, а allowlist определяет, КУДА агент может стучаться, но не ЧТО он отправляет.</p>
+<h3>Почему это важно</h3>
+<p>«Следующий большой шаг в ИИ-разработке — не делать агентов умнее, а дать им автономию, сохранив контроль у разработчиков и организаций», — заявил исполнительный директор Eclipse Foundation Майк Милинкович. Параллельно фонд опубликовал отчёт аналитиков 451 Research (S&amp;P Global) о необходимости вендор-незавимых механизмов изоляции и управления ИИ-агентами. Схожий подход у Docker Sandboxes, но там каждый агент живёт в отдельной микро-VM.</p>
+<p>На фоне новостей об автономных ИИ-атаках (например, недавнего отчёта Amazon о взломе через фреймворк Cairn) Enclave — зеркальная история: та же агентская автономия, но упакованная так, чтобы при выходе агента из-под контроль ущерб был ограниченным. Для команд, которые уже запускают агентов «в проде», это практичный промежуточный слой между «полный доступ к ноутбуку» и полным запретом.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.heise.de/news/Keine-Secrets-fuer-Agenten-Eclipse-Enclave-schickt-Agenten-in-die-Sandbox-11534005.html" rel="noopener">heise online</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://newsroom.eclipse.org/news/announcements/eclipse-foundation-launches-eclipse-enclave-10-bringing-security-and-choice" rel="noopener">Eclipse Foundation — официальный анонс (19.11.2026)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.infoworld.com/article/4251051/ai-coding-agents-need-a-safe-place-to-work-eclipse-is-building-the-sandbox-to-give-it-to-them.html" rel="noopener">СМИ 1</a> · <a href="https://www.heise.de/en/news/No-secrets-for-agents-Eclipse-Enclave-puts-them-in-a-sandbox-11534126.html" rel="noopener">СМИ 2</a> · <a href="https://eclipsesource.com/blogs/2026-09-08/eclipse-enclave-sandbox-for-ai-coding-agents/" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
