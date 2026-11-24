@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Почтовый фильтр под ударом: N-able подтвердила взлом Mail Assure, а медицинский ИИ MONAI Label атакуют по всему интернету</title>
+<meta name="description" content="N-able официально подтвердила инцидент в своих облачных почтовых фильтрах Mail Assure и SpamExperts: критическая уязвимость CVE-2026-134624 (CVSS 9,3) эксплуатируется в дикой природе. 23 ноября агентство CISA внесло её в каталог эксплуатируемых уязвимостей — в компании с дырой CVE-2026-133968 (CVSS 9,8) в медицинском ИИ-инструменте разметки снимков MONAI Label.">
+<meta property="og:title" content="Почтовый фильтр под ударом: N-able подтвердила взлом Mail Assure, а медицинский ИИ MONAI Label атакуют по всему интернету">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/nable-mail-assure-monai-kev.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Почтовый фильтр под ударом: N-able подтвердила взлом Mail Assure, а медицинский ИИ MONAI Label атакуют по всему интернету</h1>
+<div class="meta">24.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/nable-mail-assure-monai-kev.png" alt="">
+<div class="lead">N-able официально подтвердила инцидент в своих облачных почтовых фильтрах Mail Assure и SpamExperts: критическая уязвимость CVE-2026-134624 (CVSS 9,3) эксплуатируется в дикой природе. 23 ноября агентство CISA внесло её в каталог эксплуатируемых уязвимостей — в компании с дырой CVE-2026-133968 (CVSS 9,8) в медицинском ИИ-инструменте разметки снимков MONAI Label.</div>
+<h3>Взлом щита, а не почты</h3>
+<p>N-able опубликовала официальное уведомление: инцидент затронул облачные сервисы Mail Assure и SpamExperts Hosted Cloud, то есть как раз те фильтры, через которые проходит почта тысяч организаций. Критическая уязвимость CVE-2026-134624 (CVSS4 9,3) связана с LDAP-синхронизацией: версии до 20261121.1943 при настроенном relay недостаточно проверяли цель LDAP-подключения. Пользователь с правами API-доступа высокого уровня мог заставить сервер соединяться с произвольными внутренними хостами и портами, выяснять, какие из них доступны, и отправлять туда манипулированные данные. Классический сценарий: атакующий приходит не к почте, а к сервису, который её защищает.</p>
+<h3>Что подтвердила компания и чего пока нет</h3>
+<p>По данным N-able, затронутым оказался единственный размещённый самой N-able сервер, а после установки исправления признаков дальнейших атак не найдено. Для глубокой цифровой криминалистики привлечены сторонние эксперты, отчёт о причинах обещают в течение двух недель. Об официально подтверждённой утечке данных клиентов не сообщается; отдельные СМИ со ссылкой на предварительную информацию пишут о возможной краже учётных данных, но в уведомлении компании этого нет. Любопытная деталь: это уже вторая атака на N-able за две недели — неделей ранее злоумышленники использовали дыры в N-central, чтобы расставлять криптомайнеры.</p>
+<h3>Медицинский ИИ под атакой</h3>
+<p>В том же предупреждении CISA от 23 ноября вторая эксплуатируемая брешь — CVE-2026-133968 (CVSS 9,8) в MONAI Label, open-source программе разметки медицинских снимков с помощью ИИ. Path traversal в эндпоинтах загрузки хранилища позволяет записать произвольный файл, а следом внедрить и выполнить код; в конфигурации по умолчанию аутентификация вообще не требуется, атаковать может любой, у кого есть сетевой доступ к серверу. Разработчики выпустили версию 0.8.6 и советуют не откладывать обновление.</p>
+<h3>Что делать</h3>
+<p>Mail Assure и SpamExperts — сервисы под управлением провайдера, исправление компания развернула на своей стороне. Организациям, чья почта ходила через эти фильтры в relay-сценариях, стоит проверить учётные записи с правами API высокого уровня и на всякий случай заменить их ключи. Если у вас развёрнут MONAI Label — в больнице, лаборатории или научной группе — обновляйтесь до 0.8.6, включайте аутентификацию и ни в коем случае не выставляйте порт наружу. Главный урок недели: почтовый фильтр — не менее ценная цель, чем сам почтовый сервер, и относиться к нему нужно как к критической инфраструктуре.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.heise.de/news/Cyberattacken-auf-N-able-Mail-Assure-und-Monai-Label-11535820.html" rel="noopener">Heise Online</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.n-able.com/blog/mail-assure-incident-update" rel="noopener">Официальный блог N-able — уведомление о безопасности Mail Assure</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://thehackernews.com/2026/11/n-able-discloses-critical-mail-assure.html" rel="noopener">СМИ 1</a> · <a href="https://www.bleepingcomputer.com/news/microsoft/n-able-says-recent-security-breach-led-to-major-service-outage/" rel="noopener">СМИ 2</a> · <a href="https://www.securityweek.com/n-able-blames-service-disruption-on-cyberattack/" rel="noopener">СМИ 3</a> · <a href="https://www.crn.com/news/security/2026/n-able-discloses-security-incident-impacting-cloud-email-security-services" rel="noopener">СМИ 4</a> · <a href="https://www.cisa.gov/news-events/alerts/2026/11/23/cisa-adds-two-known-exploited-vulnerabilities-catalog" rel="noopener">СМИ 5</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
