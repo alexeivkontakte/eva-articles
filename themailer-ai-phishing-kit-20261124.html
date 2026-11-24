@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Фишинг с обратной связью: в даркнете продают TheMailer — ИИ-конструктор писем, который переписывает текст, пока не обойдёт спам-фильтры</title>
+<meta name="description" content="Исследователи Varonis Threat Labs описали TheMailer — саморазмещаемый фишинговый конструктор из даркнета, который подключается к Claude, ChatGPT, Grok, Gemini, Mistral и DeepSeek через ключи заказчика и «зацикливает» отправку: попал текст в спам — модель переписывает его до победы. Продаётся с марта 2026 года,buyout — 3–6 тысяч долларов.">
+<meta property="og:title" content="Фишинг с обратной связью: в даркнете продают TheMailer — ИИ-конструктор писем, который переписывает текст, пока не обойдёт спам-фильтры">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/themailer-ai-phishing-kit-20261124.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Фишинг с обратной связью: в даркнете продают TheMailer — ИИ-конструктор писем, который переписывает текст, пока не обойдёт спам-фильтры</h1>
+<div class="meta">24.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/themailer-ai-phishing-kit-20261124.png" alt="">
+<div class="lead">Исследователи Varonis Threat Labs описали TheMailer — саморазмещаемый фишинговый конструктор из даркнета, который подключается к Claude, ChatGPT, Grok, Gemini, Mistral и DeepSeek через ключи заказчика и «зацикливает» отправку: попал текст в спам — модель переписывает его до победы. Продаётся с марта 2026 года,buyout — 3–6 тысяч долларов.</div>
+<h3>Конструктор, у которого нет своего «мозга»</h3>
+<p>Команда Varonis Threat Labs опубликовала разбор TheMailer — саморазмещаемой фишинговой платформы, которую продвигают на подземных форумах. Любопытная деталь: собственного ИИ у конструктора нет. Он подключается к Claude, ChatGPT, Grok, Gemini, Mistral и DeepSeek через API-ключи самого заказчика — то есть сервисы легальных провайдеров работают на атакующего напрямую, а билаты за генерацию спама идут с его аккаунтов.</p>
+<h3>Петля «отправил — получил отпор — переписал»</h3>
+<p>TheMailer готовит отдельные версии письма под каждого почтового провайдера — Gmail, Microsoft, GMX, Yandex — и учитывает их правила фильтрации и лимиты отправки. Ключевая функция «Inbox Loop» работает как классический агентский цикл: тестовое письмо уходит на реальный ящик, и если оно попадает в спам, модель переписывает текст и пробует снова — до тех пор, пока письмо не доедет до входящих. Отдельная опция «убрать следы ИИ» маскирует типичные машинные обороты фраз. Поверх этого — персонализация: PDF-«счета», приглашения в календарь и SVG-вложения с именем получателя, копирующие настоящую деловую переписку (вплоть до требования «говорить тоном профессионального банка»).</p>
+<h3>Цифры из отчёта</h3>
+<p>По данным Varonis, реклама TheMailer крутится на подземных форумах с марта 2026 года и собрала более 24 тысяч просмотров; на скриншотах продавца видна кампания в 24 829 писем. Buyout-лицензия оценивается в 3 000–6 000 долларов, оплата криптовалютой, установка — с помощью поддержки продавца. Схожие детали независимо описали Dark Reading и Aviatrix Network — по их оценке, кампании с участием конструктора доходят до сотен тысяч писем-приманок.</p>
+<h3>Почему это тревожно</h3>
+<p>Спам-фильтры учились ловить «текст с признаками», но здесь текст эволюционирует по обратной связи от реальной доставки — это тот самый агентский цикл «действие → оценка → улучшение», просто применённый к преступному конвейеру. Практический вывод для компаний: SPF/DKIM и проверка «похожести» текста против таких писем слабеют, поэтому упор смещается на поведенческий анализ (аномальные вложения вроде SVG, нетипичные приглашения в календарь), обязательную MFA и ограничения на использование внешних API-ключей в корпоративных аккаунтах — ведь оплаченный легальный ИИ оставить без внимания криминалу сложнее, чем собственный генератор.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.ithome.com/1/031/482.htm" rel="noopener">IT之家</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.varonis.com/blog/themailer-ai-phishing-kit" rel="noopener">Varonis Threat Labs (официальный отчёт)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.darkreading.com/perimeter/themailer-phishing-kit-ai-drivers-seat" rel="noopener">СМИ 1</a> · <a href="https://aviatrix.ai/threat-research-center/themailer-phishing-kit-ai-drivers-seat/" rel="noopener">СМИ 2</a> · <a href="https://www.scworld.com/brief/new-ai-powered-phishing-kit-automates-malicious-email-campaigns" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
