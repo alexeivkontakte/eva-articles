@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAI-DxO: ИИ-диагност Microsoft оказался в разы точнее врачей</title>
+<meta name="description" content="Microsoft AI опубликовала в журнале Science систему MAI-DxO, которая ставит диагноз пошагово — как врачебный консилиум. На сложных клинических случаях она оказалась точнее врачей в 2,3–3,7 раза, а типичные неотложные состояния распознаёт в 1,7 раза лучше. Рабочий бенчмарк SDBench компания открыла для исследователей.">
+<meta property="og:title" content="MAI-DxO: ИИ-диагност Microsoft оказался в разы точнее врачей">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/mai-dxo-diagnostika-vrachey.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>MAI-DxO: ИИ-диагност Microsoft оказался в разы точнее врачей</h1>
+<div class="meta">25.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/mai-dxo-diagnostika-vrachey.png" alt="">
+<div class="lead">Microsoft AI опубликовала в журнале Science систему MAI-DxO, которая ставит диагноз пошагово — как врачебный консилиум. На сложных клинических случаях она оказалась точнее врачей в 2,3–3,7 раза, а типичные неотложные состояния распознаёт в 1,7 раза лучше. Рабочий бенчмарк SDBench компания открыла для исследователей.</div>
+<h3>Диагноз как расследование, а не тест с вариантами ответов</h3>
+<p>Обычные медицинские экзамены (вроде USMLE) дают модели все вводные сразу и требуют один ответ. В реальной клинике так не работает: врач собирает картину по кусочкам — решает, что спросить, какие анализы назначить и как новый результат меняет гипотезу. Именно эту последовательность Microsoft смоделировала в бенчмарке SDBench: 304 сложных случая из разборов *New England Journal of Medicine* плюс типичные обращения в приёмный покой из базы MIMIC-IV-ED. Каждая задача — интерактив: модель и врач начинают с минимумом информации и сами выбирают, что запрашивать дальше. Оцениваются точность диагноза, собранные доказательства и стоимость обследований.</p>
+<h3>Панель виртуальных врачей</h3>
+<p>Саму систему MAI-DxO (Diagnostic Orchestrator) Microsoft строит не как один «всезнающий» ответ, а как спор врачебного консилиума: несколько виртуальных специалистов предлагают диагнозы, выбирают полезные вопросы и анализы и оспаривают emerging-версию. За несколько раундов дебатов система уточняет оценку и взвешивает пользу каждого теста против его цены.</p>
+<h3>Цифры из первоисточника</h3>
+<p>На сложных случаях NEJM у MAI-DxO — 83% верных диагнозов. Врачи без справочных ресурсов — 22%, с учебниками и интернетом — 36%: соответственно в 3,7 и 2,3 раза ниже. На более привычных неотложных случаях MIMIC-IV-ED — 80% против 47% у врачей (в 1,7 раза). В конфигурации с жёсткой оптимизацией по цене система сохранила 81% точности менее чем за половину стоимости сравнимых подходов. Ни один другой метод — человеческий или машинный — не оказался одновременно точнее и дешевле.</p>
+<h3>Не лабораторная игрушка</h3>
+<p>Microsoft открыла часть SDBench (сам бенчмарк, Gatekeeper, Judge и код оценки затрат) для воспроизведения результатов, а в бостонском центре Beth Israel Deaconess Medical Center уже запускает проспективное исследование: пациенты будут общаться с системой напрямую, а её оценки сравнят с независимыми заключениями врачей. Параллельно идёт работа с Mayo Clinic над «медицинским суперинтеллектом» на лонгитюдных мультимодальных данных.</p>
+<p>Важная рамка от самих авторов: бенчмарки — только проба, настоящее испытание — реальная клиническая работа. ИИ здесь не заменяет врача, а показывает, что пошаговое рассуждение модели уже превосходит человека там, где раньше ценился только клинический опыт.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.reuters.com/business/healthcare-pharmaceuticals/microsoft-develops-ai-tool-that-can-diagnose-sequentially-like-doctor-2026-10-23/" rel="noopener">Reuters</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://microsoft.ai/news/building-medical-superintelligence/" rel="noopener">Microsoft AI — Building Medical Superintelligence</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.science.org/doi/10.1126/science.aeh7930" rel="noopener">СМИ 1</a> · <a href="https://www.microsoft.com/en-us/research/publication/sequential-diagnosis-with-language-models/" rel="noopener">СМИ 2</a> · <a href="https://www.reuters.com/business/healthcare-pharmaceuticals/microsoft-develops-ai-tool-that-can-diagnose-sequentially-like-doctor-2026-10-23/" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
