@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NVIDIA открыла веса генератора изображений Nemotron-Labs-Image-30B-A3B: больше GPT Image 2 по большинству тестов</title>
+<meta name="description" content="NVIDIA выложила в открытый доступ веса autoregressive-модели генерации картинок Nemotron-Labs-Image-30B-A3B: 30 млрд параметров всего, 3 млрд активных. По официальной модельной карте NVIDIA платформа VisualCreation обходит GPT Image 2 на большинстве из десяти бенчмарков — у закрытой модели OpenAI остаются два лидерства.">
+<meta property="og:title" content="NVIDIA открыла веса генератора изображений Nemotron-Labs-Image-30B-A3B: больше GPT Image 2 по большинству тестов">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/nvidia-nemotron-image-30b-open-20261125.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>NVIDIA открыла веса генератора изображений Nemotron-Labs-Image-30B-A3B: больше GPT Image 2 по большинству тестов</h1>
+<div class="meta">25.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/nvidia-nemotron-image-30b-open-20261125.png" alt="">
+<div class="lead">NVIDIA выложила в открытый доступ веса autoregressive-модели генерации картинок Nemotron-Labs-Image-30B-A3B: 30 млрд параметров всего, 3 млрд активных. По официальной модельной карте NVIDIA платформа VisualCreation обходит GPT Image 2 на большинстве из десяти бенчмарков — у закрытой модели OpenAI остаются два лидерства.</div>
+<h3>Что именно открыли</h3>
+<p>NVIDIA опубликовала на Hugging Face веса модели <b>Nemotron-Labs-Image-30B-A3B</b> — авторегрессионного генератора растровых изображений, построенного на базе Nemotron 3 Nano: 30 млрд параметров суммарно и лишь 3 млрд активных на токен. Вместе с моделью выложены визуальный токенизатор (~642 млн параметров, кодбука из 196 560 векторов решётки Леча, кодирование за 41,3 мс на A100), определение модели и код инференса. Отдельного блог -анонса NVIDIA не делала — веса «тихо» появились на официальной организации nvidia в Hugging Face вместе с техническим исследованием, это и есть первоисточник.</p>
+<h3>«Пиксели как код»</h3>
+<p>Модель — часть фреймворка <b>Nemotron-Labs-VisualCreation</b>, который NVIDIA описывает как подход «pixel as code»: генератор соединяет выученные визуальные токены с явными программами — SVG, HTML/CSS, графика и разметкой документов. Идея в том, чтобы агент мог не только нарисовать картинку, но и выдать редактируемый артефакт — веб-страницу, презентацию, диаграмму, — а потом сам проверить результат через рендер и «визуальный аудит» другой моделью. Это явный разворот в сторону агентских рабочих процессов, а не просто «ещё одна генерилка».</p>
+<h3>Цифры из первоисточника</h3>
+<p>По официальной модельной карте NVIDIA, конфигурация VisualCreation ведёт на 7 из 10 приведённых бенчмарков: GenEval — <b>92,86 против 89,00</b> у GPT Image 2; LongTextBench (текст на картинке) — <b>97,98 против 96,00</b>; CVTG-2K — <b>92,53 против 90,03</b>; BizGenEval — <b>86,0 против 83,2</b>; WISE Verified — 91,50. Закрытая GPT Image 2 остаётся впереди на GenEval2 (81,00 против 65,43) и Qwen-Image-Bench (65,23 против 52,46). С открытыми конкурентами картина похожая: FLUX.2 Dev и Qwen-Image позади почти везде, кроме отдельных текстовых тестов.</p>
+<h3>Лицензия — важный нюанс</h3>
+<p>Формально это «open weights», но под лицензией NVIDIA с <b>некоммерческим</b> использованием: для продакшена и коммерческих продуктов веса в текущей версии брать нельзя. В первом релизе открыт только растровый генератор с токенизатором — структурированные компоненты (VisionCode на 30B и 120B параметров, показавшие 93,6 против 56,5 у Nemotron-3-Nano-Omni в тестах визуального кода) пока остаются за кадром.</p>
+<h3>Почему это важно</h3>
+<p>Для открытой экосистемы это редкий случай: авторегрессивная (не диффузионная) модель генерации картинок конкурентоспособного уровня плюс исследовательский фреймворк, где генерация встроена в агентский цикл «создал — отрендерил — проверил — починил». Для небольших команд это шанс собрать пайплайн генерации инфографики и макетов локально, без платных API — с поправкой на некоммерческую лицензию весов.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.ithome.com/1/032/444.htm" rel="noopener">IT之家 (ithome.com)</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://huggingface.co/nvidia/Nemotron-Labs-Image-30B-A3B" rel="noopener">NVIDIA — официальная модельная карта и исследование на Hugging Face</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.reddit.com/r/LocalLLaMA/comments/1y4yrts/nvidia_just_quietly_dropped_open_weights_for/" rel="noopener">СМИ 1</a> · <a href="https://www.reddit.com/r/StableDiffusion/comments/1y4ytpy/nvidia_quietly_dropped_open_weights_for/" rel="noopener">СМИ 2</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
