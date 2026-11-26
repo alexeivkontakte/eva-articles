@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google закрывает ИИ-агентам прямые API: Workspace с февраля обязывает всех ходить через MCP</title>
+<meta name="description" content="Google вводит обязательное правило для ИИ-агентов: с 1 февраля 2027 года получать данные из Google Workspace можно будет только через официальные MCP-серверы или CLI — с административными политиками и едиными тарифами. Обычным приложениям оставили старые REST API.">
+<meta property="og:title" content="Google закрывает ИИ-агентам прямые API: Workspace с февраля обязывает всех ходить через MCP">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/google-workspace-mcp-agents-20261126.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Google закрывает ИИ-агентам прямые API: Workspace с февраля обязывает всех ходить через MCP</h1>
+<div class="meta">26.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/google-workspace-mcp-agents-20261126.png" alt="">
+<div class="lead">Google вводит обязательное правило для ИИ-агентов: с 1 февраля 2027 года получать данные из Google Workspace можно будет только через официальные MCP-серверы или CLI — с административными политиками и едиными тарифами. Обычным приложениям оставили старые REST API.</div>
+<h3>Конец эпохи «агент заходит, как пользователь»</h3>
+<p>24 ноября Google опубликовала на официальном блоге Workspace анонс «Built for trust and control»: новый документ Workspace AI Tools Addendum теперь требует, чтобы ИИ-агенты подключались к Workspace через официальные MCP-серверы или CLI, а не через традиционные REST API. Формально это пункт в соглашениях для разработчиков, фактически — перекройка того, как агенты получают доступ к корпоративной почте, документам и календарям.</p>
+<h3>Даты и механика</h3>
+<p>Техническое требование вступает в силу 1 февраля 2027 года: с этой даты вызовы Workspace API от имени ИИ-агентов и «подобных инструментов доступа» будут проходить только через MCP. Обычные бизнес-приложения (не агенты) могут продолжать работать поверх существующих REST API. Вместе с требованием Google стандартизирует тарифы использования API для агентов, а платные тарифы за масштабное потребление включаются с 1 апреля 2027 года. Для админов обещают политики управления — то есть доступ агента становится объектом централизованного контроля, а не серой зоной.</p>
+<h3>Зачем это платформе</h3>
+<p>Логика прозрачна: агент, который притворяется обычным приложением и ходит в почту через REST, невозможно ни отличить, ни ограничить, ни честно зааудить. Загонка агентов в MCP и CLI даёт Google (и админам клиентов) единую точку контроля: кто пришёл, от чьего имени, какие права OAuth использует и что именно вынес из домена. На фоне случаев, когда автономные агенты выходили за пределы песочниц и хватали лишние файлы и ключи, крупные платформы постепенно переводят агентский доступ из «доверим по OAuth и разберёмся» в «только по протоколу и под политикой».</p>
+<h3>Почему это важно всем остальным</h3>
+<p>MCP ещё год назад был протоколом-стартапом от Anthropic, а теперь становится де-факто отраслевым стандартом агентского доступа: его поддерживают OpenAI, Microsoft и другие крупные игроки, а требование Google — первый случай, когда доступ агентов к большим корпоративным данным законочен контрактно, а не по хорошему тону. Разработчикам агентов стоит заранее проверить, как их интеграции ходят в Workspace: после 1 февраля 2027 года самовольные REST-вызыки от имени агента просто перестанут быть легальными по правилам платформы.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.helpnetsecurity.com/2026/11/26/google-ai-agent-security-requirements/" rel="noopener">Help Net Security</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://workspace.google.com/blog/product-announcements/built-for-trust-and-control-new-ai-agent-protections-and-developer-tools-in-google-workspace" rel="noopener">Официальный блог Google Workspace (24.11.2026)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html" rel="noopener">СМИ 1</a> · <a href="https://developers.google.com/workspace/guides/quota-pricing" rel="noopener">СМИ 2</a> · <a href="https://www.helpnetsecurity.com/2026/11/26/google-ai-agent-security-requirements/" rel="noopener">СМИ 3</a> · <a href="https://smartscope.blog/en/blog/google-workspace-mcp-cli-ga-mcp-required-february-2026/" rel="noopener">СМИ 4</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
