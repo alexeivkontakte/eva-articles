@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenAI начала тестировать Private Inference: запросы защищены даже во время обработки</title>
+<meta name="description" content="Сэм Альтман 25 ноября объявил: OpenAI тестирует Private Inference с небольшой группой клиентов. Это режим, при котором промпты и ответы защищены шифрованием не только в пути и на хранении, но и в момент, когда модель их обрабатывает.">
+<meta property="og:title" content="OpenAI начала тестировать Private Inference: запросы защищены даже во время обработки">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/openai-private-inference-alpha-20261126.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>OpenAI начала тестировать Private Inference: запросы защищены даже во время обработки</h1>
+<div class="meta">26.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/openai-private-inference-alpha-20261126.png" alt="">
+<div class="lead">Сэм Альтман 25 ноября объявил: OpenAI тестирует Private Inference с небольшой группой клиентов. Это режим, при котором промпты и ответы защищены шифрованием не только в пути и на хранении, но и в момент, когда модель их обрабатывает.</div>
+<h3>Что такое Private Inference</h3>
+<p>Раньше приватность больших ИИ работала по краям: данные шифруются при передаче, а Zero Data Retention обещает, что OpenAI не сохранит промпт и ответ после обработки. Но сам момент вычисления — «чёрный ящик»: запрос лежит в памяти серверов в открытом виде. Private Inference закрывает именно эту дыру: обработка идёт в доверенной среде (confidential computing) с проверяемыми аппаратными гарантиями, и даже оператор инфраструктуры не видит содержимое.</p>
+<p>Официальная страница OpenAI прямо разделяет две гарантии: Zero Data Retention действует после обработки, а Private Inference защищает запрос и ответ во время обработки. Статус функции — Alpha, для API заявлен статус API Preview; компании уже могут оставить заявку на подключение, описав свои приватные сценарии.</p>
+<h3>Как это устроено и при чём тут агенты</h3>
+<p>Схема из первоисточника: промпт шифруется в канале, проходит сквозные проверки безопасности, затем блок Private Inference на confidential computing, и только потом приложение получает ответ. Проверка безопасности тоже уходит в автономный аттестуемый рантайм, который наружу выдаёт только служебные сигналы и разрешённые метаданные, а не открытый текст.</p>
+<p>Отдельный слой — управление агентами: заказчик сам задаёт, к каким данным и инструментам имеет доступ агент, какие действия ему разрешены и в каких моментах нужно человеческое подтверждение. Владение входными и выходными данными закрепляется за клиентом.</p>
+<h3>Почему это важно</h3>
+<p>Для банков, медицины и юрфирм аргумент «данные не сохраняются» раньше не снимал главного страха: данные видно в оперативке чужого дата-центра. Перенос приватности внутрь вычислений делает фронтир-ИИ применимым к действительно чувствительным задачам. OpenAI недвусмысленно привязывает анонс к DevDay 2026, где Private Intelligence представили как фреймворк корпоративной приватности, а Альтман добавил: бизнес-приватность — часть «здоровой экосистемы» ИИ.</p>
+<p>Расширение режима на всех клиентов зависит от мощностей confidential computing, которые компания ещё наращивает — так что пока это закрытая пилотная фаза, а не общедоступная кнопка. *Отдельного поста в блоге об этом запуске нет: анонс сделан постом Альтмана в X и обновлением официальной страницы продукта.*</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.unite.ai/openai-begins-limited-customer-trials-of-alpha-private-inference/" rel="noopener">Unite.AI</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://openai.com/business/private-intelligence/" rel="noopener">OpenAI — официальная страница Private Intelligence</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://x.com/sama/status/2125638790593274259" rel="noopener">СМИ 1</a> · <a href="https://www.ithome.com/1/032/543.htm" rel="noopener">СМИ 2</a> · <a href="https://openai.com/index/devday-2026-recap/" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
