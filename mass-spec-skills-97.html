@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ИИ-агент DeepMind взломал «тёмную материю» химии: точность с 4% до 97%</title>
+<meta name="description" content="Google DeepMind выпустила Mass Spec Skills — надстройку для Google Antigravity, которая учит ИИ-агента расшифровывать масс-спектры молекул. В бенчмарке на 100 спектрах точность идентификации выросла с менее чем 4% до примерно 97%, причём лёгкая модель Gemini 3.8 Flash догнала флагманские. Плагин уже доступен, а 10 000 учёных получат бесплатный высший тариф Antigravity на полгода.">
+<meta property="og:title" content="ИИ-агент DeepMind взломал «тёмную материю» химии: точность с 4% до 97%">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/mass-spec-skills-97.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>ИИ-агент DeepMind взломал «тёмную материю» химии: точность с 4% до 97%</h1>
+<div class="meta">26.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/mass-spec-skills-97.png" alt="">
+<div class="lead">Google DeepMind выпустила Mass Spec Skills — надстройку для Google Antigravity, которая учит ИИ-агента расшифровывать масс-спектры молекул. В бенчмарке на 100 спектрах точность идентификации выросла с менее чем 4% до примерно 97%, причём лёгкая модель Gemini 3.8 Flash догнала флагманские. Плагин уже доступен, а 10 000 учёных получат бесплатный высший тариф Antigravity на полгода.</div>
+<h3>«Тёмная материя» масс-спектрометрии</h3>
+<p>Каждая капля крови, горсть почвы или экстракт растения содержат тысячи малых молекул — питательных веществ, гормонов, лекарств и их метаболитов, загрязнителей. Современный масс-спектрометр видит десятки тысяч таких сигналов, но не говорит, какой именно молекуле принадлежит каждый из них. Стандартный приём — сверка спектра с эталонными библиотеками, однако, как сообщает DeepMind, даже после десятилетия их роста библиотека сопоставляется в среднем лишь с 5% спектров (10% — для образцов человека). Остальное в отрасли называют «тёмной материей» масс-спектрометрии.</p>
+<h3>Что сделали DeepMind и сообщество</h3>
+<p>25 ноября 2026 года DeepMind представила Mass Spec Skills — набор доменных навыков для агентской платформы Google Antigravity. Идея не в том, чтобы языковая модель «угадала» структуру на глаз: это невозможно без точных масс-расчётов и симуляции разрыва связей. Вместо этого агент Gemini сам вызывает проверенные инструменты аналитической химии (библиотеки GNPS и MoNA, MAGMa, MetFrag), опрашивает публичные базы вроде PubChem и выстраивает классический ручной workflow в один автоматический конвейер: подготовка сигнала — поиск по библиотекам — вывод молекулярной формулы — ранжирование кандидатов — перекрёстная проверка. На выходе химик получает не просто ответ, а аудируемый отчёт с доказательствами по каждому фрагменту.</p>
+<h3>Цифры из первоисточника</h3>
+<p>В собственном бенчмарке DeepMind (100 спектров из публичных библиотек, по три попытки на каждый) без интернета и навыков точность всех трёх моделей — лёгкой Gemini 3.8 Flash и флагманских Gemini 4 Argon и Gemini 4 Carbon — не превышала 4%. С подключёнными Mass Spec Skills все три модели идентифицировали и верифицировали точную молекулу примерно в 97% попыток — причём лёгкая модель сравнялась с флагманами, а расход генерируемых токенов заметно снизился. В демонстрационном кейсе агент вывел формулу C20H21ClN6O, переоценил все 845 изомеров PubChem, объяснил 97,7% суммарной интенсивности фрагментов (14 из 19 пиков) и разрешил ничью между кандидатами, проверив химию фрагментации. Независимая оценка университетом Претории: точность предсказания сложных структур выше 90% в большинстве тестов.</p>
+<h3>Доступ и контекст</h3>
+<p>Плагин Mass Spec Skills доступен в Google Antigravity уже сегодня — и в платных, и в корпоративных аккаунтах. DeepMind параллельно открывает заявки: 10 000 учёных бесплатно получат высший тариф использования на шесть месяцев (отбор волнами, по мере возможности). Релиз продолжает серию научных агентов Antigravity — после хеминформатики и поиска антимикробных пептидов. Для лабораторий это значит, что «тёмная материя» спектров впервые становится разгадаемой в промышленных масштабах.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.ithome.com/1/032/535.htm" rel="noopener">ITHome</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://deepmind.google/blog/interpreting-mass-spectra-with-google-antigravity/" rel="noopener">Google DeepMind (официальный блог)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.ventureatlas.org/news/2026-11-25-deepmind-mass-spec-skills" rel="noopener">СМИ 1</a> · <a href="https://ai-tldr.dev/releases/deepmind-antigravity-mass-spec-skills/" rel="noopener">СМИ 2</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
