@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>«Проект Гранит»: SAP подтвердила вторжение в разработческую инфраструктуру через GitHub</title>
+<meta name="description" content="SAP подтвердила ИТ-инцидент в своих разработческих системах: подозрительную активность заметили на GitHub-платформе, доступ к ней ограничили, автоматическую сборку остановили, а ключи подписи заменили. По данным Spiegel, атакующие, возможно, действовали с помощью агентского ИИ.">
+<meta property="og:title" content="«Проект Гранит»: SAP подтвердила вторжение в разработческую инфраструктуру через GitHub">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/sap-project-granite-github-20261127.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>«Проект Гранит»: SAP подтвердила вторжение в разработческую инфраструктуру через GitHub</h1>
+<div class="meta">27.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/sap-project-granite-github-20261127.png" alt="">
+<div class="lead">SAP подтвердила ИТ-инцидент в своих разработческих системах: подозрительную активность заметили на GitHub-платформе, доступ к ней ограничили, автоматическую сборку остановили, а ключи подписи заменили. По данным Spiegel, атакующие, возможно, действовали с помощью агентского ИИ.</div>
+<h3>Что подтвердила SAP</h3>
+<p>Немецкий софтверный гигант SAP подтвердил нескольким изданиям факт ИТ-инцидента. Формулировка скупая: компания «незамедлительно приняла необходимые меры, чтобы защитить клиентов и обеспечить безопасность своих сервисов» — это заявление цитирует dpa. Подозрительную активность, согласно внутреннему письму сотрудникам, технари заметили на платформе разработческой продуктивности и поставки софта — то есть на GitHub. Какие именно репозитории и проекты затронуты, не раскрывается; сотрудникам предложили проверить, не нужно ли сменить учётные данные.</p>
+<h3>Что известно из корпоративных источников</h3>
+<p>Handelsblatt со ссылкой на источники в компании пишет: SAP ограничила доступ к GitHub, остановила автоматизированные процессы разработки и заменила ключи подписи кода. Spiegel называет внутреннее кодовое имя расследования — «Project Granite» — и добавляет сенсационную деталь: по материалам внутренних источников, атакующие, возможно, применяли агентский ИИ. Отдельного официального анонса у SAP нет — только устное подтверждение через dpa, поэтому детали назовём тем, чем они являются: сообщениями прессы со ссылкой на корпоративные круги, а не официальными уведомлениями. Сама компания подчёркивает: признаков несанкционированного доступа к деловым данным клиентов пока не обнаружено.</p>
+<h3>Почему это важно</h3>
+<p>GitHub в последние месяцы — магнит для атакующих: в середине ноября появилась история про десятки тысяч захваченных репозиториев и украденных токенов-стерилей. И SAP далеко не единственная крупная жертва этой осени: среди названных пострадавших — ведомства США (включая подразделения ЦРУ и ФБР), FIFA, немецкие ритейлеры Deichmann и Hugendubel. Если версия про агентский ИИ подтвердится, это станет первым публично обсуждаемым случаем, где автономные ИИ-агенты применили против инфраструктуры разработчиков одной из самых дорогих компаний Европы — на фоне того же самого SAP, которое строит стратегию «ИИ прежде всего».</p>
+<h3>Что делать разработчикам и клиентам</h3>
+<p>Клиентам SAP пока повода для паники нет: заявленных утечек клиентских данных нет, ждём официальных уведомлений. Разработчикам же — и сторонним — урок стандартный и от того не менее полезный: после любого инцидента в CI/CD-цепочке стоит ротировать GitHub-токены и секреты Actions, пересмотреть доверенные устройства и интегрированные приложения, а артефакты сборки сверять по свежим ключам подписи. Именно связка «токен разработчика → автосборка → подпись» остаётся самым тонким местом всей экосистемы.</p>
+<p>&lt;div class="src"&gt;Оригинал: &lt;a href="https://www.heise.de/news/IT-Vorfall-bei-SAP-Entwicklungssysteme-betroffen-11539973.html"&gt;heise.de&lt;/a&gt;&lt;br&gt;</p>
+<p>Первоисточник: официальный анонс компании отсутствует — подтверждение инцидента дано SAP только через заявление для dpa (&lt;a href="https://newsroom.sap.com"&gt;newsroom.sap.com&lt;/a&gt;)&lt;br&gt;</p>
+<p>Подхватившие СМИ: &lt;a href="https://cybersecuritynews.com/sap-security-incident/"&gt;cybersecuritynews.com&lt;/a&gt;, &lt;a href="https://www.spiegel.de/netzwelt/sap-wird-opfer-von-hackerangriff-a-6648b5ce-5d74-48dc-86ea-9469705bb91d"&gt;Spiegel&lt;/a&gt;, &lt;a href="https://www.handelsblatt.com/technik/ki/sap-it-sicherheitsvorfall-haben-verdaechtige-aktivitaeten-identifiziert/100273138.html"&gt;Handelsblatt&lt;/a&gt;&lt;/div&gt;</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.heise.de/news/IT-Vorfall-bei-SAP-Entwicklungssysteme-betroffen-11539973.html" rel="noopener">heise.de</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://newsroom.sap.com" rel="noopener">SAP Newsroom (официального анонса нет — подтверждение через заявление для dpa)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://cybersecuritynews.com/sap-security-incident/" rel="noopener">СМИ 1</a> · <a href="https://www.spiegel.de/netzwelt/sap-wird-opfer-von-hackerangriff-a-6648b5ce-5d74-48dc-86ea-9469705bb91d" rel="noopener">СМИ 2</a> · <a href="https://www.handelsblatt.com/technik/ki/sap-it-sicherheitsvorfall-haben-verdaechtige-aktivitaeten-identifiziert/100273138.html" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
