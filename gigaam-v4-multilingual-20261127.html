@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сбер открыл модели распознавания речи GigaAM-v4 и Multilingual-v2: на русском они в 2,7 раза точнее Whisper</title>
+<meta name="description" content="Команда GigaChat выпустила две открытые модели распознавания речи: <b>GigaAM-v4</b> (русский и английский) и <b>GigaAM Multilingual-v2</b> (21 язык). Обе умеют распознавать речь в реальном времени — с фрагментами по 160, 320 или 640 миллисекунд. Главная цифра: средняя доля ошибок на русском у GigaAM-v4 — <b>5,99%</b> против <b>16,01%</b> у Whisper large-v3, то есть в 2,7 раза лучше, а параметров у неё <b>238 миллионов</b> — более чем в шесть раз меньше, чем у Whisper large-v3 (1,55 млрд).">
+<meta property="og:title" content="Сбер открыл модели распознавания речи GigaAM-v4 и Multilingual-v2: на русском они в 2,7 раза точнее Whisper">
+<meta property="og:image" content="https://tproger.ru/signed_image/3pqP0mvlZQsIDI3BdRaT3oBXw3Pa3whmzM7BgM-lCTA/bg:FFFFFF/dpr:2/f:jpg/h:744/w:1096/aHR0cHM6Ly9tZWRpYS50cHJvZ2VyLnJ1L3VzZXItdXBsb2Fkcy8xMTQwNDQ4LzIwMjYtMTEtMjcvNmE2ZDgzNzItZjQ0MC00NDNhLTg2M2UtMTcwNThjMzczMTQxLndlYnA">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Сбер открыл модели распознавания речи GigaAM-v4 и Multilingual-v2: на русском они в 2,7 раза точнее Whisper</h1>
+<div class="meta">27.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/gigaam-v4-multilingual-20261127.jpg" alt="">
+<div class="lead">Команда GigaChat выпустила две открытые модели распознавания речи: <b>GigaAM-v4</b> (русский и английский) и <b>GigaAM Multilingual-v2</b> (21 язык). Обе умеют распознавать речь в реальном времени — с фрагментами по 160, 320 или 640 миллисекунд. Главная цифра: средняя доля ошибок на русском у GigaAM-v4 — <b>5,99%</b> против <b>16,01%</b> у Whisper large-v3, то есть в 2,7 раза лучше, а параметров у неё <b>238 миллионов</b> — более чем в шесть раз меньше, чем у Whisper large-v3 (1,55 млрд).</div>
+<h3>Что это за модели</h3>
+<p><b>GigaAM-v4</b> — потоковая модель на архитектуре Zapformer (головки RNN-T и CTC), 238 млн параметров. Учителями выступили аудиоэнкодеры GigaChat3.5 Omni и OmniASR LLM 1B. Обучена на 7 млн часов без разметки и 58 000 часов с разметкой.</p>
+<p><b>GigaAM Multilingual-v2</b> — 776 млн параметров, 21 язык: русский, английский, казахский, кыргызский, узбекский, белорусский, французский, испанский, башкирский, грузинский, армянский, румынский, туркменский, азербайджанский, таджикский, немецкий, итальянский, нидерландский, польский, португальский, татарский. Претрейн — 10 млн часов, с разметкой — 155 000 часов.</p>
+<h3>Цифры</h3>
+<p>Средняя доля ошибок на русских тестах (WER, ниже лучше):</p>
+<li>GigaAM-v4 (RNN-T): <b>5,99</b></li>
+<li>GigaAM-v3: 9,51</li>
+<li>Whisper large-v3: 16,01</li>
+<li>Nemotron 30B: 14,48</li>
+<li>Qwen3-ASR 1.7B: 19,20</li>
+<p>На английском результаты сопоставимые: 7,28 у GigaAM-v4 против 7,70 у Whisper large-v3 (среднее по публичному срезу Open ASR).</p>
+<p>По 21 языку в среднем: <b>GigaAM Multilingual-v2 — 3,96</b>, у ближайшего открытого конкурента (Omni LLM 7B v2) — <b>14,10</b>: разница больше чем более чем в три с половиной раза, а по отдельным языкам СНГ — почти в пять (азербайджанский 5,31 против 24,85; башкирский 2,74 против 12,83; грузинский 4,52 против 10,34; армянский 3,06 против 7,97).</p>
+<p>Пунктуация: F1 восстановления знаков препинания <b>88,38%</b> против 65,42% у Whisper large-v3 — лучшая на 16 языках из 21.</p>
+<h3>Потоковый режим</h3>
+<p>Модели обрабатывают звук фрагментами по 160, 320 или 640 миллисекунд — скорость появления текста настраивается. Multilingual-v2 выдаёт текст прямо во время разговора. Язык можно задать заранее или доверить выбор модели, а при переключении между языками можно подсказать сразу два (например, русский и английский) — авторы публикуют и метрики code-switching.</p>
+<h3>Доступ</h3>
+<p>Обе модели открыты под лицензией MIT: веса на Hugging Face (ai-sage/GigaAM-v4 и ai-sage/GigaAM-Multilingual-v2), код на GitHub (salute-developers/GigaAM). Потестировать языки и посмотреть сравнение с конкурентами можно в интерактивном демо на giga.chat.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://tproger.ru/news/sber-vypustil-gigaam-v4-na-russkom-ona-owibaetsya-rezhe-v3-i-whis" rel="noopener">Tproger</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://habr.com/ru/companies/sberbank/articles/1112846/" rel="noopener">официальный пост команды GigaChat на Хабре (blog Сбера)</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://www.computerra.ru/377711/sber-vypustil-otkrytuyu-model-raspoznavaniya-rechi-s-podderzhkoj-21-yazyka/" rel="noopener">СМИ 1</a> · <a href="https://4pda.to/2026-11-27/463816/sber_predstavlyaet_luchshuyu_otkrytuyu_model_dlya_raspoznavaniya_russkoj_rechi/" rel="noopener">СМИ 2</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
