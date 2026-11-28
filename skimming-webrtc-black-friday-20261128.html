@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Black Friday без наличных: на пяти крупных интернет-магазинах нашли скиммер, ворующий карты через WebRTC</title>
+<meta name="description" content="Накануне Black Friday исследователи InfoHawk обнаружили на сайтах Lascana, Samsonite, American Tourister, Revolve и FWRD скрипт, который перехватывал данные карт прямо при вводе и тихо отправлял их злоумышленникам по каналу WebRTC — мимо логов и системы защиты магазина. Сколько карт успели украсть — неизвестно.">
+<meta property="og:title" content="Black Friday без наличных: на пяти крупных интернет-магазинах нашли скиммер, ворующий карты через WebRTC">
+<meta property="og:image" content="https://alexeivkontakte.github.io/eva-articles/skimming-webrtc-black-friday-20261128.png">
+<style>
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;max-width:740px;margin:0 auto;padding:26px 18px;color:#d9dde6;line-height:1.7;background:#0d1117}
+h1{font-size:27px;line-height:1.3;margin:10px 0 14px;color:#f2f5fa} h2{font-size:20px;color:#e8ecf4} h3{font-size:17px;color:#e8ecf4}
+.meta{color:#7d8590;font-size:13px;margin-bottom:20px}
+.lead{font-size:18px;color:#c9d1d9;border-left:4px solid #58a6ff;padding-left:14px;margin:18px 0}
+img.cover{width:100%;border-radius:12px;margin:14px 0 6px;border:1px solid #21262d}
+.src{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:12px 16px;margin-top:30px;font-size:14px;color:#9aa4b2}
+a{color:#58a6ff} .brand{font-weight:800;letter-spacing:.5px;color:#58a6ff;font-size:14px}
+p{margin:13px 0} li{margin:6px 0} strong{color:#f2f5fa}
+</style></head><body>
+<div class="brand">DAY ZERO NEWS</div>
+<h1>Black Friday без наличных: на пяти крупных интернет-магазинах нашли скиммер, ворующий карты через WebRTC</h1>
+<div class="meta">28.11.2026 · по материалам первоисточника</div>
+<img class="cover" src="img/skimming-webrtc-black-friday-20261128.png" alt="">
+<div class="lead">Накануне Black Friday исследователи InfoHawk обнаружили на сайтах Lascana, Samsonite, American Tourister, Revolve и FWRD скрипт, который перехватывал данные карт прямо при вводе и тихо отправлял их злоумышленникам по каналу WebRTC — мимо логов и системы защиты магазина. Сколько карт успели украсть — неизвестно.</div>
+<h3>Суть</h3>
+<p>Накануне Black Friday исследователи компании InfoHawk обнаружили вредоносные скрипты на пяти известных интернет-магазинах: lascana.com, shop.samsonite.com, shop.americantourister.com, revolve.com и fwrd.com. Все это крупные американские бренды одежды и багажа, а Revolve и FWRD открывают европейских покупателей в локальный раздел — то есть риск касался не только клиентов из США.</p>
+<p>Сам скрипт маскировался под обычный код стороннего подрядчика — виджет поддержки, маркетинговый пиксель или баннер согласий. Такие на профессиональном сайте не редкость и сами по себе не выглядят подозрительно. Но исследователи вживую наблюдали, как на странице оформления заказа lascana.com данные тестовой карты уходят на подконтрольный злоумышленникам домен.</p>
+<h3>Как подслушивали карту</h3>
+<p>Скрипт перехватывал номер карты, срок действия, защитный код, а также имя, адрес, телефон и e-mail покупателя непосредственно в момент ввода. Подтверждать заказ было не обязательно: данные уходили, даже если оплату отклонили или покупатель в итоге ничего не купил.</p>
+<p>Главная хитрость — канал передачи. Вместо привычной отправки HTTP-запросом скрипт использовал WebRTC: технологию прямых peer-to-peer соединений между браузером и сервером, созданную для звонков и видеочатов. Такой трафик не проходит через веб-сервер магазина, не оседает в его логах и легко минует ограничения политики безопасности CSP, которая перекрывает подозрительные отправки. Для специалистов по защите сайта WebRTC — слепая зона: в инфраструктуре он может присутствовать легально, например для онлайн-консультанта.</p>
+<h3>Первоисточник и масштабы</h3>
+<p>Отдельных официальных анонсов от самих магазинов нет — Lascana, Samsonite, American Tourister, Revolve и FWRD пресс-релизов не публиковали. Единственный первоисточник — отчет InfoHawk от 27 ноября: там описана схема и подтвержден перехват тестовой карты. Сколько реальных карт успели украсть и сколько сайтов было затронуто, исследователи не знают — и прямо это оговаривают. После уведомлений магазины убрали скрипты 24-25 ноября, еще до распродаж.</p>
+<p>Техника, впрочем, не новая: еще в марте 2026 года команда Sansec описывала WebRTC-скиммер, поразивший сайт крупного зарубежного автопроизводителя. Новость в том, что за полгода прием добрался до массового ретейла — в самый разгар сезона распродаж.</p>
+<h3>Что делать</h3>
+<p>Покупателям: заведите отдельную виртуальную карту для покупок в интернете с небольшим лимитом, включите push-уведомления об операциях и на этой неделе просмотрите выписки. Если вы заказывали в перечисленных магазинах в ноябре - риск стоит перепроверить: вместе с номером злоумышленники получали срок действия, CVC, имя и контакты, то есть почти полный комплект для злоупотреблений.</p>
+<p>Магазинам: провести ревизию сторонних скриптов в платежной форме, запретить или контролировать исходящие WebRTC-соединения на страницах оформления заказа и помнить - мнимая «безопасность по умолчанию» устарела, а сезон распродаж злоумышленники выбирают осознанно.</p>
+<div class="src">🔗 <b>Оригинал</b> (СМИ, откуда собран материал): <a href="https://www.heise.de/news/Zum-Black-Friday-Kreditkarten-Skimming-via-WebRTC-entdeckt-11541584.html" rel="noopener">Heise Online</a><br>
+🏛 <b>Первоисточник</b> (официальный анонс разработчика): <a href="https://www.infohawk.com/news/2026-11-27-black-friday-webrtc-skimmer" rel="noopener">InfoHawk — официальный отчёт об исследовании</a>
+<br>📰 Подхватили официальные СМИ: <a href="https://news.ycombinator.com/item?id=50668145" rel="noopener">СМИ 1</a> · <a href="https://daily.dev/posts/credit-card-skimming-scripts-using-webrtc-found-on-popular-shopping-sites-mr8zgdbaf" rel="noopener">СМИ 2</a> · <a href="https://dev.to/jamilxt/the-black-friday-skimmer-left-through-webrtc-how-to-test-your-checkout-for-it-bfc" rel="noopener">СМИ 3</a><br>Наш канал: <a href="https://t.me/Zero_day_newss">t.me/Zero_day_newss</a></div>
+</body></html>
